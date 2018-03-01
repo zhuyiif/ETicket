@@ -7,7 +7,7 @@
 //
 
 #import "UIColor+Additions.h"
-#import "DSThemeHelper.h"
+#import "ETThemeHelper.h"
 #import <EDColor.h>
 
 @implementation UIColor (Additions)
@@ -114,7 +114,7 @@
 }
 
 + (NSString *)colorValueWithName:(NSString *)name {
-    return [[DSThemeHelper sharedInstance] colorValueWithName:name];
+    return [[ETThemeHelper sharedInstance] colorValueWithName:name];
 }
 
 + (UIColor *)drBlackColor {

@@ -1,0 +1,6 @@
+.DS_Store
+Version.m
+xcuserdata
+*.xccheckout
+node_modules
+

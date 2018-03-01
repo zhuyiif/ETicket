@@ -16,7 +16,7 @@
 
 @implementation UIButton (Style)
 
-+ (instancetype)buttonWithStyle:(DSButtonStyle)style height:(CGFloat)height {
++ (instancetype)buttonWithStyle:(ETButtonStyle)style height:(CGFloat)height {
     return [[UIButton alloc] initWithStyle:style height:height];
 }
 
@@ -29,7 +29,7 @@
 
 #pragma mark - Public
 
-- (instancetype)initWithStyle:(DSButtonStyle)style height:(CGFloat)height {
+- (instancetype)initWithStyle:(ETButtonStyle)style height:(CGFloat)height {
     if (self = [super init]) {
         [self setStyle:style];
         self.layer.cornerRadius = height / 2;
@@ -38,10 +38,10 @@
     return self;
 }
 
-- (void)setStyle:(DSButtonStyle)style {
+- (void)setStyle:(ETButtonStyle)style {
     switch (style) {
-        case DSButtonStyleOrange:
-        case DSButtonStyleGreen: {
+        case ETButtonStyleOrange:
+        case ETButtonStyleGreen: {
             [self setTitleColor:[UIColor drColorC0] forState:UIControlStateNormal];
             [self setTitleColor:[[UIColor drColorC0] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
             [self setTitleColor:[UIColor drColorC0] forState:UIControlStateDisabled];
@@ -51,9 +51,9 @@
         }
             break;
 
-        case DSButtonStyleBorderGreen:
-        case DSButtonStyleBorderOrange:
-        case DSButtonStyleBorderWhite:{
+        case ETButtonStyleBorderGreen:
+        case ETButtonStyleBorderOrange:
+        case ETButtonStyleBorderWhite:{
             self.backgroundColor = [UIColor clearColor];
             [self setTitleColor:[UIColor drColorC0] forState:UIControlStateNormal];
             [self setTitleColor:[[UIColor drColorC0] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
@@ -69,29 +69,29 @@
 }
 
 #pragma mark - Private
-- (UIImage *)normalBGImageWithStyle:(DSButtonStyle)style {
+- (UIImage *)normalBGImageWithStyle:(ETButtonStyle)style {
     UIColor *color = [self normalBgColorWithStyle:style];
     return [UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:color strokeColor:color];
 }
 
-- (UIImage *)hightBGImageWithStyle:(DSButtonStyle)style {
+- (UIImage *)hightBGImageWithStyle:(ETButtonStyle)style {
     UIColor *color = [self hightBgColorWithStyle:style];
     return [UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:color strokeColor:color];
 }
 
-- (UIImage *)disableBGImageWithStyle:(DSButtonStyle)style {
+- (UIImage *)disableBGImageWithStyle:(ETButtonStyle)style {
     UIColor *color = [self disableBgColorWithStyle:style];
     return [UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:color strokeColor:color];
 }
 
-- (UIColor *)normalBgColorWithStyle:(DSButtonStyle)style {
+- (UIColor *)normalBgColorWithStyle:(ETButtonStyle)style {
     UIColor *color = nil;
     switch (style) {
-        case DSButtonStyleGreen: {
+        case ETButtonStyleGreen: {
             color = [UIColor drColorC8];
         }
             break;
-        case DSButtonStyleOrange: {
+        case ETButtonStyleOrange: {
             color = [UIColor drColorC7];
         }
             break;
@@ -102,14 +102,14 @@
     return color;
 }
 
-- (UIColor *)borderColorWithStyle:(DSButtonStyle)style {
+- (UIColor *)borderColorWithStyle:(ETButtonStyle)style {
     UIColor *color = nil;
     switch (style) {
-        case DSButtonStyleBorderGreen: {
+        case ETButtonStyleBorderGreen: {
             color = [UIColor drColorC8];
         }
             break;
-        case DSButtonStyleBorderOrange: {
+        case ETButtonStyleBorderOrange: {
             color = [UIColor drColorC7];
         }
             break;
@@ -120,14 +120,14 @@
     return color;
 }
 
-- (UIColor *)hightBgColorWithStyle:(DSButtonStyle)style {
+- (UIColor *)hightBgColorWithStyle:(ETButtonStyle)style {
     UIColor *color = nil;
     switch (style) {
-        case DSButtonStyleGreen: {
+        case ETButtonStyleGreen: {
             color = [[UIColor drColorC8] colorWithAlphaComponent:0.5];
         }
             break;
-        case DSButtonStyleOrange: {
+        case ETButtonStyleOrange: {
             color = [[UIColor drColorC7] colorWithAlphaComponent:0.5];
         }
             break;
@@ -138,18 +138,18 @@
     return color;
 }
 
-- (UIColor *)disableBgColorWithStyle:(DSButtonStyle)style {
+- (UIColor *)disableBgColorWithStyle:(ETButtonStyle)style {
     return [UIColor drColorC2];
 }
 
-- (UIFont *)fontWithStyle:(DSButtonStyle)style {
+- (UIFont *)fontWithStyle:(ETButtonStyle)style {
     UIFont *font = nil;
     switch (style) {
-        case DSButtonStyleGreen:
-        case DSButtonStyleOrange:
-        case DSButtonStyleBorderWhite:
-        case DSButtonStyleBorderOrange:
-        case DSButtonStyleBorderGreen:
+        case ETButtonStyleGreen:
+        case ETButtonStyleOrange:
+        case ETButtonStyleBorderWhite:
+        case ETButtonStyleBorderOrange:
+        case ETButtonStyleBorderGreen:
             font = [UIFont fontWithSize:15];
             break;
         default:

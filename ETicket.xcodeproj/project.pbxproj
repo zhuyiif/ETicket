@@ -9,44 +9,43 @@
 /* Begin PBXBuildFile section */
 		912FE513345354D6D7D5D620 /* libPods-ETicket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75EEC7F4B93B497E338580BE /* libPods-ETicket.a */; };
 		FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */; };
-		FD5D3A732047E3DD00CB3E65 /* DSPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F82047E3DD00CB3E65 /* DSPageIndicator.m */; };
-		FD5D3A742047E3DD00CB3E65 /* DSMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39FE2047E3DD00CB3E65 /* DSMineViewController.m */; };
-		FD5D3A752047E3DD00CB3E65 /* DSAccountPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A012047E3DD00CB3E65 /* DSAccountPresenter.m */; };
-		FD5D3A762047E3DD00CB3E65 /* DSBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A032047E3DD00CB3E65 /* DSBannerScrollView.m */; };
-		FD5D3A772047E3DD00CB3E65 /* DSPhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A072047E3DD00CB3E65 /* DSPhotoHelper.m */; };
-		FD5D3A782047E3DD00CB3E65 /* DSCountryCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A082047E3DD00CB3E65 /* DSCountryCodeView.m */; };
-		FD5D3A792047E3DD00CB3E65 /* DSMenusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0A2047E3DD00CB3E65 /* DSMenusViewController.m */; };
-		FD5D3A7A2047E3DD00CB3E65 /* DSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0B2047E3DD00CB3E65 /* DSAlertView.m */; };
+		FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F82047E3DD00CB3E65 /* ETPageIndicator.m */; };
+		FD5D3A742047E3DD00CB3E65 /* ETMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39FE2047E3DD00CB3E65 /* ETMineViewController.m */; };
+		FD5D3A752047E3DD00CB3E65 /* ETAccountPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A012047E3DD00CB3E65 /* ETAccountPresenter.m */; };
+		FD5D3A762047E3DD00CB3E65 /* ETBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A032047E3DD00CB3E65 /* ETBannerScrollView.m */; };
+		FD5D3A772047E3DD00CB3E65 /* ETPhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A072047E3DD00CB3E65 /* ETPhotoHelper.m */; };
+		FD5D3A782047E3DD00CB3E65 /* ETCountryCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A082047E3DD00CB3E65 /* ETCountryCodeView.m */; };
+		FD5D3A792047E3DD00CB3E65 /* ETMenusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0A2047E3DD00CB3E65 /* ETMenusViewController.m */; };
+		FD5D3A7A2047E3DD00CB3E65 /* ETAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0B2047E3DD00CB3E65 /* ETAlertView.m */; };
 		FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0C2047E3DD00CB3E65 /* NSString+Additions.m */; };
 		FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0D2047E3DD00CB3E65 /* UIColor+Additions.m */; };
-		FD5D3A7D2047E3DD00CB3E65 /* DSBannerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0E2047E3DD00CB3E65 /* DSBannerInfo.m */; };
+		FD5D3A7D2047E3DD00CB3E65 /* ETBannerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0E2047E3DD00CB3E65 /* ETBannerInfo.m */; };
 		FD5D3A7E2047E3DD00CB3E65 /* guide3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A112047E3DD00CB3E65 /* guide3.jpg */; };
 		FD5D3A7F2047E3DD00CB3E65 /* guide2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A122047E3DD00CB3E65 /* guide2.jpg */; };
 		FD5D3A802047E3DD00CB3E65 /* guide1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A132047E3DD00CB3E65 /* guide1.jpg */; };
-		FD5D3A812047E3DD00CB3E65 /* DSMaterialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A142047E3DD00CB3E65 /* DSMaterialsViewController.m */; };
-		FD5D3A822047E3DD00CB3E65 /* DSMineListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A152047E3DD00CB3E65 /* DSMineListItem.m */; };
+		FD5D3A822047E3DD00CB3E65 /* ETMineListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A152047E3DD00CB3E65 /* ETMineListItem.m */; };
 		FD5D3A832047E3DD00CB3E65 /* Color.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A1A2047E3DD00CB3E65 /* Color.plist */; };
 		FD5D3A842047E3DD00CB3E65 /* UIView+SepLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A1B2047E3DD00CB3E65 /* UIView+SepLine.m */; };
 		FD5D3A852047E3DD00CB3E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A1E2047E3DD00CB3E65 /* Assets.xcassets */; };
-		FD5D3A862047E3DD00CB3E65 /* DSForgetPsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A202047E3DD00CB3E65 /* DSForgetPsdViewController.m */; };
-		FD5D3A872047E3DD00CB3E65 /* DSMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A212047E3DD00CB3E65 /* DSMinePresenter.m */; };
-		FD5D3A882047E3DD00CB3E65 /* DSGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A232047E3DD00CB3E65 /* DSGuideViewController.m */; };
-		FD5D3A892047E3DD00CB3E65 /* DSPlatformView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A242047E3DD00CB3E65 /* DSPlatformView.m */; };
+		FD5D3A862047E3DD00CB3E65 /* ETForgetPsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A202047E3DD00CB3E65 /* ETForgetPsdViewController.m */; };
+		FD5D3A872047E3DD00CB3E65 /* ETMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A212047E3DD00CB3E65 /* ETMinePresenter.m */; };
+		FD5D3A882047E3DD00CB3E65 /* ETGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A232047E3DD00CB3E65 /* ETGuideViewController.m */; };
+		FD5D3A892047E3DD00CB3E65 /* ETPlatformView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A242047E3DD00CB3E65 /* ETPlatformView.m */; };
 		FD5D3A8A2047E3DD00CB3E65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A252047E3DD00CB3E65 /* LaunchScreen.storyboard */; };
 		FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2A2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m */; };
-		FD5D3A8C2047E3DD00CB3E65 /* DSAppConfigurations.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2B2047E3DD00CB3E65 /* DSAppConfigurations.m */; };
-		FD5D3A8D2047E3DD00CB3E65 /* DSPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2C2047E3DD00CB3E65 /* DSPopover.m */; };
+		FD5D3A8C2047E3DD00CB3E65 /* ETAppConfigurations.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2B2047E3DD00CB3E65 /* ETAppConfigurations.m */; };
+		FD5D3A8D2047E3DD00CB3E65 /* ETPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2C2047E3DD00CB3E65 /* ETPopover.m */; };
 		FD5D3A8E2047E3DD00CB3E65 /* TTLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2D2047E3DD00CB3E65 /* TTLanguage.m */; };
 		FD5D3A8F2047E3DD00CB3E65 /* SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2E2047E3DD00CB3E65 /* SwizzleMethod.m */; };
-		FD5D3A902047E3DD00CB3E65 /* DSActor.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2F2047E3DD00CB3E65 /* DSActor.m */; };
-		FD5D3A912047E3DD00CB3E65 /* DSEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A312047E3DD00CB3E65 /* DSEditView.m */; };
+		FD5D3A902047E3DD00CB3E65 /* ETActor.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2F2047E3DD00CB3E65 /* ETActor.m */; };
+		FD5D3A912047E3DD00CB3E65 /* ETEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A312047E3DD00CB3E65 /* ETEditView.m */; };
 		FD5D3A922047E3DD00CB3E65 /* UIApplication+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A322047E3DD00CB3E65 /* UIApplication+Additions.m */; };
-		FD5D3A932047E3DD00CB3E65 /* DSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A342047E3DD00CB3E65 /* DSWebViewController.m */; };
+		FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A342047E3DD00CB3E65 /* ETWebViewController.m */; };
 		FD5D3A942047E3DD00CB3E65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A362047E3DD00CB3E65 /* main.m */; };
-		FD5D3A952047E3DD00CB3E65 /* DSSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A3A2047E3DD00CB3E65 /* DSSignUpViewController.m */; };
-		FD5D3A962047E3DD00CB3E65 /* DSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A3F2047E3DD00CB3E65 /* DSAppDelegate.m */; };
-		FD5D3A972047E3DD00CB3E65 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A412047E3DD00CB3E65 /* DSLoginViewController.m */; };
-		FD5D3A982047E3DD00CB3E65 /* DSMineTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A422047E3DD00CB3E65 /* DSMineTVCell.m */; };
+		FD5D3A952047E3DD00CB3E65 /* ETSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A3A2047E3DD00CB3E65 /* ETSignUpViewController.m */; };
+		FD5D3A962047E3DD00CB3E65 /* ETAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A3F2047E3DD00CB3E65 /* ETAppDelegate.m */; };
+		FD5D3A972047E3DD00CB3E65 /* ETLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A412047E3DD00CB3E65 /* ETLoginViewController.m */; };
+		FD5D3A982047E3DD00CB3E65 /* ETMineTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A422047E3DD00CB3E65 /* ETMineTVCell.m */; };
 		FD5D3A992047E3DD00CB3E65 /* UINavigationController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A432047E3DD00CB3E65 /* UINavigationController+Additions.m */; };
 		FD5D3A9A2047E3DD00CB3E65 /* NSError+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A472047E3DD00CB3E65 /* NSError+Message.m */; };
 		FD5D3A9B2047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A482047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.m */; };
@@ -60,17 +59,17 @@
 		FD5D3AA32047E3DD00CB3E65 /* RACCommand+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A592047E3DD00CB3E65 /* RACCommand+Additions.m */; };
 		FD5D3AA42047E3DD00CB3E65 /* UIViewController+ErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A5A2047E3DD00CB3E65 /* UIViewController+ErrorView.m */; };
 		FD5D3AA52047E3DD00CB3E65 /* APICenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A5C2047E3DD00CB3E65 /* APICenter.m */; };
-		FD5D3AA62047E3DD00CB3E65 /* DSLoadingSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A5E2047E3DD00CB3E65 /* DSLoadingSpinner.m */; };
+		FD5D3AA62047E3DD00CB3E65 /* ETLoadingSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A5E2047E3DD00CB3E65 /* ETLoadingSpinner.m */; };
 		FD5D3AA72047E3DD00CB3E65 /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A5F2047E3DD00CB3E65 /* UIViewController+Additions.m */; };
 		FD5D3AA82047E3DD00CB3E65 /* UIButton+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A602047E3DD00CB3E65 /* UIButton+Style.m */; };
 		FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */; };
-		FD5D3AAA2047E3DD00CB3E65 /* DSHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A632047E3DD00CB3E65 /* DSHomePresenter.m */; };
-		FD5D3AAB2047E3DD00CB3E65 /* DSSignupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A642047E3DD00CB3E65 /* DSSignupItem.m */; };
-		FD5D3AAC2047E3DD00CB3E65 /* DSThemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A652047E3DD00CB3E65 /* DSThemeHelper.m */; };
+		FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A632047E3DD00CB3E65 /* ETHomePresenter.m */; };
+		FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A642047E3DD00CB3E65 /* ETSignupItem.m */; };
+		FD5D3AAC2047E3DD00CB3E65 /* ETThemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A652047E3DD00CB3E65 /* ETThemeHelper.m */; };
 		FD5D3AAD2047E3DD00CB3E65 /* UIView+ITTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A692047E3DD00CB3E65 /* UIView+ITTAdditions.m */; };
 		FD5D3AAE2047E3DD00CB3E65 /* UIImage+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A6A2047E3DD00CB3E65 /* UIImage+Draw.m */; };
 		FD5D3AAF2047E3DD00CB3E65 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A6C2047E3DD00CB3E65 /* Info.plist */; };
-		FD5D3AB02047E3DD00CB3E65 /* DSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A6F2047E3DD00CB3E65 /* DSHomeViewController.m */; };
+		FD5D3AB02047E3DD00CB3E65 /* ETHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A6F2047E3DD00CB3E65 /* ETHomeViewController.m */; };
 		FD5D3AB12047E3DD00CB3E65 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A702047E3DD00CB3E65 /* UIImage+Resize.m */; };
 /* End PBXBuildFile section */
 
@@ -78,45 +77,41 @@
 		4306D780BB6AEB61E92FDA75 /* Pods-ETicket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETicket.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETicket/Pods-ETicket.release.xcconfig"; sourceTree = "<group>"; };
 		4DD270B97BDAF4DC0A07E50E /* Pods-ETicket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETicket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETicket/Pods-ETicket.debug.xcconfig"; sourceTree = "<group>"; };
 		75EEC7F4B93B497E338580BE /* libPods-ETicket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ETicket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABFC95D7FEF217CDD06B58AD /* Pods-DadsMath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DadsMath.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DadsMath/Pods-DadsMath.debug.xcconfig"; sourceTree = "<group>"; };
-		CAA377D2FAF3D7DAD1E30AC0 /* libPods-DadsMath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DadsMath.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBA3498762BD653FDF9D0A88 /* Pods-DadsMath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DadsMath.release.xcconfig"; path = "Pods/Target Support Files/Pods-DadsMath/Pods-DadsMath.release.xcconfig"; sourceTree = "<group>"; };
 		FD353B4B1FDFB2F100489185 /* ETicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD5D39F42047E3DD00CB3E65 /* DSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSWebViewController.h; sourceTree = "<group>"; };
+		FD5D39F42047E3DD00CB3E65 /* ETWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETWebViewController.h; sourceTree = "<group>"; };
 		FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Additions.m"; sourceTree = "<group>"; };
 		FD5D39F62047E3DD00CB3E65 /* UIApplication+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Additions.h"; sourceTree = "<group>"; };
-		FD5D39F72047E3DD00CB3E65 /* DSEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSEditView.h; sourceTree = "<group>"; };
-		FD5D39F82047E3DD00CB3E65 /* DSPageIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPageIndicator.m; sourceTree = "<group>"; };
+		FD5D39F72047E3DD00CB3E65 /* ETEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETEditView.h; sourceTree = "<group>"; };
+		FD5D39F82047E3DD00CB3E65 /* ETPageIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETPageIndicator.m; sourceTree = "<group>"; };
 		FD5D39F92047E3DD00CB3E65 /* TTLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLanguage.h; sourceTree = "<group>"; };
 		FD5D39FA2047E3DD00CB3E65 /* SwizzleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwizzleMethod.h; sourceTree = "<group>"; };
-		FD5D39FB2047E3DD00CB3E65 /* DSActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSActor.h; sourceTree = "<group>"; };
-		FD5D39FC2047E3DD00CB3E65 /* DSAppConfigurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAppConfigurations.h; sourceTree = "<group>"; };
-		FD5D39FD2047E3DD00CB3E65 /* DSPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSPopover.h; sourceTree = "<group>"; };
-		FD5D39FE2047E3DD00CB3E65 /* DSMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMineViewController.m; sourceTree = "<group>"; };
+		FD5D39FB2047E3DD00CB3E65 /* ETActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETActor.h; sourceTree = "<group>"; };
+		FD5D39FC2047E3DD00CB3E65 /* ETAppConfigurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAppConfigurations.h; sourceTree = "<group>"; };
+		FD5D39FD2047E3DD00CB3E65 /* ETPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETPopover.h; sourceTree = "<group>"; };
+		FD5D39FE2047E3DD00CB3E65 /* ETMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMineViewController.m; sourceTree = "<group>"; };
 		FD5D39FF2047E3DD00CB3E65 /* TTTAttributedLabel+additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTTAttributedLabel+additions.h"; sourceTree = "<group>"; };
-		FD5D3A002047E3DD00CB3E65 /* DSLoadingSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLoadingSpinner.h; sourceTree = "<group>"; };
-		FD5D3A012047E3DD00CB3E65 /* DSAccountPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAccountPresenter.m; sourceTree = "<group>"; };
+		FD5D3A002047E3DD00CB3E65 /* ETLoadingSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETLoadingSpinner.h; sourceTree = "<group>"; };
+		FD5D3A012047E3DD00CB3E65 /* ETAccountPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAccountPresenter.m; sourceTree = "<group>"; };
 		FD5D3A022047E3DD00CB3E65 /* UINavigationController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Additions.h"; sourceTree = "<group>"; };
-		FD5D3A032047E3DD00CB3E65 /* DSBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBannerScrollView.m; sourceTree = "<group>"; };
-		FD5D3A042047E3DD00CB3E65 /* DSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLoginViewController.h; sourceTree = "<group>"; };
-		FD5D3A052047E3DD00CB3E65 /* DSMineTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMineTVCell.h; sourceTree = "<group>"; };
-		FD5D3A062047E3DD00CB3E65 /* DSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAppDelegate.h; sourceTree = "<group>"; };
-		FD5D3A072047E3DD00CB3E65 /* DSPhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPhotoHelper.m; sourceTree = "<group>"; };
-		FD5D3A082047E3DD00CB3E65 /* DSCountryCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSCountryCodeView.m; sourceTree = "<group>"; };
-		FD5D3A092047E3DD00CB3E65 /* DSSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSignUpViewController.h; sourceTree = "<group>"; };
-		FD5D3A0A2047E3DD00CB3E65 /* DSMenusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMenusViewController.m; sourceTree = "<group>"; };
-		FD5D3A0B2047E3DD00CB3E65 /* DSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAlertView.m; sourceTree = "<group>"; };
+		FD5D3A032047E3DD00CB3E65 /* ETBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETBannerScrollView.m; sourceTree = "<group>"; };
+		FD5D3A042047E3DD00CB3E65 /* ETLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETLoginViewController.h; sourceTree = "<group>"; };
+		FD5D3A052047E3DD00CB3E65 /* ETMineTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMineTVCell.h; sourceTree = "<group>"; };
+		FD5D3A062047E3DD00CB3E65 /* ETAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAppDelegate.h; sourceTree = "<group>"; };
+		FD5D3A072047E3DD00CB3E65 /* ETPhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETPhotoHelper.m; sourceTree = "<group>"; };
+		FD5D3A082047E3DD00CB3E65 /* ETCountryCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCountryCodeView.m; sourceTree = "<group>"; };
+		FD5D3A092047E3DD00CB3E65 /* ETSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSignUpViewController.h; sourceTree = "<group>"; };
+		FD5D3A0A2047E3DD00CB3E65 /* ETMenusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMenusViewController.m; sourceTree = "<group>"; };
+		FD5D3A0B2047E3DD00CB3E65 /* ETAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAlertView.m; sourceTree = "<group>"; };
 		FD5D3A0C2047E3DD00CB3E65 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		FD5D3A0D2047E3DD00CB3E65 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
-		FD5D3A0E2047E3DD00CB3E65 /* DSBannerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSBannerInfo.m; sourceTree = "<group>"; };
+		FD5D3A0E2047E3DD00CB3E65 /* ETBannerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETBannerInfo.m; sourceTree = "<group>"; };
 		FD5D3A112047E3DD00CB3E65 /* guide3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide3.jpg; sourceTree = "<group>"; };
 		FD5D3A122047E3DD00CB3E65 /* guide2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide2.jpg; sourceTree = "<group>"; };
 		FD5D3A132047E3DD00CB3E65 /* guide1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide1.jpg; sourceTree = "<group>"; };
-		FD5D3A142047E3DD00CB3E65 /* DSMaterialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMaterialsViewController.m; sourceTree = "<group>"; };
-		FD5D3A152047E3DD00CB3E65 /* DSMineListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMineListItem.m; sourceTree = "<group>"; };
-		FD5D3A162047E3DD00CB3E65 /* DSThemeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSThemeHelper.h; sourceTree = "<group>"; };
-		FD5D3A172047E3DD00CB3E65 /* DSSignupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSignupItem.h; sourceTree = "<group>"; };
-		FD5D3A182047E3DD00CB3E65 /* DSHomePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHomePresenter.h; sourceTree = "<group>"; };
+		FD5D3A152047E3DD00CB3E65 /* ETMineListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMineListItem.m; sourceTree = "<group>"; };
+		FD5D3A162047E3DD00CB3E65 /* ETThemeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETThemeHelper.h; sourceTree = "<group>"; };
+		FD5D3A172047E3DD00CB3E65 /* ETSignupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSignupItem.h; sourceTree = "<group>"; };
+		FD5D3A182047E3DD00CB3E65 /* ETHomePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHomePresenter.h; sourceTree = "<group>"; };
 		FD5D3A192047E3DD00CB3E65 /* NSDate+Formater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formater.h"; sourceTree = "<group>"; };
 		FD5D3A1A2047E3DD00CB3E65 /* Color.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Color.plist; sourceTree = "<group>"; };
 		FD5D3A1B2047E3DD00CB3E65 /* UIView+SepLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SepLine.m"; sourceTree = "<group>"; };
@@ -124,40 +119,40 @@
 		FD5D3A1D2047E3DD00CB3E65 /* UIButton+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Style.h"; sourceTree = "<group>"; };
 		FD5D3A1E2047E3DD00CB3E65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD5D3A1F2047E3DD00CB3E65 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
-		FD5D3A202047E3DD00CB3E65 /* DSForgetPsdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSForgetPsdViewController.m; sourceTree = "<group>"; };
-		FD5D3A212047E3DD00CB3E65 /* DSMinePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMinePresenter.m; sourceTree = "<group>"; };
-		FD5D3A222047E3DD00CB3E65 /* DSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHomeViewController.h; sourceTree = "<group>"; };
-		FD5D3A232047E3DD00CB3E65 /* DSGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSGuideViewController.m; sourceTree = "<group>"; };
-		FD5D3A242047E3DD00CB3E65 /* DSPlatformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPlatformView.m; sourceTree = "<group>"; };
+		FD5D3A202047E3DD00CB3E65 /* ETForgetPsdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETForgetPsdViewController.m; sourceTree = "<group>"; };
+		FD5D3A212047E3DD00CB3E65 /* ETMinePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMinePresenter.m; sourceTree = "<group>"; };
+		FD5D3A222047E3DD00CB3E65 /* ETHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHomeViewController.h; sourceTree = "<group>"; };
+		FD5D3A232047E3DD00CB3E65 /* ETGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETGuideViewController.m; sourceTree = "<group>"; };
+		FD5D3A242047E3DD00CB3E65 /* ETPlatformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETPlatformView.m; sourceTree = "<group>"; };
 		FD5D3A262047E3DD00CB3E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD5D3A272047E3DD00CB3E65 /* UIImage+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Draw.h"; sourceTree = "<group>"; };
 		FD5D3A282047E3DD00CB3E65 /* UIView+ITTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ITTAdditions.h"; sourceTree = "<group>"; };
-		FD5D3A292047E3DD00CB3E65 /* DSMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMineViewController.h; sourceTree = "<group>"; };
+		FD5D3A292047E3DD00CB3E65 /* ETMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMineViewController.h; sourceTree = "<group>"; };
 		FD5D3A2A2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TTTAttributedLabel+additions.m"; sourceTree = "<group>"; };
-		FD5D3A2B2047E3DD00CB3E65 /* DSAppConfigurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAppConfigurations.m; sourceTree = "<group>"; };
-		FD5D3A2C2047E3DD00CB3E65 /* DSPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSPopover.m; sourceTree = "<group>"; };
+		FD5D3A2B2047E3DD00CB3E65 /* ETAppConfigurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAppConfigurations.m; sourceTree = "<group>"; };
+		FD5D3A2C2047E3DD00CB3E65 /* ETPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETPopover.m; sourceTree = "<group>"; };
 		FD5D3A2D2047E3DD00CB3E65 /* TTLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLanguage.m; sourceTree = "<group>"; };
 		FD5D3A2E2047E3DD00CB3E65 /* SwizzleMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwizzleMethod.m; sourceTree = "<group>"; };
-		FD5D3A2F2047E3DD00CB3E65 /* DSActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSActor.m; sourceTree = "<group>"; };
-		FD5D3A302047E3DD00CB3E65 /* DSPageIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSPageIndicator.h; sourceTree = "<group>"; };
-		FD5D3A312047E3DD00CB3E65 /* DSEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSEditView.m; sourceTree = "<group>"; };
+		FD5D3A2F2047E3DD00CB3E65 /* ETActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETActor.m; sourceTree = "<group>"; };
+		FD5D3A302047E3DD00CB3E65 /* ETPageIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETPageIndicator.h; sourceTree = "<group>"; };
+		FD5D3A312047E3DD00CB3E65 /* ETEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETEditView.m; sourceTree = "<group>"; };
 		FD5D3A322047E3DD00CB3E65 /* UIApplication+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Additions.m"; sourceTree = "<group>"; };
-		FD5D3A332047E3DD00CB3E65 /* DSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSConstant.h; sourceTree = "<group>"; };
-		FD5D3A342047E3DD00CB3E65 /* DSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSWebViewController.m; sourceTree = "<group>"; };
+		FD5D3A332047E3DD00CB3E65 /* ETConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETConstant.h; sourceTree = "<group>"; };
+		FD5D3A342047E3DD00CB3E65 /* ETWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETWebViewController.m; sourceTree = "<group>"; };
 		FD5D3A352047E3DD00CB3E65 /* UIFont+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Additions.h"; sourceTree = "<group>"; };
 		FD5D3A362047E3DD00CB3E65 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD5D3A372047E3DD00CB3E65 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
-		FD5D3A382047E3DD00CB3E65 /* DSBannerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBannerInfo.h; sourceTree = "<group>"; };
+		FD5D3A382047E3DD00CB3E65 /* ETBannerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETBannerInfo.h; sourceTree = "<group>"; };
 		FD5D3A392047E3DD00CB3E65 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
-		FD5D3A3A2047E3DD00CB3E65 /* DSSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSignUpViewController.m; sourceTree = "<group>"; };
-		FD5D3A3B2047E3DD00CB3E65 /* DSMenusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMenusViewController.h; sourceTree = "<group>"; };
-		FD5D3A3C2047E3DD00CB3E65 /* DSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAlertView.h; sourceTree = "<group>"; };
-		FD5D3A3D2047E3DD00CB3E65 /* DSCountryCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSCountryCodeView.h; sourceTree = "<group>"; };
-		FD5D3A3E2047E3DD00CB3E65 /* DSPhotoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSPhotoHelper.h; sourceTree = "<group>"; };
-		FD5D3A3F2047E3DD00CB3E65 /* DSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAppDelegate.m; sourceTree = "<group>"; };
-		FD5D3A402047E3DD00CB3E65 /* DSBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSBannerScrollView.h; sourceTree = "<group>"; };
-		FD5D3A412047E3DD00CB3E65 /* DSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLoginViewController.m; sourceTree = "<group>"; };
-		FD5D3A422047E3DD00CB3E65 /* DSMineTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSMineTVCell.m; sourceTree = "<group>"; };
+		FD5D3A3A2047E3DD00CB3E65 /* ETSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSignUpViewController.m; sourceTree = "<group>"; };
+		FD5D3A3B2047E3DD00CB3E65 /* ETMenusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMenusViewController.h; sourceTree = "<group>"; };
+		FD5D3A3C2047E3DD00CB3E65 /* ETAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAlertView.h; sourceTree = "<group>"; };
+		FD5D3A3D2047E3DD00CB3E65 /* ETCountryCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCountryCodeView.h; sourceTree = "<group>"; };
+		FD5D3A3E2047E3DD00CB3E65 /* ETPhotoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETPhotoHelper.h; sourceTree = "<group>"; };
+		FD5D3A3F2047E3DD00CB3E65 /* ETAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAppDelegate.m; sourceTree = "<group>"; };
+		FD5D3A402047E3DD00CB3E65 /* ETBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETBannerScrollView.h; sourceTree = "<group>"; };
+		FD5D3A412047E3DD00CB3E65 /* ETLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETLoginViewController.m; sourceTree = "<group>"; };
+		FD5D3A422047E3DD00CB3E65 /* ETMineTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMineTVCell.m; sourceTree = "<group>"; };
 		FD5D3A432047E3DD00CB3E65 /* UINavigationController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Additions.m"; sourceTree = "<group>"; };
 		FD5D3A452047E3DD00CB3E65 /* UIViewController+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Query.h"; sourceTree = "<group>"; };
 		FD5D3A462047E3DD00CB3E65 /* APIHosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIHosts.h; sourceTree = "<group>"; };
@@ -183,27 +178,26 @@
 		FD5D3A5A2047E3DD00CB3E65 /* UIViewController+ErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ErrorView.m"; sourceTree = "<group>"; };
 		FD5D3A5B2047E3DD00CB3E65 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
 		FD5D3A5C2047E3DD00CB3E65 /* APICenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APICenter.m; sourceTree = "<group>"; };
-		FD5D3A5D2047E3DD00CB3E65 /* DSAccountPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAccountPresenter.h; sourceTree = "<group>"; };
-		FD5D3A5E2047E3DD00CB3E65 /* DSLoadingSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLoadingSpinner.m; sourceTree = "<group>"; };
+		FD5D3A5D2047E3DD00CB3E65 /* ETAccountPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAccountPresenter.h; sourceTree = "<group>"; };
+		FD5D3A5E2047E3DD00CB3E65 /* ETLoadingSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETLoadingSpinner.m; sourceTree = "<group>"; };
 		FD5D3A5F2047E3DD00CB3E65 /* UIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Additions.m"; sourceTree = "<group>"; };
 		FD5D3A602047E3DD00CB3E65 /* UIButton+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Style.m"; sourceTree = "<group>"; };
 		FD5D3A612047E3DD00CB3E65 /* UIView+SepLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SepLine.h"; sourceTree = "<group>"; };
 		FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formater.m"; sourceTree = "<group>"; };
-		FD5D3A632047E3DD00CB3E65 /* DSHomePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHomePresenter.m; sourceTree = "<group>"; };
-		FD5D3A642047E3DD00CB3E65 /* DSSignupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSignupItem.m; sourceTree = "<group>"; };
-		FD5D3A652047E3DD00CB3E65 /* DSThemeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSThemeHelper.m; sourceTree = "<group>"; };
+		FD5D3A632047E3DD00CB3E65 /* ETHomePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHomePresenter.m; sourceTree = "<group>"; };
+		FD5D3A642047E3DD00CB3E65 /* ETSignupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSignupItem.m; sourceTree = "<group>"; };
+		FD5D3A652047E3DD00CB3E65 /* ETThemeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETThemeHelper.m; sourceTree = "<group>"; };
 		FD5D3A662047E3DD00CB3E65 /* ETicket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ETicket-Prefix.pch"; sourceTree = "<group>"; };
-		FD5D3A672047E3DD00CB3E65 /* DSMaterialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMaterialsViewController.h; sourceTree = "<group>"; };
-		FD5D3A682047E3DD00CB3E65 /* DSMineListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMineListItem.h; sourceTree = "<group>"; };
+		FD5D3A682047E3DD00CB3E65 /* ETMineListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMineListItem.h; sourceTree = "<group>"; };
 		FD5D3A692047E3DD00CB3E65 /* UIView+ITTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ITTAdditions.m"; sourceTree = "<group>"; };
 		FD5D3A6A2047E3DD00CB3E65 /* UIImage+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Draw.m"; sourceTree = "<group>"; };
-		FD5D3A6B2047E3DD00CB3E65 /* DSPlatformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSPlatformView.h; sourceTree = "<group>"; };
+		FD5D3A6B2047E3DD00CB3E65 /* ETPlatformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETPlatformView.h; sourceTree = "<group>"; };
 		FD5D3A6C2047E3DD00CB3E65 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD5D3A6D2047E3DD00CB3E65 /* DSGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSGuideViewController.h; sourceTree = "<group>"; };
-		FD5D3A6E2047E3DD00CB3E65 /* DSMinePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSMinePresenter.h; sourceTree = "<group>"; };
-		FD5D3A6F2047E3DD00CB3E65 /* DSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHomeViewController.m; sourceTree = "<group>"; };
+		FD5D3A6D2047E3DD00CB3E65 /* ETGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETGuideViewController.h; sourceTree = "<group>"; };
+		FD5D3A6E2047E3DD00CB3E65 /* ETMinePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMinePresenter.h; sourceTree = "<group>"; };
+		FD5D3A6F2047E3DD00CB3E65 /* ETHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHomeViewController.m; sourceTree = "<group>"; };
 		FD5D3A702047E3DD00CB3E65 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		FD5D3A712047E3DD00CB3E65 /* DSForgetPsdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSForgetPsdViewController.h; sourceTree = "<group>"; };
+		FD5D3A712047E3DD00CB3E65 /* ETForgetPsdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETForgetPsdViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +215,6 @@
 		65B572379BF2CABEBC2450BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CAA377D2FAF3D7DAD1E30AC0 /* libPods-DadsMath.a */,
 				75EEC7F4B93B497E338580BE /* libPods-ETicket.a */,
 			);
 			name = Frameworks;
@@ -230,8 +223,6 @@
 		9F6B0420105E27502AC98C6F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ABFC95D7FEF217CDD06B58AD /* Pods-DadsMath.debug.xcconfig */,
-				FBA3498762BD653FDF9D0A88 /* Pods-DadsMath.release.xcconfig */,
 				4DD270B97BDAF4DC0A07E50E /* Pods-ETicket.debug.xcconfig */,
 				4306D780BB6AEB61E92FDA75 /* Pods-ETicket.release.xcconfig */,
 			);
@@ -259,103 +250,21 @@
 		FD5D39F32047E3DD00CB3E65 /* ETicket */ = {
 			isa = PBXGroup;
 			children = (
-				FD5D39F42047E3DD00CB3E65 /* DSWebViewController.h */,
-				FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */,
-				FD5D39F62047E3DD00CB3E65 /* UIApplication+Additions.h */,
-				FD5D39F72047E3DD00CB3E65 /* DSEditView.h */,
-				FD5D39F82047E3DD00CB3E65 /* DSPageIndicator.m */,
-				FD5D39F92047E3DD00CB3E65 /* TTLanguage.h */,
-				FD5D39FA2047E3DD00CB3E65 /* SwizzleMethod.h */,
-				FD5D39FB2047E3DD00CB3E65 /* DSActor.h */,
-				FD5D39FC2047E3DD00CB3E65 /* DSAppConfigurations.h */,
-				FD5D39FD2047E3DD00CB3E65 /* DSPopover.h */,
-				FD5D39FE2047E3DD00CB3E65 /* DSMineViewController.m */,
-				FD5D39FF2047E3DD00CB3E65 /* TTTAttributedLabel+additions.h */,
-				FD5D3A002047E3DD00CB3E65 /* DSLoadingSpinner.h */,
-				FD5D3A012047E3DD00CB3E65 /* DSAccountPresenter.m */,
-				FD5D3A022047E3DD00CB3E65 /* UINavigationController+Additions.h */,
-				FD5D3A032047E3DD00CB3E65 /* DSBannerScrollView.m */,
-				FD5D3A042047E3DD00CB3E65 /* DSLoginViewController.h */,
-				FD5D3A052047E3DD00CB3E65 /* DSMineTVCell.h */,
-				FD5D3A062047E3DD00CB3E65 /* DSAppDelegate.h */,
-				FD5D3A072047E3DD00CB3E65 /* DSPhotoHelper.m */,
-				FD5D3A082047E3DD00CB3E65 /* DSCountryCodeView.m */,
-				FD5D3A092047E3DD00CB3E65 /* DSSignUpViewController.h */,
-				FD5D3A0A2047E3DD00CB3E65 /* DSMenusViewController.m */,
-				FD5D3A0B2047E3DD00CB3E65 /* DSAlertView.m */,
-				FD5D3A0C2047E3DD00CB3E65 /* NSString+Additions.m */,
-				FD5D3A0D2047E3DD00CB3E65 /* UIColor+Additions.m */,
-				FD5D3A0E2047E3DD00CB3E65 /* DSBannerInfo.m */,
+				FD5D3ABA2047ED7900CB3E65 /* Generals */,
+				FD5D3AB62047EB8100CB3E65 /* Controllers */,
+				FD5D3AB52047EA9900CB3E65 /* Views */,
+				FD5D3AB42047E9FB00CB3E65 /* Presenter */,
+				FD5D3AB32047E99000CB3E65 /* Models */,
 				FD5D3A0F2047E3DD00CB3E65 /* Images */,
-				FD5D3A142047E3DD00CB3E65 /* DSMaterialsViewController.m */,
-				FD5D3A152047E3DD00CB3E65 /* DSMineListItem.m */,
-				FD5D3A162047E3DD00CB3E65 /* DSThemeHelper.h */,
-				FD5D3A172047E3DD00CB3E65 /* DSSignupItem.h */,
-				FD5D3A182047E3DD00CB3E65 /* DSHomePresenter.h */,
-				FD5D3A192047E3DD00CB3E65 /* NSDate+Formater.h */,
 				FD5D3A1A2047E3DD00CB3E65 /* Color.plist */,
-				FD5D3A1B2047E3DD00CB3E65 /* UIView+SepLine.m */,
-				FD5D3A1C2047E3DD00CB3E65 /* UIViewController+Additions.h */,
-				FD5D3A1D2047E3DD00CB3E65 /* UIButton+Style.h */,
 				FD5D3A1E2047E3DD00CB3E65 /* Assets.xcassets */,
-				FD5D3A1F2047E3DD00CB3E65 /* UIImage+Resize.h */,
-				FD5D3A202047E3DD00CB3E65 /* DSForgetPsdViewController.m */,
-				FD5D3A212047E3DD00CB3E65 /* DSMinePresenter.m */,
-				FD5D3A222047E3DD00CB3E65 /* DSHomeViewController.h */,
-				FD5D3A232047E3DD00CB3E65 /* DSGuideViewController.m */,
-				FD5D3A242047E3DD00CB3E65 /* DSPlatformView.m */,
 				FD5D3A252047E3DD00CB3E65 /* LaunchScreen.storyboard */,
-				FD5D3A272047E3DD00CB3E65 /* UIImage+Draw.h */,
-				FD5D3A282047E3DD00CB3E65 /* UIView+ITTAdditions.h */,
-				FD5D3A292047E3DD00CB3E65 /* DSMineViewController.h */,
-				FD5D3A2A2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m */,
-				FD5D3A2B2047E3DD00CB3E65 /* DSAppConfigurations.m */,
-				FD5D3A2C2047E3DD00CB3E65 /* DSPopover.m */,
-				FD5D3A2D2047E3DD00CB3E65 /* TTLanguage.m */,
-				FD5D3A2E2047E3DD00CB3E65 /* SwizzleMethod.m */,
-				FD5D3A2F2047E3DD00CB3E65 /* DSActor.m */,
-				FD5D3A302047E3DD00CB3E65 /* DSPageIndicator.h */,
-				FD5D3A312047E3DD00CB3E65 /* DSEditView.m */,
-				FD5D3A322047E3DD00CB3E65 /* UIApplication+Additions.m */,
-				FD5D3A332047E3DD00CB3E65 /* DSConstant.h */,
-				FD5D3A342047E3DD00CB3E65 /* DSWebViewController.m */,
-				FD5D3A352047E3DD00CB3E65 /* UIFont+Additions.h */,
+				FD5D3A332047E3DD00CB3E65 /* ETConstant.h */,
 				FD5D3A362047E3DD00CB3E65 /* main.m */,
-				FD5D3A372047E3DD00CB3E65 /* UIColor+Additions.h */,
-				FD5D3A382047E3DD00CB3E65 /* DSBannerInfo.h */,
-				FD5D3A392047E3DD00CB3E65 /* NSString+Additions.h */,
-				FD5D3A3A2047E3DD00CB3E65 /* DSSignUpViewController.m */,
-				FD5D3A3B2047E3DD00CB3E65 /* DSMenusViewController.h */,
-				FD5D3A3C2047E3DD00CB3E65 /* DSAlertView.h */,
-				FD5D3A3D2047E3DD00CB3E65 /* DSCountryCodeView.h */,
-				FD5D3A3E2047E3DD00CB3E65 /* DSPhotoHelper.h */,
-				FD5D3A3F2047E3DD00CB3E65 /* DSAppDelegate.m */,
-				FD5D3A402047E3DD00CB3E65 /* DSBannerScrollView.h */,
-				FD5D3A412047E3DD00CB3E65 /* DSLoginViewController.m */,
-				FD5D3A422047E3DD00CB3E65 /* DSMineTVCell.m */,
-				FD5D3A432047E3DD00CB3E65 /* UINavigationController+Additions.m */,
-				FD5D3A442047E3DD00CB3E65 /* API */,
-				FD5D3A5D2047E3DD00CB3E65 /* DSAccountPresenter.h */,
-				FD5D3A5E2047E3DD00CB3E65 /* DSLoadingSpinner.m */,
-				FD5D3A5F2047E3DD00CB3E65 /* UIViewController+Additions.m */,
-				FD5D3A602047E3DD00CB3E65 /* UIButton+Style.m */,
-				FD5D3A612047E3DD00CB3E65 /* UIView+SepLine.h */,
-				FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */,
-				FD5D3A632047E3DD00CB3E65 /* DSHomePresenter.m */,
-				FD5D3A642047E3DD00CB3E65 /* DSSignupItem.m */,
-				FD5D3A652047E3DD00CB3E65 /* DSThemeHelper.m */,
+				FD5D3A062047E3DD00CB3E65 /* ETAppDelegate.h */,
+				FD5D3A3F2047E3DD00CB3E65 /* ETAppDelegate.m */,
 				FD5D3A662047E3DD00CB3E65 /* ETicket-Prefix.pch */,
-				FD5D3A672047E3DD00CB3E65 /* DSMaterialsViewController.h */,
-				FD5D3A682047E3DD00CB3E65 /* DSMineListItem.h */,
-				FD5D3A692047E3DD00CB3E65 /* UIView+ITTAdditions.m */,
-				FD5D3A6A2047E3DD00CB3E65 /* UIImage+Draw.m */,
-				FD5D3A6B2047E3DD00CB3E65 /* DSPlatformView.h */,
 				FD5D3A6C2047E3DD00CB3E65 /* Info.plist */,
-				FD5D3A6D2047E3DD00CB3E65 /* DSGuideViewController.h */,
-				FD5D3A6E2047E3DD00CB3E65 /* DSMinePresenter.h */,
-				FD5D3A6F2047E3DD00CB3E65 /* DSHomeViewController.m */,
-				FD5D3A702047E3DD00CB3E65 /* UIImage+Resize.m */,
-				FD5D3A712047E3DD00CB3E65 /* DSForgetPsdViewController.h */,
 			);
 			path = ETicket;
 			sourceTree = "<group>";
@@ -407,6 +316,174 @@
 				FD5D3A5C2047E3DD00CB3E65 /* APICenter.m */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		FD5D3AB32047E99000CB3E65 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D3A382047E3DD00CB3E65 /* ETBannerInfo.h */,
+				FD5D3A0E2047E3DD00CB3E65 /* ETBannerInfo.m */,
+				FD5D3A172047E3DD00CB3E65 /* ETSignupItem.h */,
+				FD5D3A642047E3DD00CB3E65 /* ETSignupItem.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FD5D3AB42047E9FB00CB3E65 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D3A182047E3DD00CB3E65 /* ETHomePresenter.h */,
+				FD5D3A632047E3DD00CB3E65 /* ETHomePresenter.m */,
+				FD5D3A5D2047E3DD00CB3E65 /* ETAccountPresenter.h */,
+				FD5D3A012047E3DD00CB3E65 /* ETAccountPresenter.m */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		FD5D3AB52047EA9900CB3E65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D3A3C2047E3DD00CB3E65 /* ETAlertView.h */,
+				FD5D3A0B2047E3DD00CB3E65 /* ETAlertView.m */,
+				FD5D39F72047E3DD00CB3E65 /* ETEditView.h */,
+				FD5D3A312047E3DD00CB3E65 /* ETEditView.m */,
+				FD5D39FD2047E3DD00CB3E65 /* ETPopover.h */,
+				FD5D3A2C2047E3DD00CB3E65 /* ETPopover.m */,
+				FD5D3A3D2047E3DD00CB3E65 /* ETCountryCodeView.h */,
+				FD5D3A082047E3DD00CB3E65 /* ETCountryCodeView.m */,
+				FD5D3A6B2047E3DD00CB3E65 /* ETPlatformView.h */,
+				FD5D3A242047E3DD00CB3E65 /* ETPlatformView.m */,
+				FD5D3A002047E3DD00CB3E65 /* ETLoadingSpinner.h */,
+				FD5D3A5E2047E3DD00CB3E65 /* ETLoadingSpinner.m */,
+				FD5D3A402047E3DD00CB3E65 /* ETBannerScrollView.h */,
+				FD5D3A032047E3DD00CB3E65 /* ETBannerScrollView.m */,
+				FD5D3A302047E3DD00CB3E65 /* ETPageIndicator.h */,
+				FD5D39F82047E3DD00CB3E65 /* ETPageIndicator.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FD5D3AB62047EB8100CB3E65 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D3AB92047EC8D00CB3E65 /* Mine */,
+				FD5D3AB82047EC0A00CB3E65 /* Home */,
+				FD5D3AB72047EB8F00CB3E65 /* Login */,
+				FD5D39F42047E3DD00CB3E65 /* ETWebViewController.h */,
+				FD5D3A342047E3DD00CB3E65 /* ETWebViewController.m */,
+				FD5D3A3B2047E3DD00CB3E65 /* ETMenusViewController.h */,
+				FD5D3A0A2047E3DD00CB3E65 /* ETMenusViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FD5D3AB72047EB8F00CB3E65 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D3A042047E3DD00CB3E65 /* ETLoginViewController.h */,
+				FD5D3A412047E3DD00CB3E65 /* ETLoginViewController.m */,
+				FD5D3A092047E3DD00CB3E65 /* ETSignUpViewController.h */,
+				FD5D3A3A2047E3DD00CB3E65 /* ETSignUpViewController.m */,
+				FD5D3A202047E3DD00CB3E65 /* ETForgetPsdViewController.m */,
+				FD5D3A712047E3DD00CB3E65 /* ETForgetPsdViewController.h */,
+				FD5D3A6D2047E3DD00CB3E65 /* ETGuideViewController.h */,
+				FD5D3A232047E3DD00CB3E65 /* ETGuideViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		FD5D3AB82047EC0A00CB3E65 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D3A222047E3DD00CB3E65 /* ETHomeViewController.h */,
+				FD5D3A6F2047E3DD00CB3E65 /* ETHomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FD5D3AB92047EC8D00CB3E65 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D39FE2047E3DD00CB3E65 /* ETMineViewController.m */,
+				FD5D3A292047E3DD00CB3E65 /* ETMineViewController.h */,
+				FD5D3A052047E3DD00CB3E65 /* ETMineTVCell.h */,
+				FD5D3A422047E3DD00CB3E65 /* ETMineTVCell.m */,
+				FD5D3A682047E3DD00CB3E65 /* ETMineListItem.h */,
+				FD5D3A152047E3DD00CB3E65 /* ETMineListItem.m */,
+				FD5D3A6E2047E3DD00CB3E65 /* ETMinePresenter.h */,
+				FD5D3A212047E3DD00CB3E65 /* ETMinePresenter.m */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		FD5D3ABA2047ED7900CB3E65 /* Generals */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D3ABD2047EE6500CB3E65 /* Utils */,
+				FD5D3ABC2047EDC300CB3E65 /* Categories */,
+				FD5D3ABB2047ED8900CB3E65 /* Helper */,
+				FD5D3A442047E3DD00CB3E65 /* API */,
+			);
+			name = Generals;
+			sourceTree = "<group>";
+		};
+		FD5D3ABB2047ED8900CB3E65 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D3A162047E3DD00CB3E65 /* ETThemeHelper.h */,
+				FD5D3A652047E3DD00CB3E65 /* ETThemeHelper.m */,
+				FD5D3A3E2047E3DD00CB3E65 /* ETPhotoHelper.h */,
+				FD5D3A072047E3DD00CB3E65 /* ETPhotoHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		FD5D3ABC2047EDC300CB3E65 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D39FA2047E3DD00CB3E65 /* SwizzleMethod.h */,
+				FD5D3A2E2047E3DD00CB3E65 /* SwizzleMethod.m */,
+				FD5D3A352047E3DD00CB3E65 /* UIFont+Additions.h */,
+				FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */,
+				FD5D39F62047E3DD00CB3E65 /* UIApplication+Additions.h */,
+				FD5D3A322047E3DD00CB3E65 /* UIApplication+Additions.m */,
+				FD5D39FF2047E3DD00CB3E65 /* TTTAttributedLabel+additions.h */,
+				FD5D3A2A2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m */,
+				FD5D3A022047E3DD00CB3E65 /* UINavigationController+Additions.h */,
+				FD5D3A432047E3DD00CB3E65 /* UINavigationController+Additions.m */,
+				FD5D3A192047E3DD00CB3E65 /* NSDate+Formater.h */,
+				FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */,
+				FD5D3A612047E3DD00CB3E65 /* UIView+SepLine.h */,
+				FD5D3A1B2047E3DD00CB3E65 /* UIView+SepLine.m */,
+				FD5D3A1C2047E3DD00CB3E65 /* UIViewController+Additions.h */,
+				FD5D3A5F2047E3DD00CB3E65 /* UIViewController+Additions.m */,
+				FD5D3A1D2047E3DD00CB3E65 /* UIButton+Style.h */,
+				FD5D3A602047E3DD00CB3E65 /* UIButton+Style.m */,
+				FD5D3A1F2047E3DD00CB3E65 /* UIImage+Resize.h */,
+				FD5D3A702047E3DD00CB3E65 /* UIImage+Resize.m */,
+				FD5D3A282047E3DD00CB3E65 /* UIView+ITTAdditions.h */,
+				FD5D3A692047E3DD00CB3E65 /* UIView+ITTAdditions.m */,
+				FD5D3A372047E3DD00CB3E65 /* UIColor+Additions.h */,
+				FD5D3A0D2047E3DD00CB3E65 /* UIColor+Additions.m */,
+				FD5D3A392047E3DD00CB3E65 /* NSString+Additions.h */,
+				FD5D3A0C2047E3DD00CB3E65 /* NSString+Additions.m */,
+				FD5D3A272047E3DD00CB3E65 /* UIImage+Draw.h */,
+				FD5D3A6A2047E3DD00CB3E65 /* UIImage+Draw.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		FD5D3ABD2047EE6500CB3E65 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FD5D39F92047E3DD00CB3E65 /* TTLanguage.h */,
+				FD5D3A2D2047E3DD00CB3E65 /* TTLanguage.m */,
+				FD5D39FB2047E3DD00CB3E65 /* ETActor.h */,
+				FD5D3A2F2047E3DD00CB3E65 /* ETActor.m */,
+				FD5D39FC2047E3DD00CB3E65 /* ETAppConfigurations.h */,
+				FD5D3A2B2047E3DD00CB3E65 /* ETAppConfigurations.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,63 +659,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD5D3A962047E3DD00CB3E65 /* DSAppDelegate.m in Sources */,
-				FD5D3A972047E3DD00CB3E65 /* DSLoginViewController.m in Sources */,
-				FD5D3A822047E3DD00CB3E65 /* DSMineListItem.m in Sources */,
+				FD5D3A962047E3DD00CB3E65 /* ETAppDelegate.m in Sources */,
+				FD5D3A972047E3DD00CB3E65 /* ETLoginViewController.m in Sources */,
+				FD5D3A822047E3DD00CB3E65 /* ETMineListItem.m in Sources */,
 				FD5D3A992047E3DD00CB3E65 /* UINavigationController+Additions.m in Sources */,
-				FD5D3A792047E3DD00CB3E65 /* DSMenusViewController.m in Sources */,
+				FD5D3A792047E3DD00CB3E65 /* ETMenusViewController.m in Sources */,
 				FD5D3AB12047E3DD00CB3E65 /* UIImage+Resize.m in Sources */,
 				FD5D3A9D2047E3DD00CB3E65 /* UIScrollView+Refresh.m in Sources */,
 				FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */,
-				FD5D3A912047E3DD00CB3E65 /* DSEditView.m in Sources */,
+				FD5D3A912047E3DD00CB3E65 /* ETEditView.m in Sources */,
 				FD5D3A9F2047E3DD00CB3E65 /* APIHosts.m in Sources */,
 				FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */,
 				FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */,
 				FD5D3A942047E3DD00CB3E65 /* main.m in Sources */,
-				FD5D3A8D2047E3DD00CB3E65 /* DSPopover.m in Sources */,
-				FD5D3A892047E3DD00CB3E65 /* DSPlatformView.m in Sources */,
+				FD5D3A8D2047E3DD00CB3E65 /* ETPopover.m in Sources */,
+				FD5D3A892047E3DD00CB3E65 /* ETPlatformView.m in Sources */,
 				FD5D3AAD2047E3DD00CB3E65 /* UIView+ITTAdditions.m in Sources */,
-				FD5D3A772047E3DD00CB3E65 /* DSPhotoHelper.m in Sources */,
-				FD5D3A932047E3DD00CB3E65 /* DSWebViewController.m in Sources */,
+				FD5D3A772047E3DD00CB3E65 /* ETPhotoHelper.m in Sources */,
+				FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */,
 				FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */,
-				FD5D3AAB2047E3DD00CB3E65 /* DSSignupItem.m in Sources */,
+				FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */,
 				FD5D3AA42047E3DD00CB3E65 /* UIViewController+ErrorView.m in Sources */,
-				FD5D3AAA2047E3DD00CB3E65 /* DSHomePresenter.m in Sources */,
+				FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */,
 				FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */,
-				FD5D3A982047E3DD00CB3E65 /* DSMineTVCell.m in Sources */,
+				FD5D3A982047E3DD00CB3E65 /* ETMineTVCell.m in Sources */,
 				FD5D3AA12047E3DD00CB3E65 /* Query.m in Sources */,
-				FD5D3AB02047E3DD00CB3E65 /* DSHomeViewController.m in Sources */,
+				FD5D3AB02047E3DD00CB3E65 /* ETHomeViewController.m in Sources */,
 				FD5D3A8E2047E3DD00CB3E65 /* TTLanguage.m in Sources */,
-				FD5D3A732047E3DD00CB3E65 /* DSPageIndicator.m in Sources */,
-				FD5D3A782047E3DD00CB3E65 /* DSCountryCodeView.m in Sources */,
-				FD5D3A742047E3DD00CB3E65 /* DSMineViewController.m in Sources */,
+				FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */,
+				FD5D3A782047E3DD00CB3E65 /* ETCountryCodeView.m in Sources */,
+				FD5D3A742047E3DD00CB3E65 /* ETMineViewController.m in Sources */,
 				FD5D3A9C2047E3DD00CB3E65 /* RACSignal+Retry.m in Sources */,
 				FD5D3A9E2047E3DD00CB3E65 /* RACSignal+Parse.m in Sources */,
 				FD5D3A9B2047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.m in Sources */,
 				FD5D3A9A2047E3DD00CB3E65 /* NSError+Message.m in Sources */,
 				FD5D3AA82047E3DD00CB3E65 /* UIButton+Style.m in Sources */,
 				FD5D3A922047E3DD00CB3E65 /* UIApplication+Additions.m in Sources */,
-				FD5D3A952047E3DD00CB3E65 /* DSSignUpViewController.m in Sources */,
+				FD5D3A952047E3DD00CB3E65 /* ETSignUpViewController.m in Sources */,
 				FD5D3AA72047E3DD00CB3E65 /* UIViewController+Additions.m in Sources */,
 				FD5D3A842047E3DD00CB3E65 /* UIView+SepLine.m in Sources */,
 				FD5D3AA02047E3DD00CB3E65 /* UIViewController+Query.m in Sources */,
-				FD5D3A862047E3DD00CB3E65 /* DSForgetPsdViewController.m in Sources */,
+				FD5D3A862047E3DD00CB3E65 /* ETForgetPsdViewController.m in Sources */,
 				FD5D3AA32047E3DD00CB3E65 /* RACCommand+Additions.m in Sources */,
-				FD5D3A872047E3DD00CB3E65 /* DSMinePresenter.m in Sources */,
-				FD5D3A752047E3DD00CB3E65 /* DSAccountPresenter.m in Sources */,
-				FD5D3A7A2047E3DD00CB3E65 /* DSAlertView.m in Sources */,
-				FD5D3AAC2047E3DD00CB3E65 /* DSThemeHelper.m in Sources */,
-				FD5D3AA62047E3DD00CB3E65 /* DSLoadingSpinner.m in Sources */,
-				FD5D3A8C2047E3DD00CB3E65 /* DSAppConfigurations.m in Sources */,
+				FD5D3A872047E3DD00CB3E65 /* ETMinePresenter.m in Sources */,
+				FD5D3A752047E3DD00CB3E65 /* ETAccountPresenter.m in Sources */,
+				FD5D3A7A2047E3DD00CB3E65 /* ETAlertView.m in Sources */,
+				FD5D3AAC2047E3DD00CB3E65 /* ETThemeHelper.m in Sources */,
+				FD5D3AA62047E3DD00CB3E65 /* ETLoadingSpinner.m in Sources */,
+				FD5D3A8C2047E3DD00CB3E65 /* ETAppConfigurations.m in Sources */,
 				FD5D3AA22047E3DD00CB3E65 /* NSDictionary+Shortcuts.m in Sources */,
 				FD5D3AAE2047E3DD00CB3E65 /* UIImage+Draw.m in Sources */,
 				FD5D3A8F2047E3DD00CB3E65 /* SwizzleMethod.m in Sources */,
-				FD5D3A7D2047E3DD00CB3E65 /* DSBannerInfo.m in Sources */,
-				FD5D3A902047E3DD00CB3E65 /* DSActor.m in Sources */,
-				FD5D3A812047E3DD00CB3E65 /* DSMaterialsViewController.m in Sources */,
+				FD5D3A7D2047E3DD00CB3E65 /* ETBannerInfo.m in Sources */,
+				FD5D3A902047E3DD00CB3E65 /* ETActor.m in Sources */,
 				FD5D3AA52047E3DD00CB3E65 /* APICenter.m in Sources */,
-				FD5D3A882047E3DD00CB3E65 /* DSGuideViewController.m in Sources */,
-				FD5D3A762047E3DD00CB3E65 /* DSBannerScrollView.m in Sources */,
+				FD5D3A882047E3DD00CB3E65 /* ETGuideViewController.m in Sources */,
+				FD5D3A762047E3DD00CB3E65 /* ETBannerScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,7 +780,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -753,7 +829,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -765,15 +841,20 @@
 			baseConfigurationReference = 4DD270B97BDAF4DC0A07E50E /* Pods-ETicket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q9B6GTQNWW;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "ETicket/ETicket-Prefix.pch";
 				INFOPLIST_FILE = ETicket/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cloud.DadsMath;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tct.MobileETicket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -782,15 +863,20 @@
 			baseConfigurationReference = 4306D780BB6AEB61E92FDA75 /* Pods-ETicket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q9B6GTQNWW;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "ETicket/ETicket-Prefix.pch";
 				INFOPLIST_FILE = ETicket/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cloud.DadsMath;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tct.MobileETicket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

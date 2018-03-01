@@ -34,7 +34,7 @@ static NSString * const kCommandList = @"__commond_list__";
         if (error.code == kNetworkErrorCode) {
             return ;
         }
-        [DSPopover showFailureWithContent:[error message]];
+        [ETPopover showFailureWithContent:[error message]];
     };
 }
 

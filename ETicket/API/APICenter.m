@@ -6,13 +6,13 @@
 //  Copyright © 2016年 chunjian wang. All rights reserved.
 //
 #import "APICenter.h"
-#import "DSBannerInfo.h"
+#import "ETBannerInfo.h"
 
 
 @implementation APICenter
 
 + (Query *)getBanner:(NSDictionary *)parameters {
-    return [Query GET:@"https://www-demo.dianrong.com/feapi/banners" parameters:parameters listKey:@"list" modelClass:[DSBannerInfo class]];
+    return [Query GET:@"https://www-demo.dianrong.com/feapi/banners" parameters:parameters listKey:@"list" modelClass:[ETBannerInfo class]];
 }
 
 + (Query *)getAgreementProtocol:(NSDictionary *)parameters {

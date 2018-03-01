@@ -7,8 +7,8 @@
 //
 
 #import "UIApplication+Additions.h"
-#import "DSAppDelegate.h"
-#import "DSMenusViewController.h"
+#import "ETAppDelegate.h"
+#import "ETMenusViewController.h"
 
 @implementation UIApplication (Additions)
 
@@ -43,7 +43,7 @@
     }
     
     if(!topViewController) {
-        topViewController = (DSMenusViewController *)[DSAppDelegate menuViewController].navigationController;
+        topViewController = (ETMenusViewController *)[ETAppDelegate menuViewController].navigationController;
     }
     NSAssert(topViewController, @"can not push without UINavigationController");
     [(UINavigationController *)topViewController pushViewController:viewController animated:YES];

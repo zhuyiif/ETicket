@@ -71,9 +71,9 @@ static NSInteger gIndex = 1;
     AFHTTPSessionManager *client = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:[APIHosts defaultURL]]];
     client.requestSerializer.timeoutInterval = 60;
     // custom header 1: 每次创建时设置即可
-    NSString *uuid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    [client.requestSerializer setValue:uuid forHTTPHeaderField:@"ASI-UUID"];
-    
+//    NSString *uuid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIETtring];
+//    [client.requestSerializer setValue:uuid forHTTPHeaderField:@"ASI-UUID"];
+//
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     serializer.removesKeysWithNullValues = YES;
     client.responseSerializer = serializer;
@@ -89,9 +89,9 @@ static AFHTTPSessionManager *_cacheManager;
         _cacheManager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataDontLoad;
     }
     
-    [_cacheManager.requestSerializer setValue:[[DSActor instance] currentAccessType] forHTTPHeaderField:@"ACCESS-TYPE"];
-    if ([DSActor instance].token) {
-        [_cacheManager.requestSerializer setValue:[DSActor instance].token forHTTPHeaderField:@"ACCESS-TOKEN"];
+    [_cacheManager.requestSerializer setValue:[[ETActor instance] currentAccessType] forHTTPHeaderField:@"ACCESS-TYPE"];
+    if ([ETActor instance].token) {
+        [_cacheManager.requestSerializer setValue:[ETActor instance].token forHTTPHeaderField:@"ACCESS-TOKEN"];
     } else {
         [_cacheManager.requestSerializer setValue:@"" forHTTPHeaderField:@"ACCESS-TOKEN"];
     }
@@ -109,9 +109,9 @@ static AFHTTPSessionManager *_networkManager;
     }
     
     // custom header 2: 必须每次使用时设置
-    [_networkManager.requestSerializer setValue:[[DSActor instance] currentAccessType] forHTTPHeaderField:@"ACCESS-TYPE"];
-    if ([DSActor instance].token) {
-        [_networkManager.requestSerializer setValue:[DSActor instance].token forHTTPHeaderField:@"ACCESS-TOKEN"];
+    [_networkManager.requestSerializer setValue:[[ETActor instance] currentAccessType] forHTTPHeaderField:@"ACCESS-TYPE"];
+    if ([ETActor instance].token) {
+        [_networkManager.requestSerializer setValue:[ETActor instance].token forHTTPHeaderField:@"ACCESS-TOKEN"];
     } else {
         [_networkManager.requestSerializer setValue:@"" forHTTPHeaderField:@"ACCESS-TOKEN"];
     }

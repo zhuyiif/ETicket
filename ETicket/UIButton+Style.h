@@ -8,21 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, DSButtonStyle) { // Define by button bgColor + size
-    DSButtonStyleGreen,
-    DSButtonStyleOrange,
-    DSButtonStyleBorderGreen,
-    DSButtonStyleBorderOrange,
-    DSButtonStyleBorderWhite,
+typedef NS_ENUM(NSInteger, ETButtonStyle) { // Define by button bgColor + size
+    ETButtonStyleGreen,
+    ETButtonStyleOrange,
+    ETButtonStyleBorderGreen,
+    ETButtonStyleBorderOrange,
+    ETButtonStyleBorderWhite,
 };
 
 @interface UIButton (Style)
 
 
-+ (instancetype)buttonWithStyle:(DSButtonStyle)style height:(CGFloat)height;
++ (instancetype)buttonWithStyle:(ETButtonStyle)style height:(CGFloat)height;
 + (instancetype)buttonWithNormalImage:(NSString *)normalImage hightImage:(NSString *)hightImage;
 
-- (instancetype)initWithStyle:(DSButtonStyle)style height:(CGFloat)height;
+- (instancetype)initWithStyle:(ETButtonStyle)style height:(CGFloat)height;
 
 - (RACSignal *)eventSingal;
 

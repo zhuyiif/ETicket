@@ -8,9 +8,9 @@
 
 #import "RACSignal+Parse.h"
 #import "RACSignal+Retry.h"
-#import "DSLoginViewController.h"
+#import "ETLoginViewController.h"
 
-@interface DSLoginViewController ()
+@interface ETLoginViewController ()
 @end
 
 @implementation RACSignal (Retry)
@@ -20,7 +20,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         retrySignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            [[DSLoginViewController show] subscribe:subscriber];
+            [[ETLoginViewController show] subscribe:subscriber];
             return nil;
         }];
     });
