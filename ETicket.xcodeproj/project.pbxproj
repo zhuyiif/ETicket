@@ -71,6 +71,7 @@
 		FD5D3AAF2047E3DD00CB3E65 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A6C2047E3DD00CB3E65 /* Info.plist */; };
 		FD5D3AB02047E3DD00CB3E65 /* ETHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A6F2047E3DD00CB3E65 /* ETHomeViewController.m */; };
 		FD5D3AB12047E3DD00CB3E65 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A702047E3DD00CB3E65 /* UIImage+Resize.m */; };
+		FD5D3AC020480E2C00CB3E65 /* ETUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3ABF20480E2C00CB3E65 /* ETUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,6 +199,8 @@
 		FD5D3A6F2047E3DD00CB3E65 /* ETHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHomeViewController.m; sourceTree = "<group>"; };
 		FD5D3A702047E3DD00CB3E65 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		FD5D3A712047E3DD00CB3E65 /* ETForgetPsdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETForgetPsdViewController.h; sourceTree = "<group>"; };
+		FD5D3ABE20480E2C00CB3E65 /* ETUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETUtils.h; sourceTree = "<group>"; };
+		FD5D3ABF20480E2C00CB3E65 /* ETUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +485,8 @@
 				FD5D3A2F2047E3DD00CB3E65 /* ETActor.m */,
 				FD5D39FC2047E3DD00CB3E65 /* ETAppConfigurations.h */,
 				FD5D3A2B2047E3DD00CB3E65 /* ETAppConfigurations.m */,
+				FD5D3ABE20480E2C00CB3E65 /* ETUtils.h */,
+				FD5D3ABF20480E2C00CB3E65 /* ETUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -669,6 +674,7 @@
 				FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */,
 				FD5D3A912047E3DD00CB3E65 /* ETEditView.m in Sources */,
 				FD5D3A9F2047E3DD00CB3E65 /* APIHosts.m in Sources */,
+				FD5D3AC020480E2C00CB3E65 /* ETUtils.m in Sources */,
 				FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */,
 				FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */,
 				FD5D3A942047E3DD00CB3E65 /* main.m in Sources */,
