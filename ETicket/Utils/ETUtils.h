@@ -12,5 +12,6 @@
 
 + (void)makeCallWithPhone:(NSString *)phone view:(UIView *)superView;
 + (UIImage *)generateQRCodeImage:(NSString *)source;
++ (NSString *)generateAlipayTradeNO;
 
 @end

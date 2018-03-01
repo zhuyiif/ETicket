@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		912FE513345354D6D7D5D620 /* libPods-ETicket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75EEC7F4B93B497E338580BE /* libPods-ETicket.a */; };
+		FD3BBB542048F7BA00A129B7 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB052048F7BA00A129B7 /* libcrypto.a */; };
+		FD3BBB552048F7BA00A129B7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB062048F7BA00A129B7 /* libssl.a */; };
+		FD3BBB562048F7BA00A129B7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB072048F7BA00A129B7 /* AlipaySDK.framework */; };
+		FD3BBB5C2048F85100A129B7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB5B2048F85100A129B7 /* libc++.tbd */; };
+		FD3BBB5E2048F86200A129B7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB5D2048F86200A129B7 /* libz.tbd */; };
+		FD3BBB612048FAC300A129B7 /* ETPayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBB602048FAC300A129B7 /* ETPayHelper.m */; };
+		FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBB632048FBD900A129B7 /* ETAlipayOrder.m */; };
+		FD3BBB682048FF9600A129B7 /* ETAlipayRSASigner.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBB672048FF9600A129B7 /* ETAlipayRSASigner.m */; };
+		FD3BBB7420490A9B00A129B7 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBB6D20490A9B00A129B7 /* openssl_wrapper.m */; };
 		FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */; };
 		FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F82047E3DD00CB3E65 /* ETPageIndicator.m */; };
 		FD5D3A742047E3DD00CB3E65 /* ETMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39FE2047E3DD00CB3E65 /* ETMineViewController.m */; };
@@ -33,7 +42,7 @@
 		FD5D3A892047E3DD00CB3E65 /* ETPlatformView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A242047E3DD00CB3E65 /* ETPlatformView.m */; };
 		FD5D3A8A2047E3DD00CB3E65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A252047E3DD00CB3E65 /* LaunchScreen.storyboard */; };
 		FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2A2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m */; };
-		FD5D3A8C2047E3DD00CB3E65 /* ETAppConfigurations.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2B2047E3DD00CB3E65 /* ETAppConfigurations.m */; };
+		FD5D3A8C2047E3DD00CB3E65 /* ETAppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2B2047E3DD00CB3E65 /* ETAppHelper.m */; };
 		FD5D3A8D2047E3DD00CB3E65 /* ETPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2C2047E3DD00CB3E65 /* ETPopover.m */; };
 		FD5D3A8E2047E3DD00CB3E65 /* TTLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2D2047E3DD00CB3E65 /* TTLanguage.m */; };
 		FD5D3A8F2047E3DD00CB3E65 /* SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A2E2047E3DD00CB3E65 /* SwizzleMethod.m */; };
@@ -79,6 +88,96 @@
 		4DD270B97BDAF4DC0A07E50E /* Pods-ETicket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETicket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETicket/Pods-ETicket.debug.xcconfig"; sourceTree = "<group>"; };
 		75EEC7F4B93B497E338580BE /* libPods-ETicket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ETicket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD353B4B1FDFB2F100489185 /* ETicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD3BBB052048F7BA00A129B7 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		FD3BBB062048F7BA00A129B7 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		FD3BBB072048F7BA00A129B7 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		FD3BBB572048F82A00A129B7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		FD3BBB592048F83200A129B7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FD3BBB5B2048F85100A129B7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		FD3BBB5D2048F86200A129B7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FD3BBB5F2048FAC300A129B7 /* ETPayHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETPayHelper.h; sourceTree = "<group>"; };
+		FD3BBB602048FAC300A129B7 /* ETPayHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETPayHelper.m; sourceTree = "<group>"; };
+		FD3BBB622048FBD900A129B7 /* ETAlipayOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETAlipayOrder.h; sourceTree = "<group>"; };
+		FD3BBB632048FBD900A129B7 /* ETAlipayOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETAlipayOrder.m; sourceTree = "<group>"; };
+		FD3BBB662048FF9600A129B7 /* ETAlipayRSASigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETAlipayRSASigner.h; sourceTree = "<group>"; };
+		FD3BBB672048FF9600A129B7 /* ETAlipayRSASigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETAlipayRSASigner.m; sourceTree = "<group>"; };
+		FD3BBB6D20490A9B00A129B7 /* openssl_wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openssl_wrapper.m; sourceTree = "<group>"; };
+		FD3BBB7120490A9B00A129B7 /* openssl_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_wrapper.h; sourceTree = "<group>"; };
+		FD3BBB80204933F600A129B7 /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
+		FD3BBB81204933F600A129B7 /* pem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
+		FD3BBB82204933F600A129B7 /* ssl3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
+		FD3BBB83204933F600A129B7 /* ossl_typ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
+		FD3BBB84204933F600A129B7 /* dtls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
+		FD3BBB85204933F600A129B7 /* err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
+		FD3BBB86204933F600A129B7 /* bn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
+		FD3BBB87204933F600A129B7 /* blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
+		FD3BBB88204933F600A129B7 /* cms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cms.h; sourceTree = "<group>"; };
+		FD3BBB89204933F600A129B7 /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		FD3BBB8A204933F600A129B7 /* conf_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf_api.h; sourceTree = "<group>"; };
+		FD3BBB8B204933F600A129B7 /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
+		FD3BBB8C204933F600A129B7 /* asn1_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
+		FD3BBB8D204933F600A129B7 /* ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
+		FD3BBB8E204933F600A129B7 /* kssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kssl.h; sourceTree = "<group>"; };
+		FD3BBB8F204933F600A129B7 /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		FD3BBB90204933F600A129B7 /* symhacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symhacks.h; sourceTree = "<group>"; };
+		FD3BBB91204933F600A129B7 /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
+		FD3BBB92204933F600A129B7 /* opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
+		FD3BBB93204933F600A129B7 /* bio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
+		FD3BBB94204933F600A129B7 /* rc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
+		FD3BBB95204933F600A129B7 /* dh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
+		FD3BBB96204933F600A129B7 /* ui_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui_compat.h; sourceTree = "<group>"; };
+		FD3BBB97204933F600A129B7 /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		FD3BBB98204933F600A129B7 /* ssl23.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl23.h; sourceTree = "<group>"; };
+		FD3BBB99204933F600A129B7 /* conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
+		FD3BBB9A204933F600A129B7 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		FD3BBB9B204933F600A129B7 /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
+		FD3BBB9C204933F600A129B7 /* txt_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = txt_db.h; sourceTree = "<group>"; };
+		FD3BBB9D204933F600A129B7 /* safestack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
+		FD3BBB9E204933F600A129B7 /* ecdsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		FD3BBB9F204933F600A129B7 /* objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
+		FD3BBBA0204933F600A129B7 /* pkcs12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
+		FD3BBBA1204933F600A129B7 /* crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
+		FD3BBBA2204933F600A129B7 /* opensslv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
+		FD3BBBA3204933F600A129B7 /* pkcs7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
+		FD3BBBA4204933F600A129B7 /* obj_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
+		FD3BBBA5204933F600A129B7 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		FD3BBBA6204933F600A129B7 /* ssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
+		FD3BBBA7204933F600A129B7 /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
+		FD3BBBA8204933F600A129B7 /* camellia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
+		FD3BBBA9204933F600A129B7 /* evp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
+		FD3BBBAA204933F600A129B7 /* e_os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		FD3BBBAB204933F600A129B7 /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		FD3BBBAC204933F600A129B7 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		FD3BBBAD204933F600A129B7 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		FD3BBBAE204933F600A129B7 /* comp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comp.h; sourceTree = "<group>"; };
+		FD3BBBAF204933F600A129B7 /* cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		FD3BBBB0204933F600A129B7 /* rc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		FD3BBBB1204933F600A129B7 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		FD3BBBB2204933F600A129B7 /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		FD3BBBB3204933F600A129B7 /* ocsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ocsp.h; sourceTree = "<group>"; };
+		FD3BBBB4204933F600A129B7 /* ec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
+		FD3BBBB5204933F600A129B7 /* ecdh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		FD3BBBB6204933F600A129B7 /* rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		FD3BBBB7204933F600A129B7 /* ts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ts.h; sourceTree = "<group>"; };
+		FD3BBBB8204933F600A129B7 /* pqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pqueue.h; sourceTree = "<group>"; };
+		FD3BBBB9204933F600A129B7 /* dso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dso.h; sourceTree = "<group>"; };
+		FD3BBBBA204933F600A129B7 /* seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
+		FD3BBBBB204933F600A129B7 /* modes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
+		FD3BBBBC204933F600A129B7 /* ssl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl2.h; sourceTree = "<group>"; };
+		FD3BBBBD204933F600A129B7 /* rsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		FD3BBBBE204933F600A129B7 /* krb5_asn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = krb5_asn.h; sourceTree = "<group>"; };
+		FD3BBBBF204933F600A129B7 /* des_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des_old.h; sourceTree = "<group>"; };
+		FD3BBBC0204933F600A129B7 /* ripemd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
+		FD3BBBC1204933F600A129B7 /* whrlpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
+		FD3BBBC2204933F600A129B7 /* tls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
+		FD3BBBC3204933F600A129B7 /* mdc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
+		FD3BBBC4204933F600A129B7 /* dsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		FD3BBBC5204933F600A129B7 /* srtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
+		FD3BBBC6204933F600A129B7 /* asn1t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
+		FD3BBBC7204933F600A129B7 /* cmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		FD3BBBC8204933F600A129B7 /* ebcdic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
+		FD3BBBC9204933F600A129B7 /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
+		FD3BBBCA204933F600A129B7 /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
 		FD5D39F42047E3DD00CB3E65 /* ETWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETWebViewController.h; sourceTree = "<group>"; };
 		FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Additions.m"; sourceTree = "<group>"; };
 		FD5D39F62047E3DD00CB3E65 /* UIApplication+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Additions.h"; sourceTree = "<group>"; };
@@ -87,7 +186,7 @@
 		FD5D39F92047E3DD00CB3E65 /* TTLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLanguage.h; sourceTree = "<group>"; };
 		FD5D39FA2047E3DD00CB3E65 /* SwizzleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwizzleMethod.h; sourceTree = "<group>"; };
 		FD5D39FB2047E3DD00CB3E65 /* ETActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETActor.h; sourceTree = "<group>"; };
-		FD5D39FC2047E3DD00CB3E65 /* ETAppConfigurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAppConfigurations.h; sourceTree = "<group>"; };
+		FD5D39FC2047E3DD00CB3E65 /* ETAppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAppHelper.h; sourceTree = "<group>"; };
 		FD5D39FD2047E3DD00CB3E65 /* ETPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETPopover.h; sourceTree = "<group>"; };
 		FD5D39FE2047E3DD00CB3E65 /* ETMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMineViewController.m; sourceTree = "<group>"; };
 		FD5D39FF2047E3DD00CB3E65 /* TTTAttributedLabel+additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTTAttributedLabel+additions.h"; sourceTree = "<group>"; };
@@ -130,7 +229,7 @@
 		FD5D3A282047E3DD00CB3E65 /* UIView+ITTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ITTAdditions.h"; sourceTree = "<group>"; };
 		FD5D3A292047E3DD00CB3E65 /* ETMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMineViewController.h; sourceTree = "<group>"; };
 		FD5D3A2A2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TTTAttributedLabel+additions.m"; sourceTree = "<group>"; };
-		FD5D3A2B2047E3DD00CB3E65 /* ETAppConfigurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAppConfigurations.m; sourceTree = "<group>"; };
+		FD5D3A2B2047E3DD00CB3E65 /* ETAppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAppHelper.m; sourceTree = "<group>"; };
 		FD5D3A2C2047E3DD00CB3E65 /* ETPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETPopover.m; sourceTree = "<group>"; };
 		FD5D3A2D2047E3DD00CB3E65 /* TTLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLanguage.m; sourceTree = "<group>"; };
 		FD5D3A2E2047E3DD00CB3E65 /* SwizzleMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwizzleMethod.m; sourceTree = "<group>"; };
@@ -208,7 +307,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD3BBB5E2048F86200A129B7 /* libz.tbd in Frameworks */,
+				FD3BBB5C2048F85100A129B7 /* libc++.tbd in Frameworks */,
+				FD3BBB542048F7BA00A129B7 /* libcrypto.a in Frameworks */,
+				FD3BBB562048F7BA00A129B7 /* AlipaySDK.framework in Frameworks */,
 				912FE513345354D6D7D5D620 /* libPods-ETicket.a in Frameworks */,
+				FD3BBB552048F7BA00A129B7 /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +322,10 @@
 		65B572379BF2CABEBC2450BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BBB5D2048F86200A129B7 /* libz.tbd */,
+				FD3BBB5B2048F85100A129B7 /* libc++.tbd */,
+				FD3BBB592048F83200A129B7 /* CFNetwork.framework */,
+				FD3BBB572048F82A00A129B7 /* CoreMotion.framework */,
 				75EEC7F4B93B497E338580BE /* libPods-ETicket.a */,
 			);
 			name = Frameworks;
@@ -250,9 +358,125 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FD3BBB032048F7BA00A129B7 /* ExternalLibs */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BBB7F204933F600A129B7 /* openssl */,
+				FD3BBB042048F7BA00A129B7 /* Alipaylib */,
+			);
+			path = ExternalLibs;
+			sourceTree = "<group>";
+		};
+		FD3BBB042048F7BA00A129B7 /* Alipaylib */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BBB052048F7BA00A129B7 /* libcrypto.a */,
+				FD3BBB062048F7BA00A129B7 /* libssl.a */,
+				FD3BBB072048F7BA00A129B7 /* AlipaySDK.framework */,
+			);
+			path = Alipaylib;
+			sourceTree = "<group>";
+		};
+		FD3BBB652048FBF700A129B7 /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BBB7120490A9B00A129B7 /* openssl_wrapper.h */,
+				FD3BBB6D20490A9B00A129B7 /* openssl_wrapper.m */,
+				FD3BBB622048FBD900A129B7 /* ETAlipayOrder.h */,
+				FD3BBB632048FBD900A129B7 /* ETAlipayOrder.m */,
+				FD3BBB662048FF9600A129B7 /* ETAlipayRSASigner.h */,
+				FD3BBB672048FF9600A129B7 /* ETAlipayRSASigner.m */,
+			);
+			name = Alipay;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FD3BBB7F204933F600A129B7 /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BBB80204933F600A129B7 /* pem2.h */,
+				FD3BBB81204933F600A129B7 /* pem.h */,
+				FD3BBB82204933F600A129B7 /* ssl3.h */,
+				FD3BBB83204933F600A129B7 /* ossl_typ.h */,
+				FD3BBB84204933F600A129B7 /* dtls1.h */,
+				FD3BBB85204933F600A129B7 /* err.h */,
+				FD3BBB86204933F600A129B7 /* bn.h */,
+				FD3BBB87204933F600A129B7 /* blowfish.h */,
+				FD3BBB88204933F600A129B7 /* cms.h */,
+				FD3BBB89204933F600A129B7 /* engine.h */,
+				FD3BBB8A204933F600A129B7 /* conf_api.h */,
+				FD3BBB8B204933F600A129B7 /* x509.h */,
+				FD3BBB8C204933F600A129B7 /* asn1_mac.h */,
+				FD3BBB8D204933F600A129B7 /* ui.h */,
+				FD3BBB8E204933F600A129B7 /* kssl.h */,
+				FD3BBB8F204933F600A129B7 /* sha.h */,
+				FD3BBB90204933F600A129B7 /* symhacks.h */,
+				FD3BBB91204933F600A129B7 /* asn1.h */,
+				FD3BBB92204933F600A129B7 /* opensslconf.h */,
+				FD3BBB93204933F600A129B7 /* bio.h */,
+				FD3BBB94204933F600A129B7 /* rc2.h */,
+				FD3BBB95204933F600A129B7 /* dh.h */,
+				FD3BBB96204933F600A129B7 /* ui_compat.h */,
+				FD3BBB97204933F600A129B7 /* x509v3.h */,
+				FD3BBB98204933F600A129B7 /* ssl23.h */,
+				FD3BBB99204933F600A129B7 /* conf.h */,
+				FD3BBB9A204933F600A129B7 /* md5.h */,
+				FD3BBB9B204933F600A129B7 /* x509_vfy.h */,
+				FD3BBB9C204933F600A129B7 /* txt_db.h */,
+				FD3BBB9D204933F600A129B7 /* safestack.h */,
+				FD3BBB9E204933F600A129B7 /* ecdsa.h */,
+				FD3BBB9F204933F600A129B7 /* objects.h */,
+				FD3BBBA0204933F600A129B7 /* pkcs12.h */,
+				FD3BBBA1204933F600A129B7 /* crypto.h */,
+				FD3BBBA2204933F600A129B7 /* opensslv.h */,
+				FD3BBBA3204933F600A129B7 /* pkcs7.h */,
+				FD3BBBA4204933F600A129B7 /* obj_mac.h */,
+				FD3BBBA5204933F600A129B7 /* buffer.h */,
+				FD3BBBA6204933F600A129B7 /* ssl.h */,
+				FD3BBBA7204933F600A129B7 /* srp.h */,
+				FD3BBBA8204933F600A129B7 /* camellia.h */,
+				FD3BBBA9204933F600A129B7 /* evp.h */,
+				FD3BBBAA204933F600A129B7 /* e_os2.h */,
+				FD3BBBAB204933F600A129B7 /* md4.h */,
+				FD3BBBAC204933F600A129B7 /* hmac.h */,
+				FD3BBBAD204933F600A129B7 /* aes.h */,
+				FD3BBBAE204933F600A129B7 /* comp.h */,
+				FD3BBBAF204933F600A129B7 /* cast.h */,
+				FD3BBBB0204933F600A129B7 /* rc4.h */,
+				FD3BBBB1204933F600A129B7 /* stack.h */,
+				FD3BBBB2204933F600A129B7 /* des.h */,
+				FD3BBBB3204933F600A129B7 /* ocsp.h */,
+				FD3BBBB4204933F600A129B7 /* ec.h */,
+				FD3BBBB5204933F600A129B7 /* ecdh.h */,
+				FD3BBBB6204933F600A129B7 /* rand.h */,
+				FD3BBBB7204933F600A129B7 /* ts.h */,
+				FD3BBBB8204933F600A129B7 /* pqueue.h */,
+				FD3BBBB9204933F600A129B7 /* dso.h */,
+				FD3BBBBA204933F600A129B7 /* seed.h */,
+				FD3BBBBB204933F600A129B7 /* modes.h */,
+				FD3BBBBC204933F600A129B7 /* ssl2.h */,
+				FD3BBBBD204933F600A129B7 /* rsa.h */,
+				FD3BBBBE204933F600A129B7 /* krb5_asn.h */,
+				FD3BBBBF204933F600A129B7 /* des_old.h */,
+				FD3BBBC0204933F600A129B7 /* ripemd.h */,
+				FD3BBBC1204933F600A129B7 /* whrlpool.h */,
+				FD3BBBC2204933F600A129B7 /* tls1.h */,
+				FD3BBBC3204933F600A129B7 /* mdc2.h */,
+				FD3BBBC4204933F600A129B7 /* dsa.h */,
+				FD3BBBC5204933F600A129B7 /* srtp.h */,
+				FD3BBBC6204933F600A129B7 /* asn1t.h */,
+				FD3BBBC7204933F600A129B7 /* cmac.h */,
+				FD3BBBC8204933F600A129B7 /* ebcdic.h */,
+				FD3BBBC9204933F600A129B7 /* idea.h */,
+				FD3BBBCA204933F600A129B7 /* lhash.h */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
 		FD5D39F32047E3DD00CB3E65 /* ETicket */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BBB032048F7BA00A129B7 /* ExternalLibs */,
 				FD5D3ABA2047ED7900CB3E65 /* Generals */,
 				FD5D3AB62047EB8100CB3E65 /* Controllers */,
 				FD5D3AB52047EA9900CB3E65 /* Views */,
@@ -293,30 +517,30 @@
 		FD5D3A442047E3DD00CB3E65 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				FD5D3A452047E3DD00CB3E65 /* UIViewController+Query.h */,
 				FD5D3A462047E3DD00CB3E65 /* APIHosts.h */,
+				FD5D3A542047E3DD00CB3E65 /* APIHosts.m */,
+				FD5D3A532047E3DD00CB3E65 /* NSError+Message.h */,
 				FD5D3A472047E3DD00CB3E65 /* NSError+Message.m */,
-				FD5D3A482047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.m */,
 				FD5D3A492047E3DD00CB3E65 /* RACSignal+Parse.h */,
+				FD5D3A512047E3DD00CB3E65 /* RACSignal+Parse.m */,
+				FD5D3A582047E3DD00CB3E65 /* RACSignal+Retry.h */,
 				FD5D3A4A2047E3DD00CB3E65 /* RACSignal+Retry.m */,
 				FD5D3A4B2047E3DD00CB3E65 /* NSDictionary+Shortcuts.h */,
-				FD5D3A4C2047E3DD00CB3E65 /* Query.h */,
-				FD5D3A4D2047E3DD00CB3E65 /* UIScrollView+Refresh.m */,
-				FD5D3A4E2047E3DD00CB3E65 /* UIViewController+ErrorView.h */,
-				FD5D3A4F2047E3DD00CB3E65 /* RACCommand+Additions.h */,
-				FD5D3A502047E3DD00CB3E65 /* APICenter.h */,
-				FD5D3A512047E3DD00CB3E65 /* RACSignal+Parse.m */,
-				FD5D3A522047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.h */,
-				FD5D3A532047E3DD00CB3E65 /* NSError+Message.h */,
-				FD5D3A542047E3DD00CB3E65 /* APIHosts.m */,
-				FD5D3A552047E3DD00CB3E65 /* UIViewController+Query.m */,
-				FD5D3A562047E3DD00CB3E65 /* Query.m */,
 				FD5D3A572047E3DD00CB3E65 /* NSDictionary+Shortcuts.m */,
-				FD5D3A582047E3DD00CB3E65 /* RACSignal+Retry.h */,
-				FD5D3A592047E3DD00CB3E65 /* RACCommand+Additions.m */,
-				FD5D3A5A2047E3DD00CB3E65 /* UIViewController+ErrorView.m */,
+				FD5D3A4C2047E3DD00CB3E65 /* Query.h */,
+				FD5D3A562047E3DD00CB3E65 /* Query.m */,
 				FD5D3A5B2047E3DD00CB3E65 /* UIScrollView+Refresh.h */,
+				FD5D3A4D2047E3DD00CB3E65 /* UIScrollView+Refresh.m */,
+				FD5D3A4F2047E3DD00CB3E65 /* RACCommand+Additions.h */,
+				FD5D3A592047E3DD00CB3E65 /* RACCommand+Additions.m */,
+				FD5D3A502047E3DD00CB3E65 /* APICenter.h */,
 				FD5D3A5C2047E3DD00CB3E65 /* APICenter.m */,
+				FD5D3A522047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.h */,
+				FD5D3A482047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.m */,
+				FD5D3A452047E3DD00CB3E65 /* UIViewController+Query.h */,
+				FD5D3A552047E3DD00CB3E65 /* UIViewController+Query.m */,
+				FD5D3A4E2047E3DD00CB3E65 /* UIViewController+ErrorView.h */,
+				FD5D3A5A2047E3DD00CB3E65 /* UIViewController+ErrorView.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -433,10 +657,14 @@
 		FD5D3ABB2047ED8900CB3E65 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				FD5D39FC2047E3DD00CB3E65 /* ETAppHelper.h */,
+				FD5D3A2B2047E3DD00CB3E65 /* ETAppHelper.m */,
 				FD5D3A162047E3DD00CB3E65 /* ETThemeHelper.h */,
 				FD5D3A652047E3DD00CB3E65 /* ETThemeHelper.m */,
 				FD5D3A3E2047E3DD00CB3E65 /* ETPhotoHelper.h */,
 				FD5D3A072047E3DD00CB3E65 /* ETPhotoHelper.m */,
+				FD3BBB5F2048FAC300A129B7 /* ETPayHelper.h */,
+				FD3BBB602048FAC300A129B7 /* ETPayHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -479,12 +707,11 @@
 		FD5D3ABD2047EE6500CB3E65 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BBB652048FBF700A129B7 /* Alipay */,
 				FD5D39F92047E3DD00CB3E65 /* TTLanguage.h */,
 				FD5D3A2D2047E3DD00CB3E65 /* TTLanguage.m */,
 				FD5D39FB2047E3DD00CB3E65 /* ETActor.h */,
 				FD5D3A2F2047E3DD00CB3E65 /* ETActor.m */,
-				FD5D39FC2047E3DD00CB3E65 /* ETAppConfigurations.h */,
-				FD5D3A2B2047E3DD00CB3E65 /* ETAppConfigurations.m */,
 				FD5D3ABE20480E2C00CB3E65 /* ETUtils.h */,
 				FD5D3ABF20480E2C00CB3E65 /* ETUtils.m */,
 			);
@@ -675,17 +902,20 @@
 				FD5D3A912047E3DD00CB3E65 /* ETEditView.m in Sources */,
 				FD5D3A9F2047E3DD00CB3E65 /* APIHosts.m in Sources */,
 				FD5D3AC020480E2C00CB3E65 /* ETUtils.m in Sources */,
+				FD3BBB7420490A9B00A129B7 /* openssl_wrapper.m in Sources */,
 				FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */,
 				FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */,
 				FD5D3A942047E3DD00CB3E65 /* main.m in Sources */,
 				FD5D3A8D2047E3DD00CB3E65 /* ETPopover.m in Sources */,
 				FD5D3A892047E3DD00CB3E65 /* ETPlatformView.m in Sources */,
 				FD5D3AAD2047E3DD00CB3E65 /* UIView+ITTAdditions.m in Sources */,
+				FD3BBB682048FF9600A129B7 /* ETAlipayRSASigner.m in Sources */,
 				FD5D3A772047E3DD00CB3E65 /* ETPhotoHelper.m in Sources */,
 				FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */,
 				FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */,
 				FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */,
 				FD5D3AA42047E3DD00CB3E65 /* UIViewController+ErrorView.m in Sources */,
+				FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */,
 				FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */,
 				FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */,
 				FD5D3A982047E3DD00CB3E65 /* ETMineTVCell.m in Sources */,
@@ -712,13 +942,14 @@
 				FD5D3A7A2047E3DD00CB3E65 /* ETAlertView.m in Sources */,
 				FD5D3AAC2047E3DD00CB3E65 /* ETThemeHelper.m in Sources */,
 				FD5D3AA62047E3DD00CB3E65 /* ETLoadingSpinner.m in Sources */,
-				FD5D3A8C2047E3DD00CB3E65 /* ETAppConfigurations.m in Sources */,
+				FD5D3A8C2047E3DD00CB3E65 /* ETAppHelper.m in Sources */,
 				FD5D3AA22047E3DD00CB3E65 /* NSDictionary+Shortcuts.m in Sources */,
 				FD5D3AAE2047E3DD00CB3E65 /* UIImage+Draw.m in Sources */,
 				FD5D3A8F2047E3DD00CB3E65 /* SwizzleMethod.m in Sources */,
 				FD5D3A7D2047E3DD00CB3E65 /* ETBannerInfo.m in Sources */,
 				FD5D3A902047E3DD00CB3E65 /* ETActor.m in Sources */,
 				FD5D3AA52047E3DD00CB3E65 /* APICenter.m in Sources */,
+				FD3BBB612048FAC300A129B7 /* ETPayHelper.m in Sources */,
 				FD5D3A882047E3DD00CB3E65 /* ETGuideViewController.m in Sources */,
 				FD5D3A762047E3DD00CB3E65 /* ETBannerScrollView.m in Sources */,
 			);
@@ -851,10 +1082,45 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q9B6GTQNWW;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ETicket/ExternalLibs/Alipaylib",
+				);
 				GCC_PREFIX_HEADER = "ETicket/ETicket-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/Base64\"",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/Public/EDColor\"",
+					"\"${PODS_ROOT}/Headers/Public/JMHoledView\"",
+					"\"${PODS_ROOT}/Headers/Public/KMNavigationBarTransition\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/MOBFoundation\"",
+					"\"${PODS_ROOT}/Headers/Public/Mantle\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/QQ_XGPush\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+					"\"${PODS_ROOT}/Headers/Public/SCLAlertView-Objective-C\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SQLitePersistentObjects\"",
+					"\"${PODS_ROOT}/Headers/Public/ShareSDK3\"",
+					"\"${PODS_ROOT}/Headers/Public/TPKeyboardAvoiding\"",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/WYPopoverController\"",
+					"\"${PODS_ROOT}/Headers/Public/YLGIFImage\"",
+					"\"${PODS_ROOT}/Headers/Public/YYImage\"",
+					"\"$(PROJECT_DIR)/ETicket/ExternalLibs\"",
+				);
 				INFOPLIST_FILE = ETicket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ETicket/ExternalLibs/Alipaylib",
+				);
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tct.MobileETicket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -873,10 +1139,45 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q9B6GTQNWW;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ETicket/ExternalLibs/Alipaylib",
+				);
 				GCC_PREFIX_HEADER = "ETicket/ETicket-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/Base64\"",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/Public/EDColor\"",
+					"\"${PODS_ROOT}/Headers/Public/JMHoledView\"",
+					"\"${PODS_ROOT}/Headers/Public/KMNavigationBarTransition\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/MOBFoundation\"",
+					"\"${PODS_ROOT}/Headers/Public/Mantle\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/QQ_XGPush\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+					"\"${PODS_ROOT}/Headers/Public/SCLAlertView-Objective-C\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SQLitePersistentObjects\"",
+					"\"${PODS_ROOT}/Headers/Public/ShareSDK3\"",
+					"\"${PODS_ROOT}/Headers/Public/TPKeyboardAvoiding\"",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/WYPopoverController\"",
+					"\"${PODS_ROOT}/Headers/Public/YLGIFImage\"",
+					"\"${PODS_ROOT}/Headers/Public/YYImage\"",
+					"\"$(PROJECT_DIR)/ETicket/ExternalLibs\"",
+				);
 				INFOPLIST_FILE = ETicket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ETicket/ExternalLibs/Alipaylib",
+				);
 				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tct.MobileETicket;
 				PRODUCT_NAME = "$(TARGET_NAME)";

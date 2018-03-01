@@ -10,7 +10,7 @@
 #import "ETMenusViewController.h"
 #import "APIHosts.h"
 #import <SDImageCache.h>
-#import "ETAppConfigurations.h"
+#import "ETAppHelper.h"
 #import "ETGuideViewController.h"
 #import "ETHomeViewController.h"
 
@@ -34,8 +34,8 @@
         self.pushInfo = [launchOptions objectForKey:UIApplicationStatusBarFrameUserInfoKey];
     }
     [NSURLCache setSharedURLCache:[[NSURLCache alloc] initWithMemoryCapacity:32 * 1024 * 1024 diskCapacity:64 * 1024 * 1024 diskPath:nil]];
-    [ETAppConfigurations configTheme];
-    [ETAppConfigurations configPopoverController];
+    [ETAppHelper configTheme];
+    [ETAppHelper configPopoverController];
     @weakify(self);
     [[self showGuideIfNeeded] subscribeNext:^(id x) {
         @strongify(self);
@@ -73,6 +73,17 @@
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
     [[SDImageCache sharedImageCache] clearMemory];
     [[SDImageCache sharedImageCache] setValue:nil forKey:@"memCache"];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [ETAppHelper application:application openURL:url];
+    return YES;
+}
+
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
+    [ETAppHelper application:app openURL:url];
+    return YES;
 }
 
 #pragma private

@@ -10,6 +10,8 @@
 #import "ETBannerScrollView.h"
 #import "ETHomePresenter.h"
 #import <TPKeyboardAvoidingScrollView.h>
+#import "UIButton+Style.h"
+#import "ETPayHelper.h"
 
 @interface ETHomeViewController ()
 
@@ -50,6 +52,19 @@
         make.height.equalTo(self.bannerContainer.mas_width).multipliedBy(.4);
     }];
     [self.stackView addArrangedSubview:self.bannerContainer];
+    
+    UIButton *button = [UIButton buttonWithStyle:ETButtonStyleGreen height:40];
+    [button setTitle:@"pay" forState:UIControlStateNormal];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@40);
+    }];
+    [button.eventSingal subscribeNext:^(id x) {
+        [[[ETPayHelper sharedInstance] payWithAmount:@0.01] subscribeNext:^(id x) {
+            
+        }];
+    }];
+    
+    [self.stackView addArrangedSubview:button];
     [self bindDatas];
 }
 

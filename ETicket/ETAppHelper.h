@@ -1,5 +1,5 @@
 //
-//  ETAppConfigurations.h
+//  ETAppHelper.h
 //  ETicket
 //
 //  Created by chunjian wang on 2017/12/12.
@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ETAppConfigurations : NSObject
+@interface ETAppHelper : NSObject
 
 + (void)configTheme;
 + (void)configSNSPlatforms;
 + (void)configPopoverController;
++ (void)application:(UIApplication *)application openURL:(NSURL *)url;
 
 @end

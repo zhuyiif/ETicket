@@ -19,6 +19,10 @@
     return [Query GET:@"" parameters:parameters];
 }
 
++ (Query *)getPaymentSN:(NSDictionary *)parameters {
+    return [Query emptyQuery];
+}
+
 + (Query *)postSMS:(NSDictionary *)parameters {
     return [Query POST:@"" parameters:parameters];
 }
@@ -27,6 +31,9 @@
     return [Query POST:@"" parameters:parameters];
 }
 
++ (Query *)postPaymentConfirmation:(NSDictionary *)parameters {
+    return [Query emptyQuery];
+}
 
 
 @end
