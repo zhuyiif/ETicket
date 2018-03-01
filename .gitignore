@@ -3,4 +3,5 @@ Version.m
 xcuserdata
 *.xccheckout
 node_modules
+Pods
 
