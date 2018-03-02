@@ -17,6 +17,5 @@
 + (NSString *)URLAtIndex:(NSInteger)index;
 + (NSString *)defaultURL;
 + (void)setDefaultURLWithIndex:(NSInteger)index;
-+ (AFHTTPSessionManager *)translateManager;
 
 @end

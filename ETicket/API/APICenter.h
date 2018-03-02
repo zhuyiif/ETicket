@@ -44,8 +44,11 @@
 + (Query *)getBanner:(NSDictionary *)parameters;
 + (Query *)getAgreementProtocol:(NSDictionary *)parameters;
 + (Query *)getPaymentSN:(NSDictionary *)parameters;
++ (Query *)getUserProfile:(NSDictionary*)parameters;
 + (Query *)postSMS:(NSDictionary *)parameters;
 + (Query *)postForgetPassword:(NSDictionary *)parameters;
-+ (Query *)postPaymentConfirmation:(NSDictionary *)parameters;
++ (Query *)putPaymentConfirmation:(NSDictionary *)parameters;
++ (Query *)postLogin:(NSDictionary *)parameters;
++ (Query *)postGetCode:(NSDictionary *)parameters;
 
 @end

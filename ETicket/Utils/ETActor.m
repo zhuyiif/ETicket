@@ -60,7 +60,14 @@ static ETActor *instance = nil;
 }
 
 - (RACSignal *)loginWithAccount:(NSString *)account password:(NSString *)password {
-    return [[RACSignal return:@YES] delay:3];
+    NSDictionary *params =  @{ @"phoneNumber": account };
+    return [[[[APICenter postGetCode:params] execute] flattenMap:^RACStream *(id value) {
+        return [[APICenter postLogin:value] execute];
+    }] flattenMap:^RACStream *(id x) {
+        self.loginType = ETLoginTypeInline;
+        self.token = [[x objectForKey:@"user"] objectForKey:@"token"];
+        return [self didLogin];
+    }];
 }
 
 - (RACSignal *)thirdPlatformLogin:(SSDKPlatformType)platform {
@@ -178,15 +185,12 @@ static ETActor *instance = nil;
     return  [[RACSignal return:@YES] delay:2];
 }
 
-- (void)didLogin {
-//    @weakify(self);
-//    [[[APICenter getUser:nil] execute] subscribeNext:^(BSPersional *x) {
-//        @strongify(self);
-//        self.user = x;
-//        self.userId = x.id;
-//        [[NSNotificationCenter defaultCenter] postNotificationName:KUserUpdateNotification
-//                                                            object:nil];
-//    }];
+- (RACSignal *)didLogin {
+    
+    return [[[APICenter getUserProfile:nil] execute] doNext:^(id x) {
+        self.login = YES;
+    }];
+   
 }
 
 - (RACSignal *)signupWithItem:(ETSignupItem *)item {

@@ -30,8 +30,6 @@ typedef NS_OPTIONS(NSUInteger, ETLoginType) {
 
 - (BOOL)isLogin;
 
-- (NSString *)currentAccessType;
-
 - (void)logoutWithBlock:(void (^)(void))completeBlock;
 
 - (RACSignal *)loginWithAccount:(NSString *)account

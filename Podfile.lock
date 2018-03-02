@@ -49,6 +49,7 @@ PODS:
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
   - SCLAlertView-Objective-C (1.1.2)
+  - SDVersion (4.3.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -89,6 +90,7 @@ DEPENDENCIES:
   - QQ_XGPush
   - ReactiveCocoa (~> 2.5)
   - SCLAlertView-Objective-C
+  - SDVersion
   - SDWebImage (= 3.8.2)
   - ShareSDK3
   - ShareSDK3/ShareSDKExtension
@@ -117,6 +119,7 @@ SPEC CHECKSUMS:
   QQ_XGPush: 2824cca429269a397cff8cf1028216412527c59e
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SCLAlertView-Objective-C: 0e54351fa4f98a5c7c6ad3727e6dbb46784534e5
+  SDVersion: 18f32c835c1543611fcfae3c6accd9a04b90597e
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   ShareSDK3: 75b57bab0cbe3119e281c7668eaad9d48adf3fde
   SQLitePersistentObjects: 9a7622dfc571917e7261f282c4bfb14c65448117
@@ -126,6 +129,6 @@ SPEC CHECKSUMS:
   YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: a19c0e97049a86f2fbe8bb52184db156b3c0c9f4
+PODFILE CHECKSUM: 8a57cb7e187e5d0608d44fc357bd37dd4969332e
 
 COCOAPODS: 1.4.0

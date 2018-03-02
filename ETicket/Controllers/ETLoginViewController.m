@@ -211,9 +211,6 @@ static ETLoginViewController *gInstance;
 
 #pragma mark http functions
 - (void)requestLogin {
-    [ETActor instance].login = YES;
-    [self dismiss];
-    return;
     NSString *account = [self.phoneEditView text];
     if (![account isMobile]) {
         [ETPopover showFailureWithContent:NSLocalizedString(@"手机号错误", nil)];

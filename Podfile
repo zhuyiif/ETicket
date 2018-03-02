@@ -27,4 +27,5 @@ pod 'TTTAttributedLabel'
 pod 'YLGIFImage'
 pod 'QQ_XGPush'
 pod 'SCLAlertView-Objective-C'
+pod 'SDVersion'
 end

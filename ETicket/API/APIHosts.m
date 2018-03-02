@@ -24,8 +24,8 @@
 #endif
 
 static NSString *gHosts[] = {
-    @"https://www.ladybugsays.com/dev/",
-    @"https://www.ladybugsays.com/",
+    @"http://119.29.187.201:8003",
+    @"http://119.29.187.201:8003",
 };
 
 static APIHosts *instance = nil;
@@ -71,13 +71,11 @@ static NSInteger gIndex = 1;
     AFHTTPSessionManager *client = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:[APIHosts defaultURL]]];
     client.requestSerializer.timeoutInterval = 60;
     // custom header 1: 每次创建时设置即可
-//    NSString *uuid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIETtring];
-//    [client.requestSerializer setValue:uuid forHTTPHeaderField:@"ASI-UUID"];
-//
+    NSString *uuid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    [client.requestSerializer setValue:uuid forHTTPHeaderField:@"ASI-UUID"];
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     serializer.removesKeysWithNullValues = YES;
     client.responseSerializer = serializer;
-    
     return client;
 }
 
@@ -89,19 +87,11 @@ static AFHTTPSessionManager *_cacheManager;
         _cacheManager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataDontLoad;
     }
     
-    [_cacheManager.requestSerializer setValue:[[ETActor instance] currentAccessType] forHTTPHeaderField:@"ACCESS-TYPE"];
-    if ([ETActor instance].token) {
-        [_cacheManager.requestSerializer setValue:[ETActor instance].token forHTTPHeaderField:@"ACCESS-TOKEN"];
-    } else {
-        [_cacheManager.requestSerializer setValue:@"" forHTTPHeaderField:@"ACCESS-TOKEN"];
-    }
-    
-    [_cacheManager.requestSerializer setValue:[APIHosts generateAuthorization] forHTTPHeaderField:@"Authorization"];
+    [_networkManager.requestSerializer setValue:[ETActor instance].token ?:@"" forHTTPHeaderField:@"token"];
     return _cacheManager;
 }
 
 static AFHTTPSessionManager *_networkManager;
-
 - (AFHTTPSessionManager *)networkManager {
     if (!_networkManager) {
         _networkManager = [self defaultManager];
@@ -109,41 +99,12 @@ static AFHTTPSessionManager *_networkManager;
     }
     
     // custom header 2: 必须每次使用时设置
-    [_networkManager.requestSerializer setValue:[[ETActor instance] currentAccessType] forHTTPHeaderField:@"ACCESS-TYPE"];
-    if ([ETActor instance].token) {
-        [_networkManager.requestSerializer setValue:[ETActor instance].token forHTTPHeaderField:@"ACCESS-TOKEN"];
-    } else {
-        [_networkManager.requestSerializer setValue:@"" forHTTPHeaderField:@"ACCESS-TOKEN"];
-    }
-    
-    [_networkManager.requestSerializer setValue:[APIHosts generateAuthorization] forHTTPHeaderField:@"Authorization"];
+    [_networkManager.requestSerializer setValue:[ETActor instance].token ?:@"" forHTTPHeaderField:@"token"];
     return _networkManager;
 }
 
 - (RACSignal *)retrySignal {
     return [RACSignal retrySignal];
-}
-
-static AFHTTPSessionManager *_translateManager;
-
-+ (AFHTTPSessionManager *)translateManager {
-    if (!_translateManager) {
-        _translateManager =  [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.fanyi.baidu.com"]];
-        _translateManager.requestSerializer.timeoutInterval = 30;
-        AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
-        serializer.removesKeysWithNullValues = YES;
-        _translateManager.responseSerializer = serializer;
-    }
-    
-    return _translateManager;
-}
-
-+ (NSString *)generateAuthorization {
-    NSString *date = [NSDate formattedWithDate:[NSDate date] format:@"YYYY-MM-dd"];
-    NSString *ticket = [NSString stringWithFormat:@"%@education",date];
-    NSString *md5Ticket = [ticket MD5String];
-    NSString *result = [md5Ticket uppercaseString];
-    return result;
 }
 
 @end

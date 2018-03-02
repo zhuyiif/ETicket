@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "362B7A90B236BF225887C51738360FD3"
+               BlueprintIdentifier = "2C64EB6F021C01865E59AE5A4EE43708"
                BlueprintName = "SQLitePersistentObjects"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libSQLitePersistentObjects.a">

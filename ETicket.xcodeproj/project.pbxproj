@@ -17,6 +17,7 @@
 		FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBB632048FBD900A129B7 /* ETAlipayOrder.m */; };
 		FD3BBB682048FF9600A129B7 /* ETAlipayRSASigner.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBB672048FF9600A129B7 /* ETAlipayRSASigner.m */; };
 		FD3BBB7420490A9B00A129B7 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBB6D20490A9B00A129B7 /* openssl_wrapper.m */; };
+		FD3BBBCC2049422D00A129B7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBBCB2049422D00A129B7 /* AdSupport.framework */; };
 		FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */; };
 		FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F82047E3DD00CB3E65 /* ETPageIndicator.m */; };
 		FD5D3A742047E3DD00CB3E65 /* ETMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39FE2047E3DD00CB3E65 /* ETMineViewController.m */; };
@@ -178,6 +179,7 @@
 		FD3BBBC8204933F600A129B7 /* ebcdic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
 		FD3BBBC9204933F600A129B7 /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
 		FD3BBBCA204933F600A129B7 /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		FD3BBBCB2049422D00A129B7 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		FD5D39F42047E3DD00CB3E65 /* ETWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETWebViewController.h; sourceTree = "<group>"; };
 		FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Additions.m"; sourceTree = "<group>"; };
 		FD5D39F62047E3DD00CB3E65 /* UIApplication+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Additions.h"; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD3BBBCC2049422D00A129B7 /* AdSupport.framework in Frameworks */,
 				FD3BBB5E2048F86200A129B7 /* libz.tbd in Frameworks */,
 				FD3BBB5C2048F85100A129B7 /* libc++.tbd in Frameworks */,
 				FD3BBB542048F7BA00A129B7 /* libcrypto.a in Frameworks */,
@@ -322,6 +325,7 @@
 		65B572379BF2CABEBC2450BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BBBCB2049422D00A129B7 /* AdSupport.framework */,
 				FD3BBB5D2048F86200A129B7 /* libz.tbd */,
 				FD3BBB5B2048F85100A129B7 /* libc++.tbd */,
 				FD3BBB592048F83200A129B7 /* CFNetwork.framework */,

@@ -33,13 +33,10 @@ static ETPayHelper *instance = nil;
     if (!amount) {
         return [RACSignal error:[NSError errorWithDomain:@"alipay" code:-10001 userInfo:@{ @"message": NSLocalizedString(@"支付金额无效", nil) }]];
     }
-    return [[[[[APICenter getPaymentSN:nil] execute] map:^id(id value) {
-        return [ETUtils generateAlipayTradeNO];
-    }] flattenMap:^RACStream *(id value) {
-        ETAlipayOrder *order = [ETAlipayOrder orderWithTitle:subject body:content amount:amount tradeNo:value];
-        return [self alipayWithOrder:order];
-    }] flattenMap:^RACStream *(id value) {
-        return [[APICenter postPaymentConfirmation:nil] execute];
+    
+    ETAlipayOrder *order = [ETAlipayOrder orderWithTitle:subject body:content amount:amount tradeNo:[ETUtils generateAlipayTradeNO]];
+    return  [[self alipayWithOrder:order] flattenMap:^RACStream *(id value) {
+        return [[APICenter putPaymentConfirmation:@{@"money":[NSString stringWithFormat:@"%.2f", amount.floatValue]}] execute];
     }];
 }
 

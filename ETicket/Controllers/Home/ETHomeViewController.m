@@ -61,6 +61,8 @@
     [button.eventSingal subscribeNext:^(id x) {
         [[[ETPayHelper sharedInstance] payWithAmount:@0.01] subscribeNext:^(id x) {
             
+        } error:^(NSError *error) {
+            
         }];
     }];
     

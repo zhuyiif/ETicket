@@ -33,8 +33,8 @@ static NSInteger const kParseErrorCode = 555;
 - (RACSignal *)parse:(NSString *)listKey modelClass:(__unsafe_unretained Class)modelClass {
     return [self flattenMap:^(RACTuple *x) {
         id responseObject = x.first;
-        if ([responseObject[@"result"] isEqualToString:@"success"]) {
-            NSMutableDictionary *content = responseObject[@"content"];
+        if (!responseObject[@"msg"]) {
+            NSMutableDictionary *content = responseObject;
             
             if (listKey) { // normalize to __items__
                 // 设计一致的 API，此处的 listKey 应该是固定的，无需作为参数到处传递。
@@ -70,7 +70,7 @@ static NSInteger const kParseErrorCode = 555;
             responseObject[NSLocalizedDescriptionKey] = [errors componentsJoinedByString:@"\n"];
         }
         NSInteger code = [responseObject[@"code"] integerValue];
-        NSError *error = [NSError errorWithDomain:responseObject[@"result"] ?: @"EmptyResultError" code:code userInfo:responseObject];
+        NSError *error = [NSError errorWithDomain:responseObject[@"msg"] ?: @"EmptyResultError" code:code userInfo:responseObject];
         return [RACSignal error:error];
     }];
 }

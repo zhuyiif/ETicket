@@ -19,8 +19,12 @@
     return [Query GET:@"" parameters:parameters];
 }
 
++ (Query *)getUserProfile:(NSDictionary *)parameters {
+    return [Query GET:@"/api/users/my" parameters:parameters];
+}
+
 + (Query *)getPaymentSN:(NSDictionary *)parameters {
-    return [Query emptyQuery];
+    return [Query GET:@"http://www.baidu.com" parameters:parameters];
 }
 
 + (Query *)postSMS:(NSDictionary *)parameters {
@@ -31,9 +35,16 @@
     return [Query POST:@"" parameters:parameters];
 }
 
-+ (Query *)postPaymentConfirmation:(NSDictionary *)parameters {
-    return [Query emptyQuery];
++ (Query *)putPaymentConfirmation:(NSDictionary *)parameters {
+    return [Query PUT:@"/api/users/recharge" parameters:parameters];
 }
 
++ (Query *)postLogin:(NSDictionary *)parameters {
+    return [Query POST:@"/api/users/login" parameters:parameters];
+}
+
++ (Query *)postGetCode:(NSDictionary *)parameters {
+    return [Query POST:@"/api/users/get-code" parameters:parameters];
+}
 
 @end
