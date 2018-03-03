@@ -56,6 +56,6 @@
 #import "UIButton+Style.h"
 #import "ETAppDelegate.h"
 #import "ETAlertView.h"
-
+#import "ETUtils.h"
 #endif
 #endif /* ETicket_Prefix_pch */

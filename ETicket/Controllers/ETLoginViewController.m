@@ -131,7 +131,7 @@ static ETLoginViewController *gInstance;
         make.top.left.right.equalTo(actionView);
     }];
     
-    self.submitButton = [UIButton buttonWithStyle:ETButtonStyleOrange height:44];
+    self.submitButton = [UIButton buttonWithStyle:ETButtonStyleBlue height:44];
     [self.submitButton setTitle:NSLocalizedString(@"登录", nil) forState:UIControlStateNormal];
     [actionView addSubview:self.submitButton];
     [self.submitButton mas_makeConstraints:^(MASConstraintMaker *make) {

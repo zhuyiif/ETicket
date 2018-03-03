@@ -12,12 +12,16 @@
 #import <TPKeyboardAvoidingScrollView.h>
 #import "UIButton+Style.h"
 #import "ETPayHelper.h"
+#import "ETHomeHeaderView.h"
+#import "ETQRCodeViewController.h"
+#import "ETLoginViewController.h"
 
 @interface ETHomeViewController ()
 
 @property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic) UIStackView *stackView;
 @property (nonatomic) ETBannerScrollView *bannerView;
+@property (nonatomic) ETHomeHeaderView *headerView;
 @property (nonatomic) UIView *bannerContainer;
 @property (nonatomic) ETHomePresenter *presenter;
 
@@ -34,7 +38,12 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.left.right.bottom.equalTo(self.view);
+        if (@available(iOS 11.0, *)) {
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        } else {
+            make.top.equalTo(self.view);
+        }
     }];
     
     self.stackView = [UIStackView new];
@@ -51,6 +60,7 @@
     [self.bannerContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self.bannerContainer.mas_width).multipliedBy(.4);
     }];
+    [self.stackView addArrangedSubview:self.headerView];
     [self.stackView addArrangedSubview:self.bannerContainer];
     
     UIButton *button = [UIButton buttonWithStyle:ETButtonStyleGreen height:40];
@@ -88,6 +98,22 @@
         }];
     }
     return _bannerContainer;
+}
+
+- (ETHomeHeaderView *)headerView {
+    if (!_headerView) {
+        _headerView = [ETHomeHeaderView new];
+        @weakify(self);
+        [[_headerView actionSignal] subscribeNext:^(id x) {
+            @strongify(self);
+            
+            [[ETLoginViewController showIfNeeded] subscribeNext:^(id x) {
+                ETQRCodeViewController *qrCodeController = [ETQRCodeViewController new];
+                [self.navigationController pushViewController:qrCodeController animated:YES];
+            }];
+        }];
+    }
+    return _headerView;
 }
 
 - (void)bindDatas {
