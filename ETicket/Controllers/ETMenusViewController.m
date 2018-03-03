@@ -63,15 +63,15 @@
 #pragma mark - Private
 - (void)setupUI {
     UIViewController *home = [ETHomeViewController new];
-    home.tabBarItem.title = NSLocalizedString(@"首页", nil);
-    home.tabBarItem.image = [[UIImage imageNamed:@"tabHomeNor"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    home.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabHomeHight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    home.tabBarItem.title = NSLocalizedString(@"扫描乘车", nil);
+    home.tabBarItem.image = [UIImage imageNamed:@"tabHomeNor"];
+    home.tabBarItem.selectedImage = [UIImage imageNamed:@"tabHomeHight"];
     UINavigationController *homeNavi = [[UINavigationController alloc] initWithRootViewController:home];
    
     UIViewController *mine = [ETMineViewController new];
     mine.tabBarItem.title = NSLocalizedString(@"我的", nil);
-    mine.tabBarItem.image = [[UIImage imageNamed:@"tabMineNor"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    mine.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabMineHight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    mine.tabBarItem.image = [UIImage imageNamed:@"tabMineNor"];
+    mine.tabBarItem.selectedImage = [UIImage imageNamed:@"tabMineHight"];
     UINavigationController *mineNavi = [[UINavigationController alloc] initWithRootViewController:mine];
 
     self.viewControllers = @[homeNavi,mineNavi];

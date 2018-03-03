@@ -41,6 +41,7 @@
 - (void)setStyle:(ETButtonStyle)style {
     switch (style) {
         case ETButtonStyleOrange:
+        case ETButtonStyleBlue:
         case ETButtonStyleGreen: {
             [self setTitleColor:[UIColor drColorC0] forState:UIControlStateNormal];
             [self setTitleColor:[[UIColor drColorC0] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
@@ -95,6 +96,10 @@
             color = [UIColor drColorC7];
         }
             break;
+        case ETButtonStyleBlue: {
+            color = [UIColor colorWithHex:0x18ADF3];
+        }
+            break;
         default: {
             color = [UIColor drColorC8];
         }
@@ -111,6 +116,10 @@
             break;
         case ETButtonStyleBorderOrange: {
             color = [UIColor drColorC7];
+        }
+            break;
+        case ETButtonStyleBlue: {
+            color = [UIColor colorWithHex:0x18ADF3];
         }
             break;
         default: {

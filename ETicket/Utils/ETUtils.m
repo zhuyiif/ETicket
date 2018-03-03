@@ -33,7 +33,7 @@
     
     [filter setValue:data forKey:@"inputMessage"];
     
-    [filter setValue:@"Q" forKey:@"inputCorrectionLevel"]; //设置纠错等级越高；即识别越容易，值可设置为L(Low) |  M(Medium) | Q | H(High)
+    [filter setValue:@"H" forKey:@"inputCorrectionLevel"]; //设置纠错等级越高；即识别越容易，值可设置为L(Low) |  M(Medium) | Q | H(High)
     CIImage *outputImage = [filter outputImage];
     
     CIContext *context = [CIContext contextWithOptions:nil];
