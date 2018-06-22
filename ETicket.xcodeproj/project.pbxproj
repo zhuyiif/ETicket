@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		912FE513345354D6D7D5D620 /* libPods-ETicket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75EEC7F4B93B497E338580BE /* libPods-ETicket.a */; };
+		BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8F90FF20DCBAEB006BC1C6 /* RSAUtil.m */; };
 		FD3BBB542048F7BA00A129B7 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB052048F7BA00A129B7 /* libcrypto.a */; };
 		FD3BBB552048F7BA00A129B7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB062048F7BA00A129B7 /* libssl.a */; };
 		FD3BBB562048F7BA00A129B7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB072048F7BA00A129B7 /* AlipaySDK.framework */; };
@@ -91,6 +92,8 @@
 		4306D780BB6AEB61E92FDA75 /* Pods-ETicket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETicket.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETicket/Pods-ETicket.release.xcconfig"; sourceTree = "<group>"; };
 		4DD270B97BDAF4DC0A07E50E /* Pods-ETicket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETicket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETicket/Pods-ETicket.debug.xcconfig"; sourceTree = "<group>"; };
 		75EEC7F4B93B497E338580BE /* libPods-ETicket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ETicket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF8F90FE20DCBAEB006BC1C6 /* RSAUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAUtil.h; sourceTree = "<group>"; };
+		BF8F90FF20DCBAEB006BC1C6 /* RSAUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAUtil.m; sourceTree = "<group>"; };
 		FD353B4B1FDFB2F100489185 /* ETicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3BBB052048F7BA00A129B7 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		FD3BBB062048F7BA00A129B7 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
@@ -734,6 +737,8 @@
 		FD5D3ABD2047EE6500CB3E65 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BF8F90FE20DCBAEB006BC1C6 /* RSAUtil.h */,
+				BF8F90FF20DCBAEB006BC1C6 /* RSAUtil.m */,
 				FD3BBB652048FBF700A129B7 /* Alipay */,
 				FD5D39F92047E3DD00CB3E65 /* TTLanguage.h */,
 				FD5D3A2D2047E3DD00CB3E65 /* TTLanguage.m */,
@@ -756,7 +761,6 @@
 				FD353B471FDFB2F100489185 /* Sources */,
 				FD353B481FDFB2F100489185 /* Frameworks */,
 				FD353B491FDFB2F100489185 /* Resources */,
-				A37C347DEA94C6BAA6A0205F /* [CP] Embed Pods Frameworks */,
 				77AB08D77E8AEB0985F3F55B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -857,60 +861,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETicket/Pods-ETicket-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A37C347DEA94C6BAA6A0205F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DadsMath/Pods-DadsMath-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/Base64/Base64.framework",
-				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
-				"${BUILT_PRODUCTS_DIR}/EDColor/EDColor.framework",
-				"${BUILT_PRODUCTS_DIR}/JMHoledView/JMHoledView.framework",
-				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLitePersistentObjects/SQLitePersistentObjects.framework",
-				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
-				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/WYPopoverController/WYPopoverController.framework",
-				"${BUILT_PRODUCTS_DIR}/YLGIFImage/YLGIFImage.framework",
-				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base64.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EDColor.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JMHoledView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLitePersistentObjects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WYPopoverController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YLGIFImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETicket/Pods-ETicket-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -939,6 +889,7 @@
 				FD5D3AAD2047E3DD00CB3E65 /* UIView+ITTAdditions.m in Sources */,
 				FD3BBB682048FF9600A129B7 /* ETAlipayRSASigner.m in Sources */,
 				FD5D3A772047E3DD00CB3E65 /* ETPhotoHelper.m in Sources */,
+				BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */,
 				FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */,
 				FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */,
 				FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */,

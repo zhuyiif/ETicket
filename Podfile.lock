@@ -104,6 +104,32 @@ DEPENDENCIES:
   - YLGIFImage
   - YYImage
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Base64
+    - BlocksKit
+    - EDColor
+    - JMHoledView
+    - KMNavigationBarTransition
+    - Mantle
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MOBFoundation
+    - QQ_XGPush
+    - ReactiveCocoa
+    - SCLAlertView-Objective-C
+    - SDVersion
+    - SDWebImage
+    - ShareSDK3
+    - SQLitePersistentObjects
+    - TPKeyboardAvoiding
+    - TTTAttributedLabel
+    - WYPopoverController
+    - YLGIFImage
+    - YYImage
+
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
@@ -131,4 +157,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8a57cb7e187e5d0608d44fc357bd37dd4969332e
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
