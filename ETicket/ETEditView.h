@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, ETEditViewStatus) {
 
 @interface ETEditView : UIView
 
+@property (nonatomic) UIButton *captchaButton; //获取验证码按钮
 @property (nonatomic) BOOL enabled;
 @property (nonatomic) UITextField *textField;
 @property (nonatomic) NSString *text;
@@ -35,6 +36,7 @@ typedef NS_ENUM(NSInteger, ETEditViewStatus) {
 @property (nonatomic) NSString *inputViewTitle;
 @property (nonatomic) UILabel *textFieldLeftTitleLabel;
 @property (nonatomic) UILabel *textFieldRightTitleLabel;
+@property (nonatomic) UIColor *titleColor;
 @property (nonatomic, assign) ETEditViewStatus inputViewStatus;
 @property (nonatomic, copy) ETEditViewActionHandler captchaButtonTappedActionHandler;
 

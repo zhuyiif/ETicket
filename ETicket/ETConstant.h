@@ -21,6 +21,7 @@ NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 ((float)0xff)) \
 blue:(((float)b) / ((float)0xff)) alpha:1]
 
+#define PIXEL_SCALE (([[UIScreen mainScreen] bounds].size.width) / 375.0)
 #define RGBA_COLOR_F(r, g, b, a)                                                \
 [UIColor colorWithRed:(((float)r) / ((float)0xff)) green:(((float)g) /      \
 ((float)0xff)) \

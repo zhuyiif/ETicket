@@ -32,6 +32,7 @@
 #import <BlocksKit+MessageUI.h>
 #import <BlocksKit+UIKit.h>
 #import <SCLAlertView-Objective-C/SCLAlertView.h>
+#import <RTRootNavigationController.h>
 #import <Mantle.h>
 #import "TTLanguage.h"
 #import "Query.h"
@@ -57,5 +58,7 @@
 #import "ETAppDelegate.h"
 #import "ETAlertView.h"
 #import "ETUtils.h"
+#import "UIScrollView+iOS11.h"
+#import "UITableView+iOS11.h"
 #endif
 #endif /* ETicket_Prefix_pch */

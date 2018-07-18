@@ -28,4 +28,6 @@ pod 'YLGIFImage'
 pod 'QQ_XGPush'
 pod 'SCLAlertView-Objective-C'
 pod 'SDVersion'
+pod 'RTRootNavigationController'
+
 end

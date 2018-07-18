@@ -22,13 +22,13 @@
     [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -2)];
     
     // NaviBar
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:[UIColor colorWithHex:0x18ADF3] strokeColor:[UIColor colorWithHex:0x18ADF3]] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:[UIColor drColorC0] strokeColor:[UIColor drColorC0]] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
     UIImage *backImage = [[[UIImage imageNamed:@"navBack"] imageByFilledWithColor:[UIColor whiteColor]] imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, 4, 0)];
     [[UINavigationBar appearance] setBackIndicatorImage:[backImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[backImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithSize:18], NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    [[UIBarButtonItem appearance] setTitleTextAttributes:@{ NSFontAttributeName: [UIFont fontWithSize:14], NSForegroundColorAttributeName: [UIColor whiteColor] } forState:UIControlStateNormal];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithSize:18], NSForegroundColorAttributeName: [UIColor drColorC5]}];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{ NSFontAttributeName: [UIFont fontWithSize:14], NSForegroundColorAttributeName: [UIColor drColorC5] } forState:UIControlStateNormal];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     
     [[UIBarButtonItem appearanceWhenContainedIn:UIToolbar.class, nil] setTintColor:[UIColor whiteColor]];

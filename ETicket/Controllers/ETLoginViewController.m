@@ -15,15 +15,13 @@
 #import "ETForgetPsdViewController.h"
 #import <TPKeyboardAvoidingScrollView.h>
 #import "UIButton+Style.h"
+#import "NSString+Additions.h"
 
 @interface ETLoginViewController ()<TTTAttributedLabelDelegate>
 
 @property (nonatomic) UIView *contentView;
 @property (nonatomic) ETEditView *phoneEditView;
-@property (nonatomic) ETEditView *passwordEditView;
-@property (nonatomic) ETPlatformView *platformView;
-@property (nonatomic) TTTAttributedLabel *forgetPassordLabel;
-@property (nonatomic) TTTAttributedLabel *registerLabel;
+@property (nonatomic) ETEditView *verfiyCodeEditView;
 @property (nonatomic) UIButton *submitButton;
 @property (nonatomic) id<RACSubscriber> subscriber;
 
@@ -45,7 +43,7 @@ static ETLoginViewController *gInstance;
         if (!gInstance) {
             gInstance = [ETLoginViewController new];
             gInstance.subscriber = subscriber;
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:gInstance];
+            RTRootNavigationController *nav = [[RTRootNavigationController alloc] initWithRootViewController:gInstance];
             [UIApplication presentViewController:nav completion:nil];
             
         }
@@ -53,16 +51,53 @@ static ETLoginViewController *gInstance;
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleDefault;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"登录", nil);
     self.view.backgroundColor = [UIColor drColorC0];
+    UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginViewBG"]];
+    [self.view addSubview:bgView];
+    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    UIButton *closeButton = [UIButton new];
+    [closeButton setImage:[UIImage imageNamed:@"ArrowBackWhite"] forState:UIControlStateNormal];
+    [self.view addSubview:closeButton];
+    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        } else {
+            make.top.equalTo(self.view);
+        }
+        make.left.equalTo(self.view).offset(5);
+        make.width.height.equalTo(@40);
+    }];
+    [[closeButton eventSingal] subscribeNext:^(id x) {
+        [self dismiss:NO];
+    }];
+    
     UIScrollView *scrollView = [TPKeyboardAvoidingScrollView new];
     [self.view addSubview:scrollView];
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
-        make.top.equalTo(self.mas_topLayoutGuide);
-        make.bottom.equalTo(self.mas_bottomLayoutGuide);
+        make.top.equalTo(closeButton.mas_bottom).offset(0);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.equalTo(self.view);
+        }
     }];
     
     [scrollView addSubview:self.contentView];
@@ -70,6 +105,7 @@ static ETLoginViewController *gInstance;
         make.edges.equalTo(scrollView);
         make.width.equalTo(scrollView);
     }];
+    [self bindActions];
 }
 
 - (UIView *)contentView {
@@ -77,111 +113,65 @@ static ETLoginViewController *gInstance;
         _contentView = [UIView new];
         _contentView.backgroundColor = [UIColor clearColor];
         
-        self.phoneEditView = [ETEditView inputViewWithStyle:ETEditViewStylePhone placeHolder:NSLocalizedString(@"手机号", nil)];
+        UIImageView *iconView  = [UIImageView new];
+        iconView.image = [UIImage imageNamed:@"xianIcon"];
+        [_contentView addSubview:iconView];
+        [iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_contentView).offset(35);
+            make.left.equalTo(_contentView).offset(25);
+        }];
+        
+        UILabel *tipLabel = [UILabel new];
+        tipLabel.backgroundColor = [UIColor clearColor];
+        tipLabel.font = [UIFont fontWithSize:22];
+        tipLabel.textColor = [UIColor drColorC0];
+        tipLabel.text = @"欢迎回家 ^_^";
+        [_contentView addSubview:tipLabel];
+        [tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(iconView.mas_bottom).offset(10);
+            make.left.equalTo(iconView);
+            make.right.equalTo(_contentView).offset(-25);
+        }];
+        
+        self.phoneEditView = [ETEditView inputViewWithStyle:ETEditViewStylePhone title:@"手机号码"];
+        self.phoneEditView.titleColor = [UIColor drColorC0];
+        [self.phoneEditView setPlaceHolder:@"请输入手机号"];
         [_contentView addSubview:self.phoneEditView];
         [self.phoneEditView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_contentView).offset(55);
-            make.left.equalTo(_contentView).offset(30);
-            make.right.equalTo(_contentView).offset(-30);
+            make.left.right.equalTo(tipLabel);
+            make.top.equalTo(tipLabel.mas_bottom).offset(25);
         }];
         
-        self.passwordEditView = [ETEditView inputViewWithStyle:ETEditViewStyleInputPassWord placeHolder:NSLocalizedString(@"密码", nil)];
-        [_contentView addSubview:self.passwordEditView];
-        [self.passwordEditView mas_makeConstraints:^(MASConstraintMaker *make) {
+        self.verfiyCodeEditView = [ETEditView inputViewWithStyle:ETEditViewStyleCaptcha title:@"验证码"];
+        [self.verfiyCodeEditView setTitleColor:[UIColor drColorC0]];
+        [self.verfiyCodeEditView setPlaceHolder:@"请输入验证码"];
+        [_contentView addSubview:self.verfiyCodeEditView];
+        [self.verfiyCodeEditView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.phoneEditView.mas_bottom).offset(15);
-            make.left.right.height.equalTo(self.phoneEditView);
+            make.left.right.equalTo(self.phoneEditView);
         }];
         
-        UIView *actionView = [self actionView];
-        [_contentView addSubview:actionView];
-        [actionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.passwordEditView.mas_bottom).offset(10);
-            make.left.right.equalTo(self.passwordEditView);
-        }];
         
-        @weakify(self);
-        self.platformView = [ETPlatformView viewWithBlock:^(SSDKPlatformType platform) {
-            @strongify(self);
-            [self requestAuthorize:platform];
-        }];
-        [_contentView addSubview:self.platformView];
-        [self.platformView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(_contentView);
-            make.top.equalTo(actionView.mas_bottom).offset(45);
-            make.bottom.equalTo(_contentView).offset(-20);
+        self.submitButton = [UIButton buttonWithStyle:ETButtonStyleRed height:44];
+        [self.submitButton setTitle:NSLocalizedString(@"登录", nil) forState:UIControlStateNormal];
+        [_contentView addSubview:self.submitButton];
+        [self.submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.verfiyCodeEditView.mas_bottom).offset(45);
+            make.height.equalTo(@44);
+            make.left.right.equalTo(self.verfiyCodeEditView);
+            make.bottom.equalTo(_contentView).offset(-15);
         }];
         
     }
     return _contentView;
 }
 
-
-- (UIView *)actionView {
-    
-    UIView *actionView = [UIView new];
-    actionView.backgroundColor = [UIColor clearColor];
-    
-    self.forgetPassordLabel = [TTTAttributedLabel attributedWithLinkColor:[UIColor drColorC5] activeLinkColor:[UIColor drColorC4] underLine:YES];
-    self.forgetPassordLabel.textAlignment = NSTextAlignmentRight;
-    self.forgetPassordLabel.text = NSLocalizedString(@"忘记密码?", nil);
-    [self.forgetPassordLabel addLinkToTransitInformation:@{@"type": @"forgetpassword"} withRange:[_forgetPassordLabel.text rangeOfString:NSLocalizedString(@"忘记密码?", nil)]];
-    self.forgetPassordLabel.delegate = self;
-    [actionView addSubview:self.forgetPassordLabel];
-    [self.forgetPassordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(actionView);
-    }];
-    
-    self.submitButton = [UIButton buttonWithStyle:ETButtonStyleBlue height:44];
-    [self.submitButton setTitle:NSLocalizedString(@"登录", nil) forState:UIControlStateNormal];
-    [actionView addSubview:self.submitButton];
-    [self.submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(actionView).offset(64);
-        make.centerX.equalTo(actionView);
-        make.height.equalTo(@44);
-        make.left.equalTo(actionView).offset(15);
-        make.right.equalTo(actionView).offset(-15);
-    }];
-    
-    self.registerLabel = [TTTAttributedLabel boldAttributedWithLinkColor:[UIColor drColorC4] activeLinkColor:[UIColor drColorC5]];
-    self.registerLabel.textColor = [UIColor drColorC4];
-    self.registerLabel.textAlignment = NSTextAlignmentCenter;
-    self.registerLabel.text = NSLocalizedString(@"还没有账户？点击注册>>", nil);
-    [self.registerLabel addLinkToTransitInformation:@{@"type": @"register"} withRange:[_registerLabel.text rangeOfString:NSLocalizedString(@"点击注册>>",nil)]];
-    self.registerLabel.delegate = self;
-    [actionView addSubview:self.registerLabel];
-    
-    [self.registerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.submitButton.mas_bottom).offset(15);
-        make.left.right.bottom.equalTo(actionView);
-    }];
-    [self bindActions];
-    return actionView;
-}
-
-#pragma mark - TTTAttributedLabelDelegate
-- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components {
-    if ([[components objectForKey:@"type"] isEqualToString:@"register"]) {
-        RACSubject *subject = [RACSubject subject];
-        [subject subscribeNext:^(id x) {
-            [self dismiss];
-        }];
-        ETSignUpViewController *vc = [[ETSignUpViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-        return;
-    }
-    
-    if([[components objectForKey:@"type"] isEqualToString:@"forgetpassword"]) {
-        ETForgetPsdViewController *vc = [[ETForgetPsdViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-}
-
-- (void)dismiss {
+- (void)dismiss:(BOOL)value {
     if (self.presentingViewController) {
         [self dismissViewControllerAnimated:YES completion:^{
             gInstance = nil;
             if (_subscriber) {
-                [_subscriber sendNext:@(YES)];
+                [_subscriber sendNext:@(value)];
                 [_subscriber sendCompleted];
             }
         }];
@@ -191,16 +181,23 @@ static ETLoginViewController *gInstance;
     [self.navigationController popViewControllerAnimated:YES];
     gInstance = nil;
     if (_subscriber) {
-        [_subscriber sendNext:@(YES)];
+        [_subscriber sendNext:@(value)];
         [_subscriber sendCompleted];
     }
 }
 
 - (void)bindActions {
-    RAC(self.submitButton, enabled)  = [self.passwordEditView.textField.rac_textSignal map:^id(id value) {
+    RAC(self.submitButton,hidden) =  [self.phoneEditView.textField.rac_textSignal map:^id(NSString *value) {
+        return @(![value isMobile]);
+    }];
+    
+    RAC(self.submitButton, enabled)  = [self.verfiyCodeEditView.textField.rac_textSignal map:^id(id value) {
         return @([NSString isNotBlank:value]);
     }];
     
+    RAC(self.verfiyCodeEditView.captchaButton,enabled) = [self.phoneEditView.textField.rac_textSignal map:^id(NSString *value) {
+        return @([value isMobile]);
+    }];
     @weakify(self);
     [[self.submitButton eventSingal] subscribeNext:^(id x) {
         @strongify(self);
@@ -217,31 +214,11 @@ static ETLoginViewController *gInstance;
         return ;
     }
     [ETPopover showLoading:YES];
-    [[[ETActor instance] loginWithAccount:account password:self.passwordEditView.textField.text] subscribeNext:^(id x) {
+    [[[ETActor instance] loginWithAccount:account password:self.verfiyCodeEditView.textField.text] subscribeNext:^(id x) {
         [ETPopover showLoading:NO];
-        [self dismiss];
+        [self dismiss:YES];
     } error:^(NSError *error) {
         [ETPopover showFailureWithContent:[error message]];
-    }];
-}
-
-- (void)requestAuthorize:(SSDKPlatformType)type {
-    [ETActor instance].login = YES;
-    [self dismiss];
-    return;
-    
-    [ETPopover showLoading:YES];
-    @weakify(self);
-    [[[ETActor instance] thirdPlatformLogin:type] subscribeNext:^(id x) {
-        @strongify(self);
-        [ETPopover showLoading:NO];
-        [self dismiss];
-    } error:^(NSError *error) {
-        if (!error) {
-            [ETPopover showLoading:NO];
-            return;
-        }
-        [ETPopover showFailureWithContent:error.message];
     }];
 }
 

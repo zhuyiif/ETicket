@@ -36,7 +36,6 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 @property (nonatomic, assign) NSInteger count;
 @property (nonatomic, assign) ETEditViewStyle inputViewStyle;
 @property (nonatomic) UIButton *countryCodeButton;
-@property (nonatomic) UIButton *captchaButton; //获取验证码按钮
 @property (nonatomic) UIStackView *vStackView;
 @property (nonatomic) UIStackView *hStackView;
 @property (nonatomic) BOOL limit;
@@ -74,7 +73,7 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 #else
         self.count = 60;
 #endif
-        self.backgroundColor = [UIColor drColorC0];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -102,7 +101,7 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
     switch (self.inputViewStyle) {
         case ETEditViewStylePhone: {
             self.textField.keyboardType = UIKeyboardTypePhonePad;
-            self.textField.maxLength = 20;
+            self.textField.maxLength = 11;
             UIView *countryCode = [self countryCodeView];
             [self.hStackView insertArrangedSubview:countryCode atIndex:0];
         }
@@ -130,6 +129,7 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
             break;
         case ETEditViewStyleCaptcha: {
             UIView *view = [UIView new];
+            self.textField.maxLength = 8;
             view.backgroundColor = [UIColor clearColor];
             [view addSubview:self.captchaButton];
             [self.captchaButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -185,6 +185,17 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 
 - (void)rightButtonDisplayControl {
     
+}
+
+- (void)setTitleColor:(UIColor *)titleColor {
+    _titleColor = titleColor;
+    if (!_titleColor) {
+        return;
+    }
+    
+    self.inputTitleLabel.textColor = titleColor;
+    self.textField.textColor = titleColor;
+    [self.countryCodeButton setTitleColor:titleColor forState:UIControlStateNormal];
 }
 
 #pragma mark - Event Response
@@ -513,14 +524,14 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 
 - (UIButton *)captchaButton {
     if (!_captchaButton) {
-        _captchaButton = [UIButton buttonWithStyle:ETButtonStyleBorderBlue height:30];
-        _captchaButton.titleLabel.font = [UIFont s01Font];
-        [_captchaButton setTitleColor:[UIColor drColorC11] forState:UIControlStateNormal];
-        [_captchaButton setTitleColor:[[UIColor drColorC11] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
-        [_captchaButton setTitleColor:[UIColor drColorC5] forState:UIControlStateDisabled];
+        _captchaButton = [UIButton buttonWithStyle:ETButtonStyleRed height:30];
+        _captchaButton.titleLabel.font = [UIFont s02Font];
+        [_captchaButton setTitleColor:[UIColor drColorC0] forState:UIControlStateNormal];
+        [_captchaButton setTitleColor:[[UIColor drColorC0] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
+        [_captchaButton setTitleColor:[UIColor drColorC0] forState:UIControlStateDisabled];
         [_captchaButton setTitle:NSLocalizedString(@"获取验证码",nil) forState:UIControlStateNormal];
         [_captchaButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@76);
+            make.width.equalTo(@86);
         }];
         [_captchaButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@30);

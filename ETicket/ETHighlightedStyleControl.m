@@ -19,7 +19,7 @@
 }
 
 - (void)onTapBegin:(UIControl *)control {
-    self.backgroundColor = [UIColor drColorC2];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)onTapCanceled:(UIControl *)control {

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		912FE513345354D6D7D5D620 /* libPods-ETicket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75EEC7F4B93B497E338580BE /* libPods-ETicket.a */; };
 		BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8F90FF20DCBAEB006BC1C6 /* RSAUtil.m */; };
+		FD1ACF0320FF23E300740B79 /* ETHomeBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF0220FF23E300740B79 /* ETHomeBannerView.m */; };
+		FD1ACF0620FF3AB500740B79 /* ETHotItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF0520FF3AB500740B79 /* ETHotItemView.m */; };
+		FD1ACF0920FF7C7400740B79 /* ETHotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF0820FF7C7400740B79 /* ETHotView.m */; };
+		FD1ACF0D20FF7D8A00740B79 /* ETHotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF0C20FF7D8A00740B79 /* ETHotModel.m */; };
+		FD1ACF1020FF858200740B79 /* ETHomeCardItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF0F20FF858200740B79 /* ETHomeCardItemView.m */; };
+		FD1ACF1320FF859500740B79 /* ETHomeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF1220FF859500740B79 /* ETHomeCardView.m */; };
 		FD3BBB542048F7BA00A129B7 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB052048F7BA00A129B7 /* libcrypto.a */; };
 		FD3BBB552048F7BA00A129B7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB062048F7BA00A129B7 /* libssl.a */; };
 		FD3BBB562048F7BA00A129B7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB072048F7BA00A129B7 /* AlipaySDK.framework */; };
@@ -100,6 +106,9 @@
 		FDADFC7220FEE73000738581 /* ETAnouncementScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7120FEE73000738581 /* ETAnouncementScrollView.m */; };
 		FDADFC7520FEE76700738581 /* ETAnouncementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7420FEE76700738581 /* ETAnouncementInfo.m */; };
 		FDADFC7820FEE7ED00738581 /* ETHighlightedStyleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7620FEE7ED00738581 /* ETHighlightedStyleControl.m */; };
+		FDADFC7D20FF165300738581 /* UIScrollView+iOS11.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7B20FF165300738581 /* UIScrollView+iOS11.m */; };
+		FDADFC7E20FF165300738581 /* UITableView+iOS11.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7C20FF165300738581 /* UITableView+iOS11.m */; };
+		FDADFC8120FF17F100738581 /* UIViewController+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7F20FF17F100738581 /* UIViewController+Shadow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +117,18 @@
 		75EEC7F4B93B497E338580BE /* libPods-ETicket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ETicket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8F90FE20DCBAEB006BC1C6 /* RSAUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAUtil.h; sourceTree = "<group>"; };
 		BF8F90FF20DCBAEB006BC1C6 /* RSAUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAUtil.m; sourceTree = "<group>"; };
+		FD1ACF0120FF23E300740B79 /* ETHomeBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETHomeBannerView.h; sourceTree = "<group>"; };
+		FD1ACF0220FF23E300740B79 /* ETHomeBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHomeBannerView.m; sourceTree = "<group>"; };
+		FD1ACF0420FF3AB500740B79 /* ETHotItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETHotItemView.h; sourceTree = "<group>"; };
+		FD1ACF0520FF3AB500740B79 /* ETHotItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHotItemView.m; sourceTree = "<group>"; };
+		FD1ACF0720FF7C7400740B79 /* ETHotView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETHotView.h; sourceTree = "<group>"; };
+		FD1ACF0820FF7C7400740B79 /* ETHotView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHotView.m; sourceTree = "<group>"; };
+		FD1ACF0B20FF7D8A00740B79 /* ETHotModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETHotModel.h; sourceTree = "<group>"; };
+		FD1ACF0C20FF7D8A00740B79 /* ETHotModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHotModel.m; sourceTree = "<group>"; };
+		FD1ACF0E20FF858200740B79 /* ETHomeCardItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETHomeCardItemView.h; sourceTree = "<group>"; };
+		FD1ACF0F20FF858200740B79 /* ETHomeCardItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHomeCardItemView.m; sourceTree = "<group>"; };
+		FD1ACF1120FF859500740B79 /* ETHomeCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETHomeCardView.h; sourceTree = "<group>"; };
+		FD1ACF1220FF859500740B79 /* ETHomeCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHomeCardView.m; sourceTree = "<group>"; };
 		FD353B4B1FDFB2F100489185 /* ETicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3BBB052048F7BA00A129B7 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		FD3BBB062048F7BA00A129B7 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
@@ -356,6 +377,12 @@
 		FDADFC7420FEE76700738581 /* ETAnouncementInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAnouncementInfo.m; sourceTree = "<group>"; };
 		FDADFC7620FEE7ED00738581 /* ETHighlightedStyleControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHighlightedStyleControl.m; sourceTree = "<group>"; };
 		FDADFC7720FEE7ED00738581 /* ETHighlightedStyleControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHighlightedStyleControl.h; sourceTree = "<group>"; };
+		FDADFC7920FF165200738581 /* UITableView+iOS11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+iOS11.h"; sourceTree = "<group>"; };
+		FDADFC7A20FF165200738581 /* UIScrollView+iOS11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+iOS11.h"; sourceTree = "<group>"; };
+		FDADFC7B20FF165300738581 /* UIScrollView+iOS11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+iOS11.m"; sourceTree = "<group>"; };
+		FDADFC7C20FF165300738581 /* UITableView+iOS11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+iOS11.m"; sourceTree = "<group>"; };
+		FDADFC7F20FF17F100738581 /* UIViewController+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Shadow.m"; sourceTree = "<group>"; };
+		FDADFC8020FF17F100738581 /* UIViewController+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Shadow.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +423,19 @@
 				4306D780BB6AEB61E92FDA75 /* Pods-ETicket.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD1ACF0A20FF7D7600740B79 /* Hot */ = {
+			isa = PBXGroup;
+			children = (
+				FD1ACF0720FF7C7400740B79 /* ETHotView.h */,
+				FD1ACF0820FF7C7400740B79 /* ETHotView.m */,
+				FD1ACF0B20FF7D8A00740B79 /* ETHotModel.h */,
+				FD1ACF0C20FF7D8A00740B79 /* ETHotModel.m */,
+				FD1ACF0420FF3AB500740B79 /* ETHotItemView.h */,
+				FD1ACF0520FF3AB500740B79 /* ETHotItemView.m */,
+			);
+			path = Hot;
 			sourceTree = "<group>";
 		};
 		FD353B421FDFB2F100489185 = {
@@ -641,6 +681,7 @@
 		FD5D3AB52047EA9900CB3E65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD1ACF0A20FF7D7600740B79 /* Hot */,
 				FDADFC5D20FEE40800738581 /* Empty */,
 				FD5D3A3C2047E3DD00CB3E65 /* ETAlertView.h */,
 				FD5D3A0B2047E3DD00CB3E65 /* ETAlertView.m */,
@@ -709,6 +750,12 @@
 				FD5D3A6F2047E3DD00CB3E65 /* ETHomeViewController.m */,
 				FD3BBBCD204A18AC00A129B7 /* ETHomeHeaderView.h */,
 				FD3BBBCE204A18AC00A129B7 /* ETHomeHeaderView.m */,
+				FD1ACF0120FF23E300740B79 /* ETHomeBannerView.h */,
+				FD1ACF0220FF23E300740B79 /* ETHomeBannerView.m */,
+				FD1ACF0E20FF858200740B79 /* ETHomeCardItemView.h */,
+				FD1ACF0F20FF858200740B79 /* ETHomeCardItemView.m */,
+				FD1ACF1120FF859500740B79 /* ETHomeCardView.h */,
+				FD1ACF1220FF859500740B79 /* ETHomeCardView.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -759,6 +806,10 @@
 		FD5D3ABC2047EDC300CB3E65 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FDADFC7A20FF165200738581 /* UIScrollView+iOS11.h */,
+				FDADFC7B20FF165300738581 /* UIScrollView+iOS11.m */,
+				FDADFC7920FF165200738581 /* UITableView+iOS11.h */,
+				FDADFC7C20FF165300738581 /* UITableView+iOS11.m */,
 				FDADFC5620FEE1FA00738581 /* UITextField+CLMaxLength.h */,
 				FDADFC5420FEE1FA00738581 /* UITextField+CLMaxLength.m */,
 				FDADFC5220FEE1F900738581 /* UITextField+CLShaker.h */,
@@ -779,6 +830,8 @@
 				FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */,
 				FD5D3A612047E3DD00CB3E65 /* UIView+SepLine.h */,
 				FD5D3A1B2047E3DD00CB3E65 /* UIView+SepLine.m */,
+				FDADFC8020FF17F100738581 /* UIViewController+Shadow.h */,
+				FDADFC7F20FF17F100738581 /* UIViewController+Shadow.m */,
 				FD5D3A1C2047E3DD00CB3E65 /* UIViewController+Additions.h */,
 				FD5D3A5F2047E3DD00CB3E65 /* UIViewController+Additions.m */,
 				FD5D3A1D2047E3DD00CB3E65 /* UIButton+Style.h */,
@@ -958,25 +1011,30 @@
 				FD5D3A9D2047E3DD00CB3E65 /* UIScrollView+Refresh.m in Sources */,
 				FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */,
 				FD5D3A912047E3DD00CB3E65 /* ETEditView.m in Sources */,
+				FDADFC7E20FF165300738581 /* UITableView+iOS11.m in Sources */,
 				FD5D3A9F2047E3DD00CB3E65 /* APIHosts.m in Sources */,
 				FD5D3AC020480E2C00CB3E65 /* ETUtils.m in Sources */,
 				FD3BBB7420490A9B00A129B7 /* openssl_wrapper.m in Sources */,
 				FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */,
 				FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */,
+				FDADFC8120FF17F100738581 /* UIViewController+Shadow.m in Sources */,
 				FD5D3A942047E3DD00CB3E65 /* main.m in Sources */,
 				FD5D3A8D2047E3DD00CB3E65 /* ETPopover.m in Sources */,
 				FD5D3A892047E3DD00CB3E65 /* ETPlatformView.m in Sources */,
+				FD1ACF1020FF858200740B79 /* ETHomeCardItemView.m in Sources */,
 				FD5D3AAD2047E3DD00CB3E65 /* UIView+ITTAdditions.m in Sources */,
 				FD3BBB682048FF9600A129B7 /* ETAlipayRSASigner.m in Sources */,
 				FDADFC5820FEE1FB00738581 /* UITextField+CLShaker.m in Sources */,
 				FDADFC6920FEE40800738581 /* UIViewController+Empty.m in Sources */,
 				FD5D3A772047E3DD00CB3E65 /* ETPhotoHelper.m in Sources */,
+				FD1ACF0920FF7C7400740B79 /* ETHotView.m in Sources */,
 				BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */,
 				FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */,
 				FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */,
 				FDADFC5920FEE1FB00738581 /* UITextField+CLMaxLength.m in Sources */,
 				FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */,
 				FD5D3AA42047E3DD00CB3E65 /* UIViewController+ErrorView.m in Sources */,
+				FDADFC7D20FF165300738581 /* UIScrollView+iOS11.m in Sources */,
 				FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */,
 				FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */,
 				FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */,
@@ -999,10 +1057,12 @@
 				FD5D3A952047E3DD00CB3E65 /* ETSignUpViewController.m in Sources */,
 				FD5D3AA72047E3DD00CB3E65 /* UIViewController+Additions.m in Sources */,
 				FD5D3A842047E3DD00CB3E65 /* UIView+SepLine.m in Sources */,
+				FD1ACF0620FF3AB500740B79 /* ETHotItemView.m in Sources */,
 				FD5D3AA02047E3DD00CB3E65 /* UIViewController+Query.m in Sources */,
 				FD5D3A862047E3DD00CB3E65 /* ETForgetPsdViewController.m in Sources */,
 				FD5D3AA32047E3DD00CB3E65 /* RACCommand+Additions.m in Sources */,
 				FD5D3A872047E3DD00CB3E65 /* ETMinePresenter.m in Sources */,
+				FD1ACF0D20FF7D8A00740B79 /* ETHotModel.m in Sources */,
 				FD5D3A752047E3DD00CB3E65 /* ETAccountPresenter.m in Sources */,
 				FD5D3A7A2047E3DD00CB3E65 /* ETAlertView.m in Sources */,
 				FD5D3AAC2047E3DD00CB3E65 /* ETThemeHelper.m in Sources */,
@@ -1020,6 +1080,8 @@
 				FDADFC7520FEE76700738581 /* ETAnouncementInfo.m in Sources */,
 				FD3BBBD6204A23B300A129B7 /* ETQRCodeView.m in Sources */,
 				FD3BBB612048FAC300A129B7 /* ETPayHelper.m in Sources */,
+				FD1ACF0320FF23E300740B79 /* ETHomeBannerView.m in Sources */,
+				FD1ACF1320FF859500740B79 /* ETHomeCardView.m in Sources */,
 				FD3BBBCF204A18AC00A129B7 /* ETHomeHeaderView.m in Sources */,
 				FDADFC4E20FEE16F00738581 /* ETCountryHelper.m in Sources */,
 				FD5D3A882047E3DD00CB3E65 /* ETGuideViewController.m in Sources */,

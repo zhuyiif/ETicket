@@ -25,7 +25,7 @@
         self.backgroundColor = [UIColor drColorC0];
         self.clipsToBounds = YES;
         
-        UIImageView *hornImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PlanDetailAnnouncement"]];
+        UIImageView *hornImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"annonceIcon"]];
         self.iconView = hornImg;
         [self addSubview:hornImg];
         [hornImg mas_makeConstraints:^(MASConstraintMaker *make) {

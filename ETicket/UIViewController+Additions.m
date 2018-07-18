@@ -19,6 +19,7 @@
 
 - (void)emptyBackButton_viewDidLoad {
     [self emptyBackButton_viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButtonItem];
 }

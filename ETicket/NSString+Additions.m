@@ -114,7 +114,7 @@
     //手机号以13， 15，18开头，八个 \d 数字字符
     //    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
     
-    NSString *phoneRegex = @"\\+86-1\\d{10}|\\+1-\\d{10}";
+    NSString *phoneRegex = @"^1\\d{10}|\\+1-\\d{10}";
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
     return [phoneTest evaluateWithObject:self];
     return YES;

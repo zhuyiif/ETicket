@@ -20,9 +20,7 @@
 
 @property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic) UIStackView *stackView;
-@property (nonatomic) ETBannerScrollView *bannerView;
 @property (nonatomic) ETHomeHeaderView *headerView;
-@property (nonatomic) UIView *bannerContainer;
 @property (nonatomic) ETHomePresenter *presenter;
 
 @end
@@ -57,26 +55,7 @@
         make.width.equalTo(self.view);
     }];
     
-    [self.bannerContainer mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(self.bannerContainer.mas_width).multipliedBy(.4);
-    }];
     [self.stackView addArrangedSubview:self.headerView];
-    [self.stackView addArrangedSubview:self.bannerContainer];
-    
-    UIButton *button = [UIButton buttonWithStyle:ETButtonStyleGreen height:40];
-    [button setTitle:@"pay" forState:UIControlStateNormal];
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@40);
-    }];
-    [button.eventSingal subscribeNext:^(id x) {
-        [[[ETPayHelper sharedInstance] payWithAmount:@0.01] subscribeNext:^(id x) {
-            
-        } error:^(NSError *error) {
-            
-        }];
-    }];
-    
-    [self.stackView addArrangedSubview:button];
     [self bindDatas];
 }
 
@@ -85,33 +64,10 @@
     [self reloadIfNeeded];
 }
 
-- (UIView *)bannerContainer {
-    if (!_bannerContainer) {
-        _bannerContainer = [UIView new];
-        _bannerContainer.backgroundColor = [UIColor clearColor];
-        
-        _bannerView = [ETBannerScrollView new];
-        _bannerView.isHorizontal = YES;
-        [_bannerContainer addSubview:_bannerView];
-        [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(_bannerContainer);
-        }];
-    }
-    return _bannerContainer;
-}
 
 - (ETHomeHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [ETHomeHeaderView new];
-        @weakify(self);
-        [[_headerView actionSignal] subscribeNext:^(id x) {
-            @strongify(self);
-            
-            [[ETLoginViewController showIfNeeded] subscribeNext:^(id x) {
-                ETQRCodeViewController *qrCodeController = [ETQRCodeViewController new];
-                [self.navigationController pushViewController:qrCodeController animated:YES];
-            }];
-        }];
     }
     return _headerView;
 }
@@ -119,11 +75,11 @@
 - (void)bindDatas {
     self.presenter = [[ETHomePresenter alloc] init];
     [self.presenter setupRequestWithController:self];
-    @weakify(self);
-    [[RACObserve(self.presenter, banners) skip:1] subscribeNext:^(NSArray<ETBannerInfo *> *x) {
-        @strongify(self);
-        [self.bannerView setBanners:x];
-    }];
+//    @weakify(self);
+//    [[RACObserve(self.presenter, banners) skip:1] subscribeNext:^(NSArray<ETBannerInfo *> *x) {
+//        @strongify(self);
+//        [self.bannerView setBanners:x];
+//    }];
 }
 
 @end

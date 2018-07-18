@@ -7,10 +7,17 @@
 //
 
 #import "ETHomeHeaderView.h"
+#import "ETHomeBannerView.h"
+#import "ETAnouncementScrollView.h"
+#import "ETHotView.h"
 
-@interface ETHomeHeaderView ()
+@interface ETHomeHeaderView () <ETHotViewDelegate>
 
-@property (nonatomic) UIControl *actionControl;
+@property (nonatomic) UIStackView *stackView;
+@property (nonatomic) ETHomeBannerView *bannerView;
+@property (nonatomic) ETAnouncementScrollView *announceView;
+@property (nonatomic) ETHotView *hotView;
+@property (nonatomic) NSMutableArray *hotItems;
 
 @end
 
@@ -24,61 +31,56 @@
 }
 
 - (void)setupViews {
-    self.backgroundColor = [UIColor colorWithHex:0x18ADF3];
-    UIView *contentView = [UIView new];
-    contentView.backgroundColor = [UIColor whiteColor];
-    contentView.layer.borderColor = [UIColor colorWithHex:0xe0e0e0].CGColor;
-    contentView.clipsToBounds = YES;
-    contentView.layer.borderWidth = 1.0f;
-    contentView.layer.cornerRadius = 80.0f;
-    [self addSubview:contentView];
-    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(25);
-        make.bottom.equalTo(self).offset(-25);
-        make.centerX.equalTo(self);
-        make.height.width.equalTo(@160);
+    self.backgroundColor = [UIColor clearColor];
+    self.stackView = [UIStackView new];
+    self.stackView.axis = UILayoutConstraintAxisVertical;
+    self.stackView.distribution = UIStackViewDistributionFill;
+    self.stackView.alignment = UIStackViewAlignmentFill;
+    self.stackView.spacing = 0;
+    [self addSubview:self.stackView];
+    [self.stackView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
     }];
-    
-    UIView *iconArea = [UIView new];
-    iconArea.backgroundColor = [UIColor clearColor];
-    [contentView addSubview:iconArea];
-    [iconArea mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(contentView);
+    self.bannerView = [ETHomeBannerView new];
+    [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(kScreenHeight * 0.35));
     }];
-
-    UIImageView *scanIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scanIcon"]];
-    [iconArea addSubview:scanIcon];
-    [scanIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.width.equalTo(@45);
-        make.top.centerX.equalTo(iconArea);
-        make.left.greaterThanOrEqualTo(iconArea).offset(10);
-        make.right.lessThanOrEqualTo(iconArea).offset(-10);
+    [self.stackView addArrangedSubview:self.bannerView];
+    [self.stackView addArrangedSubview:self.hotView];
+    self.announceView = [ETAnouncementScrollView new];
+    [self.announceView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@36);
     }];
-
-    UILabel *label = [UILabel new];
-    label.backgroundColor = [UIColor clearColor];
-    label.text = NSLocalizedString(@"扫码进/出站", nil);
-    label.font = [UIFont fontWithSize:16];
-    label.textColor = [UIColor colorWithHex:0x18ADF3];
-    label.textAlignment = NSTextAlignmentCenter;
-    [iconArea addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(scanIcon.mas_bottom).offset(10);
-        make.left.greaterThanOrEqualTo(iconArea).offset(10);
-        make.right.lessThanOrEqualTo(iconArea).offset(-10);
-        make.bottom.equalTo(iconArea).offset(0);
-    }];
-
-    UIControl *actionControl = [UIControl new];
-    [contentView addSubview:actionControl];
-    [actionControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(contentView);
-    }];
-    self.actionControl = actionControl;
+    [self.stackView addArrangedSubview:self.announceView];
 }
 
-- (RACSignal *)actionSignal {
-    return [self.actionControl rac_signalForControlEvents:UIControlEventTouchUpInside];
+- (ETHotView *)hotView {
+    if (!_hotView) {
+        _hotView = [ETHotView new];
+        _hotView.delegate = self;
+        [_hotView updateModels:self.hotItems];
+    }
+    return _hotView;
+}
+
+- (NSMutableArray *)hotItems {
+    if (!_hotItems) {
+        _hotItems = [NSMutableArray arrayWithCapacity:4];
+        ETHotModel *model = [ETHotModel modelWithName:@"微互动" link:@"weInterface" image:@"weihudong"];
+        [_hotItems addObject:model];
+        ETHotModel *model1 = [ETHotModel modelWithName:@"线路查询" link:@"routeSearch" image:@"xianlu"];
+        [_hotItems addObject:model1];
+        ETHotModel *model2 = [ETHotModel modelWithName:@"时刻查询" link:@"timeSearch" image:@"shike"];
+        [_hotItems addObject:model2];
+        ETHotModel *model3 = [ETHotModel modelWithName:@"我的余额" link:@"banance" image:@"yue"];
+        [_hotItems addObject:model3];
+    }
+    return _hotItems;
+}
+
+#pragma mark hotViewDelegate
+- (void)hotView:(ETHotView *)hotView selectedItem:(ETHotModel *)model {
+    
 }
 
 @end
