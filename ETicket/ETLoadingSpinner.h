@@ -11,9 +11,8 @@
 @interface ETLoadingSpinner : UIView
 
 @property (nonatomic) BOOL hidesWhenStopped;
+@property (nonatomic) UIColor *strokeColor;
 
-- (instancetype)initWithStrokeColor:(UIColor *)strokeColor
-                        strokeWidth:(CGFloat)strokeWidth;
 - (void)startAnimation;
 - (void)stopAnimation;
 - (void)startAnimationWithCounter:(BOOL)counter;

@@ -65,7 +65,7 @@
             make.centerX.equalTo(_contentView);
         }];
         
-        self.submitButton = [UIButton buttonWithStyle:ETButtonStyleOrange height:44];
+        self.submitButton = [UIButton buttonWithStyle:ETButtonStyleRed height:44];
         [self.submitButton setTitle:NSLocalizedString(@"确定", nil) forState:UIControlStateNormal];
         [_contentView addSubview:self.submitButton];
         [self.submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,10 +101,10 @@
         _phoneEditView = [ETEditView inputViewWithStyle:ETEditViewStylePhone placeHolder:NSLocalizedString(@"手机号", nil)];
         _verifyCodeEditView = [ETEditView inputViewWithStyle:ETEditViewStyleCaptcha placeHolder:NSLocalizedString(@"验证码", nil)];
         @weakify(self);
-        _verifyCodeEditView.rightButtonActionHandler = ^(){
+        _verifyCodeEditView.captchaButtonTappedActionHandler = ^RACSignal *{
             @strongify(self);
             [self.view endEditing:YES];
-            [self.presenter fetchVerificationCode:[self.phoneEditView text]];
+            return [self.presenter fetchVerificationCode:[self.phoneEditView text]];
         };
         _passwordEditView = [ETEditView inputViewWithStyle:ETEditViewStyleInputPassWord placeHolder:NSLocalizedString(@"输入新密码", nil)];
         _verifyPsdEditView = [ETEditView inputViewWithStyle:ETEditViewStyleInputPassWord placeHolder:NSLocalizedString(@"确认新密码", nil)];

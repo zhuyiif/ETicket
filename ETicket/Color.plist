@@ -7,49 +7,45 @@
 		<key>C0</key>
 		<string>#FFFFFF</string>
 		<key>C1</key>
-		<string>#F5F7F7</string>
+		<string>#EFEEF4</string>
 		<key>C2</key>
-		<string>#E5E5E5</string>
+		<string>#EFEEF4</string>
 		<key>C3</key>
-		<string>#CCCCCC</string>
+		<string>#9798B3</string>
 		<key>C4</key>
-		<string>#999999</string>
+		<string>#8B8B8B</string>
 		<key>C5</key>
-		<string>#687785</string>
+		<string>#191C5F</string>
 		<key>C6</key>
 		<string>#FF6C03</string>
 		<key>C7</key>
 		<string>#FFA90C</string>
 		<key>C8</key>
-		<string>#00BC8D</string>
+		<string>#3DC18E</string>
 		<key>C9</key>
 		<string>#FFFDEE</string>
 		<key>C10</key>
-		<string>#3557BE</string>
+		<string>#171C61</string>
 		<key>C11</key>
 		<string>#3588D9</string>
 		<key>C12</key>
-		<string>#93D9E1</string>
+		<string>#333333</string>
 		<key>C13</key>
 		<string>#AAD48B</string>
 		<key>C14</key>
-		<string>#FEE181</string>
+		<string>#292624</string>
 		<key>C15</key>
-		<string>#E4AC49</string>
+		<string>#121214</string>
 		<key>C16</key>
-		<string>#D6651E</string>
+		<string>#C0C0C0</string>
 		<key>C17</key>
-		<string>#B32A29</string>
+		<string>#DE211D</string>
 		<key>C18</key>
-		<string>#444444</string>
+		<string>#9798B3</string>
 		<key>C19</key>
-		<string>#888888</string>
+		<string>#C7C8E0</string>
 		<key>C21</key>
-		<string>#FF8F79</string>
-		<key>C22</key>
-		<string>#48D4FF</string>
-		<key>C23</key>
-		<string>#13DDA9</string>
+		<string>#13C38B</string>
 	</dict>
 </dict>
 </plist>

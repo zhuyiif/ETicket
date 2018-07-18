@@ -35,7 +35,8 @@
             } else {
                 make.left.equalTo(self);
             }
-            make.width.height.equalTo(@6);
+            make.height.equalTo(@6);
+            make.width.equalTo(i == self.currentPage ? @(12) : @6);
         }];
         lastDot = dot;
         if (i == _currentPage) {

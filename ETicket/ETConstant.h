@@ -64,7 +64,7 @@ stringByAppendingPathComponent:FILE_NAME]
 
 #define KFULL_DATE_FORMAT @"YYYY-MM-dd HH:mm"
 #define KYEAR_DATE_FORMAT @"YYYY-MM-dd"
-
+#define kPaddingLeftSize 15
 
 #define KAcceptHeaderKey @"Accept"
 

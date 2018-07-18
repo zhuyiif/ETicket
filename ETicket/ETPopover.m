@@ -5,184 +5,173 @@
 //  Created by chunjian wang on 2017/12/12.
 //  Copyright © 2017年 chunjian wang. All rights reserved.
 //
+#import "ETLoadingView.h"
+#import "ETToastView.h"
 
-#import <MBProgressHUD/MBProgressHUD.h>
+#define kToastHideCompletionBlock @"kToastHideCompletionBlock"
 
-#import "ETLoadingSpinner.h"
-#import "ETPopover.h"
-#import "UIView+ITTAdditions.h"
+@interface ETPopover ()
 
-static UIView *loadingPopover;
+@end
+
+static ETLoadingView *loadingView = nil;
+static ETToastView *toastView = nil;
+static BOOL isShow;
+static const double defaultDuration = 2.2;
 
 @implementation ETPopover
 
-#define kLoadingViewTag 0110
-#define kSpinnerViewTag 0111
-
-+ (void)showLoading:(BOOL)show parentView:(UIView *)parentView animate:(BOOL)animate {
-    if (!show) {
-        if (!loadingPopover && loadingPopover.superview) {
-            return;
-        }
-        
-        if (animate) {
-            ETLoadingSpinner *spinner = [loadingPopover viewWithTag:kSpinnerViewTag];
-            if (spinner) {
-                [spinner stopAnimation];
-            }
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [loadingPopover removeFromSuperview];
-                loadingPopover = nil;
-            });
-        } else {
-            [loadingPopover removeFromSuperview];
-            loadingPopover = nil;
-        }
-        return;
-    }
-    
-    if (loadingPopover && loadingPopover.superview) {
-        [loadingPopover removeFromSuperview];
-        loadingPopover = nil;
-        return;
-    }
-    
-    loadingPopover = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    loadingPopover.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
-    loadingPopover.tag = kLoadingViewTag;
-    loadingPopover.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    if (parentView) {
-        [parentView addSubview:loadingPopover];
-        [parentView bringSubviewToFront:loadingPopover];
-    } else {
-        NSEnumerator *frontToBackWindows = [[[UIApplication sharedApplication] windows] reverseObjectEnumerator];
-        
-        for (UIWindow *window in frontToBackWindows)
-            if (window.windowLevel == UIWindowLevelNormal) {
-                [window addSubview:loadingPopover];
-                break;
-            }
-    }
-    
-    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [closeButton setImage:[UIImage imageNamed:@"delet"] forState:UIControlStateNormal];
-    [loadingPopover addSubview:closeButton];
-    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@44);
-        make.top.equalTo(loadingPopover).offset(10);
-        make.right.equalTo(loadingPopover).offset(-10);
-    }];
-    
-    @weakify(self);
-    [[closeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        [self showLoading:NO];
-    }];
-    
-    UIView *popover = [UIView new];
-    [popover setBackgroundColor:[[UIColor drColorC5] colorWithAlphaComponent:0.5]];
-    popover.layer.cornerRadius = 5.0f;
-    popover.clipsToBounds = YES;
-    popover.layer.borderColor = [UIColor clearColor].CGColor;
-    popover.layer.borderWidth = 1.0f;
-    [loadingPopover addSubview:popover];
-    [popover mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(loadingPopover);
-        make.left.greaterThanOrEqualTo(loadingPopover).offset(50);
-        make.right.lessThanOrEqualTo(loadingPopover).offset(-50);
-    }];
-    
-    ETLoadingSpinner *spinner = [[ETLoadingSpinner alloc] initWithStrokeColor:[UIColor whiteColor] strokeWidth:2];
-    spinner.tag = kSpinnerViewTag;
-    [popover addSubview:spinner];
-    [spinner startAnimation];
-    [spinner mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(popover).offset(15);
-        make.width.height.equalTo(@40);
-        make.centerX.equalTo(popover);
-        make.left.greaterThanOrEqualTo(popover).offset(25);
-        make.right.lessThanOrEqualTo(popover).offset(-25);
-        
-    }];
-    
-    UILabel *loading = [UILabel new];
-    loading.backgroundColor = [UIColor clearColor];
-    loading.textAlignment = NSTextAlignmentCenter;
-    loading.font = [UIFont s04Font];
-    loading.text = NSLocalizedString(@"请稍等..", nil);
-    loading.textColor = [UIColor whiteColor];
-    [popover addSubview:loading];
-    [loading mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(spinner.mas_bottom).offset(10);
-        make.bottom.equalTo(popover).offset(-15);
-        make.centerX.equalTo(popover);
-        make.left.greaterThanOrEqualTo(popover).offset(25);
-        make.right.lessThanOrEqualTo(popover).offset(-25);
-    }];
-}
-
-+ (void)showLoadingInView:(UIView *)parentView {
-    [self showLoading:YES parentView:parentView animate:YES];
++ (void)alertError:(NSError *)error {
+    [self showLoading:NO];
+    //    if (error.code == 0 || error.code == -1008 || error.code == kBindChanceIsInvalidCode) {
+    //        return;
+    //    }
+    [self showFailureWithContent:error.message ?: [error localizedDescription]];
 }
 
 + (void)showLoading:(BOOL)show {
-    [self showLoading:show parentView:nil animate:YES];
+    [self showLoading:(BOOL)show withText:nil];
 }
 
-+ (void)showWithContent:(NSString *)content {
-    [self showLoading:NO parentView:nil animate:NO];
-    UIView *parentView = [UIApplication topView];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:parentView animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.detailsLabelText = content;
-    hud.cornerRadius = 5;
-    [hud hide:YES afterDelay:2];
++ (void)showLoading:(BOOL)show withText:(NSString *)text {
+    [self showLoading:show withText:text immediate:NO completion:nil];
 }
 
-+ (void)showSuccessWithContent:(NSString *)content {
-    [self showSuccessWithContent:content finishBlock:nil];
++ (void)showLoading:(BOOL)show withText:(NSString *)text completion:(void(^)(void))completion {
+    [self showLoading:show withText:text immediate:NO completion:completion];
+}
+
++ (void)showLoading:(BOOL)show withText:(NSString *)text immediate:(BOOL)now {
+    [self showLoading:show withText:text immediate:now completion:nil];
+}
+
++ (void)showLoading:(BOOL)show withText:(NSString *)text immediate:(BOOL)now completion:(void(^)(void))completion {
+    isShow = show;
+    if (!text) {
+        text = NSLocalizedString(@"加载中",nil);
+    }
+    
+    if (show && loadingView.superview) {
+        loadingView.textLabel.text = text;
+        completion ? completion() : nil;
+        return;
+    }
+    
+    
+    if (loadingView.superview) {
+        if (now) {
+            [loadingView hide:^{
+                [self showLoading:show withText:text immediate:now completion:completion];
+            } isAnimate:NO];
+        } else {
+            [self bk_performBlock:^{
+                if (isShow) {
+                    return;
+                }
+                [loadingView hide:^{
+                    [self showLoading:show withText:text immediate:now completion:completion];
+                } isAnimate:NO];
+            } afterDelay:.3];
+        }
+        return;
+    }
+    
+    if (!show) {
+        return;
+    }
+    
+    loadingView = [[ETLoadingView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    loadingView.textLabel.text = text;
+    @weakify(self);
+    [[loadingView.closeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self showLoading:NO withText:nil];
+    }];
+    [self addViewToWindow:loadingView];
+    [loadingView show:completion];
 }
 
 + (void)showFailureWithContent:(NSString *)content {
-    [self showFailureWithContent:content finishBlock:nil];
+    [self showWithStyle:ETToastFailure content:content duration:defaultDuration completion:nil];
 }
 
-+ (void)showSuccessWithContent:(NSString *)content finishBlock:(void (^)(void))block {
-    [self showWithContent:content icon:@"IconPopDone" finishBlock:block];
++ (void)showSuccessWithContent:(NSString *)content {
+    [self showWithStyle:ETToastSuccess content:content duration:defaultDuration completion:nil];
+}
+
++ (void)showWithContent:(NSString *)content {
+    [self showWithStyle:ETToastText content:content duration:defaultDuration completion:nil];
 }
 
 + (void)showFailureWithContent:(NSString *)content finishBlock:(void (^)(void))block {
-    [self showWithContent:content icon:@"IconPopError" finishBlock:block];
+    [self showWithStyle:ETToastFailure content:content duration:defaultDuration completion:block];
 }
 
-+ (void)showWithContent:(NSString *)content icon:(NSString *)icon finishBlock:(void (^)(void))block {
-    [self showLoading:NO parentView:nil animate:NO];
-    UIView *parentView = [UIApplication topView];
-    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:parentView];
-    hud.removeFromSuperViewOnHide = YES;
-    [parentView addSubview:hud];
-    [hud show:YES];
++ (void)showSuccessWithContent:(NSString *)content finishBlock:(void (^)(void))block {
+    [self showWithStyle:ETToastSuccess content:content duration:defaultDuration completion:block];
+}
+
++ (void)showSuccessWithContent:(NSString *)content duration:(double)duration finishBlock:(void (^)(void))block {
+    [self showWithStyle:ETToastSuccess content:content duration:duration completion:block];
+}
+
++ (void)showFailureWithContent:(NSString *)content duration:(double)duration finishBlock:(void (^)(void))block {
+    [self showWithStyle:ETToastFailure content:content duration:duration completion:block];
+}
+
++ (void)showWithStyle:(ETToastStyle)style content:(NSString *)content duration:(double)duration completion:(void (^)(void))completion {
+    [self showLoading:NO withText:nil immediate:YES];
+    if ([NSString isBlankString:content] || [content containsString:@"text/html"]) {
+        completion ? completion() : nil;
+        return;
+    }
     
-    hud.mode = MBProgressHUDModeCustomView;
-    hud.detailsLabelText = content;
+    static id wapperBlock = nil;
+    if (wapperBlock) {
+        [self bk_cancelBlock:wapperBlock];
+        wapperBlock = nil;
+    }
     
-    UIView *popover = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 46)];
-    UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
-    iconView.image = [UIImage imageNamed:icon];
-    iconView.contentMode = UIViewContentModeScaleAspectFill;
-    [popover addSubview:iconView];
-    hud.customView = popover;
-    [hud hide:YES afterDelay:2];
+    if (toastView.superview) {
+        [self removeFromWindow:toastView];
+    }
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        UIView *parentView = [UIApplication topView];
-        parentView.userInteractionEnabled = YES;
-        [hud hide:YES];
-        
-        if (block) {
-            block();
+    ETToastView *tempToastView = [[ETToastView alloc] initWithStyle:style content:content];
+    tempToastView.layer.zPosition = 1;
+    toastView = tempToastView;
+    if (completion) {
+        [toastView bk_atomicallyAssociateCopyOfValue:completion withKey:kToastHideCompletionBlock];
+    }
+    
+    [self addViewToWindow:toastView];
+    [toastView show];
+    wapperBlock = [self bk_performBlock:^{
+        if (tempToastView && tempToastView.superview) {
+            [tempToastView hide:^{
+                [self removeFromWindow:tempToastView];
+            }];
         }
-    });
+    } afterDelay:duration];
+}
+
++ (void)removeFromWindow:(UIView *)view {
+    if (!view) {
+        return;
+    }
+    
+    [view removeFromSuperview];
+    void (^finishBlock)(void) = [view bk_associatedValueForKey:kToastHideCompletionBlock];
+    if (finishBlock) {
+        finishBlock();
+    }
+    
+    view = nil;
+}
+
++ (void)addViewToWindow:(UIView *)view {
+    view.frame = [UIScreen mainScreen].bounds;
+    [[UIApplication sharedApplication].keyWindow addSubview:view];
 }
 
 @end
+

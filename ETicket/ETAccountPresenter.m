@@ -10,18 +10,12 @@
 
 @implementation ETAccountPresenter
 
-- (void)fetchVerificationCode:(NSString *)phone {
+- (RACSignal *)fetchVerificationCode:(NSString *)phone {
     if (![phone isMobile]) {
         [ETPopover showFailureWithContent:NSLocalizedString(@"手机号错误", nil)];
-        return;
+        return [RACSignal error:nil];
     }
-    [ETPopover showLoading:YES];
-    [[[APICenter postSMS:@{ @"mobile": phone }] execute] subscribeNext:^(id x) {
-        [ETPopover showLoading:NO];
-        [ETPopover showSuccessWithContent:NSLocalizedString(@"发送成功", nil)];
-    } error:^(NSError *error) {
-        [ETPopover showFailureWithContent:error.message];
-    }];
+    return [[APICenter postSMS:@{ @"mobile": phone }] execute];
     
 }
 

@@ -18,7 +18,7 @@
 }
 
 + (UIColor *)seperatorLineColor {
-    return [UIColor lightGrayColor];
+    return [UIColor drColorC2];
 }
 
 + (UIColor *)drColorC0 {

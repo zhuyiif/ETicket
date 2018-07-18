@@ -176,24 +176,21 @@
         return;
     }
     
-    if (items[0].duration && [items[0].duration floatValue] > 0) {
-        _scrollInterval = [items[0].duration floatValue];
-    }
-    
     for (int i = 0; i < [items count]; ++i) {
         UIImageView *imgView = [UIImageView new];
         @weakify(imgView);
         @weakify(self);
-        [imgView sd_setImageWithURL:[NSURL URLWithString:[items[i] valueForKey:@"image"]] placeholderImage:[UIImage imageNamed:@"BlankBanner"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [imgView sd_setImageWithURL:[NSURL URLWithString:[items[i] valueForKey:@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"bannerDefault"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             @strongify(imgView);
             @strongify(self);
             if (image) {
                 imgView.image = image;
             } else {
-                imgView.image = [UIImage imageNamed:@"ErrorBanner"];
+                imgView.image = [UIImage imageNamed:@"bannerDefault"];
                 self.loadImageFailed = YES;
             }
         }];
+        
         imgView.userInteractionEnabled = YES;
         imgView.tag = i;
         imgView.clipsToBounds = YES;

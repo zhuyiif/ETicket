@@ -86,6 +86,20 @@
 		FD5D3AB02047E3DD00CB3E65 /* ETHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A6F2047E3DD00CB3E65 /* ETHomeViewController.m */; };
 		FD5D3AB12047E3DD00CB3E65 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A702047E3DD00CB3E65 /* UIImage+Resize.m */; };
 		FD5D3AC020480E2C00CB3E65 /* ETUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3ABF20480E2C00CB3E65 /* ETUtils.m */; };
+		FDADFC4E20FEE16F00738581 /* ETCountryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC4D20FEE16F00738581 /* ETCountryHelper.m */; };
+		FDADFC5120FEE1C900738581 /* ETCountryCode.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC5020FEE1C900738581 /* ETCountryCode.m */; };
+		FDADFC5820FEE1FB00738581 /* UITextField+CLShaker.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC5320FEE1FA00738581 /* UITextField+CLShaker.m */; };
+		FDADFC5920FEE1FB00738581 /* UITextField+CLMaxLength.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC5420FEE1FA00738581 /* UITextField+CLMaxLength.m */; };
+		FDADFC5A20FEE1FB00738581 /* UITextField+CLValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC5720FEE1FA00738581 /* UITextField+CLValidator.m */; };
+		FDADFC6620FEE40800738581 /* ETEmptyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC5E20FEE40800738581 /* ETEmptyViewModel.m */; };
+		FDADFC6720FEE40800738581 /* UITableView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC6120FEE40800738581 /* UITableView+Empty.m */; };
+		FDADFC6820FEE40800738581 /* ETEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC6320FEE40800738581 /* ETEmptyView.m */; };
+		FDADFC6920FEE40800738581 /* UIViewController+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC6520FEE40800738581 /* UIViewController+Empty.m */; };
+		FDADFC6C20FEE48500738581 /* ETToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC6B20FEE48400738581 /* ETToastView.m */; };
+		FDADFC6F20FEE51200738581 /* ETLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC6E20FEE51200738581 /* ETLoadingView.m */; };
+		FDADFC7220FEE73000738581 /* ETAnouncementScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7120FEE73000738581 /* ETAnouncementScrollView.m */; };
+		FDADFC7520FEE76700738581 /* ETAnouncementInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7420FEE76700738581 /* ETAnouncementInfo.m */; };
+		FDADFC7820FEE7ED00738581 /* ETHighlightedStyleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7620FEE7ED00738581 /* ETHighlightedStyleControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -314,6 +328,34 @@
 		FD5D3A712047E3DD00CB3E65 /* ETForgetPsdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETForgetPsdViewController.h; sourceTree = "<group>"; };
 		FD5D3ABE20480E2C00CB3E65 /* ETUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETUtils.h; sourceTree = "<group>"; };
 		FD5D3ABF20480E2C00CB3E65 /* ETUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETUtils.m; sourceTree = "<group>"; };
+		FDADFC4C20FEE16F00738581 /* ETCountryHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETCountryHelper.h; sourceTree = "<group>"; };
+		FDADFC4D20FEE16F00738581 /* ETCountryHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETCountryHelper.m; sourceTree = "<group>"; };
+		FDADFC4F20FEE1C900738581 /* ETCountryCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCountryCode.h; sourceTree = "<group>"; };
+		FDADFC5020FEE1C900738581 /* ETCountryCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCountryCode.m; sourceTree = "<group>"; };
+		FDADFC5220FEE1F900738581 /* UITextField+CLShaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+CLShaker.h"; sourceTree = "<group>"; };
+		FDADFC5320FEE1FA00738581 /* UITextField+CLShaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+CLShaker.m"; sourceTree = "<group>"; };
+		FDADFC5420FEE1FA00738581 /* UITextField+CLMaxLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+CLMaxLength.m"; sourceTree = "<group>"; };
+		FDADFC5520FEE1FA00738581 /* UITextField+CLValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+CLValidator.h"; sourceTree = "<group>"; };
+		FDADFC5620FEE1FA00738581 /* UITextField+CLMaxLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+CLMaxLength.h"; sourceTree = "<group>"; };
+		FDADFC5720FEE1FA00738581 /* UITextField+CLValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+CLValidator.m"; sourceTree = "<group>"; };
+		FDADFC5E20FEE40800738581 /* ETEmptyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETEmptyViewModel.m; sourceTree = "<group>"; };
+		FDADFC5F20FEE40800738581 /* ETEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETEmptyView.h; sourceTree = "<group>"; };
+		FDADFC6020FEE40800738581 /* UIViewController+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Empty.h"; sourceTree = "<group>"; };
+		FDADFC6120FEE40800738581 /* UITableView+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Empty.m"; sourceTree = "<group>"; };
+		FDADFC6220FEE40800738581 /* ETEmptyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETEmptyViewModel.h; sourceTree = "<group>"; };
+		FDADFC6320FEE40800738581 /* ETEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETEmptyView.m; sourceTree = "<group>"; };
+		FDADFC6420FEE40800738581 /* UITableView+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Empty.h"; sourceTree = "<group>"; };
+		FDADFC6520FEE40800738581 /* UIViewController+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Empty.m"; sourceTree = "<group>"; };
+		FDADFC6A20FEE48400738581 /* ETToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETToastView.h; sourceTree = "<group>"; };
+		FDADFC6B20FEE48400738581 /* ETToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETToastView.m; sourceTree = "<group>"; };
+		FDADFC6D20FEE51200738581 /* ETLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETLoadingView.h; sourceTree = "<group>"; };
+		FDADFC6E20FEE51200738581 /* ETLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETLoadingView.m; sourceTree = "<group>"; };
+		FDADFC7020FEE73000738581 /* ETAnouncementScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETAnouncementScrollView.h; sourceTree = "<group>"; };
+		FDADFC7120FEE73000738581 /* ETAnouncementScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETAnouncementScrollView.m; sourceTree = "<group>"; };
+		FDADFC7320FEE76700738581 /* ETAnouncementInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAnouncementInfo.h; sourceTree = "<group>"; };
+		FDADFC7420FEE76700738581 /* ETAnouncementInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAnouncementInfo.m; sourceTree = "<group>"; };
+		FDADFC7620FEE7ED00738581 /* ETHighlightedStyleControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHighlightedStyleControl.m; sourceTree = "<group>"; };
+		FDADFC7720FEE7ED00738581 /* ETHighlightedStyleControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHighlightedStyleControl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -575,6 +617,8 @@
 		FD5D3AB32047E99000CB3E65 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FDADFC7320FEE76700738581 /* ETAnouncementInfo.h */,
+				FDADFC7420FEE76700738581 /* ETAnouncementInfo.m */,
 				FD5D3A382047E3DD00CB3E65 /* ETBannerInfo.h */,
 				FD5D3A0E2047E3DD00CB3E65 /* ETBannerInfo.m */,
 				FD5D3A172047E3DD00CB3E65 /* ETSignupItem.h */,
@@ -597,12 +641,17 @@
 		FD5D3AB52047EA9900CB3E65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FDADFC5D20FEE40800738581 /* Empty */,
 				FD5D3A3C2047E3DD00CB3E65 /* ETAlertView.h */,
 				FD5D3A0B2047E3DD00CB3E65 /* ETAlertView.m */,
 				FD5D39F72047E3DD00CB3E65 /* ETEditView.h */,
 				FD5D3A312047E3DD00CB3E65 /* ETEditView.m */,
 				FD5D39FD2047E3DD00CB3E65 /* ETPopover.h */,
 				FD5D3A2C2047E3DD00CB3E65 /* ETPopover.m */,
+				FDADFC7720FEE7ED00738581 /* ETHighlightedStyleControl.h */,
+				FDADFC7620FEE7ED00738581 /* ETHighlightedStyleControl.m */,
+				FDADFC4F20FEE1C900738581 /* ETCountryCode.h */,
+				FDADFC5020FEE1C900738581 /* ETCountryCode.m */,
 				FD5D3A3D2047E3DD00CB3E65 /* ETCountryCodeView.h */,
 				FD5D3A082047E3DD00CB3E65 /* ETCountryCodeView.m */,
 				FD5D3A6B2047E3DD00CB3E65 /* ETPlatformView.h */,
@@ -613,6 +662,12 @@
 				FD5D3A032047E3DD00CB3E65 /* ETBannerScrollView.m */,
 				FD5D3A302047E3DD00CB3E65 /* ETPageIndicator.h */,
 				FD5D39F82047E3DD00CB3E65 /* ETPageIndicator.m */,
+				FDADFC6A20FEE48400738581 /* ETToastView.h */,
+				FDADFC6B20FEE48400738581 /* ETToastView.m */,
+				FDADFC6D20FEE51200738581 /* ETLoadingView.h */,
+				FDADFC6E20FEE51200738581 /* ETLoadingView.m */,
+				FDADFC7020FEE73000738581 /* ETAnouncementScrollView.h */,
+				FDADFC7120FEE73000738581 /* ETAnouncementScrollView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -695,6 +750,8 @@
 				FD5D3A072047E3DD00CB3E65 /* ETPhotoHelper.m */,
 				FD3BBB5F2048FAC300A129B7 /* ETPayHelper.h */,
 				FD3BBB602048FAC300A129B7 /* ETPayHelper.m */,
+				FDADFC4C20FEE16F00738581 /* ETCountryHelper.h */,
+				FDADFC4D20FEE16F00738581 /* ETCountryHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -702,6 +759,12 @@
 		FD5D3ABC2047EDC300CB3E65 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FDADFC5620FEE1FA00738581 /* UITextField+CLMaxLength.h */,
+				FDADFC5420FEE1FA00738581 /* UITextField+CLMaxLength.m */,
+				FDADFC5220FEE1F900738581 /* UITextField+CLShaker.h */,
+				FDADFC5320FEE1FA00738581 /* UITextField+CLShaker.m */,
+				FDADFC5520FEE1FA00738581 /* UITextField+CLValidator.h */,
+				FDADFC5720FEE1FA00738581 /* UITextField+CLValidator.m */,
 				FD5D39FA2047E3DD00CB3E65 /* SwizzleMethod.h */,
 				FD5D3A2E2047E3DD00CB3E65 /* SwizzleMethod.m */,
 				FD5D3A352047E3DD00CB3E65 /* UIFont+Additions.h */,
@@ -748,6 +811,21 @@
 				FD5D3ABF20480E2C00CB3E65 /* ETUtils.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FDADFC5D20FEE40800738581 /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				FDADFC5F20FEE40800738581 /* ETEmptyView.h */,
+				FDADFC6320FEE40800738581 /* ETEmptyView.m */,
+				FDADFC6420FEE40800738581 /* UITableView+Empty.h */,
+				FDADFC6120FEE40800738581 /* UITableView+Empty.m */,
+				FDADFC6220FEE40800738581 /* ETEmptyViewModel.h */,
+				FDADFC5E20FEE40800738581 /* ETEmptyViewModel.m */,
+				FDADFC6020FEE40800738581 /* UIViewController+Empty.h */,
+				FDADFC6520FEE40800738581 /* UIViewController+Empty.m */,
+			);
+			path = Empty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -871,9 +949,11 @@
 				FD5D3A962047E3DD00CB3E65 /* ETAppDelegate.m in Sources */,
 				FD5D3A972047E3DD00CB3E65 /* ETLoginViewController.m in Sources */,
 				FD5D3A822047E3DD00CB3E65 /* ETMineListItem.m in Sources */,
+				FDADFC7220FEE73000738581 /* ETAnouncementScrollView.m in Sources */,
 				FD5D3A992047E3DD00CB3E65 /* UINavigationController+Additions.m in Sources */,
 				FD5D3A792047E3DD00CB3E65 /* ETMenusViewController.m in Sources */,
 				FD3BBBD3204A220200A129B7 /* ETQRCodeViewController.m in Sources */,
+				FDADFC6820FEE40800738581 /* ETEmptyView.m in Sources */,
 				FD5D3AB12047E3DD00CB3E65 /* UIImage+Resize.m in Sources */,
 				FD5D3A9D2047E3DD00CB3E65 /* UIScrollView+Refresh.m in Sources */,
 				FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */,
@@ -888,23 +968,29 @@
 				FD5D3A892047E3DD00CB3E65 /* ETPlatformView.m in Sources */,
 				FD5D3AAD2047E3DD00CB3E65 /* UIView+ITTAdditions.m in Sources */,
 				FD3BBB682048FF9600A129B7 /* ETAlipayRSASigner.m in Sources */,
+				FDADFC5820FEE1FB00738581 /* UITextField+CLShaker.m in Sources */,
+				FDADFC6920FEE40800738581 /* UIViewController+Empty.m in Sources */,
 				FD5D3A772047E3DD00CB3E65 /* ETPhotoHelper.m in Sources */,
 				BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */,
 				FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */,
 				FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */,
+				FDADFC5920FEE1FB00738581 /* UITextField+CLMaxLength.m in Sources */,
 				FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */,
 				FD5D3AA42047E3DD00CB3E65 /* UIViewController+ErrorView.m in Sources */,
 				FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */,
 				FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */,
 				FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */,
+				FDADFC6C20FEE48500738581 /* ETToastView.m in Sources */,
 				FD5D3A982047E3DD00CB3E65 /* ETMineTVCell.m in Sources */,
 				FD5D3AA12047E3DD00CB3E65 /* Query.m in Sources */,
 				FD5D3AB02047E3DD00CB3E65 /* ETHomeViewController.m in Sources */,
 				FD5D3A8E2047E3DD00CB3E65 /* TTLanguage.m in Sources */,
+				FDADFC5A20FEE1FB00738581 /* UITextField+CLValidator.m in Sources */,
 				FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */,
 				FD5D3A782047E3DD00CB3E65 /* ETCountryCodeView.m in Sources */,
 				FD5D3A742047E3DD00CB3E65 /* ETMineViewController.m in Sources */,
 				FD5D3A9C2047E3DD00CB3E65 /* RACSignal+Retry.m in Sources */,
+				FDADFC7820FEE7ED00738581 /* ETHighlightedStyleControl.m in Sources */,
 				FD5D3A9E2047E3DD00CB3E65 /* RACSignal+Parse.m in Sources */,
 				FD5D3A9B2047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.m in Sources */,
 				FD5D3A9A2047E3DD00CB3E65 /* NSError+Message.m in Sources */,
@@ -921,6 +1007,9 @@
 				FD5D3A7A2047E3DD00CB3E65 /* ETAlertView.m in Sources */,
 				FD5D3AAC2047E3DD00CB3E65 /* ETThemeHelper.m in Sources */,
 				FD5D3AA62047E3DD00CB3E65 /* ETLoadingSpinner.m in Sources */,
+				FDADFC6620FEE40800738581 /* ETEmptyViewModel.m in Sources */,
+				FDADFC6F20FEE51200738581 /* ETLoadingView.m in Sources */,
+				FDADFC6720FEE40800738581 /* UITableView+Empty.m in Sources */,
 				FD5D3A8C2047E3DD00CB3E65 /* ETAppHelper.m in Sources */,
 				FD5D3AA22047E3DD00CB3E65 /* NSDictionary+Shortcuts.m in Sources */,
 				FD5D3AAE2047E3DD00CB3E65 /* UIImage+Draw.m in Sources */,
@@ -928,10 +1017,13 @@
 				FD5D3A7D2047E3DD00CB3E65 /* ETBannerInfo.m in Sources */,
 				FD5D3A902047E3DD00CB3E65 /* ETActor.m in Sources */,
 				FD5D3AA52047E3DD00CB3E65 /* APICenter.m in Sources */,
+				FDADFC7520FEE76700738581 /* ETAnouncementInfo.m in Sources */,
 				FD3BBBD6204A23B300A129B7 /* ETQRCodeView.m in Sources */,
 				FD3BBB612048FAC300A129B7 /* ETPayHelper.m in Sources */,
 				FD3BBBCF204A18AC00A129B7 /* ETHomeHeaderView.m in Sources */,
+				FDADFC4E20FEE16F00738581 /* ETCountryHelper.m in Sources */,
 				FD5D3A882047E3DD00CB3E65 /* ETGuideViewController.m in Sources */,
+				FDADFC5120FEE1C900738581 /* ETCountryCode.m in Sources */,
 				FD5D3A762047E3DD00CB3E65 /* ETBannerScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

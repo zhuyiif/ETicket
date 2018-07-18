@@ -10,10 +10,11 @@
 
 typedef NS_ENUM(NSInteger, ETButtonStyle) { // Define by button bgColor + size
     ETButtonStyleGreen,
-    ETButtonStyleOrange,
+    ETButtonStyleRed,
     ETButtonStyleBlue,
     ETButtonStyleBorderGreen,
     ETButtonStyleBorderOrange,
+    ETButtonStyleBorderBlue,
     ETButtonStyleBorderWhite,
 };
 

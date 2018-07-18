@@ -48,7 +48,7 @@
     if (!_tableViewFooter) {
         _tableViewFooter = [UIView new];
         _tableViewFooter.backgroundColor = [UIColor drColorC1];
-        UIButton *logoutButton = [UIButton buttonWithStyle:ETButtonStyleOrange height:44];
+        UIButton *logoutButton = [UIButton buttonWithStyle:ETButtonStyleRed height:44];
         [logoutButton setTitle:NSLocalizedString(@"注销账号", nil) forState:UIControlStateNormal];
         [_tableViewFooter addSubview:logoutButton];
         [logoutButton mas_makeConstraints:^(MASConstraintMaker *make) {

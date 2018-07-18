@@ -7,20 +7,20 @@
 //
 
 #import "ETCountryCodeView.h"
+#import "ETCountryHelper.h"
 
 @interface ETCountryCodeView () <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, strong) UIPickerView *picekerView;
 @property (nonatomic, strong) UIView *mainView;
-@property (nonatomic, strong) NSArray *countryCodes;
-@property (nonatomic, strong) NSString *selectedCode;
+@property (nonatomic, strong) ETCountryCode *currentCountry;
 @property (nonatomic, copy) void (^completeBlock)(NSString *code);
 
 @end
 
 @implementation ETCountryCodeView
 
-+ (void)showWithCode:(NSString *)countryCode completeBlock:(void (^)(NSString *))completeBlock {
++ (void)showWithCode:(NSString *)countryCode completeBlock:(void (^)(NSString *code ))completeBlock {
     UIView *parentView = [UIApplication topView];
     for (UIView *view in parentView.subviews) {
         if ([view isKindOfClass:[ETCountryCodeView class]]) {
@@ -32,20 +32,21 @@
     [countryCodeView show];
 }
 
-- (id)initWithCountryCode:(NSString *)code completeBlock:(void (^)(NSString *))completeBlock {
+- (id)initWithCountryCode:(NSString *)code completeBlock:(void (^)(NSString *code))completeBlock {
     if (self = [super initWithFrame:[UIApplication topView].bounds]) {
         self.backgroundColor = [UIColor clearColor];
-        self.countryCodes = @[@"+86", @"+1"];
         self.completeBlock = completeBlock;
         [self setupView];
         NSInteger index = 0;
-        if ([NSString isNotBlank:code]) {
-            index = [_countryCodes indexOfObject:code];
-            _selectedCode = code;
-        } else {
-            _selectedCode = _countryCodes[0];
+        for (ETCountryCode *country in [ETCountryHelper sharedInstance].countryCodes) {
+            if ([country.code isEqualToString:code]) {
+                index = [[ETCountryHelper sharedInstance].countryCodes indexOfObject:country];
+                self.currentCountry = country;
+                break;
+            }
         }
-        if (index >= 0 && index < _countryCodes.count) {
+        
+        if (index >= 0) {
             [self.picekerView selectRow:index inComponent:0 animated:YES];
         }
     }
@@ -69,10 +70,10 @@
     UIButton *cancel = [UIButton new];
     [cancel setTitle:NSLocalizedString(@"取消", nil) forState:UIControlStateNormal];
     cancel.titleLabel.font = [UIFont s05Font];
-    [cancel setTitleColor:[UIColor drColorC4] forState:UIControlStateNormal];
+    [cancel setTitleColor:[UIColor drColorC8] forState:UIControlStateNormal];
     [contentView addSubview:cancel];
     [cancel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(contentView).offset(7);
+        make.left.equalTo(contentView).offset(15);
         make.top.equalTo(contentView).offset(7);
         make.height.equalTo(@40);
     }];
@@ -86,22 +87,21 @@
     UIButton *confirm = [UIButton new];
     [confirm setTitle:NSLocalizedString(@"确定", nil) forState:UIControlStateNormal];
     confirm.titleLabel.font = [UIFont s05Font];
-    [confirm setTitleColor:[UIColor drColorC6] forState:UIControlStateNormal];
+    [confirm setTitleColor:[UIColor drColorC17] forState:UIControlStateNormal];
     [contentView addSubview:confirm];
     [confirm mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(contentView).offset(-7);
+        make.right.equalTo(contentView).offset(-15);
         make.top.equalTo(contentView).offset(7);
         make.height.equalTo(cancel);
     }];
     
-    [[confirm rac_signalForControlEvents:UIControlEventTouchUpInside]
-     subscribeNext:^(id x) {
-         @strongify(self);
-         if (self.completeBlock) {
-             self.completeBlock(self.selectedCode);
-         }
-         [self dismiss];
-     }];
+    [[confirm rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        if (self.completeBlock) {
+            self.completeBlock(self.currentCountry.code);
+        }
+        [self dismiss];
+    }];
     
     UIView *cutLine = [UIView new];
     cutLine.backgroundColor = [UIColor drColorC2];
@@ -144,7 +144,8 @@
 
 #pragma mark UIPickerViewDelegate
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return _countryCodes[row];
+    ETCountryCode *country = [ETCountryHelper sharedInstance].countryCodes[row];
+    return [NSString stringWithFormat:@"+%@ %@",country.code,country.zh];
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
@@ -152,12 +153,14 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.selectedCode = _countryCodes[row];
+    if(row < [ETCountryHelper sharedInstance].countryCodes.count) {
+        self.currentCountry = [ETCountryHelper sharedInstance].countryCodes[row];
+    }
 }
 
 #pragma mark UIPickerViewDataSource
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return _countryCodes.count;
+    return [ETCountryHelper sharedInstance].countryCodes.count;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {

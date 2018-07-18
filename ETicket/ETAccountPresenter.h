@@ -10,6 +10,6 @@
 
 @interface ETAccountPresenter : NSObject
 
-- (void)fetchVerificationCode:(NSString *)phone;
+- (RACSignal *)fetchVerificationCode:(NSString *)phone;
 
 @end

@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^ETEditViewActionHandler)(void);
+typedef RACSignal* (^ETEditViewActionHandler)(void);
 
 typedef NS_ENUM(NSInteger, ETEditViewStyle) {
     ETEditViewStylePhone,
     ETEditViewStyleNormal,
     ETEditViewStyleInputMoney, //金额输入
+    ETEditViewStyleEmail,
     ETEditViewStyleInputPassWord, //密码
     ETEditViewStyleCaptcha, //验证码
     ETEditViewStyleImageCaptcha //图形验证码
@@ -28,41 +29,30 @@ typedef NS_ENUM(NSInteger, ETEditViewStatus) {
 @interface ETEditView : UIView
 
 @property (nonatomic) BOOL enabled;
-@property (nonatomic, assign, readonly) CGFloat inputViewHeight; //根据样式和title返回inputView高度，用于外部布局
-
 @property (nonatomic) UITextField *textField;
-@property (nonatomic) UIButton *captchaButton; //获取验证码按钮
 @property (nonatomic) NSString *text;
+@property (nonatomic) NSString *attachText;
 @property (nonatomic) NSString *inputViewTitle;
-@property (nonatomic, strong) UIButton *countryCodeButton;
-
+@property (nonatomic) UILabel *textFieldLeftTitleLabel;
+@property (nonatomic) UILabel *textFieldRightTitleLabel;
 @property (nonatomic, assign) ETEditViewStatus inputViewStatus;
-@property (nonatomic, copy) ETEditViewActionHandler rightButtonActionHandler;
-@property (nonatomic, copy) ETEditViewActionHandler captureImageViewTappedHandler;
+@property (nonatomic, copy) ETEditViewActionHandler captchaButtonTappedActionHandler;
 
 /**
  *  指定inputView样式和title
  *
  *  @param style inputView 样式
- *  @param title inputView 顶部title，目前仅输入金额需要，不需要title设置为nil即可
+ *  @param title inputView 顶部title
  **/
 + (instancetype)inputViewWithStyle:(ETEditViewStyle)style title:(NSString *)title;
 
 + (instancetype)inputViewWithStyle:(ETEditViewStyle)style title:(NSString *)title limitInput:(BOOL)limit;
 
-+ (instancetype)inputViewWithStyle:(ETEditViewStyle)style placeHolder:(NSString *)title;
++ (instancetype)inputViewWithStyle:(ETEditViewStyle)style placeHolder:(NSString *)placeHolder;
+
 
 /**
- *  设置输入框右部button title。设置以后在输入框有内容时button隐藏，没有内容时button显示
- *
- *  @param title 输入框右部button title
- **/
-- (void)setTextFieldRightButtonTitle:(NSString *)title;
-
-- (void)setTextFieldRightButtonImage:(UIImage *)image;
-
-/**
- *  设置输入框左部title目前仅输入金额有"¥"符号。
+ *  设置输入框左部title
  *
  *  @param title 输入框左部title文案
  **/
@@ -75,6 +65,10 @@ typedef NS_ENUM(NSInteger, ETEditViewStatus) {
  **/
 - (void)setTextFieldRightTitle:(NSString *)title;
 
+- (void)setCustomRightView:(UIView *)view;
+
+- (void)setCustomFooterView:(UIView *)view;
+
 /**
  *  设置textField placeHolder，因为它的颜色值，字号和系统默认不一致，所以需要通过此方法设置
  *
@@ -83,7 +77,7 @@ typedef NS_ENUM(NSInteger, ETEditViewStatus) {
 - (void)setPlaceHolder:(NSString *)placeHolder;
 
 /**
- *  当输入内容出错时通过此方法进行设置，目前仅金额输入会有错误显示区域
+ *  当输入内容出错时通过此方法进行设置
  *
  *  @param errorMessage 错误信息
  **/
@@ -95,25 +89,12 @@ typedef NS_ENUM(NSInteger, ETEditViewStatus) {
 - (void)startCodeCountDown;
 
 /**
- *  设置图片验证码
+ *  设置图片验证码 style = ETEditViewStyleImageCaptcha 有效
  *
  *  @param image 验证码图片
  **/
 - (void)setCaptureImage:(UIImage *)image;
 
-/**
- *  单独设置下划线为错误提示状态
- **/
-- (void)setTextFieldStateError;
-
-/**
- *  在出错的时候可以给错误view添加事件按钮
- **/
-- (void)setReloadViewWhenError:(UIView *)view;
-
-/**
- *  输入框样式为“密码”类型时，设置密码显示样式
- **/
-- (void)setPasswordDisplayStatus:(BOOL)display;
+- (void)setSeperatorLineStatus:(BOOL)show;
 
 @end

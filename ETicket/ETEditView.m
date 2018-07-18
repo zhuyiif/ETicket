@@ -9,7 +9,13 @@
 #import "ETEditView.h"
 #import "UIButton+Style.h"
 #import "UIImage+Draw.h"
+#import "ETCountryHelper.h"
 #import "ETCountryCodeView.h"
+#import "APIHosts.h"
+#import <UIImageView+WebCache.h>
+#import "UITextField+CLMaxLength.h"
+#import "UITextField+CLValidator.h"
+#import "NSString+Additions.h"
 
 
 typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
@@ -21,18 +27,19 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 
 @property (nonatomic) UIImageView *captureImageView; //图片验证码
 @property (nonatomic) UIButton *eyeBtn;
-@property (nonatomic) UIButton *rightBtn;
 @property (nonatomic) UIImageView *separateLine;
 @property (nonatomic) UIView *errorMessageView;
 @property (nonatomic) UILabel *errorMessageLabel;
 @property (nonatomic) UILabel *inputTitleLabel;
-@property (nonatomic) UILabel *textFieldLeftTitleLabel;
+
+
 @property (nonatomic, assign) NSInteger count;
 @property (nonatomic, assign) ETEditViewStyle inputViewStyle;
-
-@property (nonatomic) NSString *textFieldRightText;
-@property (nonatomic) UIImage *textFieldRightImage;
-
+@property (nonatomic) UIButton *countryCodeButton;
+@property (nonatomic) UIButton *captchaButton; //获取验证码按钮
+@property (nonatomic) UIStackView *vStackView;
+@property (nonatomic) UIStackView *hStackView;
+@property (nonatomic) BOOL limit;
 
 
 @end
@@ -47,17 +54,15 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
     ETEditView *inputView = [[ETEditView alloc] init];
     inputView.inputViewStyle = style;
     inputView.inputViewTitle = title;
-    if(style == ETEditViewStyleInputMoney) {
-        [inputView setTextFieldTextType:ETEditViewTextFieldTextTypeAmount limit:limit];
-    }
+    inputView.limit = limit;
     [inputView setupNotification];
     [inputView setupUI];
     return inputView;
 }
 
-+ (instancetype)inputViewWithStyle:(ETEditViewStyle)style placeHolder:(NSString *)title {
++ (instancetype)inputViewWithStyle:(ETEditViewStyle)style placeHolder:(NSString *)placeHolder {
     ETEditView *editView = [self inputViewWithStyle:style title:nil];
-    [editView setPlaceHolder:title];
+    [editView setPlaceHolder:placeHolder];
     return editView;
 }
 
@@ -65,7 +70,7 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
     self = [super init];
     if (self) {
 #if DEBUG
-        self.count = 6;
+        self.count = 60;
 #else
         self.count = 60;
 #endif
@@ -77,140 +82,74 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 #pragma mark - Private Methods
 
 - (void)setupUI {
-    [self addSubview:self.separateLine];
+    [self removeAllSubviews];
+    [self addSubview:self.vStackView];
+    [self.vStackView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
+    
+    if (self.inputViewTitle) {
+        self.inputTitleLabel.text = self.inputViewTitle;
+        [self.vStackView addArrangedSubview:self.inputTitleLabel];
+    }
+    
+    [self.vStackView addArrangedSubview:self.hStackView];
     [self.separateLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(0);
-        make.right.equalTo(self).offset(0);
         make.height.equalTo(@0.5);
-        make.bottom.equalTo(self);
     }];
+    [self.vStackView addArrangedSubview:self.separateLine];
     
-    [self addSubview:self.textField];
-    CGSize size = [[NSString string] sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithSize:20]}];
-    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(0);
-        make.right.equalTo(self).offset(0);
-        make.height.equalTo(@(size.height + 30));
-        make.bottom.equalTo(self.separateLine.mas_top).offset(0);
-    }];
-    
-    [self addSubview:self.rightBtn];
-    [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self);
-        make.height.equalTo(@33);
-        make.centerY.equalTo(self.textField);
-        make.width.equalTo(@0);
-    }];
-    
-    [self addSubview:self.textFieldLeftTitleLabel];
-    [self.textFieldLeftTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(self.textField);
-        make.left.equalTo(self);
-        make.centerY.equalTo(self.textField);
-        make.width.equalTo(@0);
-    }];
-    
-    if (self.inputViewStyle == ETEditViewStyleInputMoney) {
-        self.textField.font = [UIFont fontWithSize:20];
-        if (self.inputViewTitle.length > 0) {
-            self.inputTitleLabel.text = self.inputViewTitle;
-            [self addSubview:self.inputTitleLabel];
-            [self.inputTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self).offset(0);
-                make.top.equalTo(self).offset(15);
+    switch (self.inputViewStyle) {
+        case ETEditViewStylePhone: {
+            self.textField.keyboardType = UIKeyboardTypePhonePad;
+            self.textField.maxLength = 20;
+            UIView *countryCode = [self countryCodeView];
+            [self.hStackView insertArrangedSubview:countryCode atIndex:0];
+        }
+            break;
+        case ETEditViewStyleEmail: {
+            [self.textField addFailureMessage:NSLocalizedString(@"邮箱格式错误",nil) testBlock:^BOOL(UITextField *textField) {
+                return [[textField.text trim] isEmailAddress];
+            }];
+            @weakify(self);
+            [self.textField setValidatorFailureBlock:^(NSString *message) {
+                @strongify(self);
+                [self setErrorMessage:message];
             }];
         }
-        
-        [self.separateLine mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self).offset(-35);
-        }];
-        
-        [self addSubview:self.errorMessageView];
-        [self.errorMessageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(self);
-            make.top.equalTo(self.separateLine.mas_bottom);
-        }];
-        
-        UIImageView *errorIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"InputError"]];
-        [self.errorMessageView addSubview:errorIcon];
-        [errorIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.errorMessageView).offset(0);
-            make.centerY.equalTo(self.errorMessageView);
-        }];
-        
-        [self.errorMessageView addSubview:self.errorMessageLabel];
-        [self.errorMessageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(errorIcon.mas_right).offset(8);
-            make.centerY.equalTo(self.errorMessageView);
-            make.right.lessThanOrEqualTo(self.errorMessageView);
-        }];
+            break;
+        case ETEditViewStyleInputMoney: {
+            [self setTextFieldTextType:ETEditViewTextFieldTextTypeAmount limit:YES];
+        }
+            break;
+        case ETEditViewStyleInputPassWord: {
+            self.textField.secureTextEntry = YES;
+            self.textField.maxLength = 20;
+            [self.hStackView addArrangedSubview:self.eyeBtn];
+        }
+            break;
+        case ETEditViewStyleCaptcha: {
+            UIView *view = [UIView new];
+            view.backgroundColor = [UIColor clearColor];
+            [view addSubview:self.captchaButton];
+            [self.captchaButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@30);
+                make.centerY.equalTo(view);
+                make.left.right.equalTo(view);
+                make.top.greaterThanOrEqualTo(view).offset(0);
+                make.bottom.lessThanOrEqualTo(view).offset(0);
+            }];
+            [self.hStackView addArrangedSubview:view];
+        }
+            break;
+        case ETEditViewStyleImageCaptcha: {
+            [self.hStackView addArrangedSubview:self.captureImageView];
+        }
+            break;
+            
+        default:
+            break;
     }
-    
-    if (self.inputViewStyle == ETEditViewStyleInputPassWord) {
-        self.eyeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.textField.secureTextEntry = YES;
-        self.eyeBtn.adjustsImageWhenHighlighted = NO;
-        [self.eyeBtn setImage:[[UIImage imageNamed:@"SignInOpenEye"] imageByFilledWithColor:[UIColor drColorC8]] forState:UIControlStateNormal];
-        [self.eyeBtn setImage:[[UIImage imageNamed:@"SignInCloseEye"] imageByFilledWithColor:[UIColor drColorC8]] forState:UIControlStateSelected];
-        [self.eyeBtn addTarget:self action:@selector(onTapEye:) forControlEvents:UIControlEventTouchUpInside];
-        self.eyeBtn.selected = self.textField.secureTextEntry;
-        self.eyeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        [self addSubview:self.eyeBtn];
-        [self.eyeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(self.textField);
-            make.width.equalTo(@(30));
-            make.right.equalTo(self).offset(0);
-        }];
-        
-        [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-30);
-        }];
-    }
-    
-    if (self.inputViewStyle == ETEditViewStylePhone) {
-        UIView *countryCode = [self countryCodeView];
-        [self addSubview:countryCode];
-        [countryCode mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(0);
-            make.centerY.equalTo(self.textField);
-        }];
-        self.textField.keyboardType = UIKeyboardTypePhonePad;
-        [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(55);
-        }];
-    }
-    
-    if (self.inputViewStyle == ETEditViewStyleImageCaptcha) {
-        [self addSubview:self.captureImageView];
-        [self.captureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(0);
-            make.height.equalTo(@33);
-            make.width.equalTo(@88);
-            make.centerY.equalTo(self.textField);
-        }];
-        
-        [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-98);
-        }];
-    }
-    
-    if (self.inputViewStyle == ETEditViewStyleCaptcha) {
-        [self addSubview:self.captchaButton];
-        [self.captchaButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(0);
-            make.height.equalTo(@30);
-            make.width.equalTo(@76);
-            make.centerY.equalTo(self.textField);
-        }];
-        
-        [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-78);
-        }];
-    }
-    
-    [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(self.inputViewHeight));
-    }];
 }
 
 - (void)setupNotification {
@@ -245,76 +184,25 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 }
 
 - (void)rightButtonDisplayControl {
-    if (self.inputViewStyle == ETEditViewStyleInputMoney) {
-        if (self.textField.text.length > 0) {
-            self.rightBtn.hidden = YES;
-        } else {
-            self.rightBtn.hidden = NO;
-        }
-    } else if (self.textFieldRightImage) {
-        self.rightBtn.hidden = NO;
-    }
+    
 }
 
 #pragma mark - Event Response
-
 - (void)onTapEye:(UIButton *)sender {
     sender.selected = !sender.selected;
     self.textField.secureTextEntry = sender.selected;
 }
 
-- (void)onRightButtonTapped:(UIButton *)sender {
-    if (self.rightButtonActionHandler) {
-        NSInteger curLen = self.textField.text.length;
-        self.rightButtonActionHandler();
-        if(curLen != self.textField.text.length) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.textField];
-        }
-    }
-}
 
 #pragma mark - Public Methods
-
-- (void)setTextFieldRightButtonTitle:(NSString *)title {
-    if (self.inputViewStyle != ETEditViewStyleInputMoney)
-        return;
-    CGFloat width = 0;
-    if (title.length > 0) {
-        width = [title sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithSize:14]}].width + 10;
-    }
-    self.textFieldRightText = title;
-    [self.rightBtn setTitle:title forState:UIControlStateNormal];
-    [self.rightBtn setTitle:title forState:UIControlStateHighlighted];
-    
-    [self.rightBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(width));
-    }];
-}
-
-- (void)setTextFieldRightButtonImage:(UIImage *)image {
-    self.textFieldRightImage = image;
-    [self.rightBtn setImage:image forState:UIControlStateNormal];
-    if (image) {
-        self.rightBtn.hidden = NO;
-        [self.rightBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@33);
-        }];
-        self.textField.clearButtonMode = UITextFieldViewModeNever;
-    } else {
-        self.rightBtn.hidden = YES;
-        [self.rightBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@0);
-        }];
-        self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    }
-}
-
 - (void)setTextFieldLeftTitle:(NSString *)title {
-    if (self.inputViewStyle != ETEditViewStyleInputMoney)
+    if ([NSString isBlankString:title]) {
+        [self.hStackView removeArrangedSubview:self.textFieldLeftTitleLabel];
         return;
+    }
     CGFloat width = 0;
     if (title.length > 0) {
-        width = [title sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithSize:28]}].width + 10;
+        width = [title sizeWithAttributes:@{NSFontAttributeName: [UIFont s03Font]}].width + 10;
     }
     self.textFieldLeftTitleLabel.text = title;
     
@@ -322,55 +210,69 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
         make.width.equalTo(@(width));
     }];
     
-    [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(width);
-    }];
+    if (!self.textFieldLeftTitleLabel.superview) {
+        [self.hStackView insertArrangedSubview:self.textFieldLeftTitleLabel atIndex:0];
+    }
 }
 
 - (void)setTextFieldRightTitle:(NSString *)title {
+    if ([NSString isBlankString:title]) {
+        [self.hStackView removeArrangedSubview:self.textFieldRightTitleLabel];
+        return;
+    }
+    
     CGFloat width = 0;
     if (title.length > 0) {
-        width = [title sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithSize:16]}].width + 10;
+        width = [title sizeWithAttributes:@{NSFontAttributeName: [UIFont s03Font]}].width + 1;
     }
-    UILabel *rightLabel = [[UILabel alloc] init];
-    rightLabel.textAlignment = NSTextAlignmentRight;
-    rightLabel.textColor = [UIColor drColorC4];
-    rightLabel.font = [UIFont fontWithSize:16];
-    [self addSubview:rightLabel];
-    [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self);
-        make.centerY.equalTo(self.textField);
+    self.textFieldRightTitleLabel.text = title;
+    [self.textFieldRightTitleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width));
     }];
-    [self.textField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-width);
-    }];
-    rightLabel.text = title;
+    
+    if (!self.textFieldRightTitleLabel.superview) {
+        [self.hStackView addArrangedSubview:self.textFieldRightTitleLabel];
+    }
+}
+
+- (void)setCustomRightView:(UIView *)view {
+    if (self.textFieldRightTitleLabel.superview) {
+        [self.hStackView removeArrangedSubview:self.textFieldRightTitleLabel];
+    }
+    [self.hStackView addArrangedSubview:view];
+}
+
+- (void)setCustomFooterView:(UIView *)view {
+    if (view) {
+        [self.vStackView addArrangedSubview:view];
+    }
 }
 
 - (void)setPlaceHolder:(NSString *)placeHolder {
     self.textField.placeholder = placeHolder;
-    NSAttributedString *attrPlaceHolder = [[NSAttributedString alloc] initWithString:placeHolder attributes:@{NSFontAttributeName: [UIFont fontWithSize:20], NSForegroundColorAttributeName: [UIColor drColorC3]}];
+    NSAttributedString *attrPlaceHolder = [[NSAttributedString alloc] initWithString:placeHolder attributes:@{NSFontAttributeName: [UIFont s04Font], NSForegroundColorAttributeName: [UIColor drColorC19]}];
     self.textField.attributedPlaceholder = attrPlaceHolder;
 }
 
 - (void)setErrorMessage:(NSString *)errorMessage {
-    if (self.inputViewStyle != ETEditViewStyleInputMoney)
-        return;
     if (errorMessage && errorMessage.length > 0) {
         self.inputViewStatus = ETEditViewStatusError;
         self.errorMessageView.hidden = NO;
         self.errorMessageLabel.text = errorMessage;
+        if (!self.errorMessageView.superview) {
+            [self.vStackView addArrangedSubview:self.errorMessageView];
+        }
     } else {
         self.inputViewStatus = ETEditViewStatusNormal;
-        self.errorMessageLabel.text = nil;
-        self.errorMessageView.hidden = YES;
+        [self.vStackView removeArrangedSubview:self.errorMessageView];
     }
 }
 
 - (void)startCodeCountDown {
-    if (self.inputViewStyle != ETEditViewStyleCaptcha)
+    if (self.inputViewStyle != ETEditViewStyleCaptcha) {
         return;
+    }
+    
     if (self.count > 0) {
         self.captchaButton.enabled = NO;
         NSString *backStr = NSLocalizedString(@"秒",nil);
@@ -381,7 +283,7 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
         [self.captchaButton setTitle:NSLocalizedString(@"重新获取",nil) forState:UIControlStateNormal];
         self.captchaButton.enabled = YES;
 #if DEBUG
-        self.count = 6;
+        self.count = 60;
 #else
         self.count = 60;
 #endif
@@ -396,8 +298,8 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
     });
 }
 
-- (void)setTextFieldStateError {
-    self.inputViewStatus = ETEditViewStatusError;
+- (void)setSeperatorLineStatus:(BOOL)show {
+    self.separateLine.hidden = !show;
 }
 
 /**
@@ -408,8 +310,8 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
         case ETEditViewTextFieldTextTypeAmount: {
             if (needLimit) {
                 [self.textField.rac_textSignal subscribeNext:^(NSString *x) {
-                    static NSInteger const maxIntegerLength = 10; // 最大整数位
-                    static NSInteger const maxFloatLength = 2; // 最大精确到小数位
+                    static NSInteger const maxIntegerLength = 15; // 最大整数位
+                    static NSInteger const maxFloatLength = 15; // 最大精确到小数位
                     if (x.length) {
                         // 第一个字符处理
                         // 第一个字符为0,且长度>1时
@@ -457,47 +359,25 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
     }
 }
 
-- (void)setReloadViewWhenError:(UIView *)view {
-    [self.errorMessageView addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.errorMessageLabel.mas_right).offset(10);
-        make.centerY.equalTo(self.errorMessageLabel);
-    }];
-}
-
-- (void)setPasswordDisplayStatus:(BOOL)display {
-    if(self.inputViewStyle == ETEditViewStyleInputPassWord) {
-        self.eyeBtn.selected = !display;
-        self.textField.secureTextEntry = self.eyeBtn.selected;
-    }
-}
-
 #pragma mark - Setters/Getters
 - (void)setInputViewTitle:(NSString *)inputViewTitle {
     _inputViewTitle = inputViewTitle;
     self.inputTitleLabel.text = inputViewTitle;
 }
 
-- (CGFloat)inputViewHeight {
-    CGFloat height = 60;
-    if (self.inputViewStyle == ETEditViewStyleInputMoney) {
-        height = 95;
-        if (self.inputViewTitle && self.inputViewTitle.length > 0) {
-            height = 130;
-        }
-    }
-    return height;
-}
-
 - (UITextField *)textField {
     if (!_textField) {
         _textField = [[UITextField alloc] init];
         _textField.borderStyle = UITextBorderStyleNone;
-        _textField.font = [UIFont fontWithSize:16];
-        _textField.textColor = [UIColor drColorC5];
+        _textField.font = [UIFont s04Font];
+        _textField.textColor = [UIColor drColorC10];
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _textField.autocorrectionType = UITextAutocorrectionTypeNo;
         _textField.enablesReturnKeyAutomatically = YES;
+        CGSize size = [[NSString string] sizeWithAttributes:@{NSFontAttributeName: [UIFont s03Font]}];
+        [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(size.height + 30));
+        }];
     }
     return _textField;
 }
@@ -509,12 +389,14 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
         _captureImageView.contentMode = UIViewContentModeScaleAspectFit;
         _captureImageView.userInteractionEnabled = YES;
         _captureImageView.layer.borderColor = [UIColor drColorC2].CGColor;
+        [_captureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@88);
+        }];
+        [self refreshImageCaptcha];
         @weakify(self);
         [_captureImageView bk_whenTapped:^{
             @strongify(self);
-            if (self.captureImageViewTappedHandler) {
-                self.captureImageViewTappedHandler();
-            }
+            [self refreshImageCaptcha];
         }];
     }
     return _captureImageView;
@@ -523,7 +405,10 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 - (UIImageView *)separateLine {
     if (!_separateLine) {
         _separateLine = [[UIImageView alloc] init];
-        _separateLine.backgroundColor = [UIColor drColorC3];
+        _separateLine.backgroundColor = [UIColor drColorC4];
+        [_separateLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@0.5);
+        }];
     }
     return _separateLine;
 }
@@ -531,8 +416,9 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 - (UILabel *)inputTitleLabel {
     if (!_inputTitleLabel) {
         _inputTitleLabel = [[UILabel alloc] init];
-        _inputTitleLabel.textColor = [UIColor drColorC4];
-        _inputTitleLabel.font = [UIFont fontWithSize:14];
+        _inputTitleLabel.textColor = [UIColor drColorC10];
+        _inputTitleLabel.font = [UIFont s04Font];
+        
     }
     return _inputTitleLabel;
 }
@@ -541,17 +427,39 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
     if (!_textFieldLeftTitleLabel) {
         _textFieldLeftTitleLabel = [[UILabel alloc] init];
         _textFieldLeftTitleLabel.textAlignment = NSTextAlignmentLeft;
-        _textFieldLeftTitleLabel.textColor = [UIColor drColorC5];
-        _textFieldLeftTitleLabel.font = [UIFont fontWithSize:28];
+        _textFieldLeftTitleLabel.textColor = [UIColor drColorC19];
+        _textFieldLeftTitleLabel.font = [UIFont s03Font];
     }
     return _textFieldLeftTitleLabel;
+}
+
+- (UILabel *)textFieldRightTitleLabel {
+    if (!_textFieldRightTitleLabel) {
+        _textFieldRightTitleLabel = [[UILabel alloc] init];
+        _textFieldRightTitleLabel.textAlignment = NSTextAlignmentRight;
+        _textFieldRightTitleLabel.textColor = [UIColor drColorC19];
+        _textFieldRightTitleLabel.font = [UIFont s03Font];
+    }
+    return _textFieldRightTitleLabel;
 }
 
 - (UIView *)errorMessageView {
     if (!_errorMessageView) {
         _errorMessageView = [[UIView alloc] init];
         _errorMessageView.backgroundColor = [UIColor clearColor];
-        _errorMessageView.hidden = YES;
+        UIImageView *errorIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"InputError"]];
+        [_errorMessageView addSubview:errorIcon];
+        [errorIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_errorMessageView).offset(0);
+            make.centerY.equalTo(_errorMessageView);
+        }];
+        
+        [_errorMessageView addSubview:self.errorMessageLabel];
+        [_errorMessageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(errorIcon.mas_right).offset(8);
+            make.centerY.equalTo(_errorMessageView);
+            make.right.lessThanOrEqualTo(_errorMessageView);
+        }];
     }
     return _errorMessageView;
 }
@@ -560,52 +468,95 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
     if (!_errorMessageLabel) {
         _errorMessageLabel = [[UILabel alloc] init];
         _errorMessageLabel.textColor = [UIColor drColorC6];
-        _errorMessageLabel.font = [UIFont fontWithSize:12];
+        _errorMessageLabel.font = [UIFont s02Font];
     }
     return _errorMessageLabel;
 }
 
-- (UIButton *)captchaButton {
-    if (!_captchaButton) {
-        _captchaButton = [UIButton buttonWithStyle:ETButtonStyleBorderOrange height:30];
-        _captchaButton.titleLabel.font = [UIFont fontWithSize:10];
-        [_captchaButton setTitleColor:[UIColor drColorC7] forState:UIControlStateNormal];
-        [_captchaButton setTitleColor:[[UIColor drColorC7] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
-        [_captchaButton setTitleColor:[UIColor drColorC2] forState:UIControlStateDisabled];
-        [_captchaButton setTitle:NSLocalizedString(@"获取验证码",nil) forState:UIControlStateNormal];
-        [_captchaButton addTarget:self action:@selector(onRightButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+- (UIButton *)eyeBtn {
+    if (!_eyeBtn) {
+        _eyeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _eyeBtn.adjustsImageWhenHighlighted = NO;
+        [_eyeBtn setImage:[[UIImage imageNamed:@"SignInOpenEye"] imageByFilledWithColor:[UIColor drColorC11]] forState:UIControlStateNormal];
+        [_eyeBtn setImage:[[UIImage imageNamed:@"SignInCloseEye"] imageByFilledWithColor:[UIColor drColorC11]] forState:UIControlStateSelected];
+        [_eyeBtn addTarget:self action:@selector(onTapEye:) forControlEvents:UIControlEventTouchUpInside];
+        _eyeBtn.selected = self.textField.secureTextEntry;
+        _eyeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [_eyeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@(30));
+        }];
     }
-    return _captchaButton;
+    return _eyeBtn;
 }
 
-- (UIButton *)rightBtn {
-    if (!_rightBtn) {
-        _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_rightBtn addTarget:self action:@selector(onRightButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        [_rightBtn setTitleColor:[UIColor drColorC8] forState:UIControlStateNormal];
-        [_rightBtn setTitleColor:[UIColor drColorC8] forState:UIControlStateHighlighted];
-        _rightBtn.titleLabel.font = [UIFont fontWithSize:14];
+- (UIStackView *)vStackView {
+    if (!_vStackView) {
+        _vStackView = [UIStackView new];
+        _vStackView.axis = UILayoutConstraintAxisVertical;
+        _vStackView.alignment = UIStackViewAlignmentFill;
+        _vStackView.distribution = UIStackViewDistributionFill;
+        _vStackView.spacing = 0;
     }
-    return _rightBtn;
+    return _vStackView;
+}
+
+- (UIStackView *)hStackView {
+    if (!_hStackView) {
+        _hStackView = [UIStackView new];
+        _hStackView.alignment = UIStackViewAlignmentFill;
+        _hStackView.distribution = UIStackViewDistributionFill;
+        _hStackView.spacing = 0;
+        [_hStackView addArrangedSubview:self.textField];
+    }
+    return _hStackView;
+}
+
+- (UIButton *)captchaButton {
+    if (!_captchaButton) {
+        _captchaButton = [UIButton buttonWithStyle:ETButtonStyleBorderBlue height:30];
+        _captchaButton.titleLabel.font = [UIFont s01Font];
+        [_captchaButton setTitleColor:[UIColor drColorC11] forState:UIControlStateNormal];
+        [_captchaButton setTitleColor:[[UIColor drColorC11] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
+        [_captchaButton setTitleColor:[UIColor drColorC5] forState:UIControlStateDisabled];
+        [_captchaButton setTitle:NSLocalizedString(@"获取验证码",nil) forState:UIControlStateNormal];
+        [_captchaButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@76);
+        }];
+        [_captchaButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@30);
+        }];
+        @weakify(self);
+        [[_captchaButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            @strongify(self);
+            if (self.captchaButtonTappedActionHandler) {
+                [ETPopover showLoading:YES];
+                [self.captchaButtonTappedActionHandler() subscribeNext:^(id x) {
+                    [ETPopover showSuccessWithContent:NSLocalizedString(@"验证码发送成功", nil)];
+                    [self startCodeCountDown];
+                } error:^(NSError *error) {
+                    [ETPopover showFailureWithContent:error.message];
+                }];
+            }
+        }];
+    }
+    return _captchaButton;
 }
 
 - (UIView *)countryCodeView {
     UIView *countryCodeView = [UIView new];
     countryCodeView.backgroundColor = [UIColor clearColor];
-
-    
     self.countryCodeButton = [UIButton new];
     self.countryCodeButton.backgroundColor = [UIColor clearColor];
     [self.countryCodeButton setTitle:@"+86" forState:UIControlStateNormal];
     [self.countryCodeButton setTitleColor:[UIColor drColorC5] forState:UIControlStateNormal];
     [self.countryCodeButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    self.countryCodeButton.titleLabel.font = [UIFont fontWithSize:16];
+    self.countryCodeButton.titleLabel.font = [UIFont s04Font];
     
     [countryCodeView addSubview:self.countryCodeButton];
     [_countryCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(countryCodeView).offset(0);
-        make.width.equalTo(@40);
-        make.height.equalTo(@34);
+        make.width.equalTo(@50);
+        make.height.greaterThanOrEqualTo(@34);
         make.top.bottom.equalTo(countryCodeView);
     }];
     
@@ -617,31 +568,30 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
         make.top.equalTo(countryCodeView).offset(5);
         make.bottom.equalTo(countryCodeView).offset(-5);
         make.left.equalTo(_countryCodeButton.mas_right).offset(5);
-        make.right.equalTo(countryCodeView);
+        make.right.equalTo(countryCodeView).offset(-10);
     }];
     
     @weakify(self);
     [[_countryCodeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self.superview endEditing:YES];
-        [ETCountryCodeView showWithCode:_countryCodeButton.titleLabel.text
-                          completeBlock:^(NSString *countryCode) {
-                              [self.countryCodeButton setTitle:countryCode forState:UIControlStateNormal];
-                          }];
+        [[[ETCountryHelper sharedInstance] syncIfNeeded] subscribeNext:^(id x) {
+            [ETCountryCodeView showWithCode:[self attachText]
+                              completeBlock:^(NSString *code) {
+                                  [self.countryCodeButton setTitle:[NSString stringWithFormat:@"+%@",code] forState:UIControlStateNormal];
+                              }];
+        }];
     }];
     return countryCodeView;
 }
 
 - (NSString *)text {
-    if (!_countryCodeButton) {
-        return [_textField.text trim];
-    }
-    
-    NSString *tel = _textField.text;
-    if (![NSString isNotBlank:tel]) {
-        return @"";
-    }
-    return [NSString stringWithFormat:@"%@-%@",_countryCodeButton.titleLabel.text, [tel trim]];
+    return [_textField.text trim];
+}
+
+- (NSString *)attachText {
+    NSString *attachText = _countryCodeButton.titleLabel.text;
+    return attachText.length < 2 ? @"86" : [attachText substringFromIndex:1];
 }
 
 - (void)setText:(NSString *)text {
@@ -655,11 +605,11 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
 - (void)setEnabled:(BOOL)enabled {
     self.textField.enabled = enabled;
     if (!enabled) {
-        [self.separateLine setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dashedLine"]]];
-        self.textField.textColor = [UIColor drColorC2];
+        self.separateLine.backgroundColor = [UIColor drColorC4];
+        self.textField.textColor = [UIColor drColorC10];
     } else {
-        [self.separateLine setBackgroundColor:[UIColor drColorC3]];
-        self.textField.textColor = [UIColor drColorC5];
+        [self.separateLine setBackgroundColor:[UIColor drColorC4]];
+        self.textField.textColor = [UIColor drColorC10];
     }
 }
 
@@ -670,12 +620,20 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
             self.separateLine.backgroundColor = [UIColor drColorC8];
         } break;
         case ETEditViewStatusError: {
-            self.separateLine.backgroundColor = [UIColor drColorC6];
+            self.separateLine.backgroundColor = [UIColor drColorC17];
         } break;
         default: {
-            self.separateLine.backgroundColor = [UIColor drColorC3];
+            self.separateLine.backgroundColor = [UIColor drColorC4];
         } break;
     }
+}
+
+- (void)refreshImageCaptcha {
+    [[[APICenter getCaptcha:nil] fetchImage] subscribeNext:^(RACTuple *x) {
+        self.captureImageView.image = x.first;
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 @end

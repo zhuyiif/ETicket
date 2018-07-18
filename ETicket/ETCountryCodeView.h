@@ -10,6 +10,6 @@
 
 @interface ETCountryCodeView : UIView
 
-+ (void)showWithCode:(NSString *)countryCode completeBlock:(void (^)(NSString *countryCode))completeBlock;
++ (void)showWithCode:(NSString *)countryCode completeBlock:(void (^)(NSString *code))completeBlock;
 
 @end

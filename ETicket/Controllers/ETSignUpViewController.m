@@ -107,7 +107,7 @@
 }
 
 - (UIButton *)submitButton {
-    UIButton *submitButton = [UIButton buttonWithStyle:ETButtonStyleOrange height:44];
+    UIButton *submitButton = [UIButton buttonWithStyle:ETButtonStyleRed height:44];
     [submitButton setTitle:NSLocalizedString(@"注册", nil) forState:UIControlStateNormal];
     RAC(submitButton, enabled) = [RACSignal combineLatest:@[_verifyCodeEditView.textField.rac_textSignal,
                                                             _passwordEditView.textField.rac_textSignal,
@@ -186,10 +186,10 @@
         
         _verifyCodeEditView = [ETEditView inputViewWithStyle:ETEditViewStyleCaptcha placeHolder:NSLocalizedString(@"短信验证码", nil)];
         @weakify(self);
-        _verifyCodeEditView.rightButtonActionHandler = ^(){
+        _verifyCodeEditView.captchaButtonTappedActionHandler = ^RACSignal *{
             @strongify(self);
             [self.view endEditing:YES];
-            [self.presenter fetchVerificationCode:[self.phoneEditView text]];
+          return [self.presenter fetchVerificationCode:[self.phoneEditView text]];
         };
         _passwordEditView = [ETEditView inputViewWithStyle:ETEditViewStyleInputPassWord placeHolder:NSLocalizedString(@"密码大于6位字符", nil)];
         _confirmPasswordEditView = [ETEditView inputViewWithStyle:ETEditViewStyleInputPassWord placeHolder:NSLocalizedString(@"密码大于6位字符", nil)];

@@ -27,6 +27,14 @@
     return [Query GET:@"http://www.baidu.com" parameters:parameters];
 }
 
++ (Query *)getCaptcha:(NSDictionary *)parameters {
+    return nil;
+}
+
++ (Query *)getCountryCodes:(NSDictionary *)paramters {
+    return nil;
+}
+
 + (Query *)postSMS:(NSDictionary *)parameters {
     return [Query POST:@"" parameters:parameters];
 }

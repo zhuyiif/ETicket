@@ -32,7 +32,7 @@
 - (instancetype)initWithStyle:(ETButtonStyle)style height:(CGFloat)height {
     if (self = [super init]) {
         [self setStyle:style];
-        self.layer.cornerRadius = height / 2;
+        self.layer.cornerRadius = 2;
         self.layer.masksToBounds = YES;
     }
     return self;
@@ -40,7 +40,7 @@
 
 - (void)setStyle:(ETButtonStyle)style {
     switch (style) {
-        case ETButtonStyleOrange:
+        case ETButtonStyleRed:
         case ETButtonStyleBlue:
         case ETButtonStyleGreen: {
             [self setTitleColor:[UIColor drColorC0] forState:UIControlStateNormal];
@@ -51,13 +51,14 @@
             [self setBackgroundImage:[self disableBGImageWithStyle:style] forState:UIControlStateDisabled];
         }
             break;
-
+            
         case ETButtonStyleBorderGreen:
         case ETButtonStyleBorderOrange:
+        case ETButtonStyleBorderBlue:
         case ETButtonStyleBorderWhite:{
             self.backgroundColor = [UIColor clearColor];
-            [self setTitleColor:[UIColor drColorC0] forState:UIControlStateNormal];
-            [self setTitleColor:[[UIColor drColorC0] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
+            [self setTitleColor:[self borderColorWithStyle:style] forState:UIControlStateNormal];
+            [self setTitleColor:[[self borderColorWithStyle:style] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
             [self setTitleColor:[UIColor drColorC2] forState:UIControlStateDisabled];
             self.layer.borderWidth = 1.0f;
             self.layer.borderColor = [self borderColorWithStyle:style].CGColor;
@@ -66,7 +67,7 @@
             break;
     }
     self.titleLabel.font = [self fontWithStyle:style];
-   
+    
 }
 
 #pragma mark - Private
@@ -92,12 +93,12 @@
             color = [UIColor drColorC8];
         }
             break;
-        case ETButtonStyleOrange: {
-            color = [UIColor drColorC7];
+        case ETButtonStyleRed: {
+            color = [UIColor drColorC17];
         }
             break;
         case ETButtonStyleBlue: {
-            color = [UIColor colorWithHex:0x18ADF3];
+            color = [UIColor drColorC10];
         }
             break;
         default: {
@@ -118,8 +119,8 @@
             color = [UIColor drColorC7];
         }
             break;
-        case ETButtonStyleBlue: {
-            color = [UIColor colorWithHex:0x18ADF3];
+        case ETButtonStyleBorderBlue: {
+            color = [UIColor drColorC10];
         }
             break;
         default: {
@@ -136,12 +137,16 @@
             color = [[UIColor drColorC8] colorWithAlphaComponent:0.5];
         }
             break;
-        case ETButtonStyleOrange: {
-            color = [[UIColor drColorC7] colorWithAlphaComponent:0.5];
+        case ETButtonStyleRed: {
+            color = [[UIColor drColorC17] colorWithAlphaComponent:0.5];
+        }
+            break;
+        case ETButtonStyleBlue: {
+            color = [[UIColor drColorC10] colorWithAlphaComponent:0.5];
         }
             break;
         default: {
-            color = [[UIColor drColorC8] colorWithAlphaComponent:0.5];
+            color = [[UIColor drColorC2] colorWithAlphaComponent:0.5];
         }
     }
     return color;
@@ -155,11 +160,11 @@
     UIFont *font = nil;
     switch (style) {
         case ETButtonStyleGreen:
-        case ETButtonStyleOrange:
+        case ETButtonStyleRed:
         case ETButtonStyleBorderWhite:
         case ETButtonStyleBorderOrange:
         case ETButtonStyleBorderGreen:
-            font = [UIFont fontWithSize:15];
+            font = [UIFont s03Font];
             break;
         default:
             break;
