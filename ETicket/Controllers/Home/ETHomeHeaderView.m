@@ -7,17 +7,13 @@
 //
 
 #import "ETHomeHeaderView.h"
-#import "ETHomeBannerView.h"
-#import "ETAnouncementScrollView.h"
-#import "ETHotView.h"
+
 
 @interface ETHomeHeaderView () <ETHotViewDelegate>
 
 @property (nonatomic) UIStackView *stackView;
-@property (nonatomic) ETHomeBannerView *bannerView;
-@property (nonatomic) ETAnouncementScrollView *announceView;
-@property (nonatomic) ETHotView *hotView;
 @property (nonatomic) NSMutableArray *hotItems;
+@property (nonatomic) UIView *midCoverView;
 
 @end
 
@@ -31,7 +27,7 @@
 }
 
 - (void)setupViews {
-    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor colorWithHex:0xf8f8f8];
     self.stackView = [UIStackView new];
     self.stackView.axis = UILayoutConstraintAxisVertical;
     self.stackView.distribution = UIStackViewDistributionFill;
@@ -52,6 +48,9 @@
         make.height.equalTo(@36);
     }];
     [self.stackView addArrangedSubview:self.announceView];
+    [self.stackView addArrangedSubview:self.cardView];
+    [self.stackView addArrangedSubview:self.midCoverView];
+
 }
 
 - (ETHotView *)hotView {
@@ -61,6 +60,32 @@
         [_hotView updateModels:self.hotItems];
     }
     return _hotView;
+}
+
+- (ETHomeCardView *)cardView {
+    if (!_cardView) {
+        _cardView = [ETHomeCardView new];
+    }
+    return _cardView;
+}
+
+- (UIView *)midCoverView {
+    if (!_midCoverView) {
+        _midCoverView = [UIView new];
+        _midCoverView.backgroundColor = [UIColor colorWithHex:0xf8f8f8];
+        self.midImageView = [UIImageView new];
+        self.midImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.midImageView.image = [UIImage imageNamed:@"homeMidImage"];
+        [_midCoverView addSubview:self.midImageView];
+        [self.midImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_midCoverView).offset(10);
+            make.right.equalTo(_midCoverView).offset(-10);
+            make.top.equalTo(_midCoverView);
+            make.height.equalTo(@((kScreenWidth - 20)*0.2));
+            make.bottom.equalTo(_midCoverView).offset(-15);
+        }];
+    }
+    return _midCoverView;
 }
 
 - (NSMutableArray *)hotItems {

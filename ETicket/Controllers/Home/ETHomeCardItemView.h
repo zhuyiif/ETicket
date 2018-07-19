@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETHighlightedStyleControl.h"
 
-@interface ETHomeCardItemView : UIView
+@interface ETHomeCardItemView : ETHighlightedStyleControl
+
+@property (nonatomic) UIImageView *iconView;
+@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) UILabel *contentLabel;
+@property (nonatomic) UILabel *moreLabel;
 
 @end

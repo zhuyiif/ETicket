@@ -21,4 +21,5 @@
 + (UIFont *)dialogTitleFont;
 + (UIFont *)dialogContentFont;
 
++ (UIFont *)fontWithSize:(CGFloat)size name:(NSString *)name;
 @end

@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETHomeBannerView.h"
+#import "ETAnouncementScrollView.h"
+#import "ETHotView.h"
+#import "ETHomeCardView.h"
 
 @interface ETHomeHeaderView : UIView
 
+@property (nonatomic) ETHomeBannerView *bannerView;
+@property (nonatomic) ETAnouncementScrollView *announceView;
+@property (nonatomic) ETHomeCardView *cardView;
+@property (nonatomic) ETHotView *hotView;
+@property (nonatomic) UIImageView *midImageView;
 
 @end

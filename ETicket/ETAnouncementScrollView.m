@@ -15,6 +15,7 @@
 @property (nonatomic) NSArray<ETAnouncementInfo *> *items;
 @property (nonatomic) NSInteger index;
 @property (nonatomic) UIImageView *iconView;
+@property (nonatomic) UIButton *moreButton;
 
 @end
 
@@ -29,9 +30,23 @@
         self.iconView = hornImg;
         [self addSubview:hornImg];
         [hornImg mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(15);
-            make.width.height.equalTo(@14);
-            make.centerY.equalTo(self);
+            make.left.equalTo(self).offset(12);
+            make.width.equalTo(@22);
+            make.height.equalTo(@19);
+            make.top.equalTo(self).offset(8);
+            make.bottom.equalTo(self).offset(-8);
+        }];
+
+        self.moreButton = [UIButton new];
+        self.moreButton.backgroundColor = [UIColor clearColor];
+        [self.moreButton setTitleColor:[UIColor warmGrey] forState:UIControlStateNormal];
+        self.moreButton.titleLabel.font = [UIFont s03Font];
+        [self.moreButton setTitle:@"更多" forState:UIControlStateNormal];
+        [self addSubview:self.moreButton];
+        [self.moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self);
+            make.top.bottom.equalTo(self);
+            make.width.equalTo(@50);
         }];
         
         self.contentView = [UIView new];
@@ -39,9 +54,11 @@
         self.contentView.clipsToBounds = YES;
         [self addSubview:self.contentView];
         [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.bottom.top.equalTo(self);
-            make.left.equalTo(self.iconView.mas_right).offset(5);
+            make.bottom.top.equalTo(self);
+            make.right.equalTo(self.moreButton.mas_left);
+            make.left.equalTo(self.iconView.mas_right).offset(8);
         }];
+        [self.moreButton addTarget:self action:@selector(onMoreButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -103,7 +120,7 @@
     }];
     
     UILabel *label = [[UILabel alloc] init];
-    label.textColor = [UIColor drColorC5];
+    label.textColor = [UIColor greyishBrown];
     label.font = [UIFont s03Font];
     label.text = title;
     [anounceContentView addSubview:label];
@@ -116,7 +133,6 @@
 }
 
 - (void)onAnouncementTapped:(UITapGestureRecognizer *)gesture {
-    
     ETAnouncementInfo *item = self.items[self.index];
     if ([NSString isBlankString:item.content]) {
         return;
@@ -124,6 +140,10 @@
     
     UIViewController *viewController = [[ETWebViewController alloc] initWithData:item.content title:NSLocalizedString(@"公告详情",nil)];
     [self.viewController.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)onMoreButtonTapped:(UIButton *)button {
+    
 }
 
 #pragma mark CAAnimationDelegate

@@ -60,5 +60,7 @@
 #import "ETUtils.h"
 #import "UIScrollView+iOS11.h"
 #import "UITableView+iOS11.h"
+#import "UINavigationBar+Awesome.h"
+#import "UIView+SepLine.h"
 #endif
 #endif /* ETicket_Prefix_pch */

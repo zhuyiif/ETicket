@@ -14,7 +14,7 @@
 
 
 + (UIColor *)backgroundColor {
-    return [UIColor colorWithHex:0xffdcac];
+    return [UIColor colorWithHex:0xf8f8f8];
 }
 
 + (UIColor *)seperatorLineColor {
@@ -139,6 +139,26 @@
 
 + (UIColor *)dialogContentColor {
     return [UIColor colorWithHex:0xfffaf1];
+}
+
++ (UIColor *)warmGrey {
+    return [UIColor colorWithHex:0x747474];
+}
+
++ (UIColor *)greyishBrown {
+    return [UIColor colorWithHex:0x4e4e4e];
+}
+
++ (UIColor *)black {
+    return [UIColor colorWithHex:0x1e1e1e];
+}
+
++ (UIColor *)pumpkinOrange {
+    return [UIColor colorWithHex:0xfd7e22];
+}
+
++ (UIColor *)teal {
+    return [UIColor colorWithHex:0x079a8b];
 }
 
 @end

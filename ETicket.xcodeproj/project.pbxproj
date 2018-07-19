@@ -15,6 +15,13 @@
 		FD1ACF0D20FF7D8A00740B79 /* ETHotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF0C20FF7D8A00740B79 /* ETHotModel.m */; };
 		FD1ACF1020FF858200740B79 /* ETHomeCardItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF0F20FF858200740B79 /* ETHomeCardItemView.m */; };
 		FD1ACF1320FF859500740B79 /* ETHomeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF1220FF859500740B79 /* ETHomeCardView.m */; };
+		FD1ACF1C21006D7500740B79 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF1A21006D7400740B79 /* UINavigationBar+Awesome.m */; };
+		FD1ACF1F2100B91400740B79 /* ETHomeNewsTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF1E2100B91400740B79 /* ETHomeNewsTVCell.m */; };
+		FD1ACF222100C0B900740B79 /* ETTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF202100C0B900740B79 /* ETTableViewController.m */; };
+		FD1ACF262100CBAC00740B79 /* ETSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF252100CBAC00740B79 /* ETSegmentBar.m */; };
+		FD1ACF292100CBD000740B79 /* ETSegmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF282100CBD000740B79 /* ETSegmentItem.m */; };
+		FD1ACF2F2100DAD600740B79 /* UIView+SepLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */; };
+		FD1ACF322100DFC700740B79 /* ETSegmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF312100DFC700740B79 /* ETSegmentModel.m */; };
 		FD3BBB542048F7BA00A129B7 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB052048F7BA00A129B7 /* libcrypto.a */; };
 		FD3BBB552048F7BA00A129B7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB062048F7BA00A129B7 /* libssl.a */; };
 		FD3BBB562048F7BA00A129B7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB072048F7BA00A129B7 /* AlipaySDK.framework */; };
@@ -45,7 +52,6 @@
 		FD5D3A802047E3DD00CB3E65 /* guide1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A132047E3DD00CB3E65 /* guide1.jpg */; };
 		FD5D3A822047E3DD00CB3E65 /* ETMineListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A152047E3DD00CB3E65 /* ETMineListItem.m */; };
 		FD5D3A832047E3DD00CB3E65 /* Color.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A1A2047E3DD00CB3E65 /* Color.plist */; };
-		FD5D3A842047E3DD00CB3E65 /* UIView+SepLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A1B2047E3DD00CB3E65 /* UIView+SepLine.m */; };
 		FD5D3A852047E3DD00CB3E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A1E2047E3DD00CB3E65 /* Assets.xcassets */; };
 		FD5D3A862047E3DD00CB3E65 /* ETForgetPsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A202047E3DD00CB3E65 /* ETForgetPsdViewController.m */; };
 		FD5D3A872047E3DD00CB3E65 /* ETMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A212047E3DD00CB3E65 /* ETMinePresenter.m */; };
@@ -129,6 +135,20 @@
 		FD1ACF0F20FF858200740B79 /* ETHomeCardItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHomeCardItemView.m; sourceTree = "<group>"; };
 		FD1ACF1120FF859500740B79 /* ETHomeCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETHomeCardView.h; sourceTree = "<group>"; };
 		FD1ACF1220FF859500740B79 /* ETHomeCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHomeCardView.m; sourceTree = "<group>"; };
+		FD1ACF1A21006D7400740B79 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		FD1ACF1B21006D7500740B79 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		FD1ACF1D2100B91400740B79 /* ETHomeNewsTVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETHomeNewsTVCell.h; sourceTree = "<group>"; };
+		FD1ACF1E2100B91400740B79 /* ETHomeNewsTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHomeNewsTVCell.m; sourceTree = "<group>"; };
+		FD1ACF202100C0B900740B79 /* ETTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTableViewController.m; sourceTree = "<group>"; };
+		FD1ACF212100C0B900740B79 /* ETTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTableViewController.h; sourceTree = "<group>"; };
+		FD1ACF242100CBAC00740B79 /* ETSegmentBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETSegmentBar.h; sourceTree = "<group>"; };
+		FD1ACF252100CBAC00740B79 /* ETSegmentBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETSegmentBar.m; sourceTree = "<group>"; };
+		FD1ACF272100CBD000740B79 /* ETSegmentItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETSegmentItem.h; sourceTree = "<group>"; };
+		FD1ACF282100CBD000740B79 /* ETSegmentItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETSegmentItem.m; sourceTree = "<group>"; };
+		FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+SepLine.m"; path = "../../iOSTemplate/ETicket/UIView+SepLine.m"; sourceTree = "<group>"; };
+		FD1ACF2E2100DAD600740B79 /* UIView+SepLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+SepLine.h"; path = "../../iOSTemplate/ETicket/UIView+SepLine.h"; sourceTree = "<group>"; };
+		FD1ACF302100DFC700740B79 /* ETSegmentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETSegmentModel.h; sourceTree = "<group>"; };
+		FD1ACF312100DFC700740B79 /* ETSegmentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETSegmentModel.m; sourceTree = "<group>"; };
 		FD353B4B1FDFB2F100489185 /* ETicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3BBB052048F7BA00A129B7 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		FD3BBB062048F7BA00A129B7 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
@@ -263,7 +283,6 @@
 		FD5D3A182047E3DD00CB3E65 /* ETHomePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHomePresenter.h; sourceTree = "<group>"; };
 		FD5D3A192047E3DD00CB3E65 /* NSDate+Formater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formater.h"; sourceTree = "<group>"; };
 		FD5D3A1A2047E3DD00CB3E65 /* Color.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Color.plist; sourceTree = "<group>"; };
-		FD5D3A1B2047E3DD00CB3E65 /* UIView+SepLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SepLine.m"; sourceTree = "<group>"; };
 		FD5D3A1C2047E3DD00CB3E65 /* UIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Additions.h"; sourceTree = "<group>"; };
 		FD5D3A1D2047E3DD00CB3E65 /* UIButton+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Style.h"; sourceTree = "<group>"; };
 		FD5D3A1E2047E3DD00CB3E65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -331,7 +350,6 @@
 		FD5D3A5E2047E3DD00CB3E65 /* ETLoadingSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETLoadingSpinner.m; sourceTree = "<group>"; };
 		FD5D3A5F2047E3DD00CB3E65 /* UIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Additions.m"; sourceTree = "<group>"; };
 		FD5D3A602047E3DD00CB3E65 /* UIButton+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Style.m"; sourceTree = "<group>"; };
-		FD5D3A612047E3DD00CB3E65 /* UIView+SepLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SepLine.h"; sourceTree = "<group>"; };
 		FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formater.m"; sourceTree = "<group>"; };
 		FD5D3A632047E3DD00CB3E65 /* ETHomePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHomePresenter.m; sourceTree = "<group>"; };
 		FD5D3A642047E3DD00CB3E65 /* ETSignupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSignupItem.m; sourceTree = "<group>"; };
@@ -436,6 +454,19 @@
 				FD1ACF0520FF3AB500740B79 /* ETHotItemView.m */,
 			);
 			path = Hot;
+			sourceTree = "<group>";
+		};
+		FD1ACF232100CB9000740B79 /* Segment */ = {
+			isa = PBXGroup;
+			children = (
+				FD1ACF242100CBAC00740B79 /* ETSegmentBar.h */,
+				FD1ACF252100CBAC00740B79 /* ETSegmentBar.m */,
+				FD1ACF272100CBD000740B79 /* ETSegmentItem.h */,
+				FD1ACF282100CBD000740B79 /* ETSegmentItem.m */,
+				FD1ACF302100DFC700740B79 /* ETSegmentModel.h */,
+				FD1ACF312100DFC700740B79 /* ETSegmentModel.m */,
+			);
+			path = Segment;
 			sourceTree = "<group>";
 		};
 		FD353B421FDFB2F100489185 = {
@@ -681,6 +712,7 @@
 		FD5D3AB52047EA9900CB3E65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD1ACF232100CB9000740B79 /* Segment */,
 				FD1ACF0A20FF7D7600740B79 /* Hot */,
 				FDADFC5D20FEE40800738581 /* Empty */,
 				FD5D3A3C2047E3DD00CB3E65 /* ETAlertView.h */,
@@ -724,6 +756,8 @@
 				FD5D3A342047E3DD00CB3E65 /* ETWebViewController.m */,
 				FD5D3A3B2047E3DD00CB3E65 /* ETMenusViewController.h */,
 				FD5D3A0A2047E3DD00CB3E65 /* ETMenusViewController.m */,
+				FD1ACF212100C0B900740B79 /* ETTableViewController.h */,
+				FD1ACF202100C0B900740B79 /* ETTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -756,6 +790,8 @@
 				FD1ACF0F20FF858200740B79 /* ETHomeCardItemView.m */,
 				FD1ACF1120FF859500740B79 /* ETHomeCardView.h */,
 				FD1ACF1220FF859500740B79 /* ETHomeCardView.m */,
+				FD1ACF1D2100B91400740B79 /* ETHomeNewsTVCell.h */,
+				FD1ACF1E2100B91400740B79 /* ETHomeNewsTVCell.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -806,6 +842,10 @@
 		FD5D3ABC2047EDC300CB3E65 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FD1ACF1B21006D7500740B79 /* UINavigationBar+Awesome.h */,
+				FD1ACF2E2100DAD600740B79 /* UIView+SepLine.h */,
+				FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */,
+				FD1ACF1A21006D7400740B79 /* UINavigationBar+Awesome.m */,
 				FDADFC7A20FF165200738581 /* UIScrollView+iOS11.h */,
 				FDADFC7B20FF165300738581 /* UIScrollView+iOS11.m */,
 				FDADFC7920FF165200738581 /* UITableView+iOS11.h */,
@@ -828,8 +868,6 @@
 				FD5D3A432047E3DD00CB3E65 /* UINavigationController+Additions.m */,
 				FD5D3A192047E3DD00CB3E65 /* NSDate+Formater.h */,
 				FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */,
-				FD5D3A612047E3DD00CB3E65 /* UIView+SepLine.h */,
-				FD5D3A1B2047E3DD00CB3E65 /* UIView+SepLine.m */,
 				FDADFC8020FF17F100738581 /* UIViewController+Shadow.h */,
 				FDADFC7F20FF17F100738581 /* UIViewController+Shadow.m */,
 				FD5D3A1C2047E3DD00CB3E65 /* UIViewController+Additions.h */,
@@ -1005,6 +1043,7 @@
 				FDADFC7220FEE73000738581 /* ETAnouncementScrollView.m in Sources */,
 				FD5D3A992047E3DD00CB3E65 /* UINavigationController+Additions.m in Sources */,
 				FD5D3A792047E3DD00CB3E65 /* ETMenusViewController.m in Sources */,
+				FD1ACF262100CBAC00740B79 /* ETSegmentBar.m in Sources */,
 				FD3BBBD3204A220200A129B7 /* ETQRCodeViewController.m in Sources */,
 				FDADFC6820FEE40800738581 /* ETEmptyView.m in Sources */,
 				FD5D3AB12047E3DD00CB3E65 /* UIImage+Resize.m in Sources */,
@@ -1016,6 +1055,8 @@
 				FD5D3AC020480E2C00CB3E65 /* ETUtils.m in Sources */,
 				FD3BBB7420490A9B00A129B7 /* openssl_wrapper.m in Sources */,
 				FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */,
+				FD1ACF322100DFC700740B79 /* ETSegmentModel.m in Sources */,
+				FD1ACF222100C0B900740B79 /* ETTableViewController.m in Sources */,
 				FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */,
 				FDADFC8120FF17F100738581 /* UIViewController+Shadow.m in Sources */,
 				FD5D3A942047E3DD00CB3E65 /* main.m in Sources */,
@@ -1029,13 +1070,16 @@
 				FD5D3A772047E3DD00CB3E65 /* ETPhotoHelper.m in Sources */,
 				FD1ACF0920FF7C7400740B79 /* ETHotView.m in Sources */,
 				BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */,
+				FD1ACF292100CBD000740B79 /* ETSegmentItem.m in Sources */,
 				FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */,
 				FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */,
+				FD1ACF1C21006D7500740B79 /* UINavigationBar+Awesome.m in Sources */,
 				FDADFC5920FEE1FB00738581 /* UITextField+CLMaxLength.m in Sources */,
 				FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */,
 				FD5D3AA42047E3DD00CB3E65 /* UIViewController+ErrorView.m in Sources */,
 				FDADFC7D20FF165300738581 /* UIScrollView+iOS11.m in Sources */,
 				FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */,
+				FD1ACF2F2100DAD600740B79 /* UIView+SepLine.m in Sources */,
 				FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */,
 				FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */,
 				FDADFC6C20FEE48500738581 /* ETToastView.m in Sources */,
@@ -1054,9 +1098,9 @@
 				FD5D3A9A2047E3DD00CB3E65 /* NSError+Message.m in Sources */,
 				FD5D3AA82047E3DD00CB3E65 /* UIButton+Style.m in Sources */,
 				FD5D3A922047E3DD00CB3E65 /* UIApplication+Additions.m in Sources */,
+				FD1ACF1F2100B91400740B79 /* ETHomeNewsTVCell.m in Sources */,
 				FD5D3A952047E3DD00CB3E65 /* ETSignUpViewController.m in Sources */,
 				FD5D3AA72047E3DD00CB3E65 /* UIViewController+Additions.m in Sources */,
-				FD5D3A842047E3DD00CB3E65 /* UIView+SepLine.m in Sources */,
 				FD1ACF0620FF3AB500740B79 /* ETHotItemView.m in Sources */,
 				FD5D3AA02047E3DD00CB3E65 /* UIViewController+Query.m in Sources */,
 				FD5D3A862047E3DD00CB3E65 /* ETForgetPsdViewController.m in Sources */,

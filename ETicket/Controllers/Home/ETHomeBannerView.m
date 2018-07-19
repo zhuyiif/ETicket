@@ -21,7 +21,7 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
         self.bannerView = [ETBannerScrollView new];
-        self.bannerView.backgroundColor = [UIColor redColor];
+        self.bannerView.backgroundColor = [UIColor drColorC0];
         self.bannerView.isHorizontal = YES;
         [self addSubview:self.bannerView];
         [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -23,7 +23,7 @@
 }
 
 - (void)onTapCanceled:(UIControl *)control {
-    self.backgroundColor = [UIColor drColorC0];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 @end

@@ -18,6 +18,9 @@
         self.estimatedSectionHeaderHeight = 0.0f;
         self.estimatedSectionFooterHeight = 0.0f;
     }
+    if (@available(iOS 11.0, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 #endif
     return tableView;
 }

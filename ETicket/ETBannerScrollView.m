@@ -180,7 +180,7 @@
         UIImageView *imgView = [UIImageView new];
         @weakify(imgView);
         @weakify(self);
-        [imgView sd_setImageWithURL:[NSURL URLWithString:[items[i] valueForKey:@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"bannerDefault"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [imgView sd_setImageWithURL:[NSURL URLWithString:[items[i] valueForKey:@"image"]] placeholderImage:[UIImage imageNamed:@"bannerDefault"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             @strongify(imgView);
             @strongify(self);
             if (image) {

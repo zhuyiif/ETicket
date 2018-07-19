@@ -12,14 +12,14 @@
 
 + (UIFont *)fontWithSize:(CGFloat)size {
     //    return [UIFont fontWithSize:size name:@"Âä"];
-    return [UIFont fontWithSize:size name:nil];
+    return [UIFont fontWithSize:size name:@"PingFangSC-Medium"];
 }
 
 + (UIFont *)fontWithSize:(CGFloat)size name:(NSString *)name {
     if (name) {
         return [UIFont fontWithName:name size:size];
     }
-    return [UIFont systemFontOfSize:size];
+    return [UIFont fontWithName:@"PingFangSC-Regular" size:size];
 }
 
 + (UIFont *)s00Font {
@@ -35,7 +35,7 @@
 }
 
 + (UIFont *)s03Font {
-    return [self fontWithSize:14 name:nil];
+    return [self fontWithSize:13 name:nil];
 }
 
 + (UIFont *)s04Font {

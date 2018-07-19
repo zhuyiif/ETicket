@@ -46,5 +46,11 @@
 + (UIColor *)footerCutLineColor;
 + (UIColor *)dialogTitleColor;
 + (UIColor *)dialogContentColor;
+//TCT
++ (UIColor *)warmGrey;
++ (UIColor *)greyishBrown;
++ (UIColor *)black;
++ (UIColor *)pumpkinOrange;
++ (UIColor *)teal;
 
 @end
