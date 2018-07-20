@@ -15,10 +15,10 @@
 + (void)configTheme {
    
     // TabBar
-    [[UITabBar appearance] setBackgroundImage:[UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:[UIColor drColorC0] strokeColor:[UIColor drColorC0]]];
+    [[UITabBar appearance] setBackgroundImage:[UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:[UIColor clearColor] strokeColor:[UIColor clearColor]]];
     [[UITabBar appearance] setShadowImage:[UIImage blankImageWithSize:CGSizeMake(0.5, 0.5) fillColor:[UIColor colorWithWhite:0 alpha:0.1] strokeColor:[UIColor colorWithWhite:0 alpha:0.1]]];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor colorWithHex:0x687785], NSFontAttributeName: [UIFont fontWithSize:12] } forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor colorWithHex:0x18ADF3], NSFontAttributeName: [UIFont fontWithSize:12] } forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor warmGrey], NSFontAttributeName: [UIFont s02Font] } forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor tomato], NSFontAttributeName: [UIFont s02Font] } forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -2)];
     
     // NaviBar

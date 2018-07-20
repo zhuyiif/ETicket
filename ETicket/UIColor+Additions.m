@@ -161,4 +161,8 @@
     return [UIColor colorWithHex:0x079a8b];
 }
 
++ (UIColor *)tomato {
+    return [UIColor colorWithHex:0xe9342b];
+}
+
 @end

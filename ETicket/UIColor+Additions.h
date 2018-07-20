@@ -52,5 +52,6 @@
 + (UIColor *)black;
 + (UIColor *)pumpkinOrange;
 + (UIColor *)teal;
++ (UIColor *)tomato;
 
 @end

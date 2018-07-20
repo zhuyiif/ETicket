@@ -30,7 +30,7 @@
         self.iconView = hornImg;
         [self addSubview:hornImg];
         [hornImg mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(12);
+            make.left.equalTo(self).offset(15);
             make.width.equalTo(@22);
             make.height.equalTo(@19);
             make.top.equalTo(self).offset(8);

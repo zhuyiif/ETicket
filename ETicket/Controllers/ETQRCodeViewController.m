@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"西安地铁", nil);
+    self.navigationItem.title = NSLocalizedString(@"西安地铁", nil);
     self.scrollView = [[TPKeyboardAvoidingScrollView alloc] init];
     self.scrollView.backgroundColor = [UIColor whiteColor];
     self.scrollView.showsVerticalScrollIndicator = NO;
