@@ -53,5 +53,6 @@
 + (UIColor *)pumpkinOrange;
 + (UIColor *)teal;
 + (UIColor *)tomato;
-
++ (UIColor *)white;
++ (UIColor *)appleGreen;
 @end

@@ -165,4 +165,12 @@
     return [UIColor colorWithHex:0xe9342b];
 }
 
++ (UIColor *)white {
+    return [UIColor colorWithHex:0xfafafa];
+}
+
++ (UIColor *)appleGreen {
+    return [UIColor colorWithHex:0x51c025];
+}
+
 @end

@@ -19,7 +19,8 @@
 
 - (void)setupUI {
     self.iconView = [UIImageView new];
-    self.iconView.contentMode = UIViewContentModeScaleAspectFill;
+    self.iconView.clipsToBounds = YES;
+    self.iconView.contentMode = UIViewContentModeCenter;
     self.iconView.backgroundColor = [UIColor clearColor];
     [self addSubview:self.iconView];
     CGFloat width = 56 * PIXEL_SCALE;

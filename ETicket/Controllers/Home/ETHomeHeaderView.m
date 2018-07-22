@@ -44,9 +44,6 @@
     [self.stackView addArrangedSubview:self.bannerView];
     [self.stackView addArrangedSubview:self.hotView];
     self.announceView = [ETAnouncementScrollView new];
-    [self.announceView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@36);
-    }];
     [self.stackView addArrangedSubview:self.announceView];
     [self.stackView addArrangedSubview:self.cardView];
     [self.stackView addArrangedSubview:self.midCoverView];

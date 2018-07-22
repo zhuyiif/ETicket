@@ -37,6 +37,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = NSLocalizedString(@"首页", nil);
     self.tableView.tableHeaderView = self.headerView;
+//    [self.headerView layoutIfNeeded];
+
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.contentInset = UIEdgeInsetsZero;
     [self.tableView registerClass:[ETHomeNewsTVCell class] forCellReuseIdentifier:NSStringFromClass([ETHomeNewsTVCell class])];
@@ -120,6 +122,7 @@
     if (!_headerView) {
         _headerView = [ETHomeHeaderView new];
         _headerView.height = [_headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        _headerView.width = kScreenWidth;
     }
     return _headerView;
 }

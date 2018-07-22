@@ -10,12 +10,17 @@
 #import "ETMinePresenter.h"
 #import "ETMineTVCell.h"
 #import "ETMineListItem.h"
+#import "ETRouteTVCell.h"
+#import "ETMineTitleHeaderView.h"
+#import "ETHotView.h"
 
 @interface ETMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) ETMinePresenter *presenter;
-@property (nonatomic) UIView *tableViewFooter;
+@property (nonatomic) ETHotView *hotView;
+@property (nonatomic) NSMutableArray *hotItems;
+@property (nonatomic) ETMineTitleHeaderView *sectionHeader;
 
 @end
 
@@ -23,6 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+ 
     [self.tableView reloadData];
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -32,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"我的",nil);
-    self.view.backgroundColor = [UIColor drColorC1];
+    self.view.backgroundColor = [UIColor white];
     [self setupTableview];
 }
 
@@ -40,123 +46,137 @@
 - (void)setupTableview {
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.top.equalTo(self.view);
+        make.right.left.equalTo(self.view);
+        if (@available(iOS 11.0, *)) {
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.top.equalTo(self.mas_topLayoutGuide);
+            make.bottom.equalTo(self.mas_bottomLayoutGuide);
+        }
     }];
 }
 
-- (UIView *)tableViewFooter {
-    if (!_tableViewFooter) {
-        _tableViewFooter = [UIView new];
-        _tableViewFooter.backgroundColor = [UIColor drColorC1];
-        UIButton *logoutButton = [UIButton buttonWithStyle:ETButtonStyleRed height:44];
-        [logoutButton setTitle:NSLocalizedString(@"注销账号", nil) forState:UIControlStateNormal];
-        [_tableViewFooter addSubview:logoutButton];
-        [logoutButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_tableViewFooter).offset(10);
-            make.left.equalTo(_tableViewFooter).offset(30);
-            make.right.equalTo(_tableViewFooter).offset(-30);
-            make.bottom.equalTo(_tableViewFooter).offset(-10);
-            make.height.equalTo(@44);
-        }];
-        
-        @weakify(self);
-        [logoutButton.eventSingal subscribeNext:^(id x) {
-            @strongify(self);
-            ETAlertView *alertView = [ETAlertView noticeAlertView];
-            [alertView addButton:@"确定" actionBlock:^(void) {
-                [ETActor instance].login = NO;
-                [[ETAppDelegate delegate] resetRootController];
-            }];
-            [alertView showNotice:self title:@"温馨提示" subTitle:@"确认退出当前账户？" closeButtonTitle:@"取消" duration:0.0];
-            
-        }];
-        _tableViewFooter.height = [_tableViewFooter systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
-        
+//- (UIView *)tableViewFooter {
+//    if (!_tableViewFooter) {
+//        _tableViewFooter = [UIView new];
+//        _tableViewFooter.backgroundColor = [UIColor drColorC1];
+//        UIButton *logoutButton = [UIButton buttonWithStyle:ETButtonStyleRed height:44];
+//        [logoutButton setTitle:NSLocalizedString(@"注销账号", nil) forState:UIControlStateNormal];
+//        [_tableViewFooter addSubview:logoutButton];
+//        [logoutButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(_tableViewFooter).offset(10);
+//            make.left.equalTo(_tableViewFooter).offset(30);
+//            make.right.equalTo(_tableViewFooter).offset(-30);
+//            make.bottom.equalTo(_tableViewFooter).offset(-10);
+//            make.height.equalTo(@44);
+//        }];
+//
+//        @weakify(self);
+//        [logoutButton.eventSingal subscribeNext:^(id x) {
+//            @strongify(self);
+//            ETAlertView *alertView = [ETAlertView noticeAlertView];
+//            [alertView addButton:@"确定" actionBlock:^(void) {
+//                [ETActor instance].login = NO;
+//                [[ETAppDelegate delegate] resetRootController];
+//            }];
+//            [alertView showNotice:self title:@"温馨提示" subTitle:@"确认退出当前账户？" closeButtonTitle:@"取消" duration:0.0];
+//
+//        }];
+//        _tableViewFooter.height = [_tableViewFooter systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
+//
+//    }
+//    return _tableViewFooter;
+//}
+
+- (ETMineTitleHeaderView *)sectionHeader {
+    if (!_sectionHeader) {
+        _sectionHeader = [ETMineTitleHeaderView new];
     }
-    return _tableViewFooter;
+    return _sectionHeader;
+}
+
+- (ETHotView *)hotView {
+    if (!_hotView) {
+        _hotView = [ETHotView new];
+        [_hotView updateModels:self.hotItems];
+    }
+    return _hotView;
+}
+
+- (NSMutableArray *)hotItems {
+    if (!_hotItems) {
+        _hotItems = [NSMutableArray arrayWithCapacity:4];
+        ETHotModel *model = [ETHotModel modelWithName:@"余额充值" link:@"wallet" image:@"mineWallet"];
+        [_hotItems addObject:model];
+        ETHotModel *model1 = [ETHotModel modelWithName:@"我的收藏" link:@"collection" image:@"mineCollection"];
+        [_hotItems addObject:model1];
+        ETHotModel *model2 = [ETHotModel modelWithName:@"在线客户" link:@"kefu" image:@"mineKefu"];
+        [_hotItems addObject:model2];
+        ETHotModel *model3 = [ETHotModel modelWithName:@"关于我们" link:@"about" image:@"mineAbout"];
+        [_hotItems addObject:model3];
+    }
+    return _hotItems;
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.presenter.listArray.count;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.presenter.listArray[section] count];
+    return section == 0 ? 0 : 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section == 0 ? 7 : 0.1;
+    if (section ==  0) {
+        return [self.hotView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    }
+    return [self.sectionHeader systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, 0.1)];
-    view.backgroundColor = [UIColor drColorC1];
-    return view;
+    return section == 0 ? self.hotView : self.sectionHeader;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10;
+    return 8;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, 10)];
-    view.backgroundColor = [UIColor drColorC1];
+    UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 8)];
+    view.backgroundColor = [UIColor clearColor];
     return view;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ETMineTVCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ETMineTVCell class])];
-    ETMineListItem  *item  = [self.presenter.listArray objectAtIndex:indexPath.section][indexPath.row];
-    cell.titleLabel.text = item.title;
-    cell.iconImageView.image = [UIImage imageNamed:item.iconName];
-    cell.isHiddenSeparatorLine = (indexPath.row == 0);
+    ETRouteTVCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ETRouteTVCell class])];
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    switch (indexPath.row) {
-        case 0:{
-            ETAlertView *noticeAlert = [ETAlertView noticeAlertView];
-            [noticeAlert showNotice:self title:@"温馨提示" subTitle:@"test" closeButtonTitle:@"ok" duration:0];
-        }
-            break;
-        case 1: {
-            ETAlertView *noticeAlert = [ETAlertView successAlertView];
-            [noticeAlert showNotice:self title:nil subTitle:@"test" closeButtonTitle:@"ok" duration:0];
-        }
-            break;
-        case 2: {
-            ETAlertView *noticeAlert = [ETAlertView errorAlertView];
-            [noticeAlert showNotice:self title:@"错误" subTitle:@"test" closeButtonTitle:@"ok" duration:0];
-        }
-            break;
-            
-        default:
-            break;
-    }
 }
 
 #pragma mark - Setters/Getters
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = (id)self;
         _tableView.dataSource = (id)self;
-        _tableView.backgroundColor = [UIColor drColorC1];
+        _tableView.backgroundColor = [UIColor clearColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.separatorColor = [UIColor clearColor];
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
-        [_tableView registerClass:[ETMineTVCell class] forCellReuseIdentifier:NSStringFromClass([ETMineTVCell class])];
-        _tableView.tableFooterView = self.tableViewFooter;
+        [_tableView registerClass:[ETRouteTVCell class] forCellReuseIdentifier:NSStringFromClass([ETRouteTVCell class])];
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+//        _tableView.tableFooterView = self.tableViewFooter;
     }
     return _tableView;
 }
