@@ -42,7 +42,7 @@
 }
 
 + (Query *)postLogin:(NSDictionary *)parameters {
-    return [Query POST:@"/api/users/login" parameters:parameters];
+    return [Query POST:@"/api/users/login" parameters:parameters listKey:nil modelClass:[ETUser class]];
 }
 
 + (NSString *)packageCMSHost:(NSString *)apiPath {

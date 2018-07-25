@@ -15,7 +15,7 @@
 #import "ETHotView.h"
 #import "ETMineLoginHeaderView.h"
 
-@interface ETMineViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ETMineViewController ()<UITableViewDelegate,UITableViewDataSource,ETHotViewDelegate>
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) ETMinePresenter *presenter;
@@ -107,6 +107,7 @@
 - (ETHotView *)hotView {
     if (!_hotView) {
         _hotView = [ETHotView new];
+        _hotView.delegate = self;
         [_hotView updateModels:self.hotItems];
     }
     return _hotView;
@@ -174,6 +175,12 @@
     CGFloat offsetY = scrollView.contentOffset.y;
     self.statusBarAlpha =  offsetY > 3 ? MIN(1, 1 - ((3 + offsetTop - offsetY) / offsetTop)) : 0;
     [self updateNavigationBarStyle];
+}
+
+- (void)hotView:(ETHotView *)hotView selectedItem:(ETHotModel *)model {
+    [[[ETActor instance] showLoginIfNeeded] subscribeNext:^(id x) {
+        
+    }];
 }
 
 #pragma mark - Setters/Getters
