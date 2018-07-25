@@ -154,11 +154,11 @@
 - (void)onBannerTapped:(UITapGestureRecognizer *)gesture {
     NSInteger idx = gesture.view.tag;
     ETBannerInfo *item = _model[idx];
-    if ([NSString isBlankString:item.link]) {
+    if ([NSString isBlankString:item.url]) {
         return;
     }
     
-    UIViewController *viewController = [[ETWebViewController alloc] initWithURL:item.link title:item.name];
+    UIViewController *viewController = [[ETWebViewController alloc] initWithURL:item.url title:item.name];
     [self.viewController.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -178,9 +178,10 @@
     
     for (int i = 0; i < [items count]; ++i) {
         UIImageView *imgView = [UIImageView new];
+        ETBannerInfo *bannerInfo = items[i];
         @weakify(imgView);
         @weakify(self);
-        [imgView sd_setImageWithURL:[NSURL URLWithString:[items[i] valueForKey:@"image"]] placeholderImage:[UIImage imageNamed:@"bannerDefault"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [imgView sd_setImageWithURL:[NSURL URLWithString:bannerInfo.cover] placeholderImage:[UIImage imageNamed:@"bannerDefault"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             @strongify(imgView);
             @strongify(self);
             if (image) {

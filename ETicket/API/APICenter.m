@@ -6,22 +6,20 @@
 //  Copyright © 2016年 chunjian wang. All rights reserved.
 //
 #import "APICenter.h"
+#import "APIHosts.h"
 #import "ETBannerInfo.h"
-
+#import "ETAnouncementInfo.h"
 
 @implementation APICenter
 
 + (Query *)getBanner:(NSDictionary *)parameters {
-    return [Query GET:@"https://www-demo.dianrong.com/feapi/banners" parameters:parameters listKey:@"list" modelClass:[ETBannerInfo class]];
+    return [Query GET:[self packageCMSHost:@"api/slides"] parameters:parameters listKey:@"list" modelClass:[ETBannerInfo class]];
 }
 
-+ (Query *)getAgreementProtocol:(NSDictionary *)parameters {
-    return [Query GET:@"" parameters:parameters];
++ (Query *)getAnnounces:(NSDictionary *)parameters {
+    return [Query GET:[self packageCMSHost:@"api/notifications"] parameters:parameters listKey:@"list" modelClass:[ETAnouncementInfo class]];
 }
 
-+ (Query *)getUserProfile:(NSDictionary *)parameters {
-    return [Query GET:@"/api/users/my" parameters:parameters];
-}
 
 + (Query *)getPaymentSN:(NSDictionary *)parameters {
     return [Query GET:@"http://www.baidu.com" parameters:parameters];
@@ -36,11 +34,7 @@
 }
 
 + (Query *)postSMS:(NSDictionary *)parameters {
-    return [Query POST:@"" parameters:parameters];
-}
-
-+ (Query *)postForgetPassword:(NSDictionary *)parameters {
-    return [Query POST:@"" parameters:parameters];
+    return [Query POST:@"api/users/sms_code" parameters:parameters];
 }
 
 + (Query *)putPaymentConfirmation:(NSDictionary *)parameters {
@@ -51,8 +45,8 @@
     return [Query POST:@"/api/users/login" parameters:parameters];
 }
 
-+ (Query *)postGetCode:(NSDictionary *)parameters {
-    return [Query POST:@"/api/users/get-code" parameters:parameters];
++ (NSString *)packageCMSHost:(NSString *)apiPath {
+    return [NSString stringWithFormat:@"%@/%@",[APIHosts cmsURL],apiPath];
 }
 
 @end

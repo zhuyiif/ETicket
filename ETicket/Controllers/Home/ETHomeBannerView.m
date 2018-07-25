@@ -21,7 +21,7 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
         self.bannerView = [ETBannerScrollView new];
-        self.bannerView.backgroundColor = [UIColor drColorC0];
+        self.bannerView.backgroundColor = [UIColor whiteColor];
         self.bannerView.isHorizontal = YES;
         [self addSubview:self.bannerView];
         [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -38,7 +38,7 @@
     UIBezierPath *path = [UIBezierPath new];
     [path moveToPoint:CGPointMake(0, 0)];
     [path addLineToPoint:CGPointMake(0, self.height)];
-    [path addQuadCurveToPoint:CGPointMake(self.width, self.height) controlPoint:CGPointMake(self.width/2, self.height - 15)];
+    [path addQuadCurveToPoint:CGPointMake(self.width, self.height) controlPoint:CGPointMake(self.width/2, self.height - 20)];
     [path addLineToPoint:CGPointMake(self.width, 0)];
     [path closePath];
     self.maskLayer.path = path.CGPath;

@@ -33,8 +33,8 @@ static NSInteger const kParseErrorCode = 555;
 - (RACSignal *)parse:(NSString *)listKey modelClass:(__unsafe_unretained Class)modelClass {
     return [self flattenMap:^(RACTuple *x) {
         id responseObject = x.first;
-        if (!responseObject[@"msg"]) {
-            NSMutableDictionary *content = responseObject;
+        if ([responseObject[@"code"] integerValue] == 0) {
+            NSMutableDictionary *content = responseObject[@"content"];
             
             if (listKey) { // normalize to __items__
                 // 设计一致的 API，此处的 listKey 应该是固定的，无需作为参数到处传递。
@@ -65,7 +65,7 @@ static NSInteger const kParseErrorCode = 555;
         }
         
         // 应用层的错误也会转化为 error，具体应该忽略、弹警告、显示还是弹登录等等，是一下个 subscriber 该处理的。
-        id errors = responseObject[@"errors"];
+        id errors = responseObject[@"message"];
         if ([errors count]) {
             responseObject[NSLocalizedDescriptionKey] = [errors componentsJoinedByString:@"\n"];
         }

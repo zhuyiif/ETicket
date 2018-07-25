@@ -15,7 +15,7 @@
         [ETPopover showFailureWithContent:NSLocalizedString(@"手机号错误", nil)];
         return [RACSignal error:nil];
     }
-    return [[APICenter postSMS:@{ @"mobile": phone }] execute];
+    return [[APICenter postSMS:@{ @"phone": phone }] execute];
     
 }
 

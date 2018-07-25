@@ -8,16 +8,6 @@
 
 #import "ETAnouncementInfo.h"
 
-@implementation ETAnounceType
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    NSMutableDictionary *dic = [[NSDictionary mtl_identityPropertyMapWithModel:self] mutableCopy];
-    [dic addEntriesFromDictionary:@{ @"descriptionString": @"description" }];
-    return dic;
-}
-
-@end
-
 @implementation ETAnouncementInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {

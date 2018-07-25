@@ -10,10 +10,9 @@
 
 @interface ETBannerInfo : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic) NSNumber *duration;
-@property (nonatomic) NSString *image;
+@property (nonatomic) NSNumber *id;
+@property (nonatomic) NSString *cover;
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *link;
-@property (nonatomic) NSString *shareDescription;
+@property (nonatomic) NSString *url;
 
 @end

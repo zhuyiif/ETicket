@@ -58,9 +58,8 @@
     NSArray *colors = @[[UIColor colorWithHex:0xb0dad9],[UIColor colorWithHex:0x377e92],[UIColor colorWithHex:0x81c9c8]];
     UIImageView *preView = nil;
     for (int index = 0; index < KGUIDE_PAGE_COUNT; index++) {
-        NSString *path = [NSString stringWithFormat:@"guide%i.jpg", index + 1];
-        UIImageView *imageView =
-        [[UIImageView alloc] initWithImage:[UIImage imageNamed:path]];
+        NSString *path = [NSString stringWithFormat:@"guide%i.png", index + 1];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:path]];
         imageView.backgroundColor = colors[index];
         imageView.userInteractionEnabled = YES;
         imageView.clipsToBounds = YES;

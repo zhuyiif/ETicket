@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "ETBannerInfo.h"
+#import "ETAnouncementInfo.h"
 
 @interface ETHomePresenter : NSObject
 
 @property (nonatomic) NSArray<ETBannerInfo *> *banners;
+@property (nonatomic) NSArray<ETAnouncementInfo *> *announces;
 
 - (void)setupRequestWithController:(UIViewController *)controller;
 

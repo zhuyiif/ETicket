@@ -18,6 +18,9 @@
 - (void)swizzle_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.viewControllers.count > 0) { // avoid TabController's subViewControllers hidesTabBar
         viewController.hidesBottomBarWhenPushed = YES;
+        if ([viewController isKindOfClass:[RTContainerController class]]) {
+            [(RTContainerController *)viewController contentViewController].hidesBottomBarWhenPushed = YES;
+        }
     }
     [self swizzle_pushViewController:viewController animated:animated];
 }

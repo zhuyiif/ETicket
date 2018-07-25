@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ETUser.h"
 
 typedef NS_OPTIONS(NSUInteger, ETLoginType) {
     ETLoginTypeUnknow = 1,
@@ -22,9 +23,9 @@ typedef NS_OPTIONS(NSUInteger, ETLoginType) {
 
 @interface ETActor : NSObject
 
-@property (nonatomic, assign) ETLoginType loginType;
-@property (nonatomic, strong) NSString *token;
-@property (nonatomic) BOOL login;
+@property (nonatomic) ETLoginType loginType;
+@property (nonatomic) ETUser *user;
+@property (nonatomic) NSString *token;
 
 + (instancetype)instance;
 
@@ -35,8 +36,8 @@ typedef NS_OPTIONS(NSUInteger, ETLoginType) {
 - (RACSignal *)loginWithAccount:(NSString *)account
                        password:(NSString *)password;
 
-- (RACSignal *)thirdPlatformLogin:(SSDKPlatformType)platform;
+- (RACSignal *)showLoginIfNeeded;
 
-- (RACSignal *)signupWithItem:(ETSignupItem *)item;
+- (RACSignal *)showLogin;
 
 @end

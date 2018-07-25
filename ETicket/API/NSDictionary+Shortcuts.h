@@ -10,7 +10,7 @@
 
 #define kTotalRecordsKey @"totalElements"
 #define kPageKey @"page"
-#define kPageSize @"rows"
+#define kPageSize @"pageSize"
 #define kItemsKey @"__items__"
 #define kOriginalKey @"__originaldata__"
 #define kLoadCacheKey @"__load_cache__"

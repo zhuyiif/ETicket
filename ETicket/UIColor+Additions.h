@@ -54,5 +54,6 @@
 + (UIColor *)teal;
 + (UIColor *)tomato;
 + (UIColor *)white;
++ (UIColor *)white2;
 + (UIColor *)appleGreen;
 @end

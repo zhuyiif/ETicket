@@ -102,8 +102,8 @@ typedef NS_ENUM(NSUInteger, ETEditViewTextFieldTextType) {
         case ETEditViewStylePhone: {
             self.textField.keyboardType = UIKeyboardTypePhonePad;
             self.textField.maxLength = 11;
-            UIView *countryCode = [self countryCodeView];
-            [self.hStackView insertArrangedSubview:countryCode atIndex:0];
+//            UIView *countryCode = [self countryCodeView];
+//            [self.hStackView insertArrangedSubview:countryCode atIndex:0];
         }
             break;
         case ETEditViewStyleEmail: {

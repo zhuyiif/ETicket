@@ -51,13 +51,9 @@
 		FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0C2047E3DD00CB3E65 /* NSString+Additions.m */; };
 		FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0D2047E3DD00CB3E65 /* UIColor+Additions.m */; };
 		FD5D3A7D2047E3DD00CB3E65 /* ETBannerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A0E2047E3DD00CB3E65 /* ETBannerInfo.m */; };
-		FD5D3A7E2047E3DD00CB3E65 /* guide3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A112047E3DD00CB3E65 /* guide3.jpg */; };
-		FD5D3A7F2047E3DD00CB3E65 /* guide2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A122047E3DD00CB3E65 /* guide2.jpg */; };
-		FD5D3A802047E3DD00CB3E65 /* guide1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A132047E3DD00CB3E65 /* guide1.jpg */; };
 		FD5D3A822047E3DD00CB3E65 /* ETMineListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A152047E3DD00CB3E65 /* ETMineListItem.m */; };
 		FD5D3A832047E3DD00CB3E65 /* Color.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A1A2047E3DD00CB3E65 /* Color.plist */; };
 		FD5D3A852047E3DD00CB3E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD5D3A1E2047E3DD00CB3E65 /* Assets.xcassets */; };
-		FD5D3A862047E3DD00CB3E65 /* ETForgetPsdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A202047E3DD00CB3E65 /* ETForgetPsdViewController.m */; };
 		FD5D3A872047E3DD00CB3E65 /* ETMinePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A212047E3DD00CB3E65 /* ETMinePresenter.m */; };
 		FD5D3A882047E3DD00CB3E65 /* ETGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A232047E3DD00CB3E65 /* ETGuideViewController.m */; };
 		FD5D3A892047E3DD00CB3E65 /* ETPlatformView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A242047E3DD00CB3E65 /* ETPlatformView.m */; };
@@ -72,7 +68,6 @@
 		FD5D3A922047E3DD00CB3E65 /* UIApplication+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A322047E3DD00CB3E65 /* UIApplication+Additions.m */; };
 		FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A342047E3DD00CB3E65 /* ETWebViewController.m */; };
 		FD5D3A942047E3DD00CB3E65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A362047E3DD00CB3E65 /* main.m */; };
-		FD5D3A952047E3DD00CB3E65 /* ETSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A3A2047E3DD00CB3E65 /* ETSignUpViewController.m */; };
 		FD5D3A962047E3DD00CB3E65 /* ETAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A3F2047E3DD00CB3E65 /* ETAppDelegate.m */; };
 		FD5D3A972047E3DD00CB3E65 /* ETLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A412047E3DD00CB3E65 /* ETLoginViewController.m */; };
 		FD5D3A982047E3DD00CB3E65 /* ETMineTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A422047E3DD00CB3E65 /* ETMineTVCell.m */; };
@@ -94,7 +89,6 @@
 		FD5D3AA82047E3DD00CB3E65 /* UIButton+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A602047E3DD00CB3E65 /* UIButton+Style.m */; };
 		FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */; };
 		FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A632047E3DD00CB3E65 /* ETHomePresenter.m */; };
-		FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A642047E3DD00CB3E65 /* ETSignupItem.m */; };
 		FD5D3AAC2047E3DD00CB3E65 /* ETThemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A652047E3DD00CB3E65 /* ETThemeHelper.m */; };
 		FD5D3AAD2047E3DD00CB3E65 /* UIView+ITTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A692047E3DD00CB3E65 /* UIView+ITTAdditions.m */; };
 		FD5D3AAE2047E3DD00CB3E65 /* UIImage+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D3A6A2047E3DD00CB3E65 /* UIImage+Draw.m */; };
@@ -119,6 +113,14 @@
 		FDADFC7D20FF165300738581 /* UIScrollView+iOS11.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7B20FF165300738581 /* UIScrollView+iOS11.m */; };
 		FDADFC7E20FF165300738581 /* UITableView+iOS11.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7C20FF165300738581 /* UITableView+iOS11.m */; };
 		FDADFC8120FF17F100738581 /* UIViewController+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADFC7F20FF17F100738581 /* UIViewController+Shadow.m */; };
+		FDEF915F210855BA0045530C /* ETUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEF915E210855BA0045530C /* ETUser.m */; };
+		FDEF916321085DB50045530C /* guide2.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEF916021085DB40045530C /* guide2.png */; };
+		FDEF916421085DB50045530C /* guide1.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEF916121085DB40045530C /* guide1.png */; };
+		FDEF916521085DB50045530C /* guide3.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEF916221085DB50045530C /* guide3.png */; };
+		FDFC0FFA2108BC330035F7F6 /* ETMineSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC0FF92108BC330035F7F6 /* ETMineSummaryView.m */; };
+		FDFC0FFD2108C3170035F7F6 /* NSNumber+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC0FFC2108C3170035F7F6 /* NSNumber+Format.m */; };
+		FDFC10002108C4550035F7F6 /* ETMineUnloginHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC0FFF2108C4550035F7F6 /* ETMineUnloginHeaderView.m */; };
+		FDFC10032108C4650035F7F6 /* ETMineLoginHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC10022108C4650035F7F6 /* ETMineLoginHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -280,18 +282,13 @@
 		FD5D3A062047E3DD00CB3E65 /* ETAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAppDelegate.h; sourceTree = "<group>"; };
 		FD5D3A072047E3DD00CB3E65 /* ETPhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETPhotoHelper.m; sourceTree = "<group>"; };
 		FD5D3A082047E3DD00CB3E65 /* ETCountryCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCountryCodeView.m; sourceTree = "<group>"; };
-		FD5D3A092047E3DD00CB3E65 /* ETSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSignUpViewController.h; sourceTree = "<group>"; };
 		FD5D3A0A2047E3DD00CB3E65 /* ETMenusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMenusViewController.m; sourceTree = "<group>"; };
 		FD5D3A0B2047E3DD00CB3E65 /* ETAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETAlertView.m; sourceTree = "<group>"; };
 		FD5D3A0C2047E3DD00CB3E65 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		FD5D3A0D2047E3DD00CB3E65 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		FD5D3A0E2047E3DD00CB3E65 /* ETBannerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETBannerInfo.m; sourceTree = "<group>"; };
-		FD5D3A112047E3DD00CB3E65 /* guide3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide3.jpg; sourceTree = "<group>"; };
-		FD5D3A122047E3DD00CB3E65 /* guide2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide2.jpg; sourceTree = "<group>"; };
-		FD5D3A132047E3DD00CB3E65 /* guide1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guide1.jpg; sourceTree = "<group>"; };
 		FD5D3A152047E3DD00CB3E65 /* ETMineListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMineListItem.m; sourceTree = "<group>"; };
 		FD5D3A162047E3DD00CB3E65 /* ETThemeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETThemeHelper.h; sourceTree = "<group>"; };
-		FD5D3A172047E3DD00CB3E65 /* ETSignupItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSignupItem.h; sourceTree = "<group>"; };
 		FD5D3A182047E3DD00CB3E65 /* ETHomePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHomePresenter.h; sourceTree = "<group>"; };
 		FD5D3A192047E3DD00CB3E65 /* NSDate+Formater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formater.h"; sourceTree = "<group>"; };
 		FD5D3A1A2047E3DD00CB3E65 /* Color.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Color.plist; sourceTree = "<group>"; };
@@ -299,7 +296,6 @@
 		FD5D3A1D2047E3DD00CB3E65 /* UIButton+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Style.h"; sourceTree = "<group>"; };
 		FD5D3A1E2047E3DD00CB3E65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD5D3A1F2047E3DD00CB3E65 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
-		FD5D3A202047E3DD00CB3E65 /* ETForgetPsdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETForgetPsdViewController.m; sourceTree = "<group>"; };
 		FD5D3A212047E3DD00CB3E65 /* ETMinePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETMinePresenter.m; sourceTree = "<group>"; };
 		FD5D3A222047E3DD00CB3E65 /* ETHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETHomeViewController.h; sourceTree = "<group>"; };
 		FD5D3A232047E3DD00CB3E65 /* ETGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETGuideViewController.m; sourceTree = "<group>"; };
@@ -324,7 +320,6 @@
 		FD5D3A372047E3DD00CB3E65 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		FD5D3A382047E3DD00CB3E65 /* ETBannerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETBannerInfo.h; sourceTree = "<group>"; };
 		FD5D3A392047E3DD00CB3E65 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
-		FD5D3A3A2047E3DD00CB3E65 /* ETSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSignUpViewController.m; sourceTree = "<group>"; };
 		FD5D3A3B2047E3DD00CB3E65 /* ETMenusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMenusViewController.h; sourceTree = "<group>"; };
 		FD5D3A3C2047E3DD00CB3E65 /* ETAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETAlertView.h; sourceTree = "<group>"; };
 		FD5D3A3D2047E3DD00CB3E65 /* ETCountryCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCountryCodeView.h; sourceTree = "<group>"; };
@@ -364,7 +359,6 @@
 		FD5D3A602047E3DD00CB3E65 /* UIButton+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Style.m"; sourceTree = "<group>"; };
 		FD5D3A622047E3DD00CB3E65 /* NSDate+Formater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formater.m"; sourceTree = "<group>"; };
 		FD5D3A632047E3DD00CB3E65 /* ETHomePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHomePresenter.m; sourceTree = "<group>"; };
-		FD5D3A642047E3DD00CB3E65 /* ETSignupItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSignupItem.m; sourceTree = "<group>"; };
 		FD5D3A652047E3DD00CB3E65 /* ETThemeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETThemeHelper.m; sourceTree = "<group>"; };
 		FD5D3A662047E3DD00CB3E65 /* ETicket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ETicket-Prefix.pch"; sourceTree = "<group>"; };
 		FD5D3A682047E3DD00CB3E65 /* ETMineListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMineListItem.h; sourceTree = "<group>"; };
@@ -376,7 +370,6 @@
 		FD5D3A6E2047E3DD00CB3E65 /* ETMinePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETMinePresenter.h; sourceTree = "<group>"; };
 		FD5D3A6F2047E3DD00CB3E65 /* ETHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETHomeViewController.m; sourceTree = "<group>"; };
 		FD5D3A702047E3DD00CB3E65 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		FD5D3A712047E3DD00CB3E65 /* ETForgetPsdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETForgetPsdViewController.h; sourceTree = "<group>"; };
 		FD5D3ABE20480E2C00CB3E65 /* ETUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETUtils.h; sourceTree = "<group>"; };
 		FD5D3ABF20480E2C00CB3E65 /* ETUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETUtils.m; sourceTree = "<group>"; };
 		FDADFC4C20FEE16F00738581 /* ETCountryHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETCountryHelper.h; sourceTree = "<group>"; };
@@ -413,6 +406,19 @@
 		FDADFC7C20FF165300738581 /* UITableView+iOS11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+iOS11.m"; sourceTree = "<group>"; };
 		FDADFC7F20FF17F100738581 /* UIViewController+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Shadow.m"; sourceTree = "<group>"; };
 		FDADFC8020FF17F100738581 /* UIViewController+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Shadow.h"; sourceTree = "<group>"; };
+		FDEF915D210855BA0045530C /* ETUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETUser.h; sourceTree = "<group>"; };
+		FDEF915E210855BA0045530C /* ETUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETUser.m; sourceTree = "<group>"; };
+		FDEF916021085DB40045530C /* guide2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide2.png; sourceTree = "<group>"; };
+		FDEF916121085DB40045530C /* guide1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide1.png; sourceTree = "<group>"; };
+		FDEF916221085DB50045530C /* guide3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide3.png; sourceTree = "<group>"; };
+		FDFC0FF82108BC330035F7F6 /* ETMineSummaryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETMineSummaryView.h; sourceTree = "<group>"; };
+		FDFC0FF92108BC330035F7F6 /* ETMineSummaryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETMineSummaryView.m; sourceTree = "<group>"; };
+		FDFC0FFB2108C3170035F7F6 /* NSNumber+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Format.h"; sourceTree = "<group>"; };
+		FDFC0FFC2108C3170035F7F6 /* NSNumber+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Format.m"; sourceTree = "<group>"; };
+		FDFC0FFE2108C4550035F7F6 /* ETMineUnloginHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETMineUnloginHeaderView.h; sourceTree = "<group>"; };
+		FDFC0FFF2108C4550035F7F6 /* ETMineUnloginHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETMineUnloginHeaderView.m; sourceTree = "<group>"; };
+		FDFC10012108C4650035F7F6 /* ETMineLoginHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETMineLoginHeaderView.h; sourceTree = "<group>"; };
+		FDFC10022108C4650035F7F6 /* ETMineLoginHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETMineLoginHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -677,9 +683,9 @@
 		FD5D3A102047E3DD00CB3E65 /* Guide */ = {
 			isa = PBXGroup;
 			children = (
-				FD5D3A112047E3DD00CB3E65 /* guide3.jpg */,
-				FD5D3A122047E3DD00CB3E65 /* guide2.jpg */,
-				FD5D3A132047E3DD00CB3E65 /* guide1.jpg */,
+				FDEF916121085DB40045530C /* guide1.png */,
+				FDEF916021085DB40045530C /* guide2.png */,
+				FDEF916221085DB50045530C /* guide3.png */,
 			);
 			path = Guide;
 			sourceTree = "<group>";
@@ -722,8 +728,8 @@
 				FDADFC7420FEE76700738581 /* ETAnouncementInfo.m */,
 				FD5D3A382047E3DD00CB3E65 /* ETBannerInfo.h */,
 				FD5D3A0E2047E3DD00CB3E65 /* ETBannerInfo.m */,
-				FD5D3A172047E3DD00CB3E65 /* ETSignupItem.h */,
-				FD5D3A642047E3DD00CB3E65 /* ETSignupItem.m */,
+				FDEF915D210855BA0045530C /* ETUser.h */,
+				FDEF915E210855BA0045530C /* ETUser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -799,10 +805,6 @@
 			children = (
 				FD5D3A042047E3DD00CB3E65 /* ETLoginViewController.h */,
 				FD5D3A412047E3DD00CB3E65 /* ETLoginViewController.m */,
-				FD5D3A092047E3DD00CB3E65 /* ETSignUpViewController.h */,
-				FD5D3A3A2047E3DD00CB3E65 /* ETSignUpViewController.m */,
-				FD5D3A202047E3DD00CB3E65 /* ETForgetPsdViewController.m */,
-				FD5D3A712047E3DD00CB3E65 /* ETForgetPsdViewController.h */,
 				FD5D3A6D2047E3DD00CB3E65 /* ETGuideViewController.h */,
 				FD5D3A232047E3DD00CB3E65 /* ETGuideViewController.m */,
 			);
@@ -843,6 +845,12 @@
 				FD1A1A662101891F00CEEA2B /* ETMineTitleHeaderView.m */,
 				FD1A1A682101B67400CEEA2B /* ETRouteTVCell.h */,
 				FD1A1A692101B67400CEEA2B /* ETRouteTVCell.m */,
+				FDFC0FF82108BC330035F7F6 /* ETMineSummaryView.h */,
+				FDFC0FF92108BC330035F7F6 /* ETMineSummaryView.m */,
+				FDFC0FFE2108C4550035F7F6 /* ETMineUnloginHeaderView.h */,
+				FDFC0FFF2108C4550035F7F6 /* ETMineUnloginHeaderView.m */,
+				FDFC10012108C4650035F7F6 /* ETMineLoginHeaderView.h */,
+				FDFC10022108C4650035F7F6 /* ETMineLoginHeaderView.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -878,6 +886,8 @@
 		FD5D3ABC2047EDC300CB3E65 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FDFC0FFB2108C3170035F7F6 /* NSNumber+Format.h */,
+				FDFC0FFC2108C3170035F7F6 /* NSNumber+Format.m */,
 				FD1ACF1B21006D7500740B79 /* UINavigationBar+Awesome.h */,
 				FD1ACF2E2100DAD600740B79 /* UIView+SepLine.h */,
 				FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */,
@@ -1015,12 +1025,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEF916321085DB50045530C /* guide2.png in Resources */,
 				FD5D3A832047E3DD00CB3E65 /* Color.plist in Resources */,
-				FD5D3A7E2047E3DD00CB3E65 /* guide3.jpg in Resources */,
-				FD5D3A802047E3DD00CB3E65 /* guide1.jpg in Resources */,
+				FDEF916421085DB50045530C /* guide1.png in Resources */,
 				FD5D3A8A2047E3DD00CB3E65 /* LaunchScreen.storyboard in Resources */,
-				FD5D3A7F2047E3DD00CB3E65 /* guide2.jpg in Resources */,
 				FD5D3A852047E3DD00CB3E65 /* Assets.xcassets in Resources */,
+				FDEF916521085DB50045530C /* guide3.png in Resources */,
 				FD5D3AAF2047E3DD00CB3E65 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1109,12 +1119,12 @@
 				FD1ACF0920FF7C7400740B79 /* ETHotView.m in Sources */,
 				FD1A1A6A2101B67400CEEA2B /* ETRouteTVCell.m in Sources */,
 				BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */,
+				FDFC0FFD2108C3170035F7F6 /* NSNumber+Format.m in Sources */,
 				FD1ACF292100CBD000740B79 /* ETSegmentItem.m in Sources */,
 				FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */,
 				FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */,
 				FD1ACF1C21006D7500740B79 /* UINavigationBar+Awesome.m in Sources */,
 				FDADFC5920FEE1FB00738581 /* UITextField+CLMaxLength.m in Sources */,
-				FD5D3AAB2047E3DD00CB3E65 /* ETSignupItem.m in Sources */,
 				FD5D3AA42047E3DD00CB3E65 /* UIViewController+ErrorView.m in Sources */,
 				FDADFC7D20FF165300738581 /* UIScrollView+iOS11.m in Sources */,
 				FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */,
@@ -1126,6 +1136,7 @@
 				FD5D3AA12047E3DD00CB3E65 /* Query.m in Sources */,
 				FD5D3AB02047E3DD00CB3E65 /* ETHomeViewController.m in Sources */,
 				FD5D3A8E2047E3DD00CB3E65 /* TTLanguage.m in Sources */,
+				FDFC10032108C4650035F7F6 /* ETMineLoginHeaderView.m in Sources */,
 				FDADFC5A20FEE1FB00738581 /* UITextField+CLValidator.m in Sources */,
 				FD1A1A672101891F00CEEA2B /* ETMineTitleHeaderView.m in Sources */,
 				FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */,
@@ -1139,11 +1150,10 @@
 				FD5D3AA82047E3DD00CB3E65 /* UIButton+Style.m in Sources */,
 				FD5D3A922047E3DD00CB3E65 /* UIApplication+Additions.m in Sources */,
 				FD1ACF1F2100B91400740B79 /* ETHomeNewsTVCell.m in Sources */,
-				FD5D3A952047E3DD00CB3E65 /* ETSignUpViewController.m in Sources */,
 				FD5D3AA72047E3DD00CB3E65 /* UIViewController+Additions.m in Sources */,
 				FD1ACF0620FF3AB500740B79 /* ETHotItemView.m in Sources */,
 				FD5D3AA02047E3DD00CB3E65 /* UIViewController+Query.m in Sources */,
-				FD5D3A862047E3DD00CB3E65 /* ETForgetPsdViewController.m in Sources */,
+				FDFC0FFA2108BC330035F7F6 /* ETMineSummaryView.m in Sources */,
 				FD5D3AA32047E3DD00CB3E65 /* RACCommand+Additions.m in Sources */,
 				FD5D3A872047E3DD00CB3E65 /* ETMinePresenter.m in Sources */,
 				FD1ACF0D20FF7D8A00740B79 /* ETHotModel.m in Sources */,
@@ -1154,6 +1164,7 @@
 				FDADFC6620FEE40800738581 /* ETEmptyViewModel.m in Sources */,
 				FDADFC6F20FEE51200738581 /* ETLoadingView.m in Sources */,
 				FDADFC6720FEE40800738581 /* UITableView+Empty.m in Sources */,
+				FDFC10002108C4550035F7F6 /* ETMineUnloginHeaderView.m in Sources */,
 				FD5D3A8C2047E3DD00CB3E65 /* ETAppHelper.m in Sources */,
 				FD5D3AA22047E3DD00CB3E65 /* NSDictionary+Shortcuts.m in Sources */,
 				FD5D3AAE2047E3DD00CB3E65 /* UIImage+Draw.m in Sources */,
@@ -1170,6 +1181,7 @@
 				FDADFC4E20FEE16F00738581 /* ETCountryHelper.m in Sources */,
 				FD5D3A882047E3DD00CB3E65 /* ETGuideViewController.m in Sources */,
 				FDADFC5120FEE1C900738581 /* ETCountryCode.m in Sources */,
+				FDEF915F210855BA0045530C /* ETUser.m in Sources */,
 				FD5D3A762047E3DD00CB3E65 /* ETBannerScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -133,25 +133,12 @@
     @weakify(self);
     [[RACObserve(self.presenter, banners) skip:1] subscribeNext:^(NSArray<ETBannerInfo *> *x) {
         @strongify(self);
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:5];
-        ETBannerInfo *bannerInfo = [ETBannerInfo new];
-        bannerInfo.image = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531994350329&di=0e4e4c4cc979e7ca46e93f65c0477e56&imgtype=0&src=http%3A%2F%2Fimg3.3lian.com%2F2013%2Fc4%2F95%2Fd%2F18.jpg";
-        [array addObject:bannerInfo];
-        ETBannerInfo *bannerInfo1 = [ETBannerInfo new];
-        bannerInfo1.image = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531994350329&di=0e4e4c4cc979e7ca46e93f65c0477e56&imgtype=0&src=http%3A%2F%2Fimg3.3lian.com%2F2013%2Fc4%2F95%2Fd%2F18.jpg";
-        [array addObject:bannerInfo1];
-        ETBannerInfo *bannerInfo2 = [ETBannerInfo new];
-        bannerInfo2.image = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531994350329&di=0e4e4c4cc979e7ca46e93f65c0477e56&imgtype=0&src=http%3A%2F%2Fimg3.3lian.com%2F2013%2Fc4%2F95%2Fd%2F18.jpg";
-        [array addObject:bannerInfo2];
-        [self.headerView.bannerView.bannerView setBanners:array];
-        
-        NSMutableArray *announceArray = [NSMutableArray arrayWithCapacity:5];
-        for (int i = 0 ;i < 5; i ++) {
-            ETAnouncementInfo *announce = [ETAnouncementInfo new];
-            announce.title = @"大户哦发货方";
-            [announceArray addObject:announce];
-        }
-        [self.headerView.announceView setAnouncements:announceArray];
+        [self.headerView.bannerView.bannerView setBanners:x];
+    }];
+    
+    [[RACObserve(self.presenter, announces) skip:1] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.headerView.announceView setAnouncements:x];
     }];
 }
 

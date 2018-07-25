@@ -24,16 +24,19 @@
 #endif
 
 static NSString *gHosts[] = {
-    @"http://119.29.187.201:8003",
-    @"http://119.29.187.201:8003",
+    @"https://scan-app.funenc.com",
+};
+
+static NSString *gCMSHosts[] = {
+    @"https://operator-app.funenc.com",
 };
 
 static APIHosts *instance = nil;
 
 #if CONFIG_DEVELOPMENT_ONLY
-static NSInteger gIndex = 1;
+static NSInteger gIndex = 0;
 #else
-static NSInteger gIndex = 1;
+static NSInteger gIndex = 0;
 #endif
 
 @implementation APIHosts
@@ -57,6 +60,10 @@ static NSInteger gIndex = 1;
 
 + (NSString *)defaultURL {
     return gHosts[gIndex];
+}
+
++ (NSString *)cmsURL {
+    return gCMSHosts[gIndex];
 }
 
 + (void)setDefaultURLWithIndex:(NSInteger)index {

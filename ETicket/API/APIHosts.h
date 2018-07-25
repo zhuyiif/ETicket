@@ -16,6 +16,7 @@
 + (NSInteger)count;
 + (NSString *)URLAtIndex:(NSInteger)index;
 + (NSString *)defaultURL;
++ (NSString *)cmsURL;
 + (void)setDefaultURLWithIndex:(NSInteger)index;
 
 @end

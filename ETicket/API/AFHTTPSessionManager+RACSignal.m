@@ -13,12 +13,6 @@ NSString *const RACAFNResponseObjectErrorKey = @"responseObject";
 - (RACSignal *)GET:(NSString *)path parameters:(id)parameters {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSURLSessionDataTask *task = [self GET:path parameters:parameters progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-            // 为支持分页的 hack，可在服务端添加，只针对 GET，容器必须 NSJSONReadingMutableContainers
-            if (parameters[@"page"]) {
-                responseObject[@"data"][@"page"] = parameters[@"page"];
-            }
-            // end of hack
-            
             [subscriber sendNext:RACTuplePack(responseObject, task.response)];
             [subscriber sendCompleted];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {

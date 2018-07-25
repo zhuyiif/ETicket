@@ -11,11 +11,10 @@
 #import "ETPlatformView.h"
 #import <TTTAttributedLabel.h>
 #import "TTTAttributedLabel+additions.h"
-#import "ETSignUpViewController.h"
-#import "ETForgetPsdViewController.h"
 #import <TPKeyboardAvoidingScrollView.h>
 #import "UIButton+Style.h"
 #import "NSString+Additions.h"
+#import "ETAccountPresenter.h"
 
 @interface ETLoginViewController ()<TTTAttributedLabelDelegate>
 
@@ -24,6 +23,7 @@
 @property (nonatomic) ETEditView *verfiyCodeEditView;
 @property (nonatomic) UIButton *submitButton;
 @property (nonatomic) id<RACSubscriber> subscriber;
+@property (nonatomic) ETAccountPresenter *presenter;
 
 @end
 
@@ -66,6 +66,7 @@ static ETLoginViewController *gInstance;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor drColorC0];
+    self.presenter = [ETAccountPresenter new];
     UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginViewBG"]];
     [self.view addSubview:bgView];
     [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,7 +97,7 @@ static ETLoginViewController *gInstance;
         if (@available(iOS 11.0, *)) {
             make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
         } else {
-            make.bottom.equalTo(self.view);
+            make.bottom.equalTo(self.mas_topLayoutGuide);
         }
     }];
     
@@ -145,6 +146,12 @@ static ETLoginViewController *gInstance;
         self.verfiyCodeEditView = [ETEditView inputViewWithStyle:ETEditViewStyleCaptcha title:@"验证码"];
         [self.verfiyCodeEditView setTitleColor:[UIColor drColorC0]];
         [self.verfiyCodeEditView setPlaceHolder:@"请输入验证码"];
+        @weakify(self);
+        self.verfiyCodeEditView.captchaButtonTappedActionHandler = ^RACSignal * {
+            @strongify(self);
+            [self.view endEditing:YES];
+            return [self.presenter fetchVerificationCode:[self.phoneEditView text]];
+        };
         [_contentView addSubview:self.verfiyCodeEditView];
         [self.verfiyCodeEditView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.phoneEditView.mas_bottom).offset(15);

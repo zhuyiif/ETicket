@@ -12,9 +12,10 @@
 
 - (void)setupRequestWithController:(UIViewController *)controller {
     @weakify(self);
-    [controller showHeaderWithQueries:@[[APICenter getBanner:@{@"type": @"appV4Homepage1"}]] contentHandler:^(RACTuple *content) {
+    [controller showHeaderWithQueries:@[[APICenter getBanner:nil],[APICenter getAnnounces:nil]] contentHandler:^(RACTuple *content) {
         @strongify(self);
         self.banners = ((NSDictionary *)content.first).items;
+        self.announces = [(NSDictionary *)content.second items];
     }];
 }
 

@@ -13,6 +13,7 @@
 #import "ETRouteTVCell.h"
 #import "ETMineTitleHeaderView.h"
 #import "ETHotView.h"
+#import "ETMineLoginHeaderView.h"
 
 @interface ETMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -21,6 +22,10 @@
 @property (nonatomic) ETHotView *hotView;
 @property (nonatomic) NSMutableArray *hotItems;
 @property (nonatomic) ETMineTitleHeaderView *sectionHeader;
+@property (nonatomic) ETMineLoginHeaderView *loginedHeaderView;
+@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) CGFloat statusBarAlpha;
+
 
 @end
 
@@ -28,10 +33,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
- 
     [self.tableView reloadData];
-    self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self reload];
 }
 
@@ -40,54 +42,60 @@
     self.title = NSLocalizedString(@"我的",nil);
     self.view.backgroundColor = [UIColor white];
     [self setupTableview];
+    [self setupNavigationBar];
 }
 
 #pragma mark - Private Methods
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((self.view.width - 120) / 2, 0, 120, 44)];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textColor = [UIColor clearColor];
+        _titleLabel.font = [UIFont s05Font];
+    }
+    return _titleLabel;
+}
+
+#pragma mark - Private Methods
+- (void)setupNavigationBar {
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    self.navigationItem.titleView = self.titleLabel;
+    self.titleLabel.text = NSLocalizedString(@"我的",nil);
+}
+
+- (BOOL)statusBarNeedToWhite {
+    return self.statusBarAlpha > 0.3 ? NO : YES;
+}
+
+- (void)updateNavigationBarStyle {
+    self.titleLabel.textColor = [self statusBarNeedToWhite] ? [UIColor clearColor] : [[UIColor drColorC5] colorWithAlphaComponent:self.statusBarAlpha];
+    UIColor *naviColor = [self statusBarNeedToWhite] ? [UIColor clearColor] : [[UIColor drColorC0] colorWithAlphaComponent:self.statusBarAlpha];
+    [self.navigationController.navigationBar lt_setBackgroundColor:naviColor];
+    [UIApplication sharedApplication].statusBarStyle = [self statusBarNeedToWhite] ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
 - (void)setupTableview {
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.equalTo(self.view);
-        if (@available(iOS 11.0, *)) {
-            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
-            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-        } else {
-            make.top.equalTo(self.mas_topLayoutGuide);
-            make.bottom.equalTo(self.mas_bottomLayoutGuide);
-        }
+        make.top.equalTo(self.view);
+        make.bottom.equalTo(self.mas_bottomLayoutGuide);
     }];
 }
 
-//- (UIView *)tableViewFooter {
-//    if (!_tableViewFooter) {
-//        _tableViewFooter = [UIView new];
-//        _tableViewFooter.backgroundColor = [UIColor drColorC1];
-//        UIButton *logoutButton = [UIButton buttonWithStyle:ETButtonStyleRed height:44];
-//        [logoutButton setTitle:NSLocalizedString(@"注销账号", nil) forState:UIControlStateNormal];
-//        [_tableViewFooter addSubview:logoutButton];
-//        [logoutButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(_tableViewFooter).offset(10);
-//            make.left.equalTo(_tableViewFooter).offset(30);
-//            make.right.equalTo(_tableViewFooter).offset(-30);
-//            make.bottom.equalTo(_tableViewFooter).offset(-10);
-//            make.height.equalTo(@44);
-//        }];
-//
-//        @weakify(self);
-//        [logoutButton.eventSingal subscribeNext:^(id x) {
-//            @strongify(self);
-//            ETAlertView *alertView = [ETAlertView noticeAlertView];
-//            [alertView addButton:@"确定" actionBlock:^(void) {
-//                [ETActor instance].login = NO;
-//                [[ETAppDelegate delegate] resetRootController];
-//            }];
-//            [alertView showNotice:self title:@"温馨提示" subTitle:@"确认退出当前账户？" closeButtonTitle:@"取消" duration:0.0];
-//
-//        }];
-//        _tableViewFooter.height = [_tableViewFooter systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
-//
-//    }
-//    return _tableViewFooter;
-//}
+- (ETMineLoginHeaderView *)loginedHeaderView {
+    if (!_loginedHeaderView) {
+        _loginedHeaderView = [ETMineLoginHeaderView new];
+        [_loginedHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(313*PIXEL_SCALE));
+        }];
+        _loginedHeaderView.width = kScreenWidth;
+        _loginedHeaderView.height = 313*PIXEL_SCALE;
+    }
+    return _loginedHeaderView;
+}
 
 - (ETMineTitleHeaderView *)sectionHeader {
     if (!_sectionHeader) {
@@ -159,6 +167,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetTop = 44 + [UIApplication sharedApplication].statusBarFrame.size.height;
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    self.statusBarAlpha =  offsetY > 3 ? MIN(1, 1 - ((3 + offsetTop - offsetY) / offsetTop)) : 0;
+    [self updateNavigationBarStyle];
+}
+
 #pragma mark - Setters/Getters
 
 - (UITableView *)tableView {
@@ -171,12 +188,7 @@
         _tableView.separatorColor = [UIColor clearColor];
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
         [_tableView registerClass:[ETRouteTVCell class] forCellReuseIdentifier:NSStringFromClass([ETRouteTVCell class])];
-        if (@available(iOS 11.0, *)) {
-            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        } else {
-            self.automaticallyAdjustsScrollViewInsets = NO;
-        }
-//        _tableView.tableFooterView = self.tableViewFooter;
+        _tableView.tableHeaderView = self.loginedHeaderView;
     }
     return _tableView;
 }
