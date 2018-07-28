@@ -2,14 +2,26 @@
 //  ETSegmentItem.h
 //  ETicket
 //
-//  Created by chunjian wang on 2018/7/19.
-//  Copyright © 2018年 chunjian wang. All rights reserved.
+//  Created by chunjian wang on 2017/3/1.
+//  Copyright © 2017年 Bkex Technology Co.Ltd. All rights reserved.
 //
 
-#import "ETHighlightedStyleControl.h"
+#import <UIKit/UIKit.h>
 
-@interface ETSegmentItem : ETHighlightedStyleControl
+#define Item_Padding 20.0f
+#define Default_Title_Font [UIFont fontWithSize:16]
+#define Hilight_Title_Font [UIFont fontWithSize:22]
 
-@property (nonatomic) UILabel *titleLabel;
+
+@interface ETSegmentItem : UIButton
+
+@property (nonatomic, copy)   NSString *title;
+@property (nonatomic, strong) UIColor *highlightColor;
+@property (nonatomic, strong) UIColor *titleColor;
+@property (nonatomic, strong) UIFont *titleFont;
+
+- (void)refresh;
++ (BOOL)isStringEmpty:(NSString *)text;
++ (CGFloat)caculateWidthWithtitle:(NSString *)title titleFont:(UIFont *)titleFont;
 
 @end

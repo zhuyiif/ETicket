@@ -13,7 +13,7 @@
 @interface ETHomeCardView ()
 
 @property (nonatomic) UILabel *titleLabel;
-@property (nonatomic) UILabel *iconLabel;
+@property (nonatomic) UIImageView *hotIcon;
 @property (nonatomic) UIStackView *stackView;
 @property (nonatomic) UIScrollView *scrollView;
 
@@ -41,15 +41,15 @@
         make.top.equalTo(self).offset(24);
     }];
     
-    self.iconLabel = [UILabel new];
-    self.iconLabel.backgroundColor = [UIColor clearColor];
-    self.iconLabel.font = [UIFont s06Font];
-    self.iconLabel.textColor = [UIColor pumpkinOrange];
-    self.iconLabel.text = @"HOT";
-    [self addSubview:self.iconLabel];
-    [self.iconLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.hotIcon = [UIImageView new];
+    self.hotIcon.backgroundColor = [UIColor clearColor];
+    self.hotIcon.image = [UIImage imageNamed:@"hotIcon"];
+    [self addSubview:self.hotIcon];
+    [self.hotIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLabel.mas_right).offset(5);
-        make.bottom.equalTo(self.titleLabel);
+        make.centerY.equalTo(self.titleLabel);
+        make.width.equalTo(@25);
+        make.height.equalTo(@17);
     }];
     
     self.scrollView = [UIScrollView new];

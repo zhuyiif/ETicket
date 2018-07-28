@@ -2,63 +2,76 @@
 //  ETSegmentItem.m
 //  ETicket
 //
-//  Created by chunjian wang on 2018/7/19.
-//  Copyright © 2018年 chunjian wang. All rights reserved.
+//  Created by chunjian wang on 2017/3/1.
+//  Copyright © 2017年 Bkex Technology Co.Ltd. All rights reserved.
 //
 
 #import "ETSegmentItem.h"
 
 @interface ETSegmentItem ()
 
-@property (nonatomic) UIView *lineView;
-
 @end
 
 @implementation ETSegmentItem
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor clearColor];
-        self.lineView = [UIView new];
-        self.lineView.backgroundColor = [UIColor pumpkinOrange];
-        [self addSubview:self.lineView];
-        [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(self);
-            make.bottom.equalTo(self).offset(-6);
-            make.height.equalTo(@2);
-        }];
-        self.titleLabel = [UILabel new];
-        self.titleLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:self.titleLabel];
-        [self updateTitleStyle];
-        
-        @weakify(self);
-        [RACObserve(self, selected) subscribeNext:^(id x) {
-            @strongify(self);
-            [self updateTitleStyle];
-        }];
+    self = [super initWithFrame:frame];
+    if (self) {
     }
     return self;
 }
 
-- (void)updateTitleStyle {
-    if (self.selected) {
-        self.lineView.hidden = NO;
-        self.titleLabel.font = [UIFont fontWithSize:22];
-        self.titleLabel.textColor = [UIColor black];
-        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self).offset(2);
-            make.left.right.equalTo(self);
-        }];
-    } else {
-        self.titleLabel.textColor = [UIColor greyishBrown];
-        self.titleLabel.font = [UIFont s04Font];
-        self.lineView.hidden = YES;
-        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self).offset(0);
-            make.left.right.equalTo(self);
-        }];
+- (void)drawRect:(CGRect)rect {
+    if ([ETSegmentItem isStringEmpty:self.title]) {
+        return;
     }
+    self.titleFont = self.selected ? Hilight_Title_Font : Default_Title_Font;
+    self.titleFont = [[self class] caulateFont:self.title withFont:self.titleFont width:self.width];
+    UIColor *titleColor = self.selected ? self.highlightColor : self.titleColor;
+    CGFloat x = (CGRectGetWidth(rect) - [ETSegmentItem caculateTextWidth:self.title withFont:self.titleFont]) / 2;
+    CGFloat fontSize = self.titleFont.pointSize;
+    CGFloat y = CGRectGetHeight(rect) - fontSize - (self.selected ?3:6);
+    [self.title drawAtPoint:CGPointMake(x, y) withAttributes:@{NSFontAttributeName: self.titleFont, NSForegroundColorAttributeName:titleColor}];
+}
+
++ (CGFloat)caculateWidthWithtitle:(NSString *)title titleFont:(UIFont *)titleFont {
+    CGRect rect = [title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: titleFont} context:nil];
+    CGFloat width = Item_Padding * 2 + rect.size.width;
+    return width > 60.0f ? width : 60.0f;
+}
+
+- (void)refresh {
+    [self setNeedsDisplay];
+}
+
++ (BOOL)isStringEmpty:(NSString *)text {
+    if (!text || [text isEqualToString:@""]) {
+        return YES;
+    }
+    return NO;
+}
+
++ (CGFloat)caculateTextWidth:(NSString *)text withFont:(UIFont *)font {
+    text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([ETSegmentItem isStringEmpty:text]) {
+        return 0;
+    }
+    CGRect newRect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 0) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: font} context:nil];
+
+    text = nil;
+    return newRect.size.width;
+}
+
+
++ (UIFont *)caulateFont:(NSString *)text withFont:(UIFont *)font width:(CGFloat)width{
+    CGRect newRect = CGRectZero;
+    UIFont *oldFont = [font fontWithSize:font.pointSize + 1];
+    do {
+        oldFont = [oldFont fontWithSize:oldFont.pointSize - 1];
+        NSDictionary *attribute = @{NSFontAttributeName: oldFont};
+        newRect = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, oldFont.pointSize) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil];
+    } while (newRect.size.width > width);
+    return oldFont;
 }
 
 @end

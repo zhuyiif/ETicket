@@ -38,10 +38,15 @@
         make.edges.equalTo(self);
     }];
     self.bannerView = [ETHomeBannerView new];
+    UIView *bannerBG = [UIView new];
+    bannerBG.backgroundColor = [UIColor white2];
+    [bannerBG addSubview:self.bannerView];
     [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(bannerBG);
         make.height.equalTo(@(kScreenHeight * 0.35));
     }];
-    [self.stackView addArrangedSubview:self.bannerView];
+  
+    [self.stackView addArrangedSubview:bannerBG];
     [self.stackView addArrangedSubview:self.hotView];
     self.announceView = [ETAnouncementScrollView new];
     [self.stackView addArrangedSubview:self.announceView];

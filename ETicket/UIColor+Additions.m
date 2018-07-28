@@ -177,4 +177,12 @@
     return [UIColor colorWithHex:0x51c025];
 }
 
++ (UIColor *)veryLightPinkTwo {
+    return [UIColor colorWithHex:0xfbe8e8];
+}
+
++ (UIColor *)paleRed {
+    return [UIColor colorWithHex:0xe04c4c];
+}
+
 @end

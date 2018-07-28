@@ -1,15 +1,15 @@
 //
-//  ETMineLoginHeaderView.m
+//  ETMineHeaderView.m
 //  ETicket
 //
 //  Created by chunjian wang on 2018/7/25.
 //  Copyright © 2018年 chunjian wang. All rights reserved.
 //
 
-#import "ETMineLoginHeaderView.h"
+#import "ETMineHeaderView.h"
 #import "ETMineSummaryView.h"
 
-@interface ETMineLoginHeaderView ()
+@interface ETMineHeaderView ()
 
 @property (nonatomic) UILabel *nickNameLabel;
 @property (nonatomic) UIImageView *avatorView;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ETMineLoginHeaderView
+@implementation ETMineHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -67,6 +67,32 @@
         make.top.equalTo(self).offset(86);
         make.right.equalTo(self).offset(-101);
     }];
+    
+    self.loginButton = [UIButton new];
+    self.loginButton.backgroundColor = [UIColor clearColor];
+    [self.loginButton setImage:[UIImage imageNamed:@"mineHeaderLoginNor"] forState:UIControlStateNormal];
+    [self.loginButton setImage:[UIImage imageNamed:@"mineHeaderLoginPress"] forState:UIControlStateHighlighted];
+    [self addSubview:self.loginButton];
+    self.loginButton.hidden = YES;
+    [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.top.equalTo(self).offset(108);
+        make.width.height.equalTo(@56);
+    }];
+}
+
+- (void)updateStyle:(BOOL)logined {
+    if (logined) {
+        self.loginButton.hidden = YES;
+        self.vipIcon.hidden = self.avatorView.hidden = self.nickNameLabel.hidden = self.avatorBGView.hidden = NO;
+        self.summaryView.bgView.image = [UIImage imageNamed:@"mineSummaryBG1"];
+        self.bgView.image = [UIImage imageNamed:@"mineHeaderBG1"];
+    } else {
+        self.loginButton.hidden = NO;
+        self.vipIcon.hidden = self.avatorView.hidden = self.nickNameLabel.hidden = self.avatorBGView.hidden = YES;
+        self.summaryView.bgView.image = [UIImage imageNamed:@"mineSummaryBG0"];
+        self.bgView.image = [UIImage imageNamed:@"mineHeaderBG0"];
+    }
 }
 
 @end

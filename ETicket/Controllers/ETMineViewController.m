@@ -13,7 +13,7 @@
 #import "ETRouteTVCell.h"
 #import "ETMineTitleHeaderView.h"
 #import "ETHotView.h"
-#import "ETMineLoginHeaderView.h"
+#import "ETMineHeaderView.h"
 
 @interface ETMineViewController ()<UITableViewDelegate,UITableViewDataSource,ETHotViewDelegate>
 
@@ -22,7 +22,7 @@
 @property (nonatomic) ETHotView *hotView;
 @property (nonatomic) NSMutableArray *hotItems;
 @property (nonatomic) ETMineTitleHeaderView *sectionHeader;
-@property (nonatomic) ETMineLoginHeaderView *loginedHeaderView;
+@property (nonatomic) ETMineHeaderView *loginedHeaderView;
 @property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) CGFloat statusBarAlpha;
 
@@ -85,9 +85,9 @@
     }];
 }
 
-- (ETMineLoginHeaderView *)loginedHeaderView {
+- (ETMineHeaderView *)loginedHeaderView {
     if (!_loginedHeaderView) {
-        _loginedHeaderView = [ETMineLoginHeaderView new];
+        _loginedHeaderView = [ETMineHeaderView new];
         [_loginedHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(313*PIXEL_SCALE));
         }];

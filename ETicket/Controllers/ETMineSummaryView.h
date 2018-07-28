@@ -13,6 +13,7 @@
 @property (nonatomic) UILabel *mileageLabel;
 @property (nonatomic) UILabel *balanceLabel;
 @property (nonatomic) UILabel *honourLabel;
+@property (nonatomic) UIImageView *bgView;
 
 - (void)updateWithMileage:(NSNumber *)mileage balance:(NSNumber *) balance honour:(NSNumber *)honour;
 

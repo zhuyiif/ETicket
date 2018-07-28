@@ -16,12 +16,13 @@
 #import "ETQRCodeViewController.h"
 #import "ETLoginViewController.h"
 #import "ETHomeNewsTVCell.h"
-#import "ETSegmentBar.h"
+#import "ETSegmentControl.h"
 
-@interface ETHomeViewController () <UIScrollViewDelegate,ETSegmentBarDelegate>
+@interface ETHomeViewController () <UIScrollViewDelegate,ETSegmentControlDelegate>
 @property (nonatomic) ETHomeHeaderView *headerView;
 @property (nonatomic) ETHomePresenter *presenter;
-@property (nonatomic) ETSegmentBar *segmentBar;
+@property (nonatomic) ETSegmentControl *segmentControl;
+@property (nonatomic) UIView *sectionHeader;
 @property (nonatomic) UILabel *titleView;
 @property (nonatomic) UIView *navigationBar;
 @property (nonatomic) UIView *bottomLine;
@@ -33,12 +34,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithHex:0xf8f8f8];
+    self.view.backgroundColor = [UIColor backgroundColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = NSLocalizedString(@"首页", nil);
     self.tableView.tableHeaderView = self.headerView;
-//    [self.headerView layoutIfNeeded];
-
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.contentInset = UIEdgeInsetsZero;
     [self.tableView registerClass:[ETHomeNewsTVCell class] forCellReuseIdentifier:NSStringFromClass([ETHomeNewsTVCell class])];
@@ -61,11 +60,10 @@
             make.bottom.equalTo(self.view);
         }
     }];
-    if (@available(iOS 11.0, *)) {
-        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    self.segmentControl.selectIndex = 0;
+    self.segmentControl.titles = @[@"街探",@"吃吃吃吃吃吃",@"玩玩玩",@"买买卖",@"出去浪",@"街探",@"吃吃吃",@"玩玩玩",@"吃吃吃吃吃吃",@"出去浪"];
+    self.segmentControl.frame = CGRectMake(.0f, .0f, kScreenWidth, DefaultSegmentHeight);
+    [self.segmentControl load];
     [self bindDatas];
     [self setupNavigationBar];
 }
@@ -81,41 +79,21 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 }
 
-- (ETSegmentBar *)segmentBar {
-    if (!_segmentBar) {
-        _segmentBar = [ETSegmentBar new];
-        _segmentBar.delegate = self;
-        NSMutableArray *items = [NSMutableArray new];
-        ETSegmentModel *model = [ETSegmentModel new];
-        model.title = @"街探";
-        [items addObject:model];
-        
-        ETSegmentModel *model1 = [ETSegmentModel new];
-        model1.title = @"吃吃";
-        [items addObject:model1];
-        
-        ETSegmentModel *model2 = [ETSegmentModel new];
-        model2.title = @"玩玩玩";
-        [items addObject:model2];
-        
-        ETSegmentModel *model3 = [ETSegmentModel new];
-        model3.title = @"买买买";
-        [items addObject:model3];
-        
-        ETSegmentModel *model4 = [ETSegmentModel new];
-        model4.title = @"出去浪";
-        [items addObject:model4];
-        
-        ETSegmentModel *model5 = [ETSegmentModel new];
-        model5.title = @"出去浪1";
-        [items addObject:model5];
-        ETSegmentModel *model6 = [ETSegmentModel new];
-        model6.title = @"出去浪2";
-        [items addObject:model6];
-        
-        [_segmentBar updateWithModels:items];
+- (ETSegmentControl *)segmentControl {
+    if (!_segmentControl) {
+        _segmentControl = [[ETSegmentControl alloc] init];
+        _segmentControl.delegate = self;
+        _segmentControl.titleColor = [UIColor greyishBrown];
+        _segmentControl.sepLineStyle = UIViewAddSepLineStyleNone;
+        _segmentControl.highlightColor = [UIColor black];
+        _segmentControl.lineHeight = 4;
+        _segmentControl.bottomLineColor = [UIColor pumpkinOrange];
+        _segmentControl.backgroundColor = [UIColor backgroundColor];
+        [_segmentControl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(DefaultSegmentHeight));
+        }];
     }
-    return _segmentBar;
+    return _segmentControl;
 }
 
 - (ETHomeHeaderView *)headerView {
@@ -125,6 +103,20 @@
         _headerView.width = kScreenWidth;
     }
     return _headerView;
+}
+
+- (UIView *)sectionHeader {
+    if (!_sectionHeader) {
+        UIView *view = [UIView new];
+        view.backgroundColor = [UIColor clearColor];
+        [view addSubview:self.segmentControl];
+        [self.segmentControl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(view);
+            make.height.equalTo(@(DefaultSegmentHeight));
+        }];
+        _sectionHeader = view;
+    }
+    return _sectionHeader;
 }
 
 - (void)bindDatas {
@@ -196,7 +188,12 @@
     self.bottomLine.backgroundColor = [self statusBarNeedToWhite] ? [UIColor clearColor] : [[UIColor drColorC2] colorWithAlphaComponent:self.statusBarAlpha];
     [UIApplication sharedApplication].statusBarStyle = [self statusBarNeedToWhite] ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
     [self setNeedsStatusBarAppearanceUpdate];
-    self.tableView.contentInset = UIEdgeInsetsMake(self.statusBarAlpha > 0.5 ? self.navigationBar.height : 0,0 ,0,0);
+    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    if (statusBarHeight > 20) {
+        self.tableView.contentInset = UIEdgeInsetsMake(self.statusBarAlpha > 0.5 ? self.navigationBar.height - statusBarHeight : 0,0 ,0,0);
+    } else {
+        self.tableView.contentInset = UIEdgeInsetsMake(self.statusBarAlpha > 0.5 ? self.navigationBar.height : 0,0 ,0,0);
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -220,16 +217,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [self.segmentBar systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    return DefaultSegmentHeight;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return self.segmentBar;
+    return self.sectionHeader;
 }
 
-#pragma mark ETSegementBarDelegate
-- (void)onSegemnetBar:(ETSegmentBar *)segmentBar itemSeleced:(ETSegmentModel *)model {
-    
+#pragma ETSegmentControlDelegate
+- (void)segmentSelectAtIndex:(NSInteger)index animation:(BOOL)animation {
+    [self.tableView reloadData];
 }
 
 @end

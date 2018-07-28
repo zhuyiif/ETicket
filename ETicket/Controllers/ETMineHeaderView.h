@@ -1,5 +1,5 @@
 //
-//  ETMineUnloginHeaderView.h
+//  ETMineHeaderView.h
 //  ETicket
 //
 //  Created by chunjian wang on 2018/7/25.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ETMineUnloginHeaderView : UIView
+@interface ETMineHeaderView : UIView
+
+@property (nonatomic) UIButton *loginButton;
+- (void)updateStyle:(BOOL)logined;
 
 @end

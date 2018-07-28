@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		912FE513345354D6D7D5D620 /* libPods-ETicket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75EEC7F4B93B497E338580BE /* libPods-ETicket.a */; };
 		BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8F90FF20DCBAEB006BC1C6 /* RSAUtil.m */; };
+		FD14D232210BEEA400E16665 /* UIBarButtonItem+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D231210BEEA300E16665 /* UIBarButtonItem+Helper.m */; };
+		FD14D235210BF6E200E16665 /* ETQRAssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D234210BF6E200E16665 /* ETQRAssetView.m */; };
 		FD1A1A5D210163BC00CEEA2B /* ETTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */; };
 		FD1A1A61210163DA00CEEA2B /* ETNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A60210163DA00CEEA2B /* ETNewsViewController.m */; };
 		FD1A1A672101891F00CEEA2B /* ETMineTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A662101891F00CEEA2B /* ETMineTitleHeaderView.m */; };
@@ -22,10 +24,7 @@
 		FD1ACF1C21006D7500740B79 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF1A21006D7400740B79 /* UINavigationBar+Awesome.m */; };
 		FD1ACF1F2100B91400740B79 /* ETHomeNewsTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF1E2100B91400740B79 /* ETHomeNewsTVCell.m */; };
 		FD1ACF222100C0B900740B79 /* ETTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF202100C0B900740B79 /* ETTableViewController.m */; };
-		FD1ACF262100CBAC00740B79 /* ETSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF252100CBAC00740B79 /* ETSegmentBar.m */; };
-		FD1ACF292100CBD000740B79 /* ETSegmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF282100CBD000740B79 /* ETSegmentItem.m */; };
 		FD1ACF2F2100DAD600740B79 /* UIView+SepLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */; };
-		FD1ACF322100DFC700740B79 /* ETSegmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF312100DFC700740B79 /* ETSegmentModel.m */; };
 		FD3BBB542048F7BA00A129B7 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB052048F7BA00A129B7 /* libcrypto.a */; };
 		FD3BBB552048F7BA00A129B7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB062048F7BA00A129B7 /* libssl.a */; };
 		FD3BBB562048F7BA00A129B7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB072048F7BA00A129B7 /* AlipaySDK.framework */; };
@@ -39,6 +38,8 @@
 		FD3BBBCF204A18AC00A129B7 /* ETHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBBCE204A18AC00A129B7 /* ETHomeHeaderView.m */; };
 		FD3BBBD3204A220200A129B7 /* ETQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBBD2204A220200A129B7 /* ETQRCodeViewController.m */; };
 		FD3BBBD6204A23B300A129B7 /* ETQRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BBBD5204A23B300A129B7 /* ETQRCodeView.m */; };
+		FD58C3312109581500214CE4 /* ETSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FD58C32E2109581500214CE4 /* ETSegmentControl.m */; };
+		FD58C3322109581500214CE4 /* ETSegmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD58C3302109581500214CE4 /* ETSegmentItem.m */; };
 		FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */; };
 		FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39F82047E3DD00CB3E65 /* ETPageIndicator.m */; };
 		FD5D3A742047E3DD00CB3E65 /* ETMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5D39FE2047E3DD00CB3E65 /* ETMineViewController.m */; };
@@ -119,8 +120,7 @@
 		FDEF916521085DB50045530C /* guide3.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEF916221085DB50045530C /* guide3.png */; };
 		FDFC0FFA2108BC330035F7F6 /* ETMineSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC0FF92108BC330035F7F6 /* ETMineSummaryView.m */; };
 		FDFC0FFD2108C3170035F7F6 /* NSNumber+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC0FFC2108C3170035F7F6 /* NSNumber+Format.m */; };
-		FDFC10002108C4550035F7F6 /* ETMineUnloginHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC0FFF2108C4550035F7F6 /* ETMineUnloginHeaderView.m */; };
-		FDFC10032108C4650035F7F6 /* ETMineLoginHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC10022108C4650035F7F6 /* ETMineLoginHeaderView.m */; };
+		FDFC10032108C4650035F7F6 /* ETMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFC10022108C4650035F7F6 /* ETMineHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +129,10 @@
 		75EEC7F4B93B497E338580BE /* libPods-ETicket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ETicket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8F90FE20DCBAEB006BC1C6 /* RSAUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAUtil.h; sourceTree = "<group>"; };
 		BF8F90FF20DCBAEB006BC1C6 /* RSAUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAUtil.m; sourceTree = "<group>"; };
+		FD14D230210BEEA300E16665 /* UIBarButtonItem+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Helper.h"; sourceTree = "<group>"; };
+		FD14D231210BEEA300E16665 /* UIBarButtonItem+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Helper.m"; sourceTree = "<group>"; };
+		FD14D233210BF6E200E16665 /* ETQRAssetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETQRAssetView.h; sourceTree = "<group>"; };
+		FD14D234210BF6E200E16665 /* ETQRAssetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETQRAssetView.m; sourceTree = "<group>"; };
 		FD1A1A5B210163BC00CEEA2B /* ETTravelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETTravelViewController.h; sourceTree = "<group>"; };
 		FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelViewController.m; sourceTree = "<group>"; };
 		FD1A1A5F210163DA00CEEA2B /* ETNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETNewsViewController.h; sourceTree = "<group>"; };
@@ -155,14 +159,8 @@
 		FD1ACF1E2100B91400740B79 /* ETHomeNewsTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHomeNewsTVCell.m; sourceTree = "<group>"; };
 		FD1ACF202100C0B900740B79 /* ETTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTableViewController.m; sourceTree = "<group>"; };
 		FD1ACF212100C0B900740B79 /* ETTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTableViewController.h; sourceTree = "<group>"; };
-		FD1ACF242100CBAC00740B79 /* ETSegmentBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETSegmentBar.h; sourceTree = "<group>"; };
-		FD1ACF252100CBAC00740B79 /* ETSegmentBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETSegmentBar.m; sourceTree = "<group>"; };
-		FD1ACF272100CBD000740B79 /* ETSegmentItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETSegmentItem.h; sourceTree = "<group>"; };
-		FD1ACF282100CBD000740B79 /* ETSegmentItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETSegmentItem.m; sourceTree = "<group>"; };
 		FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+SepLine.m"; path = "../../iOSTemplate/ETicket/UIView+SepLine.m"; sourceTree = "<group>"; };
 		FD1ACF2E2100DAD600740B79 /* UIView+SepLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+SepLine.h"; path = "../../iOSTemplate/ETicket/UIView+SepLine.h"; sourceTree = "<group>"; };
-		FD1ACF302100DFC700740B79 /* ETSegmentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETSegmentModel.h; sourceTree = "<group>"; };
-		FD1ACF312100DFC700740B79 /* ETSegmentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETSegmentModel.m; sourceTree = "<group>"; };
 		FD353B4B1FDFB2F100489185 /* ETicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3BBB052048F7BA00A129B7 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		FD3BBB062048F7BA00A129B7 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
@@ -261,6 +259,10 @@
 		FD3BBBD2204A220200A129B7 /* ETQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETQRCodeViewController.m; sourceTree = "<group>"; };
 		FD3BBBD4204A23B300A129B7 /* ETQRCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETQRCodeView.h; sourceTree = "<group>"; };
 		FD3BBBD5204A23B300A129B7 /* ETQRCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETQRCodeView.m; sourceTree = "<group>"; };
+		FD58C32D2109581500214CE4 /* ETSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSegmentControl.h; sourceTree = "<group>"; };
+		FD58C32E2109581500214CE4 /* ETSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSegmentControl.m; sourceTree = "<group>"; };
+		FD58C32F2109581500214CE4 /* ETSegmentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSegmentItem.h; sourceTree = "<group>"; };
+		FD58C3302109581500214CE4 /* ETSegmentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSegmentItem.m; sourceTree = "<group>"; };
 		FD5D39F42047E3DD00CB3E65 /* ETWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETWebViewController.h; sourceTree = "<group>"; };
 		FD5D39F52047E3DD00CB3E65 /* UIFont+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Additions.m"; sourceTree = "<group>"; };
 		FD5D39F62047E3DD00CB3E65 /* UIApplication+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Additions.h"; sourceTree = "<group>"; };
@@ -415,10 +417,8 @@
 		FDFC0FF92108BC330035F7F6 /* ETMineSummaryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETMineSummaryView.m; sourceTree = "<group>"; };
 		FDFC0FFB2108C3170035F7F6 /* NSNumber+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Format.h"; sourceTree = "<group>"; };
 		FDFC0FFC2108C3170035F7F6 /* NSNumber+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Format.m"; sourceTree = "<group>"; };
-		FDFC0FFE2108C4550035F7F6 /* ETMineUnloginHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETMineUnloginHeaderView.h; sourceTree = "<group>"; };
-		FDFC0FFF2108C4550035F7F6 /* ETMineUnloginHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETMineUnloginHeaderView.m; sourceTree = "<group>"; };
-		FDFC10012108C4650035F7F6 /* ETMineLoginHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETMineLoginHeaderView.h; sourceTree = "<group>"; };
-		FDFC10022108C4650035F7F6 /* ETMineLoginHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETMineLoginHeaderView.m; sourceTree = "<group>"; };
+		FDFC10012108C4650035F7F6 /* ETMineHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETMineHeaderView.h; sourceTree = "<group>"; };
+		FDFC10022108C4650035F7F6 /* ETMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETMineHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,12 +495,10 @@
 		FD1ACF232100CB9000740B79 /* Segment */ = {
 			isa = PBXGroup;
 			children = (
-				FD1ACF242100CBAC00740B79 /* ETSegmentBar.h */,
-				FD1ACF252100CBAC00740B79 /* ETSegmentBar.m */,
-				FD1ACF272100CBD000740B79 /* ETSegmentItem.h */,
-				FD1ACF282100CBD000740B79 /* ETSegmentItem.m */,
-				FD1ACF302100DFC700740B79 /* ETSegmentModel.h */,
-				FD1ACF312100DFC700740B79 /* ETSegmentModel.m */,
+				FD58C32D2109581500214CE4 /* ETSegmentControl.h */,
+				FD58C32E2109581500214CE4 /* ETSegmentControl.m */,
+				FD58C32F2109581500214CE4 /* ETSegmentItem.h */,
+				FD58C3302109581500214CE4 /* ETSegmentItem.m */,
 			);
 			path = Segment;
 			sourceTree = "<group>";
@@ -645,6 +643,8 @@
 				FD3BBBD2204A220200A129B7 /* ETQRCodeViewController.m */,
 				FD3BBBD4204A23B300A129B7 /* ETQRCodeView.h */,
 				FD3BBBD5204A23B300A129B7 /* ETQRCodeView.m */,
+				FD14D233210BF6E200E16665 /* ETQRAssetView.h */,
+				FD14D234210BF6E200E16665 /* ETQRAssetView.m */,
 			);
 			name = QRCode;
 			sourceTree = "<group>";
@@ -847,10 +847,8 @@
 				FD1A1A692101B67400CEEA2B /* ETRouteTVCell.m */,
 				FDFC0FF82108BC330035F7F6 /* ETMineSummaryView.h */,
 				FDFC0FF92108BC330035F7F6 /* ETMineSummaryView.m */,
-				FDFC0FFE2108C4550035F7F6 /* ETMineUnloginHeaderView.h */,
-				FDFC0FFF2108C4550035F7F6 /* ETMineUnloginHeaderView.m */,
-				FDFC10012108C4650035F7F6 /* ETMineLoginHeaderView.h */,
-				FDFC10022108C4650035F7F6 /* ETMineLoginHeaderView.m */,
+				FDFC10012108C4650035F7F6 /* ETMineHeaderView.h */,
+				FDFC10022108C4650035F7F6 /* ETMineHeaderView.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -886,6 +884,8 @@
 		FD5D3ABC2047EDC300CB3E65 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FD14D230210BEEA300E16665 /* UIBarButtonItem+Helper.h */,
+				FD14D231210BEEA300E16665 /* UIBarButtonItem+Helper.m */,
 				FDFC0FFB2108C3170035F7F6 /* NSNumber+Format.h */,
 				FDFC0FFC2108C3170035F7F6 /* NSNumber+Format.m */,
 				FD1ACF1B21006D7500740B79 /* UINavigationBar+Awesome.h */,
@@ -1091,7 +1091,6 @@
 				FD5D3A992047E3DD00CB3E65 /* UINavigationController+Additions.m in Sources */,
 				FD1A1A61210163DA00CEEA2B /* ETNewsViewController.m in Sources */,
 				FD5D3A792047E3DD00CB3E65 /* ETMenusViewController.m in Sources */,
-				FD1ACF262100CBAC00740B79 /* ETSegmentBar.m in Sources */,
 				FD3BBBD3204A220200A129B7 /* ETQRCodeViewController.m in Sources */,
 				FDADFC6820FEE40800738581 /* ETEmptyView.m in Sources */,
 				FD5D3AB12047E3DD00CB3E65 /* UIImage+Resize.m in Sources */,
@@ -1103,7 +1102,6 @@
 				FD5D3AC020480E2C00CB3E65 /* ETUtils.m in Sources */,
 				FD3BBB7420490A9B00A129B7 /* openssl_wrapper.m in Sources */,
 				FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */,
-				FD1ACF322100DFC700740B79 /* ETSegmentModel.m in Sources */,
 				FD1ACF222100C0B900740B79 /* ETTableViewController.m in Sources */,
 				FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */,
 				FDADFC8120FF17F100738581 /* UIViewController+Shadow.m in Sources */,
@@ -1120,8 +1118,8 @@
 				FD1A1A6A2101B67400CEEA2B /* ETRouteTVCell.m in Sources */,
 				BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */,
 				FDFC0FFD2108C3170035F7F6 /* NSNumber+Format.m in Sources */,
-				FD1ACF292100CBD000740B79 /* ETSegmentItem.m in Sources */,
 				FD5D3A932047E3DD00CB3E65 /* ETWebViewController.m in Sources */,
+				FD14D232210BEEA400E16665 /* UIBarButtonItem+Helper.m in Sources */,
 				FD5D3A7B2047E3DD00CB3E65 /* NSString+Additions.m in Sources */,
 				FD1ACF1C21006D7500740B79 /* UINavigationBar+Awesome.m in Sources */,
 				FDADFC5920FEE1FB00738581 /* UITextField+CLMaxLength.m in Sources */,
@@ -1136,7 +1134,7 @@
 				FD5D3AA12047E3DD00CB3E65 /* Query.m in Sources */,
 				FD5D3AB02047E3DD00CB3E65 /* ETHomeViewController.m in Sources */,
 				FD5D3A8E2047E3DD00CB3E65 /* TTLanguage.m in Sources */,
-				FDFC10032108C4650035F7F6 /* ETMineLoginHeaderView.m in Sources */,
+				FDFC10032108C4650035F7F6 /* ETMineHeaderView.m in Sources */,
 				FDADFC5A20FEE1FB00738581 /* UITextField+CLValidator.m in Sources */,
 				FD1A1A672101891F00CEEA2B /* ETMineTitleHeaderView.m in Sources */,
 				FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */,
@@ -1157,19 +1155,21 @@
 				FD5D3AA32047E3DD00CB3E65 /* RACCommand+Additions.m in Sources */,
 				FD5D3A872047E3DD00CB3E65 /* ETMinePresenter.m in Sources */,
 				FD1ACF0D20FF7D8A00740B79 /* ETHotModel.m in Sources */,
+				FD58C3322109581500214CE4 /* ETSegmentItem.m in Sources */,
 				FD5D3A752047E3DD00CB3E65 /* ETAccountPresenter.m in Sources */,
 				FD5D3A7A2047E3DD00CB3E65 /* ETAlertView.m in Sources */,
 				FD5D3AAC2047E3DD00CB3E65 /* ETThemeHelper.m in Sources */,
 				FD5D3AA62047E3DD00CB3E65 /* ETLoadingSpinner.m in Sources */,
+				FD14D235210BF6E200E16665 /* ETQRAssetView.m in Sources */,
 				FDADFC6620FEE40800738581 /* ETEmptyViewModel.m in Sources */,
 				FDADFC6F20FEE51200738581 /* ETLoadingView.m in Sources */,
 				FDADFC6720FEE40800738581 /* UITableView+Empty.m in Sources */,
-				FDFC10002108C4550035F7F6 /* ETMineUnloginHeaderView.m in Sources */,
 				FD5D3A8C2047E3DD00CB3E65 /* ETAppHelper.m in Sources */,
 				FD5D3AA22047E3DD00CB3E65 /* NSDictionary+Shortcuts.m in Sources */,
 				FD5D3AAE2047E3DD00CB3E65 /* UIImage+Draw.m in Sources */,
 				FD5D3A8F2047E3DD00CB3E65 /* SwizzleMethod.m in Sources */,
 				FD5D3A7D2047E3DD00CB3E65 /* ETBannerInfo.m in Sources */,
+				FD58C3312109581500214CE4 /* ETSegmentControl.m in Sources */,
 				FD5D3A902047E3DD00CB3E65 /* ETActor.m in Sources */,
 				FD5D3AA52047E3DD00CB3E65 /* APICenter.m in Sources */,
 				FDADFC7520FEE76700738581 /* ETAnouncementInfo.m in Sources */,

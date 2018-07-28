@@ -11,7 +11,6 @@
 
 @interface ETMineSummaryView ()
 
-@property (nonatomic) UIImageView *bgView;
 
 @end
 
@@ -121,7 +120,7 @@
 - (NSAttributedString *)attribeStringWithPrefx:(NSString *)prefx hrex:(NSString *)hrex {
     NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc] initWithString:prefx attributes:@{NSFontAttributeName:[UIFont fontWithSize:20],NSForegroundColorAttributeName:[UIColor white2]}];
     NSAttributedString *hrexString = [[NSAttributedString alloc] initWithString:hrex attributes:@{NSFontAttributeName:[UIFont fontWithSize:14],NSForegroundColorAttributeName:[UIColor white2]}];
-    [resultString appendAttributedString:hrex];
+    [resultString appendAttributedString:hrexString];
     return resultString;
 }
 
