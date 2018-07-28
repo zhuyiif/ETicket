@@ -62,11 +62,7 @@
     
     self.authorIcon = [UIImageView new];
     self.authorIcon.backgroundColor = [UIColor clearColor];
-    self.authorIcon.clipsToBounds = YES;
-    self.authorIcon.layer.borderWidth = 1;
-    self.authorIcon.layer.borderWidth = 7;
-    self.authorIcon.layer.borderColor = [UIColor clearColor].CGColor;
-    self.authorIcon.image = [UIImage imageNamed:@"authorIcon"];
+    self.authorIcon.image = [UIImage imageNamed:@"storeCategory"];
     [self addSubview:self.authorIcon];
    
     
@@ -74,7 +70,7 @@
     self.authorLabel.backgroundColor = [UIColor clearColor];
     self.authorLabel.font = [UIFont fontWithSize:14 name:nil];
     self.authorLabel.textColor = [UIColor warmGrey];
-    self.authorLabel.text = @"熊小虎";
+    self.authorLabel.text = @"景点";
     [self addSubview:self.authorLabel];
     [self.authorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.coverView);

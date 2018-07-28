@@ -14,6 +14,12 @@
 		FD14D239210C0EFF00E16665 /* ETRechargeAmountView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D238210C0EFF00E16665 /* ETRechargeAmountView.m */; };
 		FD14D23C210C1C2800E16665 /* ETRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D23B210C1C2800E16665 /* ETRechargeViewController.m */; };
 		FD14D23F210C29FF00E16665 /* ETRechargeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D23E210C29FF00E16665 /* ETRechargeChannelView.m */; };
+		FD14D245210C9B9200E16665 /* ETStoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D244210C9B9200E16665 /* ETStoreDetailViewController.m */; };
+		FD14D248210C9C3700E16665 /* ETStoreSummaryRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D247210C9C3700E16665 /* ETStoreSummaryRowView.m */; };
+		FD14D24B210CBA5300E16665 /* ETStoreExtendRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D24A210CBA5300E16665 /* ETStoreExtendRowView.m */; };
+		FD14D24E210CBC9D00E16665 /* ETStoreFeatureRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D24D210CBC9D00E16665 /* ETStoreFeatureRowView.m */; };
+		FD14D251210CBE9200E16665 /* ETStoreRecommendRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D250210CBE9200E16665 /* ETStoreRecommendRowView.m */; };
+		FD14D25B210CC9EA00E16665 /* ETStoreBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D25A210CC9EA00E16665 /* ETStoreBottomView.m */; };
 		FD1A1A5D210163BC00CEEA2B /* ETTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */; };
 		FD1A1A61210163DA00CEEA2B /* ETNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A60210163DA00CEEA2B /* ETNewsViewController.m */; };
 		FD1A1A672101891F00CEEA2B /* ETMineTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A662101891F00CEEA2B /* ETMineTitleHeaderView.m */; };
@@ -142,6 +148,18 @@
 		FD14D23B210C1C2800E16665 /* ETRechargeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETRechargeViewController.m; sourceTree = "<group>"; };
 		FD14D23D210C29FF00E16665 /* ETRechargeChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETRechargeChannelView.h; sourceTree = "<group>"; };
 		FD14D23E210C29FF00E16665 /* ETRechargeChannelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETRechargeChannelView.m; sourceTree = "<group>"; };
+		FD14D243210C9B9200E16665 /* ETStoreDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETStoreDetailViewController.h; sourceTree = "<group>"; };
+		FD14D244210C9B9200E16665 /* ETStoreDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETStoreDetailViewController.m; sourceTree = "<group>"; };
+		FD14D246210C9C3700E16665 /* ETStoreSummaryRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETStoreSummaryRowView.h; sourceTree = "<group>"; };
+		FD14D247210C9C3700E16665 /* ETStoreSummaryRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETStoreSummaryRowView.m; sourceTree = "<group>"; };
+		FD14D249210CBA5300E16665 /* ETStoreExtendRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETStoreExtendRowView.h; sourceTree = "<group>"; };
+		FD14D24A210CBA5300E16665 /* ETStoreExtendRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETStoreExtendRowView.m; sourceTree = "<group>"; };
+		FD14D24C210CBC9D00E16665 /* ETStoreFeatureRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETStoreFeatureRowView.h; sourceTree = "<group>"; };
+		FD14D24D210CBC9D00E16665 /* ETStoreFeatureRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETStoreFeatureRowView.m; sourceTree = "<group>"; };
+		FD14D24F210CBE9200E16665 /* ETStoreRecommendRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETStoreRecommendRowView.h; sourceTree = "<group>"; };
+		FD14D250210CBE9200E16665 /* ETStoreRecommendRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETStoreRecommendRowView.m; sourceTree = "<group>"; };
+		FD14D259210CC9EA00E16665 /* ETStoreBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETStoreBottomView.h; sourceTree = "<group>"; };
+		FD14D25A210CC9EA00E16665 /* ETStoreBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETStoreBottomView.m; sourceTree = "<group>"; };
 		FD1A1A5B210163BC00CEEA2B /* ETTravelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETTravelViewController.h; sourceTree = "<group>"; };
 		FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelViewController.m; sourceTree = "<group>"; };
 		FD1A1A5F210163DA00CEEA2B /* ETNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETNewsViewController.h; sourceTree = "<group>"; };
@@ -497,6 +515,18 @@
 			children = (
 				FD1A1A5F210163DA00CEEA2B /* ETNewsViewController.h */,
 				FD1A1A60210163DA00CEEA2B /* ETNewsViewController.m */,
+				FD14D243210C9B9200E16665 /* ETStoreDetailViewController.h */,
+				FD14D244210C9B9200E16665 /* ETStoreDetailViewController.m */,
+				FD14D246210C9C3700E16665 /* ETStoreSummaryRowView.h */,
+				FD14D247210C9C3700E16665 /* ETStoreSummaryRowView.m */,
+				FD14D249210CBA5300E16665 /* ETStoreExtendRowView.h */,
+				FD14D24A210CBA5300E16665 /* ETStoreExtendRowView.m */,
+				FD14D24C210CBC9D00E16665 /* ETStoreFeatureRowView.h */,
+				FD14D24D210CBC9D00E16665 /* ETStoreFeatureRowView.m */,
+				FD14D24F210CBE9200E16665 /* ETStoreRecommendRowView.h */,
+				FD14D250210CBE9200E16665 /* ETStoreRecommendRowView.m */,
+				FD14D259210CC9EA00E16665 /* ETStoreBottomView.h */,
+				FD14D25A210CC9EA00E16665 /* ETStoreBottomView.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -1121,6 +1151,7 @@
 				FD5D3A722047E3DD00CB3E65 /* UIFont+Additions.m in Sources */,
 				FD5D3A912047E3DD00CB3E65 /* ETEditView.m in Sources */,
 				FDADFC7E20FF165300738581 /* UITableView+iOS11.m in Sources */,
+				FD14D251210CBE9200E16665 /* ETStoreRecommendRowView.m in Sources */,
 				FD5D3A9F2047E3DD00CB3E65 /* APIHosts.m in Sources */,
 				FD5D3AC020480E2C00CB3E65 /* ETUtils.m in Sources */,
 				FD3BBB7420490A9B00A129B7 /* openssl_wrapper.m in Sources */,
@@ -1129,9 +1160,12 @@
 				FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */,
 				FDADFC8120FF17F100738581 /* UIViewController+Shadow.m in Sources */,
 				FD5D3A942047E3DD00CB3E65 /* main.m in Sources */,
+				FD14D245210C9B9200E16665 /* ETStoreDetailViewController.m in Sources */,
 				FD5D3A8D2047E3DD00CB3E65 /* ETPopover.m in Sources */,
 				FD5D3A892047E3DD00CB3E65 /* ETPlatformView.m in Sources */,
+				FD14D248210C9C3700E16665 /* ETStoreSummaryRowView.m in Sources */,
 				FD1ACF1020FF858200740B79 /* ETHomeCardItemView.m in Sources */,
+				FD14D24E210CBC9D00E16665 /* ETStoreFeatureRowView.m in Sources */,
 				FD5D3AAD2047E3DD00CB3E65 /* UIView+ITTAdditions.m in Sources */,
 				FD3BBB682048FF9600A129B7 /* ETAlipayRSASigner.m in Sources */,
 				FDADFC5820FEE1FB00738581 /* UITextField+CLShaker.m in Sources */,
@@ -1172,6 +1206,7 @@
 				FD5D3A9A2047E3DD00CB3E65 /* NSError+Message.m in Sources */,
 				FD5D3AA82047E3DD00CB3E65 /* UIButton+Style.m in Sources */,
 				FD5D3A922047E3DD00CB3E65 /* UIApplication+Additions.m in Sources */,
+				FD14D24B210CBA5300E16665 /* ETStoreExtendRowView.m in Sources */,
 				FD1ACF1F2100B91400740B79 /* ETHomeNewsTVCell.m in Sources */,
 				FD5D3AA72047E3DD00CB3E65 /* UIViewController+Additions.m in Sources */,
 				FD1ACF0620FF3AB500740B79 /* ETHotItemView.m in Sources */,
@@ -1187,6 +1222,7 @@
 				FD5D3AA62047E3DD00CB3E65 /* ETLoadingSpinner.m in Sources */,
 				FD14D235210BF6E200E16665 /* ETQRAssetView.m in Sources */,
 				FDADFC6620FEE40800738581 /* ETEmptyViewModel.m in Sources */,
+				FD14D25B210CC9EA00E16665 /* ETStoreBottomView.m in Sources */,
 				FDADFC6F20FEE51200738581 /* ETLoadingView.m in Sources */,
 				FDADFC6720FEE40800738581 /* UITableView+Empty.m in Sources */,
 				FD5D3A8C2047E3DD00CB3E65 /* ETAppHelper.m in Sources */,

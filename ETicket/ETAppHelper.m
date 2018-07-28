@@ -24,7 +24,7 @@
     // NaviBar
     [[UINavigationBar appearance] setBackgroundImage:[UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:[UIColor drColorC0] strokeColor:[UIColor drColorC0]] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    UIImage *backImage = [[[UIImage imageNamed:@"navBack"] imageByFilledWithColor:[UIColor whiteColor]] imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, 4, 0)];
+    UIImage *backImage = [[UIImage imageNamed:@"navBack"] imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, 4, 0)];
     [[UINavigationBar appearance] setBackIndicatorImage:[backImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[backImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithSize:20], NSForegroundColorAttributeName: [UIColor drColorC5]}];

@@ -17,6 +17,7 @@
 #import "ETLoginViewController.h"
 #import "ETHomeNewsTVCell.h"
 #import "ETSegmentControl.h"
+#import "ETStoreDetailViewController.h"
 
 @interface ETHomeViewController () <UIScrollViewDelegate,ETSegmentControlDelegate>
 @property (nonatomic) ETHomeHeaderView *headerView;
@@ -222,6 +223,12 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return self.sectionHeader;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ETStoreDetailViewController *VC = [ETStoreDetailViewController new];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 #pragma ETSegmentControlDelegate
