@@ -31,7 +31,7 @@
     if (title != nil) {
         [button setTitle:title forState:UIControlStateNormal];
         [button setTitle:title forState:UIControlStateHighlighted];
-        [button setTitleColor:[UIColor colorWithHex:0xf8da7b] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor white2] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         button.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         button.titleLabel.font = [UIFont fontWithSize:15];

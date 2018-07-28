@@ -14,6 +14,7 @@
 #import "ETMineTitleHeaderView.h"
 #import "ETHotView.h"
 #import "ETMineHeaderView.h"
+#import "ETRechargeViewController.h"
 
 @interface ETMineViewController ()<UITableViewDelegate,UITableViewDataSource,ETHotViewDelegate>
 
@@ -178,9 +179,11 @@
 }
 
 - (void)hotView:(ETHotView *)hotView selectedItem:(ETHotModel *)model {
-    [[[ETActor instance] showLoginIfNeeded] subscribeNext:^(id x) {
-        
-    }];
+//    [[[ETActor instance] showLoginIfNeeded] subscribeNext:^(id x) {
+//
+//    }];
+    ETRechargeViewController *vc = [ETRechargeViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Setters/Getters

@@ -7,6 +7,7 @@
 //
 
 #import "SwizzleMethod.h"
+#import "ETRechargeViewController.h"
 
 @implementation UIViewController (Additions)
 
@@ -14,6 +15,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [SwizzleMethod swizzleMethod:[self class] originalSelector:@selector(viewDidLoad) swizzledSelector:@selector(emptyBackButton_viewDidLoad)];
+            [SwizzleMethod swizzleMethod:[self class] originalSelector:@selector(rt_customBackItemWithTarget:action:) swizzledSelector:@selector(swizzle_customBackItemWithTarget:action:)];
     });
 }
 
@@ -34,6 +36,18 @@
                                                               
                                                           }];
     }
+}
+
+- (UIBarButtonItem *)swizzle_customBackItemWithTarget:(id)target action:(SEL)action {
+    
+    UIImage *backImage = [[UIImage imageNamed:@"navBack"] imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, 4, 0)];
+    if ([self isKindOfClass:[ETRechargeViewController class]]) {
+        backImage = [[UIImage imageNamed:@"ArrowBackWhite"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    return [[UIBarButtonItem alloc] initWithImage:backImage
+                                            style:UIBarButtonItemStylePlain
+                                           target:target
+                                           action:action];
 }
 
 

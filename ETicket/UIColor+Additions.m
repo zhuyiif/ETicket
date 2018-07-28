@@ -185,4 +185,12 @@
     return [UIColor colorWithHex:0xe04c4c];
 }
 
++ (UIColor *)warmGreyTwo {
+    return [UIColor colorWithHex:0x979797];
+}
+
++ (UIColor *)greyish {
+    return [UIColor colorWithHex:0xb5b5b5];
+}
+
 @end

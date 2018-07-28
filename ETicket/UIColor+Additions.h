@@ -58,5 +58,7 @@
 + (UIColor *)appleGreen;
 + (UIColor *)veryLightPinkTwo;
 + (UIColor *)paleRed;
++ (UIColor *)warmGreyTwo;
++ (UIColor *)greyish;
 
 @end

@@ -229,4 +229,8 @@
     [self.tableView reloadData];
 }
 
+- (void)updateSegmentBarPosition {
+    
+}
+
 @end

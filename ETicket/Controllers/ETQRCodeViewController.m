@@ -204,7 +204,7 @@
         _refLabel.textColor = [UIColor white2];
         _refLabel.font = [UIFont s02Font];
         _refLabel.textAlignment = NSTextAlignmentCenter;
-        _refLabel.text = NSLocalizedString(@"APP热线:400-870-8989", nil);
+        _refLabel.text = NSLocalizedString(@"APP客服热线:400-870-8989", nil);
     }
     return _refLabel;
 }

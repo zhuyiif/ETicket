@@ -11,6 +11,9 @@
 		BF8F910020DCBAEB006BC1C6 /* RSAUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8F90FF20DCBAEB006BC1C6 /* RSAUtil.m */; };
 		FD14D232210BEEA400E16665 /* UIBarButtonItem+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D231210BEEA300E16665 /* UIBarButtonItem+Helper.m */; };
 		FD14D235210BF6E200E16665 /* ETQRAssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D234210BF6E200E16665 /* ETQRAssetView.m */; };
+		FD14D239210C0EFF00E16665 /* ETRechargeAmountView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D238210C0EFF00E16665 /* ETRechargeAmountView.m */; };
+		FD14D23C210C1C2800E16665 /* ETRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D23B210C1C2800E16665 /* ETRechargeViewController.m */; };
+		FD14D23F210C29FF00E16665 /* ETRechargeChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D23E210C29FF00E16665 /* ETRechargeChannelView.m */; };
 		FD1A1A5D210163BC00CEEA2B /* ETTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */; };
 		FD1A1A61210163DA00CEEA2B /* ETNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A60210163DA00CEEA2B /* ETNewsViewController.m */; };
 		FD1A1A672101891F00CEEA2B /* ETMineTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A662101891F00CEEA2B /* ETMineTitleHeaderView.m */; };
@@ -133,6 +136,12 @@
 		FD14D231210BEEA300E16665 /* UIBarButtonItem+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Helper.m"; sourceTree = "<group>"; };
 		FD14D233210BF6E200E16665 /* ETQRAssetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETQRAssetView.h; sourceTree = "<group>"; };
 		FD14D234210BF6E200E16665 /* ETQRAssetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETQRAssetView.m; sourceTree = "<group>"; };
+		FD14D237210C0EFF00E16665 /* ETRechargeAmountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETRechargeAmountView.h; sourceTree = "<group>"; };
+		FD14D238210C0EFF00E16665 /* ETRechargeAmountView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETRechargeAmountView.m; sourceTree = "<group>"; };
+		FD14D23A210C1C2800E16665 /* ETRechargeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETRechargeViewController.h; sourceTree = "<group>"; };
+		FD14D23B210C1C2800E16665 /* ETRechargeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETRechargeViewController.m; sourceTree = "<group>"; };
+		FD14D23D210C29FF00E16665 /* ETRechargeChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETRechargeChannelView.h; sourceTree = "<group>"; };
+		FD14D23E210C29FF00E16665 /* ETRechargeChannelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETRechargeChannelView.m; sourceTree = "<group>"; };
 		FD1A1A5B210163BC00CEEA2B /* ETTravelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETTravelViewController.h; sourceTree = "<group>"; };
 		FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelViewController.m; sourceTree = "<group>"; };
 		FD1A1A5F210163DA00CEEA2B /* ETNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETNewsViewController.h; sourceTree = "<group>"; };
@@ -461,6 +470,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FD14D236210C0EAE00E16665 /* Recharge */ = {
+			isa = PBXGroup;
+			children = (
+				FD14D237210C0EFF00E16665 /* ETRechargeAmountView.h */,
+				FD14D238210C0EFF00E16665 /* ETRechargeAmountView.m */,
+				FD14D23A210C1C2800E16665 /* ETRechargeViewController.h */,
+				FD14D23B210C1C2800E16665 /* ETRechargeViewController.m */,
+				FD14D23D210C29FF00E16665 /* ETRechargeChannelView.h */,
+				FD14D23E210C29FF00E16665 /* ETRechargeChannelView.m */,
+			);
+			name = Recharge;
+			sourceTree = "<group>";
+		};
 		FD1A1A5A2101639F00CEEA2B /* Travel */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +806,7 @@
 		FD5D3AB62047EB8100CB3E65 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FD14D236210C0EAE00E16665 /* Recharge */,
 				FD1A1A5E210163CB00CEEA2B /* News */,
 				FD1A1A5A2101639F00CEEA2B /* Travel */,
 				FD3BBBD0204A21DF00A129B7 /* QRCode */,
@@ -1133,8 +1156,10 @@
 				FD5D3A982047E3DD00CB3E65 /* ETMineTVCell.m in Sources */,
 				FD5D3AA12047E3DD00CB3E65 /* Query.m in Sources */,
 				FD5D3AB02047E3DD00CB3E65 /* ETHomeViewController.m in Sources */,
+				FD14D23F210C29FF00E16665 /* ETRechargeChannelView.m in Sources */,
 				FD5D3A8E2047E3DD00CB3E65 /* TTLanguage.m in Sources */,
 				FDFC10032108C4650035F7F6 /* ETMineHeaderView.m in Sources */,
+				FD14D23C210C1C2800E16665 /* ETRechargeViewController.m in Sources */,
 				FDADFC5A20FEE1FB00738581 /* UITextField+CLValidator.m in Sources */,
 				FD1A1A672101891F00CEEA2B /* ETMineTitleHeaderView.m in Sources */,
 				FD5D3A732047E3DD00CB3E65 /* ETPageIndicator.m in Sources */,
@@ -1176,6 +1201,7 @@
 				FD3BBBD6204A23B300A129B7 /* ETQRCodeView.m in Sources */,
 				FD3BBB612048FAC300A129B7 /* ETPayHelper.m in Sources */,
 				FD1ACF0320FF23E300740B79 /* ETHomeBannerView.m in Sources */,
+				FD14D239210C0EFF00E16665 /* ETRechargeAmountView.m in Sources */,
 				FD1ACF1320FF859500740B79 /* ETHomeCardView.m in Sources */,
 				FD3BBBCF204A18AC00A129B7 /* ETHomeHeaderView.m in Sources */,
 				FDADFC4E20FEE16F00738581 /* ETCountryHelper.m in Sources */,
