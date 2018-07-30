@@ -22,6 +22,7 @@
 @property (nonatomic) ETRechargeChannelView *wechatView;
 @property (nonatomic) TTTAttributedLabel *protocolLabel;
 @property (nonatomic) UIView *footerView;
+@property (nonatomic) UIButton *commitButton;
 
 @end
 
@@ -57,7 +58,8 @@
         make.left.right.top.bottom.equalTo(self.scrollView);
         make.width.equalTo(self.scrollView);
     }];
-    // Do any additional setup after loading the view.
+    
+    [self bindEvents];
 }
 
 - (UIView *)containerView {
@@ -127,6 +129,7 @@
             make.top.equalTo(_footerView).offset(10);
             make.height.equalTo(@40);
         }];
+        self.commitButton = button;
     }
     return _footerView;
 }
@@ -177,10 +180,15 @@
     
 }
 
-#pragma mark TTAttributeLabelDelegate
+- (void)bindEvents {
+    RAC(self.commitButton,enabled) = [self.amountView.textField.rac_textSignal map:^id(NSString *value) {
+        return @([NSString isNotBlank:value] && [value isDigitalStr]);
+    }];
+}
+
 #pragma mark - TTTAttributedLabelDelegate
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components {
-
+    
 }
 
 @end

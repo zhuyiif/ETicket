@@ -23,9 +23,10 @@
 @property (nonatomic) ETHotView *hotView;
 @property (nonatomic) NSMutableArray *hotItems;
 @property (nonatomic) ETMineTitleHeaderView *sectionHeader;
-@property (nonatomic) ETMineHeaderView *loginedHeaderView;
+@property (nonatomic) ETMineHeaderView *tableHeaderView;
 @property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) CGFloat statusBarAlpha;
+@property (nonatomic) UIView *emptyFooterView;
 
 
 @end
@@ -34,6 +35,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self updateHeaderAndFooter];
     [self.tableView reloadData];
     [self reload];
 }
@@ -42,8 +44,18 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"我的",nil);
     self.view.backgroundColor = [UIColor white];
-    [self setupTableview];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.equalTo(self.view);
+        make.top.equalTo(self.view);
+        make.bottom.equalTo(self.mas_bottomLayoutGuide);
+    }];
     [self setupNavigationBar];
+    @weakify(self);
+    [RACObserve([ETActor instance], user) subscribeNext:^(id x) {
+        @strongify(self);
+        [self updateHeaderAndFooter];
+    }];
 }
 
 #pragma mark - Private Methods
@@ -77,25 +89,69 @@
     [UIApplication sharedApplication].statusBarStyle = [self statusBarNeedToWhite] ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
     [self setNeedsStatusBarAppearanceUpdate];
 }
-- (void)setupTableview {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.equalTo(self.view);
-        make.top.equalTo(self.view);
-        make.bottom.equalTo(self.mas_bottomLayoutGuide);
-    }];
+
+- (void)updateHeaderAndFooter {
+    if ([ETActor instance].isLogin) {
+        self.tableView.tableFooterView = nil;
+        [self.tableHeaderView updateStyle:YES];
+    } else {
+        [self.tableHeaderView updateStyle:NO];
+        self.tableView.tableFooterView = self.emptyFooterView;
+    }
 }
 
-- (ETMineHeaderView *)loginedHeaderView {
-    if (!_loginedHeaderView) {
-        _loginedHeaderView = [ETMineHeaderView new];
-        [_loginedHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
+
+#pragma mark - Setters/Getters
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.delegate = (id)self;
+        _tableView.dataSource = (id)self;
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.separatorColor = [UIColor clearColor];
+        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
+        [_tableView registerClass:[ETRouteTVCell class] forCellReuseIdentifier:NSStringFromClass([ETRouteTVCell class])];
+        _tableView.tableHeaderView = self.tableHeaderView;
+    }
+    return _tableView;
+}
+
+- (UIView *)emptyFooterView {
+    if (!_emptyFooterView) {
+        _emptyFooterView  = [UIView new];
+        _emptyFooterView.backgroundColor = [UIColor clearColor];
+        UIImageView *emptyBg = [UIImageView new];
+        emptyBg.image = [UIImage imageNamed:@"mineEmptyBG"];
+        [_emptyFooterView addSubview:emptyBg];
+        [emptyBg mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_emptyFooterView).offset(49);
+            make.bottom.equalTo(_emptyFooterView).offset(-33);
+            make.width.equalTo(@(195));
+            make.height.equalTo(@(89));
+            make.centerX.equalTo(_emptyFooterView);
+        }];
+    }
+    return _emptyFooterView;
+}
+
+- (ETMinePresenter *)presenter {
+    if (!_presenter) {
+        _presenter = [[ETMinePresenter alloc] init];
+    }
+    return _presenter;
+}
+
+- (ETMineHeaderView *)tableHeaderView {
+    if (!_tableHeaderView) {
+        _tableHeaderView = [ETMineHeaderView new];
+        [_tableHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(313*PIXEL_SCALE));
         }];
-        _loginedHeaderView.width = kScreenWidth;
-        _loginedHeaderView.height = 313*PIXEL_SCALE;
+        _tableHeaderView.width = kScreenWidth;
+        _tableHeaderView.height = 313*PIXEL_SCALE;
     }
-    return _loginedHeaderView;
+    return _tableHeaderView;
 }
 
 - (ETMineTitleHeaderView *)sectionHeader {
@@ -135,7 +191,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? 0 : 10;
+    return section == 0 ? 0 : [ETActor instance].isLogin ? 10 : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -179,35 +235,16 @@
 }
 
 - (void)hotView:(ETHotView *)hotView selectedItem:(ETHotModel *)model {
-//    [[[ETActor instance] showLoginIfNeeded] subscribeNext:^(id x) {
-//
-//    }];
-    ETRechargeViewController *vc = [ETRechargeViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-#pragma mark - Setters/Getters
-
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _tableView.delegate = (id)self;
-        _tableView.dataSource = (id)self;
-        _tableView.backgroundColor = [UIColor clearColor];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.separatorColor = [UIColor clearColor];
-        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
-        [_tableView registerClass:[ETRouteTVCell class] forCellReuseIdentifier:NSStringFromClass([ETRouteTVCell class])];
-        _tableView.tableHeaderView = self.loginedHeaderView;
-    }
-    return _tableView;
-}
-
-- (ETMinePresenter *)presenter {
-    if (!_presenter) {
-        _presenter = [[ETMinePresenter alloc] init];
-    }
-    return _presenter;
+    [[[ETActor instance] showLoginIfNeeded] subscribeNext:^(id x) {
+        if (![ETActor instance].isLogin) {
+            return ;
+        }
+        
+        if ([model.actionLink isEqualToString:@"wallet"]) {
+            ETRechargeViewController *vc = [ETRechargeViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
 }
 
 @end

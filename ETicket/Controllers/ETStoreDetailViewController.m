@@ -13,6 +13,7 @@
 #import "ETStoreSummaryRowView.h"
 #import "ETStoreFeatureRowView.h"
 #import "ETStoreBottomView.h"
+#import "UIBarButtonItem+Helper.h"
 
 @interface ETStoreDetailViewController ()<UIScrollViewDelegate>
 
@@ -25,6 +26,7 @@
 @property (nonatomic) ETStoreRecommendRowView *recommendView;
 @property (nonatomic) ETStoreExtendRowView *extendView;
 @property (nonatomic) ETStoreBottomView *bottomView;
+@property (nonatomic) UIBarButtonItem *backItem;
 
 @end
 
@@ -116,10 +118,15 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     self.navigationItem.titleView = self.titleLabel;
     self.titleLabel.text = NSLocalizedString(@"详情",nil);
+    self.backItem = [UIBarButtonItem barButtonItemWithTarget:self action:@selector(popController)  title:nil normalImage:[UIImage imageNamed:@"navBack"] highlightedImage:nil];
+    self.backItem.customView.hidden = YES;
+    self.navigationItem.leftBarButtonItem = self.backItem;
+    
 }
 
 - (void)updateNavigationBarStyle {
     self.titleLabel.textColor = [self statusBarNeedToWhite] ? [UIColor clearColor] : [[UIColor drColorC5] colorWithAlphaComponent:self.statusBarAlpha];
+    self.backItem.customView.hidden = [self statusBarNeedToWhite];
     UIColor *naviColor = [self statusBarNeedToWhite] ? [UIColor clearColor] : [[UIColor drColorC0] colorWithAlphaComponent:self.statusBarAlpha];
     [self.navigationController.navigationBar lt_setBackgroundColor:naviColor];
     [UIApplication sharedApplication].statusBarStyle = [self statusBarNeedToWhite] ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;

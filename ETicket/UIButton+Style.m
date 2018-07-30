@@ -153,7 +153,7 @@
 }
 
 - (UIColor *)disableBgColorWithStyle:(ETButtonStyle)style {
-    return [[UIColor drColorC0] colorWithAlphaComponent:0.3];
+    return [[UIColor greyish] colorWithAlphaComponent:0.3];
 }
 
 - (UIFont *)fontWithStyle:(ETButtonStyle)style {

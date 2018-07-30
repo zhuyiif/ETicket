@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ETRechargeAmountView : UIView
+
+@property (nonatomic) UITextField *textField;
 
 @end

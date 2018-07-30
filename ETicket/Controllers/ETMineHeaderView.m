@@ -79,6 +79,12 @@
         make.top.equalTo(self).offset(108);
         make.width.height.equalTo(@56);
     }];
+
+    [[self.loginButton eventSingal] subscribeNext:^(id x) {
+        [[[ETActor instance] showLogin] subscribeNext:^(id x) {
+            
+        }];
+    }];
 }
 
 - (void)updateStyle:(BOOL)logined {

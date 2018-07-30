@@ -8,12 +8,12 @@
 
 #import "ETRechargeAmountView.h"
 #import "UITextField+CLMaxLength.h"
+#import "UIImage+Draw.h"
 
-@interface ETRechargeAmountView ()
+@interface ETRechargeAmountView ()<UITextFieldDelegate>
 
 @property (nonatomic) UIImageView *topImageView;
 @property (nonatomic) UILabel *balanceLabel;
-@property (nonatomic) UITextField *textField;
 @property (nonatomic) UIView *inputViewContainer;
 @property (nonatomic) UIView *quickAmountsView;
 @property (nonatomic) NSMutableArray *buttons;
@@ -120,6 +120,7 @@
         self.textField.textColor = [UIColor greyishBrown];
         self.textField.keyboardType = UIKeyboardTypeDecimalPad;
         self.textField.maxLength = 10;
+        self.textField.delegate = self;
         self.textField.font = [UIFont fontWithSize:16];
         self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         self.textField.tintColor = [UIColor warmGreyTwo];
@@ -164,36 +165,64 @@
             make.top.equalTo(_quickAmountsView).offset(15);
             make.bottom.equalTo(_quickAmountsView).offset(-15);
         }];
-        [vStackView addArrangedSubview:[self lineWithTexts:@[@"100元",@"50元",@"30元"]]];
-        [vStackView addArrangedSubview:[self lineWithTexts:@[@"20元",@"10元",@"5元"]]];
-
+        [vStackView addArrangedSubview:[self lineWithAmounts:@[@100, @50,@30]]];
+        [vStackView addArrangedSubview:[self lineWithAmounts:@[@20,@10,@5]]];
+        
     }
     return _quickAmountsView;
 }
 
-- (UIStackView *)lineWithTexts:(NSArray *)texts {
+- (UIStackView *)lineWithAmounts:(NSArray *)texts {
     UIStackView *vStackView = [UIStackView new];
     vStackView.backgroundColor = [UIColor clearColor];
     vStackView.axis = UILayoutConstraintAxisHorizontal;
     vStackView.alignment = UIStackViewAlignmentFill;
     vStackView.distribution = UIStackViewDistributionFillEqually;
     vStackView.spacing = 12;
-    for (NSString *text in texts) {
-        UIButton *button = [UIButton buttonWithStyle:ETButtonStyleRed height:20];
-        [button addTarget:self action:@selector(amountButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        button.titleLabel.font = [UIFont fontWithSize:14 name:nil];
-        [button setTitle:text forState:UIControlStateNormal];
+    for (NSNumber *amount in texts) {
+        UIButton *button = [self buttonWithAmount:amount.integerValue];
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@35);
         }];
-        [self.buttons addObject:button];
         [vStackView addArrangedSubview:button];
     }
     return vStackView;
 }
 
-- (void)amountButtonPressed:(UIButton *)button {
+- (UIButton *)buttonWithAmount:(NSInteger)amount {
+    UIButton *button = [UIButton new];
+    button.backgroundColor = [UIColor clearColor];
+    button.titleLabel.font = [UIFont fontWithSize:14 name:nil];
+    [button setTitleColor:[UIColor white2] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:[UIColor drColorC17] strokeColor:[UIColor drColorC17]] forState:UIControlStateSelected];
+    [button setBackgroundImage:[UIImage blankImageWithSize:CGSizeMake(1, 1) fillColor:[UIColor greyish] strokeColor:[UIColor greyish]] forState:UIControlStateNormal];
+    button.tag = amount;
+    [button setTitle:[NSString stringWithFormat:@"%li元",(long)amount] forState:UIControlStateNormal];
+    [self.buttons addObject:button];
+    [button addTarget:self action:@selector(amountButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    return button;
     
+}
+
+- (void)amountButtonPressed:(UIButton *)sender {
+    if (sender.selected) {
+        return;
+    }
+    
+    for (UIButton *button in self.buttons) {
+        button.selected = NO;
+    }
+    sender.selected = YES;
+    self.textField.text = [NSString stringWithFormat:@"%li",sender.tag];
+    [self.textField sendActionsForControlEvents:UIControlEventAllEvents];
+    [self.textField resignFirstResponder];
+}
+
+#pragma mark UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    for (UIButton *button in self.buttons) {
+        button.selected = NO;
+    }
 }
 
 @end
