@@ -21,6 +21,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor white2];
+        self.userInteractionEnabled = YES;
         [self addSubview:self.bannerContainer];
         [self.bannerContainer mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.equalTo(self);
@@ -43,7 +44,8 @@
         self.summaryLabel.font = [UIFont fontWithSize:14 name:nil];
         self.summaryLabel.textColor = [UIColor greyishBrown];
         self.summaryLabel.numberOfLines = 2;
-        self.summaryLabel.text = @"位于古都西安大雁塔之侧，是中国第一个全方位展示盛唐风貌的大型皇家园林式文…";
+        self.summaryLabel.userInteractionEnabled = YES;
+        self.summaryLabel.text = @"位于古都西安大雁塔之侧，是中国第一个全方位展示盛唐风貌的大型皇家园林式位于古都西安大雁塔之侧，是中国第一个全方位展示盛唐风貌的大型皇家园林式位于古都西安大雁塔之侧，是中国第一个全方位展示盛唐风貌的大型皇家园林式文…位于古都西安大雁塔之侧，是中国第一个全方位展示盛唐风貌的大型皇家园林式文…位于古都西安大雁塔之侧，是中国第一个全方位展示盛唐风貌的大型皇家园林式文…";
         [self addSubview:self.summaryLabel];
         [self.summaryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.nameLabel);
@@ -78,6 +80,13 @@
             make.left.right.equalTo(self);
             make.bottom.equalTo(self);
             make.top.equalTo(cutLine2.mas_bottom);
+        }];
+        @weakify(self);
+        [self.summaryLabel bk_whenTapped:^{
+            @strongify(self);
+            self.summaryLabel.numberOfLines = self.summaryLabel.numberOfLines > 0 ? 0 : 2;
+            [self setNeedsLayout];
+            [self layoutIfNeeded];
         }];
     }
     return self;
@@ -158,7 +167,7 @@
         self.addressLabel.numberOfLines = 0;
         [_locationView addSubview:self.addressLabel];
         [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(tipLabel.mas_right).offset(3);
+            make.left.equalTo(tipLabel.mas_right);
             make.top.equalTo(tipLabel);
             make.bottom.lessThanOrEqualTo(_locationView).offset(-15);
         }];
@@ -177,7 +186,7 @@
         [self.phoneButton setImage:[UIImage imageNamed:@"storePhoneIcon"] forState:UIControlStateNormal];
         [_locationView addSubview:self.phoneButton];
         [self.phoneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(self.addressLabel);
+            make.top.bottom.equalTo(_locationView);
             make.left.equalTo(cutLine.mas_right).offset(10);
             make.right.equalTo(_locationView).offset(-12);
             make.width.equalTo(@60);
