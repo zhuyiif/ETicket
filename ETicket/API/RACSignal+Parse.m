@@ -65,12 +65,8 @@ static NSInteger const kParseErrorCode = 555;
         }
         
         // 应用层的错误也会转化为 error，具体应该忽略、弹警告、显示还是弹登录等等，是一下个 subscriber 该处理的。
-        id errors = responseObject[@"message"];
-        if ([errors count]) {
-            responseObject[NSLocalizedDescriptionKey] = [errors componentsJoinedByString:@"\n"];
-        }
         NSInteger code = [responseObject[@"code"] integerValue];
-        NSError *error = [NSError errorWithDomain:responseObject[@"msg"] ?: @"EmptyResultError" code:code userInfo:responseObject];
+        NSError *error = [NSError errorWithDomain:responseObject[@"message"] ?: @"EmptyResultError" code:code userInfo:responseObject];
         return [RACSignal error:error];
     }];
 }
