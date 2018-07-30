@@ -31,6 +31,9 @@
 
 - (void)setupUI {
     self.backgroundColor = [UIColor clearColor];
+    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(kScreenWidth));
+    }];
     self.bgView = [UIImageView new];
     self.bgView.backgroundColor = [UIColor clearColor];
     self.bgView.image = [UIImage imageNamed:@"mineHeaderBG1"];
@@ -38,7 +41,7 @@
     [self addSubview:self.bgView];
     [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self);
-        make.bottom.equalTo(self).offset(-60 * PIXEL_SCALE);
+        make.bottom.equalTo(self);
     }];
     
     self.summaryView = [ETMineSummaryView new];
@@ -99,6 +102,8 @@
         self.summaryView.bgView.image = [UIImage imageNamed:@"mineSummaryBG0"];
         self.bgView.image = [UIImage imageNamed:@"mineHeaderBG0"];
     }
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 @end

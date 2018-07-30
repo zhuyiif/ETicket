@@ -119,7 +119,7 @@
 
 - (UIView *)emptyFooterView {
     if (!_emptyFooterView) {
-        _emptyFooterView  = [UIView new];
+        _emptyFooterView  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 171)];
         _emptyFooterView.backgroundColor = [UIColor clearColor];
         UIImageView *emptyBg = [UIImageView new];
         emptyBg.image = [UIImage imageNamed:@"mineEmptyBG"];
@@ -144,11 +144,8 @@
 
 - (ETMineHeaderView *)tableHeaderView {
     if (!_tableHeaderView) {
-        _tableHeaderView = [ETMineHeaderView new];
-        [_tableHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(313*PIXEL_SCALE));
-        }];
-        _tableHeaderView.width = kScreenWidth;
+        _tableHeaderView = [[ETMineHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 313 * PIXEL_SCALE)];
+        _tableHeaderView.width =  kScreenWidth;
         _tableHeaderView.height = 313*PIXEL_SCALE;
     }
     return _tableHeaderView;
