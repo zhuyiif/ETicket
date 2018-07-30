@@ -62,6 +62,34 @@
         make.top.equalTo(self).offset(37);
     }];
     
+    self.nickNameLabel = [UILabel new];
+    self.nickNameLabel.font = [UIFont fontWithSize:12];
+    self.nickNameLabel.textColor = [UIColor white2];
+    self.nickNameLabel.backgroundColor = [UIColor clearColor];
+    self.nickNameLabel.textAlignment = NSTextAlignmentCenter;
+    [self.avatorBGView addSubview:self.nickNameLabel];
+    [self.nickNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.avatorBGView).offset(3);
+        make.centerX.equalTo(self.avatorBGView);
+        make.width.equalTo(@84);
+        make.height.equalTo(@17);
+    }];
+    
+    self.avatorView = [UIImageView new];
+    self.avatorView.backgroundColor = [UIColor clearColor];
+    self.avatorView.contentMode = UIViewContentModeScaleAspectFill;
+    self.avatorView.image = [UIImage imageNamed:@"homeMidImage"];
+    self.avatorView.clipsToBounds = YES;
+    self.avatorView.layer.cornerRadius = 16;
+    self.avatorView.layer.borderColor = [UIColor white].CGColor;
+    self.avatorView.layer.borderWidth = 2;
+    [self.avatorBGView addSubview:self.avatorView];
+    [self.avatorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@32);
+        make.bottom.equalTo(self.avatorBGView).offset(-6);
+        make.centerX.equalTo(self.avatorBGView);
+    }];
+    
     self.vipIcon = [UIImageView new];
     self.vipIcon.backgroundColor = [UIColor clearColor];
     self.vipIcon.image = [UIImage imageNamed:@"vip10"];
@@ -96,6 +124,7 @@
         self.vipIcon.hidden = self.avatorView.hidden = self.nickNameLabel.hidden = self.avatorBGView.hidden = NO;
         self.summaryView.bgView.image = [UIImage imageNamed:@"mineSummaryBG1"];
         self.bgView.image = [UIImage imageNamed:@"mineHeaderBG1"];
+        self.nickNameLabel.text = [ETActor instance].user.phone;
     } else {
         self.loginButton.hidden = NO;
         self.vipIcon.hidden = self.avatorView.hidden = self.nickNameLabel.hidden = self.avatorBGView.hidden = YES;

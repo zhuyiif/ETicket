@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) NSTimer *completeTimer;
+@property (nonatomic, strong) UIButton *loginButton;
 
 @end
 
@@ -85,18 +86,39 @@
     self.pageControl.backgroundColor = [UIColor clearColor];
     self.pageControl.numberOfPages = KGUIDE_PAGE_COUNT;
     self.pageControl.currentPage = 0;
-    self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
-    self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithHex:0xd52d26];
+    self.pageControl.pageIndicatorTintColor = [UIColor greyish];
     [self.view addSubview:self.pageControl];
     [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@20);
         make.left.equalTo(@20);
         make.right.equalTo(@(-20));
-        make.bottom.equalTo(self.view).offset(-20);
+        make.bottom.equalTo(self.view).offset(-46);
+    }];
+    [self.view addSubview:self.loginButton];
+    [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@121);
+        make.height.equalTo(@40);
+        make.center.equalTo(self.pageControl);
     }];
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
     // Do any additional setup after loading the view.
+}
+
+- (UIButton *)loginButton {
+    if (!_loginButton) {
+        _loginButton = [UIButton new];
+        _loginButton.hidden = YES;
+        [_loginButton setImage:[UIImage imageNamed:@"guideLoginPress"] forState:UIControlStateHighlighted];
+        [_loginButton setImage:[UIImage imageNamed:@"guideLoginNor"] forState:UIControlStateNormal];
+        @weakify(self);
+        [[_loginButton eventSingal] subscribeNext:^(id x) {
+            @strongify(self);
+            [self onDismissTapped];
+        }];
+    }
+    return _loginButton;
 }
 
 #pragma mark UIScrollViewDelegate
@@ -117,12 +139,15 @@
     //    CGFloat pageWidth = scrollView.frame.size.width;
     if (page == KGUIDE_PAGE_COUNT - 1) {
         
-        if ([self.completeTimer isValid]) {
-            return;
-        }
-        self.completeTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self
-                                                            selector:@selector(onDismissTapped)
-                                                            userInfo:nil repeats:NO];
+//        if ([self.completeTimer isValid]) {
+//            return;
+//        }
+//        self.completeTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self
+//                                                            selector:@selector(onDismissTapped)
+//                                                            userInfo:nil repeats:NO];
+        self.loginButton.hidden = NO;
+    } else {
+        self.loginButton.hidden = YES;
     }
 }
 

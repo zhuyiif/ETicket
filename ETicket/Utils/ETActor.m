@@ -50,8 +50,21 @@ static ETActor *instance = nil;
     } else {
         NSData *archiver = [NSKeyedArchiver archivedDataWithRootObject:[MTLJSONAdapter JSONDictionaryFromModel:_user error:nil]];
         [[NSUserDefaults standardUserDefaults] setObject:archiver forKey:kUserKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setToken:(NSString *)token {
+    if ([NSString isBlankString:token]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserKey];
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:token forKey:kTokenKey];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)token {
+    return [[NSUserDefaults standardUserDefaults] stringForKey:kTokenKey];
 }
 
 - (void)logoutWithBlock:(void (^)(void))completeBlock {
