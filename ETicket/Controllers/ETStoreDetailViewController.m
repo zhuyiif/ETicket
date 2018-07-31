@@ -44,7 +44,7 @@
         if (@available(iOS 11.0, *)) {
             make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
         } else {
-            make.bottom.equalTo(self.mas_bottomLayoutGuide);
+            make.bottom.equalTo(self.view);
         }
     }];
     

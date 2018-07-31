@@ -80,7 +80,7 @@ static ETLoginViewController *gInstance;
         if (@available(iOS 11.0, *)) {
             make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
         } else {
-            make.top.equalTo(self.view);
+            make.top.equalTo(self.view).offset(25);
         }
         make.left.equalTo(self.view).offset(5);
         make.width.height.equalTo(@40);
@@ -97,7 +97,7 @@ static ETLoginViewController *gInstance;
         if (@available(iOS 11.0, *)) {
             make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
         } else {
-            make.bottom.equalTo(self.mas_topLayoutGuide);
+            make.bottom.equalTo(self.view).offset(25);
         }
     }];
     
