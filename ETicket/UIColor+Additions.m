@@ -173,6 +173,10 @@
     return [UIColor colorWithHex:0xffffff];
 }
 
++ (UIColor *)white3 {
+    return [UIColor colorWithHex:0xd8d8d8];
+}
+
 + (UIColor *)appleGreen {
     return [UIColor colorWithHex:0x51c025];
 }

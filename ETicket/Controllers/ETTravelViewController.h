@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ETTableViewController.h"
 
-@interface ETTravelViewController : UIViewController
+@interface ETTravelViewController : ETTableViewController
 
 @end

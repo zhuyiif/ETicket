@@ -22,6 +22,7 @@
 - (void)emptyBackButton_viewDidLoad {
     [self emptyBackButton_viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+     [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleLightContent;
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButtonItem];
 }

@@ -176,7 +176,7 @@
         [_hotItems addObject:model1];
         ETHotModel *model2 = [ETHotModel modelWithName:@"在线客户" link:@"kefu" image:@"mineKefu"];
         [_hotItems addObject:model2];
-        ETHotModel *model3 = [ETHotModel modelWithName:@"关于我们" link:@"about" image:@"mineAbout"];
+        ETHotModel *model3 = [ETHotModel modelWithName:@"系统设置" link:@"setting" image:@"mineSetting"];
         [_hotItems addObject:model3];
     }
     return _hotItems;

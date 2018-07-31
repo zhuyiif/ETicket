@@ -20,6 +20,8 @@
 		FD14D24E210CBC9D00E16665 /* ETStoreFeatureRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D24D210CBC9D00E16665 /* ETStoreFeatureRowView.m */; };
 		FD14D251210CBE9200E16665 /* ETStoreRecommendRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D250210CBE9200E16665 /* ETStoreRecommendRowView.m */; };
 		FD14D25B210CC9EA00E16665 /* ETStoreBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D25A210CC9EA00E16665 /* ETStoreBottomView.m */; };
+		FD14D26A21109AB100E16665 /* ETTravelSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D26921109AB100E16665 /* ETTravelSectionHeaderView.m */; };
+		FD14D26D21109D9600E16665 /* ETTravelTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D26C21109D9600E16665 /* ETTravelTVCell.m */; };
 		FD1A1A5D210163BC00CEEA2B /* ETTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */; };
 		FD1A1A61210163DA00CEEA2B /* ETNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A60210163DA00CEEA2B /* ETNewsViewController.m */; };
 		FD1A1A672101891F00CEEA2B /* ETMineTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A662101891F00CEEA2B /* ETMineTitleHeaderView.m */; };
@@ -160,6 +162,10 @@
 		FD14D250210CBE9200E16665 /* ETStoreRecommendRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETStoreRecommendRowView.m; sourceTree = "<group>"; };
 		FD14D259210CC9EA00E16665 /* ETStoreBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETStoreBottomView.h; sourceTree = "<group>"; };
 		FD14D25A210CC9EA00E16665 /* ETStoreBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETStoreBottomView.m; sourceTree = "<group>"; };
+		FD14D26821109AB100E16665 /* ETTravelSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETTravelSectionHeaderView.h; sourceTree = "<group>"; };
+		FD14D26921109AB100E16665 /* ETTravelSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelSectionHeaderView.m; sourceTree = "<group>"; };
+		FD14D26B21109D9600E16665 /* ETTravelTVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETTravelTVCell.h; sourceTree = "<group>"; };
+		FD14D26C21109D9600E16665 /* ETTravelTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelTVCell.m; sourceTree = "<group>"; };
 		FD1A1A5B210163BC00CEEA2B /* ETTravelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETTravelViewController.h; sourceTree = "<group>"; };
 		FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelViewController.m; sourceTree = "<group>"; };
 		FD1A1A5F210163DA00CEEA2B /* ETNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETNewsViewController.h; sourceTree = "<group>"; };
@@ -506,6 +512,10 @@
 			children = (
 				FD1A1A5B210163BC00CEEA2B /* ETTravelViewController.h */,
 				FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */,
+				FD14D26821109AB100E16665 /* ETTravelSectionHeaderView.h */,
+				FD14D26921109AB100E16665 /* ETTravelSectionHeaderView.m */,
+				FD14D26B21109D9600E16665 /* ETTravelTVCell.h */,
+				FD14D26C21109D9600E16665 /* ETTravelTVCell.m */,
 			);
 			name = Travel;
 			sourceTree = "<group>";
@@ -1183,6 +1193,7 @@
 				FD5D3AA42047E3DD00CB3E65 /* UIViewController+ErrorView.m in Sources */,
 				FDADFC7D20FF165300738581 /* UIScrollView+iOS11.m in Sources */,
 				FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */,
+				FD14D26D21109D9600E16665 /* ETTravelTVCell.m in Sources */,
 				FD1ACF2F2100DAD600740B79 /* UIView+SepLine.m in Sources */,
 				FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */,
 				FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */,
@@ -1204,6 +1215,7 @@
 				FD5D3A9E2047E3DD00CB3E65 /* RACSignal+Parse.m in Sources */,
 				FD5D3A9B2047E3DD00CB3E65 /* AFHTTPSessionManager+RACSignal.m in Sources */,
 				FD5D3A9A2047E3DD00CB3E65 /* NSError+Message.m in Sources */,
+				FD14D26A21109AB100E16665 /* ETTravelSectionHeaderView.m in Sources */,
 				FD5D3AA82047E3DD00CB3E65 /* UIButton+Style.m in Sources */,
 				FD5D3A922047E3DD00CB3E65 /* UIApplication+Additions.m in Sources */,
 				FD14D24B210CBA5300E16665 /* ETStoreExtendRowView.m in Sources */,
