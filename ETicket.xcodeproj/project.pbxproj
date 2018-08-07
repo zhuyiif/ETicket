@@ -22,6 +22,7 @@
 		FD14D25B210CC9EA00E16665 /* ETStoreBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D25A210CC9EA00E16665 /* ETStoreBottomView.m */; };
 		FD14D26A21109AB100E16665 /* ETTravelSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D26921109AB100E16665 /* ETTravelSectionHeaderView.m */; };
 		FD14D26D21109D9600E16665 /* ETTravelTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD14D26C21109D9600E16665 /* ETTravelTVCell.m */; };
+		FD18F35F2119205200400458 /* UIView+SepLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FD18F35E2119205200400458 /* UIView+SepLine.m */; };
 		FD1A1A5D210163BC00CEEA2B /* ETTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */; };
 		FD1A1A61210163DA00CEEA2B /* ETNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A60210163DA00CEEA2B /* ETNewsViewController.m */; };
 		FD1A1A672101891F00CEEA2B /* ETMineTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1A1A662101891F00CEEA2B /* ETMineTitleHeaderView.m */; };
@@ -35,7 +36,6 @@
 		FD1ACF1C21006D7500740B79 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF1A21006D7400740B79 /* UINavigationBar+Awesome.m */; };
 		FD1ACF1F2100B91400740B79 /* ETHomeNewsTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF1E2100B91400740B79 /* ETHomeNewsTVCell.m */; };
 		FD1ACF222100C0B900740B79 /* ETTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF202100C0B900740B79 /* ETTableViewController.m */; };
-		FD1ACF2F2100DAD600740B79 /* UIView+SepLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */; };
 		FD3BBB542048F7BA00A129B7 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB052048F7BA00A129B7 /* libcrypto.a */; };
 		FD3BBB552048F7BA00A129B7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB062048F7BA00A129B7 /* libssl.a */; };
 		FD3BBB562048F7BA00A129B7 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BBB072048F7BA00A129B7 /* AlipaySDK.framework */; };
@@ -166,6 +166,8 @@
 		FD14D26921109AB100E16665 /* ETTravelSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelSectionHeaderView.m; sourceTree = "<group>"; };
 		FD14D26B21109D9600E16665 /* ETTravelTVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETTravelTVCell.h; sourceTree = "<group>"; };
 		FD14D26C21109D9600E16665 /* ETTravelTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelTVCell.m; sourceTree = "<group>"; };
+		FD18F35D2119205200400458 /* UIView+SepLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SepLine.h"; sourceTree = "<group>"; };
+		FD18F35E2119205200400458 /* UIView+SepLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SepLine.m"; sourceTree = "<group>"; };
 		FD1A1A5B210163BC00CEEA2B /* ETTravelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETTravelViewController.h; sourceTree = "<group>"; };
 		FD1A1A5C210163BC00CEEA2B /* ETTravelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETTravelViewController.m; sourceTree = "<group>"; };
 		FD1A1A5F210163DA00CEEA2B /* ETNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETNewsViewController.h; sourceTree = "<group>"; };
@@ -192,8 +194,6 @@
 		FD1ACF1E2100B91400740B79 /* ETHomeNewsTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETHomeNewsTVCell.m; sourceTree = "<group>"; };
 		FD1ACF202100C0B900740B79 /* ETTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTableViewController.m; sourceTree = "<group>"; };
 		FD1ACF212100C0B900740B79 /* ETTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTableViewController.h; sourceTree = "<group>"; };
-		FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+SepLine.m"; path = "../../iOSTemplate/ETicket/UIView+SepLine.m"; sourceTree = "<group>"; };
-		FD1ACF2E2100DAD600740B79 /* UIView+SepLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+SepLine.h"; path = "../../iOSTemplate/ETicket/UIView+SepLine.h"; sourceTree = "<group>"; };
 		FD353B4B1FDFB2F100489185 /* ETicket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETicket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3BBB052048F7BA00A129B7 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		FD3BBB062048F7BA00A129B7 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
@@ -947,13 +947,13 @@
 		FD5D3ABC2047EDC300CB3E65 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FD18F35D2119205200400458 /* UIView+SepLine.h */,
+				FD18F35E2119205200400458 /* UIView+SepLine.m */,
 				FD14D230210BEEA300E16665 /* UIBarButtonItem+Helper.h */,
 				FD14D231210BEEA300E16665 /* UIBarButtonItem+Helper.m */,
 				FDFC0FFB2108C3170035F7F6 /* NSNumber+Format.h */,
 				FDFC0FFC2108C3170035F7F6 /* NSNumber+Format.m */,
 				FD1ACF1B21006D7500740B79 /* UINavigationBar+Awesome.h */,
-				FD1ACF2E2100DAD600740B79 /* UIView+SepLine.h */,
-				FD1ACF2D2100DAD600740B79 /* UIView+SepLine.m */,
 				FD1ACF1A21006D7400740B79 /* UINavigationBar+Awesome.m */,
 				FDADFC7A20FF165200738581 /* UIScrollView+iOS11.h */,
 				FDADFC7B20FF165300738581 /* UIScrollView+iOS11.m */,
@@ -1167,6 +1167,7 @@
 				FD3BBB7420490A9B00A129B7 /* openssl_wrapper.m in Sources */,
 				FD5D3A7C2047E3DD00CB3E65 /* UIColor+Additions.m in Sources */,
 				FD1ACF222100C0B900740B79 /* ETTableViewController.m in Sources */,
+				FD18F35F2119205200400458 /* UIView+SepLine.m in Sources */,
 				FD5D3AA92047E3DD00CB3E65 /* NSDate+Formater.m in Sources */,
 				FDADFC8120FF17F100738581 /* UIViewController+Shadow.m in Sources */,
 				FD5D3A942047E3DD00CB3E65 /* main.m in Sources */,
@@ -1194,7 +1195,6 @@
 				FDADFC7D20FF165300738581 /* UIScrollView+iOS11.m in Sources */,
 				FD3BBB642048FBD900A129B7 /* ETAlipayOrder.m in Sources */,
 				FD14D26D21109D9600E16665 /* ETTravelTVCell.m in Sources */,
-				FD1ACF2F2100DAD600740B79 /* UIView+SepLine.m in Sources */,
 				FD5D3AAA2047E3DD00CB3E65 /* ETHomePresenter.m in Sources */,
 				FD5D3A8B2047E3DD00CB3E65 /* TTTAttributedLabel+additions.m in Sources */,
 				FDADFC6C20FEE48500738581 /* ETToastView.m in Sources */,

@@ -40,7 +40,7 @@
         [self addSubview:bgView];
         [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(8);
-            make.bottom.equalTo(self).offset(-10);
+            make.bottom.equalTo(self).offset(-8);
             make.left.equalTo(line.mas_right).offset(12);
             make.right.equalTo(self).offset(-15);
         }];
