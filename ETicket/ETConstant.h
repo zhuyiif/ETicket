@@ -35,6 +35,12 @@ stringByAppendingPathComponent:FILE_NAME]
 #define kScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define OS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
 
+#define KVersion           \
+[[NSBundle mainBundle] \
+objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+#define KProdName \
+[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
+
 //商户PID
 #define kAlipayPartner @"2017062007529743"
 //商户收款账号

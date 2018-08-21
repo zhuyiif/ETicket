@@ -11,6 +11,7 @@
 @interface ETMineHeaderView : UIView
 
 @property (nonatomic) UIButton *loginButton;
+@property (nonatomic) UIButton *avatorButton;
 - (void)updateStyle:(BOOL)logined;
 
 @end

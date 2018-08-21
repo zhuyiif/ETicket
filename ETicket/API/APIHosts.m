@@ -94,7 +94,7 @@ static AFHTTPSessionManager *_cacheManager;
         _cacheManager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataDontLoad;
     }
     
-    [_networkManager.requestSerializer setValue:[ETActor instance].token ?:@"" forHTTPHeaderField:@"token"];
+    [_networkManager.requestSerializer setValue:[ETActor instance].token ?:@"" forHTTPHeaderField:@"app-token"];
     return _cacheManager;
 }
 
@@ -106,7 +106,7 @@ static AFHTTPSessionManager *_networkManager;
     }
     
     // custom header 2: 必须每次使用时设置
-    [_networkManager.requestSerializer setValue:[ETActor instance].token ?:@"" forHTTPHeaderField:@"token"];
+    [_networkManager.requestSerializer setValue:[ETActor instance].token ?:@"" forHTTPHeaderField:@"app-token"];
     return _networkManager;
 }
 

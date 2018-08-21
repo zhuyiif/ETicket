@@ -118,7 +118,7 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     self.navigationItem.titleView = self.titleLabel;
     self.titleLabel.text = NSLocalizedString(@"详情",nil);
-    self.backItem = [UIBarButtonItem barButtonItemWithTarget:self action:@selector(popController)  title:nil normalImage:[UIImage imageNamed:@"navBack"] highlightedImage:nil];
+    self.backItem = [UIBarButtonItem barButtonItemWithTarget:self action:@selector(popController)  title:nil normalImage:[UIImage imageNamed:@"ArrowBackWhite"] highlightedImage:nil];
     self.backItem.customView.hidden = YES;
     self.navigationItem.leftBarButtonItem = self.backItem;
     

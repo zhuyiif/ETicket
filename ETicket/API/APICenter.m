@@ -20,6 +20,13 @@
     return [Query GET:[self packageCMSHost:@"api/notifications"] parameters:parameters listKey:@"list" modelClass:[ETAnouncementInfo class]];
 }
 
++ (Query *)getSeed:(NSDictionary *)paramters {
+    return [Query GET:@"api/qrcode/seed" parameters:paramters];
+}
+
++ (Query *)getQRCode:(NSDictionary *)paramters {
+    return [Query GET:@"api/qrcode" parameters:paramters];
+}
 
 + (Query *)getPaymentSN:(NSDictionary *)parameters {
     return [Query GET:@"http://www.baidu.com" parameters:parameters];

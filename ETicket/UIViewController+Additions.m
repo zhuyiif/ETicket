@@ -41,7 +41,7 @@
 
 - (UIBarButtonItem *)swizzle_customBackItemWithTarget:(id)target action:(SEL)action {
     
-    UIImage *backImage = [[UIImage imageNamed:@"navBack"] imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, 4, 0)];
+    UIImage *backImage = [[UIImage imageNamed:@"ArrowBackWhite"] imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, 4, 0)];
     backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     if ([self isKindOfClass:[ETRechargeViewController class]]) {
         backImage = [[UIImage imageNamed:@"ArrowBackWhite"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

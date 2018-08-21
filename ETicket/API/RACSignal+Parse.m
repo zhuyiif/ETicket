@@ -33,6 +33,9 @@ static NSInteger const kParseErrorCode = 555;
 - (RACSignal *)parse:(NSString *)listKey modelClass:(__unsafe_unretained Class)modelClass {
     return [self flattenMap:^(RACTuple *x) {
         id responseObject = x.first;
+        if (responseObject[@"seed"] || responseObject[@"qrcode"] ) {
+            return [RACSignal return:responseObject];
+        }
         if ([responseObject[@"code"] integerValue] == 0) {
             NSMutableDictionary *content = responseObject[@"content"];
             
