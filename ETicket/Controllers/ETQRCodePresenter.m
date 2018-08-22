@@ -14,28 +14,23 @@
 
 - (RACSignal *)refreshIfNeeded {
     @weakify(self);
-    return [[[ETActor instance] refreshSeedIfNeeded] doNext:^(NSDictionary *x) {
+    return [[[[ETActor instance] refreshSeedIfNeeded] doNext:^(NSDictionary *x) {
         @strongify(self);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self generateSourceCode:x];
         });
-    }];
+    }] doError:^(NSError *error) {
+        
+    }] ;
 }
 
 - (void)generateSourceCode:(NSDictionary *)x {
-    NSString *key = x[@"key"];
-    NSString *seed = x[@"seed"];
-    NSData *privateKeyData = [[NSData alloc] initWithBase64EncodedString:key options:NSDataBase64DecodingIgnoreUnknownCharacters];
-    NSMutableData *signSource = [[[NSData alloc] initWithBase64EncodedString:seed options:NSDataBase64DecodingIgnoreUnknownCharacters] mutableCopy];
-    NSInteger timeValue = [[NSDate date] timeIntervalSince1970];
-    uint8_t buffer[5];
-    buffer[0] = (timeValue & 0xFF);
-    buffer[1] = (timeValue >> 8) & 0xFF;
-    buffer[2] = (timeValue >> 16) & 0xFF;
-    buffer[3] = (timeValue >> 24) & 0xFF;
-    buffer[4] = 0x15;
-    int length = sizeof(buffer);
-    [signSource appendBytes:buffer length:length];
+    NSData *privateKeyData = x[@"key"];
+    NSMutableData *signSource = [x[@"seed"] mutableCopy];
+    NSInteger time = [[NSDate date] timeIntervalSince1970];
+    //int to data 大端,并不上固定字节0x15
+    uint8_t buffer[4] = {(time >> 24) & 0xFF,(time >> 16) & 0xFF,(time >> 8) & 0xFF,time & 0xFF};
+    [signSource appendBytes:buffer length:4];
     
     unsigned char privateKeys[32] = {0x0};
     sm4dec((unsigned char *)[privateKeyData bytes],(int)privateKeyData.length, privateKeys);
@@ -43,8 +38,10 @@
     unsigned char sign[64] = {0x0};
     int signedlen = 0;
     sm2Sign(privateKeys, sizeof(privateKeys), signSource.bytes,(int)signSource.length, sign, &signedlen);
+    uint8_t bufferSpace[1] = {0x15};
+    [signSource appendBytes:bufferSpace length:1];
     [signSource appendBytes:sign length:signedlen];
-    self.sourceCode = [self convertDataToHexStr:signSource];
+    self.sourceCode = [signSource base64String];
     NSLog(@"%@",self.sourceCode);
 }
 

@@ -134,14 +134,41 @@ static ETActor *instance = nil;
 
 - (RACSignal *)refreshSeedIfNeeded {
     if (self.seed) {
-        return [RACSignal return:self.seed];
+        NSDictionary *x  = self.seed;
+        NSString *key = x[@"key"];
+        NSString *seed = x[@"seed"];
+        NSData *privateKeyData = [[NSData alloc] initWithBase64EncodedString:key options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        NSData *seedData = [[NSData alloc] initWithBase64EncodedString:seed options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        if(seedData.length < 200) {
+            return [self refreshSeed];
+        }
+        Byte byte[4] = {0x0};
+        [seedData getBytes:byte range:NSMakeRange(191, 4)];
+        NSInteger expired = ((byte[0] & 0xFF) << 24) | ((byte[1] & 0xFF) << 16) | ((byte[2] & 0xFF) << 8) | (byte[3] & 0xFF);
+        NSInteger currentTime = [[NSDate date] timeIntervalSince1970];
+        if (expired -currentTime < 3600) {
+            [[self refreshSeed] subscribeNext:^(id x) {
+                
+            }];
+        }
+        
+        if (expired < currentTime) {
+            return [self refreshSeed];
+        }
+        
+        return [RACSignal return:@{@"key":privateKeyData,@"seed":seedData}];
     }
     return [self refreshSeed];
 }
 
 - (RACSignal *)refreshSeed {
-    return [[[APICenter getSeed:nil] execute] doNext:^(NSDictionary *x) {
+    return [[[APICenter getSeed:nil] execute] map:^id(NSDictionary *x) {
         self.seed = x;
+        NSString *key = x[@"key"];
+        NSString *seed = x[@"seed"];
+        NSData *privateKeyData = [[NSData alloc] initWithBase64EncodedString:key options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        NSData *seedData = [[NSData alloc] initWithBase64EncodedString:seed options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        return @{@"key":privateKeyData,@"seed":seedData};
     }];
 }
 
