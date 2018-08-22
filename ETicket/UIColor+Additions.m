@@ -197,4 +197,8 @@
     return [UIColor colorWithHex:0xb5b5b5];
 }
 
++ (UIColor *)paleRedTwo {
+    return [UIColor colorWithHex:0xe04b4b];
+}
+
 @end

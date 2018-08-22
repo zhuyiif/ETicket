@@ -83,6 +83,7 @@
     self.avatorView.layer.cornerRadius = 16;
     self.avatorView.layer.borderColor = [UIColor white].CGColor;
     self.avatorView.layer.borderWidth = 2;
+    self.avatorBGView.userInteractionEnabled = YES;
     [self.avatorBGView addSubview:self.avatorView];
     [self.avatorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@32);
@@ -97,6 +98,14 @@
     [self.vipIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(86);
         make.right.equalTo(self).offset(-101);
+    }];
+    
+    
+    self.avatorButton = [UIButton new];
+    self.avatorButton.backgroundColor = [UIColor clearColor];
+    [self.avatorBGView addSubview:self.avatorButton];
+    [self.avatorButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.avatorBGView);
     }];
     
     self.loginButton = [UIButton new];

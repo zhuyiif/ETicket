@@ -26,6 +26,7 @@ typedef NS_OPTIONS(NSUInteger, ETLoginType) {
 @property (nonatomic) ETLoginType loginType;
 @property (nonatomic) ETUser *user;
 @property (nonatomic) NSString *token;
+@property (nonatomic) BOOL notifyVoice;
 
 + (instancetype)instance;
 
@@ -39,5 +40,9 @@ typedef NS_OPTIONS(NSUInteger, ETLoginType) {
 - (RACSignal *)showLoginIfNeeded;
 
 - (RACSignal *)showLogin;
+
+- (RACSignal *)refreshSeed;
+
+- (RACSignal *)refreshSeedIfNeeded;
 
 @end

@@ -12,6 +12,7 @@
 #import "UIButton+Style.h"
 #import "UIBarButtonItem+Helper.h"
 #import "ETQRAssetView.h"
+#import "ETQRCodePresenter.h"
 
 @interface ETQRCodeViewController ()
 
@@ -24,6 +25,7 @@
 @property (nonatomic) UILabel *refLabel;
 @property (nonatomic) BOOL existMessage;
 @property (nonatomic) ETQRAssetView *assetView;
+@property (nonatomic) ETQRCodePresenter *presenter;
 
 @end
 
@@ -65,9 +67,22 @@
         make.width.equalTo(self.scrollView);
     }];
     
-    [self.qrCodeView updateSource:@"https://www-demo.dianrong.com/feapi/banners?page=1&rows=21&type=appV4Homepage1"];
+    self.presenter = [ETQRCodePresenter new];
+    
+    @weakify(self);
+    [[RACObserve(self.presenter, sourceCode) skip:1] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.qrCodeView updateSource:self.presenter.sourceCode];
+    }];
     [self setupNavigationBar];
     [self updateRightButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self.presenter refresh] subscribeNext:^(id x) {
+        
+    }];
 }
 
 -(void)setupNavigationBar {
@@ -182,9 +197,11 @@
         [_refreshControl bk_whenTapped:^{
             @strongify(self);
             [self startAnimation];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[self.presenter refresh] subscribeNext:^(id x) {
                 [self stopAnimation];
-            });
+            } error:^(NSError *error) {
+                [self stopAnimation];
+            }];
         }];
     }
     return _refreshControl;

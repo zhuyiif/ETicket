@@ -61,5 +61,6 @@
 + (UIColor *)paleRed;
 + (UIColor *)warmGreyTwo;
 + (UIColor *)greyish;
++ (UIColor *)paleRedTwo;
 
 @end

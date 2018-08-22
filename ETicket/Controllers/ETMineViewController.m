@@ -15,6 +15,8 @@
 #import "ETHotView.h"
 #import "ETMineHeaderView.h"
 #import "ETRechargeViewController.h"
+#import "ETSettingViewController.h"
+#import "ETSettingProfileViewController.h"
 
 @interface ETMineViewController ()<UITableViewDelegate,UITableViewDataSource,ETHotViewDelegate>
 
@@ -147,6 +149,11 @@
         _tableHeaderView = [[ETMineHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 313 * PIXEL_SCALE)];
         _tableHeaderView.width =  kScreenWidth;
         _tableHeaderView.height = 313*PIXEL_SCALE;
+        @weakify(self);
+        [[_tableHeaderView.avatorButton eventSingal] subscribeNext:^(id x) {
+            @strongify(self);
+            [self.navigationController pushViewController:[ETSettingProfileViewController new] animated:YES];
+        }];
     }
     return _tableHeaderView;
 }
@@ -232,6 +239,12 @@
 }
 
 - (void)hotView:(ETHotView *)hotView selectedItem:(ETHotModel *)model {
+    
+    if ([model.actionLink isEqualToString:@"setting"]) {
+        ETSettingViewController *vc = [ETSettingViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
     [[[ETActor instance] showLoginIfNeeded] subscribeNext:^(id x) {
         if (![ETActor instance].isLogin) {
             return ;

@@ -11,8 +11,12 @@
 
 #define kTokenKey @"tokenKey"
 #define kUserKey @"userKey"
+#define kSeedKey @"seedKey"
+#define kNotifyVoice @"notifyVoice"
 
 @interface ETActor ()
+
+@property (nonatomic) NSDictionary *seed;
 
 @end
 
@@ -56,7 +60,7 @@ static ETActor *instance = nil;
 
 - (void)setToken:(NSString *)token {
     if ([NSString isBlankString:token]) {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserKey];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kTokenKey];
     } else {
         [[NSUserDefaults standardUserDefaults] setObject:token forKey:kTokenKey];
     }
@@ -67,18 +71,31 @@ static ETActor *instance = nil;
     return [[NSUserDefaults standardUserDefaults] stringForKey:kTokenKey];
 }
 
+- (void)setNotifyVoice:(BOOL)notifyVoice {
+    [[NSUserDefaults standardUserDefaults] setBool:notifyVoice forKey:kNotifyVoice];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BOOL)notifyVoice {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kNotifyVoice];
+}
+
+- (void)setSeed:(NSDictionary *)seed {
+    if (!seed) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kSeedKey];
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:seed forKey:kSeedKey];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSDictionary *)seed {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kSeedKey];
+}
+
 - (void)logoutWithBlock:(void (^)(void))completeBlock {
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[NSURLCache sharedURLCache] removeAllCachedResponses];
-        self.token = nil;
-        self.loginType = ETLoginTypeUnknow;
-        
-        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-        NSArray *cookies = [NSArray arrayWithArray:[cookieJar cookies]];
-        for (NSHTTPCookie *cookie in cookies) {
-            [cookieJar deleteCookie:cookie];
-        }
+        [self cleanUserInfos];
         if (completeBlock) {
             completeBlock();
         }
@@ -90,6 +107,7 @@ static ETActor *instance = nil;
     return [[[APICenter postLogin:params] execute] doNext:^(ETUser *user) {
         self.user = user;
         self.token = user.appToken;
+        [self refreshSeed];
     }];
     
 }
@@ -105,11 +123,65 @@ static ETActor *instance = nil;
     return [ETLoginViewController show];
 }
 
+- (RACSignal *)refreshSeedIfNeeded {
+    if (self.seed) {
+        NSDictionary *x  = self.seed;
+        NSString *key = x[@"key"];
+        NSString *seed = x[@"seed"];
+        NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:key];
+        if (count <= 0) {
+            return [self refreshSeed];
+        }
+        
+        count --;
+        [[NSUserDefaults standardUserDefaults] setInteger:count forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        NSData *privateKeyData = [[NSData alloc] initWithBase64EncodedString:key options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        NSData *seedData = [[NSData alloc] initWithBase64EncodedString:seed options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        if(seedData.length < 200) {
+            return [self refreshSeed];
+        }
+        
+        //获取过期时间并验证
+        Byte byte[4] = {0x0};
+        [seedData getBytes:byte range:NSMakeRange(191, 4)];
+        NSInteger expired = ((byte[0] & 0xFF) << 24) | ((byte[1] & 0xFF) << 16) | ((byte[2] & 0xFF) << 8) | (byte[3] & 0xFF);
+        NSInteger currentTime = [[NSDate date] timeIntervalSince1970];
+        if (expired -currentTime < 3600) {
+            //强制刷新
+            [[self refreshSeed] subscribeNext:^(id x) {
+                
+            }];
+        }
+        
+        if (expired < currentTime) {
+            return [self refreshSeed];
+        }
+        
+        return [RACSignal return:@{@"key":privateKeyData,@"seed":seedData}];
+    }
+    return [self refreshSeed];
+}
+
+- (RACSignal *)refreshSeed {
+    return [[[APICenter getSeed:nil] execute] map:^id(NSDictionary *x) {
+        self.seed = x;
+        NSString *key = x[@"key"];
+        NSString *seed = x[@"seed"];
+        [[NSUserDefaults standardUserDefaults] setInteger:20 forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        NSData *privateKeyData = [[NSData alloc] initWithBase64EncodedString:key options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        NSData *seedData = [[NSData alloc] initWithBase64EncodedString:seed options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        return @{@"key":privateKeyData,@"seed":seedData};
+    }];
+}
+
 - (void)cleanUserInfos {
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.token = nil;
     self.user = nil;
+    self.seed = nil;
     self.loginType = ETLoginTypeUnknow;
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *cookies = [NSArray arrayWithArray:[cookieJar cookies]];
     for (NSHTTPCookie *cookie in cookies) {
