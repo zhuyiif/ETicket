@@ -94,17 +94,8 @@ static ETActor *instance = nil;
 }
 
 - (void)logoutWithBlock:(void (^)(void))completeBlock {
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[NSURLCache sharedURLCache] removeAllCachedResponses];
-        self.token = nil;
-        self.loginType = ETLoginTypeUnknow;
-        self.user = nil;
-        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-        NSArray *cookies = [NSArray arrayWithArray:[cookieJar cookies]];
-        for (NSHTTPCookie *cookie in cookies) {
-            [cookieJar deleteCookie:cookie];
-        }
+        [self cleanUserInfos];
         if (completeBlock) {
             completeBlock();
         }
@@ -137,16 +128,27 @@ static ETActor *instance = nil;
         NSDictionary *x  = self.seed;
         NSString *key = x[@"key"];
         NSString *seed = x[@"seed"];
+        NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:key];
+        if (count <= 0) {
+            return [self refreshSeed];
+        }
+        
+        count --;
+        [[NSUserDefaults standardUserDefaults] setInteger:count forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         NSData *privateKeyData = [[NSData alloc] initWithBase64EncodedString:key options:NSDataBase64DecodingIgnoreUnknownCharacters];
         NSData *seedData = [[NSData alloc] initWithBase64EncodedString:seed options:NSDataBase64DecodingIgnoreUnknownCharacters];
         if(seedData.length < 200) {
             return [self refreshSeed];
         }
+        
+        //获取过期时间并验证
         Byte byte[4] = {0x0};
         [seedData getBytes:byte range:NSMakeRange(191, 4)];
         NSInteger expired = ((byte[0] & 0xFF) << 24) | ((byte[1] & 0xFF) << 16) | ((byte[2] & 0xFF) << 8) | (byte[3] & 0xFF);
         NSInteger currentTime = [[NSDate date] timeIntervalSince1970];
         if (expired -currentTime < 3600) {
+            //强制刷新
             [[self refreshSeed] subscribeNext:^(id x) {
                 
             }];
@@ -166,6 +168,8 @@ static ETActor *instance = nil;
         self.seed = x;
         NSString *key = x[@"key"];
         NSString *seed = x[@"seed"];
+        [[NSUserDefaults standardUserDefaults] setInteger:20 forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         NSData *privateKeyData = [[NSData alloc] initWithBase64EncodedString:key options:NSDataBase64DecodingIgnoreUnknownCharacters];
         NSData *seedData = [[NSData alloc] initWithBase64EncodedString:seed options:NSDataBase64DecodingIgnoreUnknownCharacters];
         return @{@"key":privateKeyData,@"seed":seedData};
@@ -173,11 +177,11 @@ static ETActor *instance = nil;
 }
 
 - (void)cleanUserInfos {
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.token = nil;
     self.user = nil;
     self.seed = nil;
     self.loginType = ETLoginTypeUnknow;
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *cookies = [NSArray arrayWithArray:[cookieJar cookies]];
     for (NSHTTPCookie *cookie in cookies) {

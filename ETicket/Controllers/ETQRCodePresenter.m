@@ -12,7 +12,7 @@
 
 @implementation ETQRCodePresenter
 
-- (RACSignal *)refreshIfNeeded {
+- (RACSignal *)refresh {
     @weakify(self);
     return [[[[ETActor instance] refreshSeedIfNeeded] doNext:^(NSDictionary *x) {
         @strongify(self);
@@ -38,31 +38,11 @@
     unsigned char sign[64] = {0x0};
     int signedlen = 0;
     sm2Sign(privateKeys, sizeof(privateKeys), signSource.bytes,(int)signSource.length, sign, &signedlen);
-    uint8_t bufferSpace[1] = {0x15};
-    [signSource appendBytes:bufferSpace length:1];
+    uint8_t space[1] = {0x15};//分隔符
+    [signSource appendBytes:space length:1];
     [signSource appendBytes:sign length:signedlen];
     self.sourceCode = [signSource base64String];
     NSLog(@"%@",self.sourceCode);
-}
-
-- (NSString *)convertDataToHexStr:(NSData *)data {
-    if (!data || [data length] == 0) {
-        return @"";
-    }
-    NSMutableString *string = [[NSMutableString alloc] initWithCapacity:[data length]];
-    [data enumerateByteRangesUsingBlock:^(const void *bytes, NSRange byteRange, BOOL *stop) {
-        unsigned char *dataBytes = (unsigned char*)bytes;
-        for (NSInteger i = 0; i < byteRange.length; i++) {
-            NSString *hexStr = [NSString stringWithFormat:@"%x", (dataBytes[i]) & 0xff];
-            if ([hexStr length] == 2) {
-                [string appendString:hexStr];
-            } else {
-                [string appendFormat:@"0%@", hexStr];
-            }
-        }
-    }];
-    
-    return string;
 }
 
 @end

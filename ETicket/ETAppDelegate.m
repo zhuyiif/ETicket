@@ -42,36 +42,10 @@
     [[self showGuideIfNeeded] subscribeNext:^(id x) {
         @strongify(self);
         [self enterMainWithTransition:[x boolValue]];
+        [[[ETActor instance] refreshSeed] subscribeNext:^(id x) {
+            
+        }];
     }];
-    
-    // TODO test should remove later
-    
-    
-    NSString *ekey = @"nTFhFGY9gbMY0Lx6XuqO3XEOFth4RhO3yJos0oPqdUcn0/i8BxQKt2fWVvU/qFWxzGnc7p59u+eRwQtGZc+kuRMkVtBrUeOnM55nffQ2sD5qm2/1RdSkUatpVH8MiLglHhcRGIaLxZvgzitj2FpGM+xQqXJxjxVtqXflaHIcddw=-ghWRbf2gUbwll/WktxFk/QxzwddqRENN6fMJOjl74ZNf7IfYpp7gpwckct4LCQvM0Y2kfsc87WU+JrFnwo4jr3JSsYURwRs4bhVs8Me52Bj+7pfmc3K7qtbIBcDjsrYXT9NfY19hZagZum7Hag8Xc3Fy3Pxzb8Pyvub1SnmtDRQ=-sRM1M7hev4gvQWUqTo5CIFg3MTgR0hHCraahmzTm5ayb1RlylifGSGIoytdtcDRsz/YJQ0ksnisFqPlGNC7KX5ybkVM9f9GYgTOIzTRR0da9D35yCv1iT0cXfCBOP3P1K5xgLC3VU0vsFVus+AGCX7w55clo1OVdGnvYS1x0XyE=-dszq5zuP1WVbQFbn3c45gy62OoTIwZ3k43SPOZXnF8KOSUqN43nYhFbvR+ZESH1zoIqCR74ZMKhxzthvqCcLlDz5ecvfaAEjWDiCmINi5Ua/sNJ9tV3UAMeog2qv0YMZidDV95gmHybGahL6QmT1USVtDqcwc+OX13mWTGaISa0=";
-    
-    NSString *privkey = @"-----BEGIN PRIVATE KEY-----\nMIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAMjOlccsAZlNy/AO\nhzc79cOTopgynaP46wF9RhwoNxRtXWaQb0QhBCEd2jcmD96FumdkwAD/zYGNuHfG\nNUcZ7oSlurZS5ZHcJwoHdb6q3RrqtHKxUpuO0nkutC2jmbhwRU09Q3E3Z+NoSyJi\njzgBsTGL9f3kZk+5ssdksvHnAvtpAgMBAAECgYEAnZLWn5NdsdIFfVu5KVOo2A7q\n4Sme4EP9DY8jTAcWqbXkPA6M8VZDKkWFrg71FvWzP10k+ePBfK8cGQj1V9T2f8Zj\nNuEGdOrKph3G5gbUn+l1GAIc2rt2bcZyKLN2E2XqFv2KHUHvZKwtU6NzrRxxacOb\niPdNHF6IrGzw/wWDxQ0CQQDtXJ+0ZFdpfeK9QrzzykziJP+/iDeYOsWRG2+JJNtM\nX1VBQTXdcaCy+zOyCozKFDum2tWFeV6HUjrSMGwNG0abAkEA2JMlk58SP/e5v5Vv\nsFwmopzAsFOWhcMT/7jQja6HY/T1LHkrp9+O5cmN2FH4hNfVXnn6u+SbFJL194ox\nq/6kSwJBALjzZVXwodQHTTff2s+zoHjOD6G0iG1LzkolMKGSYHaACjRQlaI5Odh8\nuGlQoyeK4HhBKANa8PdMcZz6Mhd8W2UCQEpsXnhZLJNQ1MLyXlwzfo9Y4Jp3Tv2O\naPvyjbByblI6JlpvFUJt/5QVbCoPGSDFbqw1rKUOzQAH9IBpO+KH8fsCQQDEp784\nsiWk6kkuTOpOX//fjeW7KeGXBVLBSxw4GUVCU/rjvousThXv0Zj2oUMPwu2M+Vcy\n8Hr51jyfgRalMc4e\n-----END PRIVATE KEY-----\n";
-    
-    
-    NSDictionary *dict = @{
-                           @"username" : @"zackzhu",
-                           @"time" : @"1529649138666",
-                           };
-    
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    
-    
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"json:%@", jsonString);
-    
-    NSString *encrypted = [RSAUtil encryptString:jsonString privateKey:privkey];
-    
-    NSString *qrCode = [NSString stringWithFormat:@"%@ %@", ekey,
-                        encrypted];
-    
-    NSLog(@"qr:%@", qrCode);
     
     return YES;
 }
@@ -90,6 +64,9 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [[[ETActor instance] refreshSeed] subscribeNext:^(id x) {
+        
+    }];
 }
 
 

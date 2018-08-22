@@ -12,6 +12,6 @@
 
 @property (nonatomic) NSString *sourceCode;
 
-- (RACSignal *)refreshIfNeeded;
+- (RACSignal *)refresh;
 
 @end

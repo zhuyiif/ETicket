@@ -15,5 +15,4 @@
 # include <openssl/sm2.h>
 
 int sm2Sign(const unsigned char *key, int keyLen, const unsigned char *src, int srcLen, unsigned char *sign, int *signLen);
-
 int sm4dec( unsigned char *srcKey ,int len, unsigned char *outKey);

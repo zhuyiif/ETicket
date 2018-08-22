@@ -29,26 +29,37 @@ EC_KEY *mk_eckey(int nid, const unsigned char *key, int keylen) {
     EC_POINT *pub = NULL;
     const EC_GROUP *grp;
     k = EC_KEY_new_by_curve_name(nid);
-    if (!k)
+    if (!k) {
         goto err;
-    if (!(priv = BN_bin2bn(key, keylen, NULL)))
+    }
+    
+    if (!(priv = BN_bin2bn(key, keylen, NULL))) {
         goto err;
-    if (!EC_KEY_set_private_key(k, priv))
+    }
+    
+    if (!EC_KEY_set_private_key(k, priv)) {
         goto err;
+    }
     grp = EC_KEY_get0_group(k);
     pub = EC_POINT_new(grp);
-    if (!pub)
+    if (!pub) {
         goto err;
-    if (!EC_POINT_mul(grp, pub, priv, NULL, NULL, NULL))
+    }
+    
+    if (!EC_POINT_mul(grp, pub, priv, NULL, NULL, NULL)) {
         goto err;
-    if (!EC_KEY_set_public_key(k, pub))
+    }
+    
+    if (!EC_KEY_set_public_key(k, pub)) {
         goto err;
+    }
     ok = 1;
 err:
     BN_clear_free(priv);
     EC_POINT_free(pub);
-    if (ok)
+    if (ok) {
         return k;
+    }
     EC_KEY_free(k);
     return NULL;
 }
@@ -70,7 +81,7 @@ int sm2Sign(const unsigned char *key, int keyLen, const unsigned char *src, int 
     const BIGNUM *sig_r;
     const BIGNUM *sig_s;
     const unsigned char *p;
-    
+    int ret = 0;
     
     EC_KEY *ec_key = mk_eckey(NID_sm2p256v1, key, keyLen);
     
@@ -78,10 +89,9 @@ int sm2Sign(const unsigned char *key, int keyLen, const unsigned char *src, int 
                                strlen(id), dgst, &dgstlen, ec_key);
     
     siglen = sizeof(sig);
-    int sret = SM2_sign(type, dgst, dgstlen, sig, &siglen, ec_key);
-    if (!sret) {
-        fprintf(stderr, "error: %s %d\n", __FUNCTION__, __LINE__);
-        return -1;
+    if (!SM2_sign(type, dgst, dgstlen, sig, &siglen, ec_key)) {
+        ret =  -1;
+        goto err;
     }
     
     p = sig;
@@ -93,8 +103,16 @@ int sm2Sign(const unsigned char *key, int keyLen, const unsigned char *src, int 
     *signLen = siglen;
     siglen = BN_bn2bin(sig_s, sign + siglen);
     *signLen += siglen;
+err:
+    if (sm2sig) {
+        ECDSA_SIG_free(sm2sig);
+    }
     
-    return 0;
+    if (ec_key) {
+        EC_KEY_free(ec_key);
+    }
+    
+    return ret;
 }
 
 int sm4dec(unsigned char *srcKey ,int len, unsigned char *outKey) {

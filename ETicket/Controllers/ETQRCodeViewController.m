@@ -80,7 +80,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[self.presenter refreshIfNeeded] subscribeNext:^(id x) {
+    [[self.presenter refresh] subscribeNext:^(id x) {
         
     }];
 }
@@ -197,7 +197,7 @@
         [_refreshControl bk_whenTapped:^{
             @strongify(self);
             [self startAnimation];
-            [[self.presenter refreshIfNeeded] subscribeNext:^(id x) {
+            [[self.presenter refresh] subscribeNext:^(id x) {
                 [self stopAnimation];
             } error:^(NSError *error) {
                 [self stopAnimation];

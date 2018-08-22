@@ -41,6 +41,8 @@ typedef NS_OPTIONS(NSUInteger, ETLoginType) {
 
 - (RACSignal *)showLogin;
 
+- (RACSignal *)refreshSeed;
+
 - (RACSignal *)refreshSeedIfNeeded;
 
 @end
